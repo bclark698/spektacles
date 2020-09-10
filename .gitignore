@@ -2,13 +2,13 @@
 #
 # Get latest from https://github.com/github/gitignore/blob/master/Unity.gitignore
 #
-/[Ll]ibrary/
-/[Tt]emp/
-/[Oo]bj/
-/[Bb]uild/
-/[Bb]uilds/
-/[Ll]ogs/
-/[Mm]emoryCaptures/
+Spektacles/[Ll]ibrary/
+Spektacles/[Tt]emp/
+Spektacles/[Oo]bj/
+Spektacles/[Bb]uild/
+Spektacles/[Bb]uilds/
+Spektacles/[Ll]ogs/
+Spektacles/[Mm]emoryCaptures/
 
 # Never ignore Asset meta data
 !/[Aa]ssets/**/*.meta
@@ -58,3 +58,96 @@ sysinfo.txt
 # Crashlytics generated file
 crashlytics-build.properties
 
+
+# Packed Addressables
+/[Aa]ssets/[Aa]ddressable[Aa]ssets[Dd]ata/*/*.bin*
+
+# Temporary auto-generated Android Assets
+/[Aa]ssets/[Ss]treamingAssets/aa.meta
+/[Aa]ssets/[Ss]treamingAssets/aa/*
+
+# General
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Icon must end with two \r
+Icon
+
+# Thumbnails
+._*
+
+# Files that might appear in the root of a volume
+.DocumentRevisions-V100
+.fseventsd
+.Spotlight-V100
+.TemporaryItems
+.Trashes
+.VolumeIcon.icns
+.com.apple.timemachine.donotpresent
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+
+# Windows thumbnail cache files
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+
+# Dump file
+*.stackdump
+
+# Folder config file
+[Dd]esktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msix
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+obj
+Temp
+*.suo
+*.user
+*.pidb
+*.userprefs
+*.sln
+*.csproj
+
+Library/cache
+Library/metadata
+Library/previews
+Library/ScriptAssemblies
+Library/assetDatabase3
+Library/AssetImportState
+Library/assetservercachev3
+Library/AssetServerCacheV3
+Library/AssetVersioning.db
+Library/AudioManager.asset
+Library/BuildPlayer.prefs
+Library/BuildSettings.asset
+Library/DynamicsManager.asset
+Library/EditorSettings.asset
+Library/EditorUserBuildSettings.asset
+Library/expandedItems
+Library/FailedAssetImports.txt
+Library/guidmapper
+Library/InspectorExpandedItems.asset
+Library/MonoManager.asset
+Library/NetworkManager.asset
+Library/ScriptMapper
+Library/unity default resources
+Library/unity editor resources
