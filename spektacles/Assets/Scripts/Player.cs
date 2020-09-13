@@ -8,12 +8,14 @@ public class Player : MonoBehaviour
     private Vector2 movementVelocity;
     public float moveSpeed;
     private Animator anim;
+    public bool inSafeZone;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        inSafeZone = false;
     }
 
     // Update is called once per frame
