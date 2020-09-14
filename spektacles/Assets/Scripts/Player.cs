@@ -7,11 +7,15 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movementVelocity;
     public float moveSpeed;
+    private Animator anim;
+    public bool inSafeZone;
 
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        anim = GetComponent<Animator>();
+        inSafeZone = false;
     }
 
     // Update is called once per frame
@@ -19,6 +23,7 @@ public class Player : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementVelocity = moveInput.normalized * moveSpeed;
+        anim.SetBool("walking", true);
     }
 
     private void FixedUpdate() //all physics adjusting code goes here
