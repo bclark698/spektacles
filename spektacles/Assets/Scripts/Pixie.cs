@@ -89,6 +89,7 @@ public class Pixie : MonoBehaviour
             // Search for player after losing vision
             case State.Search:
                 StartCoroutine(searchForPlayer());
+                giggle2.Play();
                 break;
 
             // CASE 3
@@ -227,7 +228,7 @@ public class Pixie : MonoBehaviour
     // pixie searches for player after losing sight
     IEnumerator searchForPlayer()
     {
-        
+
         float time = 0;
         float duration = 3f;
         Vector2 startPosition = transform.position;
