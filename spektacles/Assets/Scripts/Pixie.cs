@@ -136,7 +136,7 @@ public class Pixie : MonoBehaviour
         if (wallHit.collider != null)
         {
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-            if (wallHit.collider.CompareTag("Wall")) //FIX THIS; needs to check for any non player objects (walls, tables, doors)
+            if (!wallHit.collider.CompareTag("Player")) //FIX THIS; needs to check for any non player objects (walls, tables, doors)
             {
                 collisionCheck = true;
             }

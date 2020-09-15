@@ -58,5 +58,9 @@ public class Player : MonoBehaviour
             if(anim.GetBool("blind")==true)
                 anim.SetBool("blind", false);
         }
+        if(other.CompareTag("SafeZone"))
+        {
+            inSafeZone = true;
+        }
     }
 }
