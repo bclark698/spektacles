@@ -30,6 +30,9 @@ public class Pixie : MonoBehaviour
     public float rotationSpeed; // speed at which pixies spin
     public float fovDistance;   // distance away from pixies that they can see
     public float moveSpeed;     // movement speed of pixies
+    public AudioSource giggle1;
+    public AudioSource giggle2;
+
 
 
     ////////////////////
@@ -58,7 +61,7 @@ public class Pixie : MonoBehaviour
 
         // casts ray starting at transform.pos; casts in direction transform.right; length of ray = fovDistance
         hitInfo = Physics2D.Raycast(transform.position, transform.right, fovDistance);
-        
+
         switch(state)
         {
             default:
@@ -69,6 +72,7 @@ public class Pixie : MonoBehaviour
                 if (playerSightCheck() == true)
                 {
                     state = State.ChaseTarget;
+                    giggle1.Play();
                 }
                 break;
 
@@ -79,6 +83,8 @@ public class Pixie : MonoBehaviour
                 if(nonPlayerSightCheck() == true) // CURRENTLY DOESN'T WORK
                 {
                     state = State.ReturnToStart;
+                    giggle2.Play();
+                    Debug.Log("ha ha ");
                 }
                 if(playerHit == true)
                 {
@@ -97,8 +103,9 @@ public class Pixie : MonoBehaviour
                 if(transform.position == startingPos)
                 {
                     state = State.Waiting;
+
                 }
-                
+
                 break;
         }
 
@@ -108,7 +115,7 @@ public class Pixie : MonoBehaviour
     //////////////////////
     // HELPER FUNCTIONS //
     //////////////////////
-    
+
     // check if player is in line of sight
     private bool playerSightCheck()
     {
@@ -152,6 +159,7 @@ public class Pixie : MonoBehaviour
         if(collision.tag == "Player")
         {
             playerHit = true;
+            giggle2.Play();
         }
     }
 
@@ -160,7 +168,7 @@ public class Pixie : MonoBehaviour
     {
         transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
     }
-    
+
     // causes pixies to chase player
     private void chaseTarget()
     {
@@ -175,15 +183,3 @@ public class Pixie : MonoBehaviour
     }
 
 }
-
-
-
-
-
-
-
-
-
-
-
-    

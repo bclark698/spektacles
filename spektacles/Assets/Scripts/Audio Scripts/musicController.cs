@@ -30,14 +30,14 @@ public class musicController : MonoBehaviour
   {
     currentMusic.volume = musicVol;
 
-    if (Input.GetKeyDown(KeyCode.T)){
+    if (Input.GetKeyDown(KeyCode.U)){
       StartCoroutine(MusicSwitch(cutMusic, 2, 5));
     }
-    if (Input.GetKeyDown(KeyCode.G)){
+    if (Input.GetKeyDown(KeyCode.J)){
       StartCoroutine(MusicSwitch(lvlMusic, 5, 2));
     }
 
-    if (Input.GetKeyDown(KeyCode.B)){
+    if (Input.GetKeyDown(KeyCode.M)){
       LoadNextScene();
       StartCoroutine(MusicSwitch(cutMusic, 1, 3));
     }
