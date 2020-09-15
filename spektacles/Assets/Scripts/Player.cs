@@ -13,11 +13,19 @@ public class Player : MonoBehaviour
     private bool hasPowerUp;
     public GameObject eyeglasses;
 
+    //These won't actually be like this in the future - I'll just have one playerAudioSource;
+    // it'll be clean, promise
+    // But for now, just assist the showing of functionality
+    public AudioSource tempPickupNoise;
+    public AudioSource tempSprayNoise;
+
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -47,9 +55,10 @@ public class Player : MonoBehaviour
         {
             powerUpUsed = true; //tho it will only work on pixies 4 right now
             hasPowerUp = false;
+            tempSprayNoise.Play();
+            transform.GetChild(0).gameObject.SetActive(false);
             Debug.Log("use powerup");
         }
-
     }
 
     private void FixedUpdate() //all physics adjusting code goes here
@@ -71,6 +80,8 @@ public class Player : MonoBehaviour
         if(other.CompareTag("Powerup")) //TODO: delete this && make actual powerup script
         {
             Debug.Log("has powerup");
+            transform.GetChild(0).gameObject.SetActive(true);
+            tempPickupNoise.Play();
             hasPowerUp = true;
         }
 

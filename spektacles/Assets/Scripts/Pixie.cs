@@ -37,8 +37,8 @@ public class Pixie : MonoBehaviour
     public float rotationSpeed; // speed at which pixies spin
     public float fovDistance;   // distance away from pixies that they can see
     public float moveSpeed;     // movement speed of pixies
-    public AudioSource giggle1;
-    public AudioSource giggle2;
+    public AudioSource giggle1; //agro sound
+    public AudioSource giggle2; //dissapointed sound
 
 
     ////////////////////
@@ -96,6 +96,7 @@ public class Pixie : MonoBehaviour
             // Return to start if line of sight is broken or power-up is used.
             case State.ReturnToStart:
                 StartCoroutine(returnHome());
+                giggle2.Play();
                 break;
 
 
@@ -208,6 +209,7 @@ public class Pixie : MonoBehaviour
         if (playerObj.GetComponent<Player>().powerUpUsed)
         {
             state = State.ReturnToStart;
+
         }
     }
 
