@@ -42,19 +42,21 @@ public class cameraFollow : MonoBehaviour
     IEnumerator upatePosition(float pX, float pY){
       if (pX >= camX && camX <= (pX - .5)){
         camX += (Time.deltaTime * cameraFollowSpeed);
-        yield return camX;
+
       }
       else if (pX < camX){
         camX -= (Time.deltaTime * cameraFollowSpeed);
-        yield return camX;
+        //yield return camX;
       }
       if (pY >= camY && camY <= (pY - .5)){
         camY += (Time.deltaTime * cameraFollowSpeed);
-        yield return camY;
+        //yield return camY;
       }
       else if (pY < camY){
         camY -= (Time.deltaTime * cameraFollowSpeed);
-        yield return camY;
+
       }
+        yield return camX;
+        yield return camY;
     }
 }
