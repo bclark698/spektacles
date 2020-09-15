@@ -205,10 +205,10 @@ public class Pixie : MonoBehaviour
         //    giggle2.Play();
         //    Debug.Log("ha ha ");
         //}
-        //if(powerUpUsed)
-        //{
-        //    state = State.ReturnToStart;
-        //}
+        if (playerObj.GetComponent<Player>().powerUpUsed)
+        {
+            state = State.ReturnToStart;
+        }
     }
 
     // sends pixies back to starting position

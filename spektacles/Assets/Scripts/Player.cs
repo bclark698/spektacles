@@ -8,7 +8,9 @@ public class Player : MonoBehaviour
     private Vector2 movementVelocity;
     public float moveSpeed;
     private Animator anim;
-    public bool inSafeZone;
+    [HideInInspector]
+    public bool powerUpUsed;
+    private bool hasPowerUp;
     public GameObject eyeglasses;
 
     // Start is called before the first frame update
@@ -16,7 +18,6 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        inSafeZone = false;
     }
 
     // Update is called once per frame
@@ -24,6 +25,7 @@ public class Player : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementVelocity = moveInput.normalized * moveSpeed;
+
         //Movement Animations
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.RightArrow)))
         {
@@ -40,6 +42,14 @@ public class Player : MonoBehaviour
             //If the player is not pressing any key at all, sets walking to false
             anim.SetBool("walking", false);
         }
+
+        if(hasPowerUp && Input.GetKeyDown(KeyCode.P)) //TODO: this is not finalized
+        {
+            powerUpUsed = true; //tho it will only work on pixies 4 right now
+            hasPowerUp = false;
+            Debug.Log("use powerup");
+        }
+
     }
 
     private void FixedUpdate() //all physics adjusting code goes here
@@ -58,9 +68,11 @@ public class Player : MonoBehaviour
             if(anim.GetBool("blind")==true)
                 anim.SetBool("blind", false);
         }
-        if(other.CompareTag("SafeZone"))
+        if(other.CompareTag("Powerup")) //TODO: delete this && make actual powerup script
         {
-            inSafeZone = true;
+            Debug.Log("has powerup");
+            hasPowerUp = true;
         }
+
     }
 }
