@@ -12,6 +12,7 @@ public class Pixie : MonoBehaviour
         ReturnToStart,  // returning to starting point if loses vision of player
     }
 
+
     ///////////////////////
     // PRIVATE VARIABLES //
     ///////////////////////
@@ -22,12 +23,14 @@ public class Pixie : MonoBehaviour
     private Transform playerLoc;    // player location (melita)
     private bool playerHit;         // true if player has been hit, false if not
 
+
     ///////////////////////////////////////
     // PUBLIC VARIABLES / UNITY EDITABLE //
     ///////////////////////////////////////
     public float rotationSpeed; // speed at which pixies spin
     public float fovDistance;   // distance away from pixies that they can see
     public float moveSpeed;     // movement speed of pixies
+
 
     ////////////////////
     // MAIN FUNCTIONS //
