@@ -16,6 +16,7 @@ public class musicController : MonoBehaviour
      DontDestroyOnLoad (transform.gameObject);
      currentMusic.clip = lvlMusic.clip;
      currentMusic.Play();
+
   }
   void Start()
   {
@@ -41,6 +42,16 @@ public class musicController : MonoBehaviour
       LoadNextScene();
       StartCoroutine(MusicSwitch(cutMusic, 1, 3));
     }
+    if (Input.GetKeyDown(KeyCode.M)){
+      LoadNextScene();
+      StartCoroutine(MusicSwitch(cutMusic, 1, 3));
+    }
+    if (Input.GetKeyDown(KeyCode.N)){
+      SceneManager.LoadScene(0);
+      StartCoroutine(MusicSwitch(lvlMusic, 1, 3));
+      Destroy(transform.gameObject);
+    }
+
   }
   public void PlayLvlMusic(){
     currentMusic.clip = lvlMusic.clip;

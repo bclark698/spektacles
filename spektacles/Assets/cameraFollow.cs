@@ -12,7 +12,7 @@ public class cameraFollow : MonoBehaviour
     private float playerY;
 
 
-    public int cameraFollowSpeed;
+    public float cameraFollowSpeed;
     public GameObject player;
 
     // Start is called before the first frame update
@@ -32,10 +32,9 @@ public class cameraFollow : MonoBehaviour
       playerX = player.transform.position.x;
       playerY = player.transform.position.y;
       if (playerX != camX || playerY != camY){
-        Debug.Log("they aint the same");
         StartCoroutine(upatePosition(playerX, playerY));
       }
-      Debug.Log(camera.transform.position);
+      //Debug.Log(camera.transform.position);
       //Vector3 camUpdate = (camX, camY);
       camera.transform.position = new Vector3(camX, camY, -3);
     }

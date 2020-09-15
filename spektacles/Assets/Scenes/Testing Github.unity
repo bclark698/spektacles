@@ -182,7 +182,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1.11, y: 1.29}
+  m_Size: {x: 1.89, y: 1.56}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -481,7 +481,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1364397199}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77, y: -1.99, z: -1.1907842}
+  m_LocalPosition: {x: 0.77, y: -1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.9271199}
   m_Children: []
   m_Father: {fileID: 0}
@@ -589,7 +589,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1497730228}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.77, y: 0.33, z: -1.1907842}
+  m_LocalPosition: {x: 0.77, y: 0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.9271199}
   m_Children: []
   m_Father: {fileID: 0}
@@ -697,7 +697,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1720141144}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67, y: 0.33, z: -1.1907842}
+  m_LocalPosition: {x: -3.67, y: 0.33, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.9271199}
   m_Children: []
   m_Father: {fileID: 0}
@@ -971,7 +971,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2142644285}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.67, y: -1.99, z: -1.1907842}
+  m_LocalPosition: {x: -3.67, y: -1.99, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1.9271199}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1044,6 +1044,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1893564139}
+    - target: {fileID: 1998834498754919332, guid: d41489107e5694509a675cc69ba0c9dc,
+        type: 3}
+      propertyPath: cameraFollowSpeed
+      value: 5
+      objectReference: {fileID: 0}
     - target: {fileID: 1998834498754919335, guid: d41489107e5694509a675cc69ba0c9dc,
         type: 3}
       propertyPath: m_Name
@@ -1071,7 +1076,7 @@ PrefabInstance:
     - target: {fileID: 2702425795038805960, guid: 8d6a4267772454d229c28dc53962fa9a,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -2.65625
+      value: -0.21
       objectReference: {fileID: 0}
     - target: {fileID: 2702425795038805960, guid: 8d6a4267772454d229c28dc53962fa9a,
         type: 3}
@@ -1113,10 +1118,35 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2702425795038805962, guid: 8d6a4267772454d229c28dc53962fa9a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.44811583
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702425795038805962, guid: 8d6a4267772454d229c28dc53962fa9a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 3.0578637
+      objectReference: {fileID: 0}
     - target: {fileID: 2702425795038805966, guid: 8d6a4267772454d229c28dc53962fa9a,
         type: 3}
       propertyPath: m_Name
       value: Pixie
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702425795038805972, guid: 8d6a4267772454d229c28dc53962fa9a,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -0.09068918
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702425795038805972, guid: 8d6a4267772454d229c28dc53962fa9a,
+        type: 3}
+      propertyPath: m_Radius
+      value: 2.3682237
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702425795038805972, guid: 8d6a4267772454d229c28dc53962fa9a,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -0.40434933
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d6a4267772454d229c28dc53962fa9a, type: 3}
