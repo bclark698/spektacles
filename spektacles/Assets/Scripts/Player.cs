@@ -9,6 +9,7 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     private Animator anim;
     public bool inSafeZone;
+    public GameObject eyeglasses;
 
     // Start is called before the first frame update
     void Start()
@@ -45,5 +46,17 @@ public class Player : MonoBehaviour
     {
         rb.MovePosition(rb.position + movementVelocity * Time.fixedDeltaTime);
     }
-
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Enemie")
+        {
+            if(anim.GetBool("blind")==false)
+                anim.SetBool("blind", true);
+        }
+        if(other.gameObject.tag == "Glasses")
+        {
+            if(anim.GetBool("blind")==true)
+                anim.SetBool("blind", false);
+        }
+    }
 }
