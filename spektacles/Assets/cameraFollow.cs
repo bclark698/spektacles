@@ -32,15 +32,17 @@ public class cameraFollow : MonoBehaviour
       playerX = player.transform.position.x;
       playerY = player.transform.position.y;
       if (playerX != camX || playerY != camY){
-        StartCoroutine(upatePosition(playerX, playerY));
+        //StartCoroutine(upatePosition(playerX, playerY));
+
       }
       //Debug.Log(camera.transform.position);
       //Vector3 camUpdate = (camX, camY);
-      camera.transform.position = new Vector3(camX, camY, -3);
+      //camera.transform.position = new Vector3(camX, camY, -3);
+      camera.transform.position = Vector3.Slerp(camera.transform.position,new Vector3(playerX, playerY, -3), cameraFollowSpeed * Time.deltaTime);
     }
 
     IEnumerator upatePosition(float pX, float pY){
-      if (pX >= camX && camX <= (pX - .5)){
+      if (pX >= camX && camX <= (pX - .1)){
         camX += (Time.deltaTime * cameraFollowSpeed);
 
       }
@@ -48,7 +50,7 @@ public class cameraFollow : MonoBehaviour
         camX -= (Time.deltaTime * cameraFollowSpeed);
         //yield return camX;
       }
-      if (pY >= camY && camY <= (pY - .5)){
+      if (pY >= camY && camY <= (pY - .1)){
         camY += (Time.deltaTime * cameraFollowSpeed);
         //yield return camY;
       }

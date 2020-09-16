@@ -18,6 +18,7 @@ public class Player : MonoBehaviour
     // But for now, just assist the showing of functionality
     public AudioSource tempPickupNoise;
     public AudioSource tempSprayNoise;
+    public AudioSource hitNoise;
 
     // Start is called before the first frame update
     void Start()
@@ -71,6 +72,7 @@ public class Player : MonoBehaviour
         {
             if(anim.GetBool("blind")==false)
                 anim.SetBool("blind", true);
+                hitNoise.Play();
         }
         if(other.gameObject.tag == "Glasses")
         {
