@@ -68,7 +68,7 @@ public class Jocks : Enemy
     public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
         Debug.Log("orc handing powerup");
-        if(powerUp == jockPowerUp)
+        if(powerUp == jockPowerUp) // add || powerUp == powerUpStun
         {
             StartCoroutine(HandleStun());
         }
