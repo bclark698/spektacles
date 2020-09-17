@@ -1262,6 +1262,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a0201d287fb54f4784d7c19c22f2a0a, type: 3}
+--- !u!1 &1339348219
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1339348220}
+  m_Layer: 0
+  m_Name: PowerUp Range
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1339348220
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1339348219}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1893564143}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1364397199
 GameObject:
   m_ObjectHideFlags: 0
@@ -1490,6 +1520,7 @@ GameObject:
   - component: {fileID: 1527794464}
   - component: {fileID: 1527794463}
   - component: {fileID: 1527794462}
+  - component: {fileID: 1527794466}
   m_Layer: 0
   m_Name: PowerUpPlaceholder
   m_TagString: Powerup
@@ -1613,6 +1644,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 17
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1527794466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1527794461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc2133e378ce5464ba602fe6b1acdd01, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powerUpName: 1
+  duration: 3
 --- !u!1001 &1538028084
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2013,6 +2058,7 @@ Transform:
   m_Children:
   - {fileID: 520041075}
   - {fileID: 1133904798}
+  - {fileID: 1339348220}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -2053,6 +2099,13 @@ MonoBehaviour:
   tempPickupNoise: {fileID: 520041078}
   tempSprayNoise: {fileID: 1133904797}
   hitNoise: {fileID: 1133904799}
+  powerUp: 0
+  powerUpRangePos: {fileID: 1339348220}
+  whatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 256
+  powerUpRange: 6
+  powerUpObj: {fileID: 0}
 --- !u!81 &1893564146
 AudioListener:
   m_ObjectHideFlags: 0
@@ -2073,6 +2126,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2133e378ce5464ba602fe6b1acdd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  powerUpName: 0
+  duration: 3
 --- !u!1 &2083586565 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 8945818760807311909, guid: 20148aafd0d69406493f651a315c523d,
@@ -2376,6 +2431,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2702425794842673144, guid: 8d6a4267772454d229c28dc53962fa9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
     - target: {fileID: 2702425795038805960, guid: 8d6a4267772454d229c28dc53962fa9a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2445,6 +2505,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Pixie
+      objectReference: {fileID: 0}
+    - target: {fileID: 2702425795038805966, guid: 8d6a4267772454d229c28dc53962fa9a,
+        type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 2702425795038805972, guid: 8d6a4267772454d229c28dc53962fa9a,
         type: 3}

@@ -230,12 +230,13 @@ public class Pixie : Enemy
 
     public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
-        Debug.Log("pixie handing powerup" + powerUp);
+        Debug.Log("pixie handling powerup" + powerUp);
         if(powerUp == pixiePowerUp)
         {
-            state = State.ReturnToStart;
-            returnToStart();
-            
+            //state = State.ReturnToStart;
+            //returnHome();
+            StartCoroutine(HandleStun());
+
         }
         /* //TODO stun not fully implemented yet
          else if(powerUp == PowerUp.Stun) {

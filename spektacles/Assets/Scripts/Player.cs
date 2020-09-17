@@ -62,22 +62,24 @@ public class Player : MonoBehaviour
         // Handle powerUp. Important to do .GetKeyDown(KeyCode.P) instead of .GetKey(KeyCode.P) because GetKey triggers more than once
         if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
         {
-            powerUpObj.GetComponent<PowerUp>().Use();
-            // tempSprayNoise.Play();
-            // TODO put this noise in bug spray powerup
-            
             // get all the enemies within our PowerUpRange
             Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
 
-            // have each enemy determine how to handle this powerup being used on them
-            for(int i = 0; i < enemiesInRange.Length; i++)
+            // don't waste powerup unless enemies are in range
+            if(enemiesInRange.Length > 0)
             {
-                enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(powerUp);
+                powerUpObj.GetComponent<PowerUp>().Use();
+                // tempSprayNoise.Play();
+                // TODO put this noise in bug spray powerup
+
+                // have each enemy determine how to handle this powerup being used on them
+                for (int i = 0; i < enemiesInRange.Length; i++)
+                {
+                    enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(powerUp);
+                }
+                // set player back to holding no powerup
+                powerUp = PowerUp.PowerUpType.None;
             }
-
-            // set player back to holding no powerup
-            powerUp = PowerUp.PowerUpType.None;
-
         }
     }
 
@@ -106,13 +108,5 @@ public class Player : MonoBehaviour
             if(anim.GetBool("blind")==true)
                 anim.SetBool("blind", false);
         }
-        if(other.CompareTag("Powerup")) //TODO: delete this && make actual powerup script
-        {
-            Debug.Log("has powerup");
-            transform.GetChild(0).gameObject.SetActive(true);
-            tempPickupNoise.Play();
-            hasPowerUp = true;
-        }
-
     }
 }
