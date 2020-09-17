@@ -8,7 +8,17 @@ public class Player : MonoBehaviour
     private Vector2 movementVelocity;
     public float moveSpeed;
     private Animator anim;
-    public bool inSafeZone;
+    [HideInInspector]
+    public bool powerUpUsed;
+    private bool hasPowerUp;
+    public GameObject eyeglasses;
+
+    //These won't actually be like this in the future - I'll just have one playerAudioSource;
+    // it'll be clean, promise
+    // But for now, just assist the showing of functionality
+    public AudioSource tempPickupNoise;
+    public AudioSource tempSprayNoise;
+    public AudioSource hitNoise;
 
     // powerUp variables
     public PowerUp.PowerUpType powerUp = PowerUp.PowerUpType.None;
@@ -22,7 +32,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        inSafeZone = false;
+
+        transform.GetChild(0).gameObject.SetActive(false);
     }
 
     // Update is called once per frame
@@ -30,6 +41,7 @@ public class Player : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementVelocity = moveInput.normalized * moveSpeed;
+
         //Movement Animations
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.RightArrow)))
         {
@@ -51,6 +63,8 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
         {
             powerUpObj.GetComponent<PowerUp>().Use();
+            // tempSprayNoise.Play();
+            // TODO put this noise in bug spray powerup
             
             // get all the enemies within our PowerUpRange
             Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
@@ -79,5 +93,26 @@ public class Player : MonoBehaviour
     {
         rb.MovePosition(rb.position + movementVelocity * Time.fixedDeltaTime);
     }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        if(other.gameObject.tag == "Enemie")
+        {
+            if(anim.GetBool("blind")==false)
+                anim.SetBool("blind", true);
+                hitNoise.Play();
+        }
+        if(other.gameObject.tag == "Glasses")
+        {
+            if(anim.GetBool("blind")==true)
+                anim.SetBool("blind", false);
+        }
+        if(other.CompareTag("Powerup")) //TODO: delete this && make actual powerup script
+        {
+            Debug.Log("has powerup");
+            transform.GetChild(0).gameObject.SetActive(true);
+            tempPickupNoise.Play();
+            hasPowerUp = true;
+        }
 
+    }
 }
