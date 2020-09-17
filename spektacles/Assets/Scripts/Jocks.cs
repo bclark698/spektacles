@@ -77,6 +77,7 @@ public class Jocks : Enemy
     public override IEnumerator HandleStun()
     {
         Debug.Log("orc stunned");
+        isStunned = true;
         // stop movement for a few seconds
         float originalSpeed = speed;
         speed = 0;
@@ -87,6 +88,7 @@ public class Jocks : Enemy
         Debug.Log("orc no longer stunned");
         speed = originalSpeed;
         state = State.Patroling;
+        isStunned = false;
     }
 
 }

@@ -233,9 +233,8 @@ public class Pixie : Enemy
         Debug.Log("pixie handling powerup" + powerUp);
         if(powerUp == pixiePowerUp)
         {
-            //state = State.ReturnToStart;
-            //returnHome();
-            StartCoroutine(HandleStun());
+            state = State.ReturnToStart;
+            returnHome();
 
         }
         /* //TODO stun not fully implemented yet
@@ -248,6 +247,7 @@ public class Pixie : Enemy
     public override IEnumerator HandleStun()
     {
         // stop movement for a few seconds
+        isStunned = true;
         float originalSpeed = moveSpeed;
         float originalRotationSpeed = rotationSpeed;
         State originalState = state;
@@ -259,9 +259,10 @@ public class Pixie : Enemy
         // wait for 1.5 seconds
         yield return new WaitForSeconds(1.5f);
 
-        //moveSpeed = originalSpeed;
+        moveSpeed = originalSpeed;
         rotationSpeed = originalSpeed; //TODO change back
         state = originalState;
+        isStunned = false;
     }
 
 

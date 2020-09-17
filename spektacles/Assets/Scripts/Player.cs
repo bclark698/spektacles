@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
     }
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Enemie")
+        if(other.gameObject.tag == "Enemie" && !other.GetComponent<Enemy>().isStunned)
         {
             if(anim.GetBool("blind")==false)
                 anim.SetBool("blind", true);
