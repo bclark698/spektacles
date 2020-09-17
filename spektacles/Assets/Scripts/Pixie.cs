@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Pixie : MonoBehaviour
+public class Pixie : Enemy
 {
     // different states for enemy
     private enum State
@@ -10,6 +10,7 @@ public class Pixie : MonoBehaviour
         Waiting,        // waiting to see enemy
         ChaseTarget,    // chasing enemy
         ReturnToStart,  // returning to starting point if loses vision of player
+        Stunned         // temporary stop of movement due to a stun powerup
     }
 
     ///////////////////////
@@ -21,6 +22,7 @@ public class Pixie : MonoBehaviour
     private GameObject playerObj;   // player object (melita)
     private Transform playerLoc;    // player location (melita)
     private bool playerHit;         // true if player has been hit, false if not
+    private PowerUp.PowerUpType pixiePowerUp = PowerUp.PowerUpType.BugSpray;    // bug spray, TODO can this be taken out and put in enemy script?
 
     ///////////////////////////////////////
     // PUBLIC VARIABLES / UNITY EDITABLE //
@@ -63,16 +65,18 @@ public class Pixie : MonoBehaviour
             // Rotate. If player found, change state to chasing target.
             case State.Waiting:
                 rotate();
+                /*/
                 if (playerSightCheck() == true)
                 {
                     state = State.ChaseTarget;
-                }
+                }  TODO recomment in*/
                 break;
 
             // CASE 2
             // Chase target until line of sight is broken or power-up is used.
             case State.ChaseTarget:
                 chaseTarget();
+                /*
                 if(nonPlayerSightCheck() == true) // CURRENTLY DOESN'T WORK
                 {
                     state = State.ReturnToStart;
@@ -80,11 +84,7 @@ public class Pixie : MonoBehaviour
                 if(playerHit == true)
                 {
                     state = State.ReturnToStart;
-                }
-                //if(powerUpUsed)
-                //{
-                //    state = State.ReturnToStart;
-                //}
+                }*/
                 break;
 
             // CASE 3
@@ -168,9 +168,44 @@ public class Pixie : MonoBehaviour
     // sends pixies back to starting position
     private void returnToStart()
     {
+        Debug.Log("pixie return to start");
         transform.position = Vector2.MoveTowards(transform.position, startingPos, moveSpeed * Time.deltaTime);
     }
 
+    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
+    {
+        Debug.Log("pixie handing powerup" + powerUp);
+        if(powerUp == pixiePowerUp)
+        {
+            state = State.ReturnToStart;
+            returnToStart();
+            
+        }
+        /* //TODO stun not fully implemented yet
+         else if(powerUp == PowerUp.Stun) {
+            StartCoroutine(HandleStun());
+         }
+          */
+    }
+
+    public override IEnumerator HandleStun()
+    {
+        // stop movement for a few seconds
+        float originalSpeed = moveSpeed;
+        float originalRotationSpeed = rotationSpeed;
+        State originalState = state;
+
+        moveSpeed = 0;
+        rotationSpeed = 0;
+        state = State.Stunned;
+
+        // wait for 1.5 seconds
+        yield return new WaitForSeconds(1.5f);
+
+        //moveSpeed = originalSpeed;
+        rotationSpeed = originalSpeed; //TODO change back
+        state = originalState;
+    }
 }
 
 

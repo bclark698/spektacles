@@ -10,6 +10,13 @@ public class Player : MonoBehaviour
     private Animator anim;
     public bool inSafeZone;
 
+    // powerUp variables
+    public PowerUp.PowerUpType powerUp = PowerUp.PowerUpType.None;
+    public Transform powerUpRangePos;
+    public LayerMask whatIsEnemies;
+    public float powerUpRange;
+    public GameObject powerUpObj; //TODO make private
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,6 +46,33 @@ public class Player : MonoBehaviour
             //If the player is not pressing any key at all, sets walking to false
             anim.SetBool("walking", false);
         }
+
+        // Handle powerUp. Important to do .GetKeyDown(KeyCode.P) instead of .GetKey(KeyCode.P) because GetKey triggers more than once
+        if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
+        {
+            powerUpObj.GetComponent<PowerUp>().Use();
+            
+            // get all the enemies within our PowerUpRange
+            Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
+
+            // have each enemy determine how to handle this powerup being used on them
+            for(int i = 0; i < enemiesInRange.Length; i++)
+            {
+                enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(powerUp);
+            }
+
+            // set player back to holding no powerup
+            powerUp = PowerUp.PowerUpType.None;
+
+        }
+    }
+
+    /* For testing purposes, this draws red line around the player's power up range. 
+     * This has no effect during gameplay, so we can leave this in. */
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(powerUpRangePos.position, powerUpRange);
     }
 
     private void FixedUpdate() //all physics adjusting code goes here

@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Jocks : MonoBehaviour
+public class Jocks : Enemy
 {
-
-	public GameObject[] waypoints;
+    private enum State { Stunned, Patroling }; // are these states needed?
+    private State state = State.Patroling;
+    private PowerUp.PowerUpType jockPowerUp = PowerUp.PowerUpType.Helmet;
+    public GameObject[] waypoints;
 	public int num = 0;
 
 	public float minDist;
@@ -61,6 +63,30 @@ public class Jocks : MonoBehaviour
         float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
         gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
 		gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+    }
+
+    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
+    {
+        Debug.Log("orc handing powerup");
+        if(powerUp == jockPowerUp)
+        {
+            StartCoroutine(HandleStun());
+        }
+    }
+
+    public override IEnumerator HandleStun()
+    {
+        Debug.Log("orc stunned");
+        // stop movement for a few seconds
+        float originalSpeed = speed;
+        speed = 0;
+        state = State.Stunned;
+
+        yield return new WaitForSeconds(1.5f);
+
+        Debug.Log("orc no longer stunned");
+        speed = originalSpeed;
+        state = State.Patroling;
     }
 
 }
