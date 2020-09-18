@@ -246,13 +246,12 @@ public class Pixie : Enemy
 
     public override IEnumerator HandleStun()
     {
-        // keep track of original values in temp values
+        // stop movement for a few seconds
         isStunned = true;
         float originalSpeed = moveSpeed;
         float originalRotationSpeed = rotationSpeed;
         State originalState = state;
 
-        // stop movement for a few seconds
         moveSpeed = 0;
         rotationSpeed = 0;
         state = State.Stunned;
@@ -260,9 +259,8 @@ public class Pixie : Enemy
         // wait for 1.5 seconds
         yield return new WaitForSeconds(1.5f);
 
-        // restore changed values to original values
         moveSpeed = originalSpeed;
-        rotationSpeed = originalRotationSpeed;
+        rotationSpeed = originalSpeed; //TODO change back
         state = originalState;
         isStunned = false;
     }

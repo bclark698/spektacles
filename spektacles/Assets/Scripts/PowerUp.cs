@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public enum PowerUpType { None, BugSpray, Helmet, EarPlugs };
+    public enum PowerUpType { None, BugSpray, Helmet };
     public PowerUpType powerUpName;
 
     [SerializeField]

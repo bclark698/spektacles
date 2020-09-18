@@ -6,8 +6,7 @@ public class Sirens : MonoBehaviour
 {
     private Rigidbody2D playerRB; //var for player rigidbody
     private bool inRange = false;
-    private PowerUp.PowerUpType sirenPowerUp = PowerUp.PowerUpType.EarPlugs;
-
+    
     [SerializeField] private float gravitationalForce = 5; //adjust gravity
 
 
@@ -46,31 +45,6 @@ public class Sirens : MonoBehaviour
         }
     }
 
-    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
-    {
-        Debug.Log("siren handling powerup " + powerUp);
-        if (powerUp == sirenPowerUp)
-        {
-            //stop pulling
-            inRange = false;
-        }
-        /* //TODO stun not fully implemented yet
-         else if(powerUp == PowerUp.Stun) {
-            StartCoroutine(HandleStun());
-         }
-          */
-    }
-
-    public override IEnumerator HandleStun()
-    {
-        // stop movement for a few seconds
-        isStunned = true;
-
-        // wait for 1.5 seconds
-        yield return new WaitForSeconds(1.5f);
-
-        isStunned = false;
-    }
 
 }
 
