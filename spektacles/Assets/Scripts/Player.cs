@@ -9,8 +9,7 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     private Animator anim;
     [HideInInspector]
-    public bool powerUpUsed;
-    private bool hasPowerUp;
+    public bool powerUpEquipped;
     public GameObject eyeglasses;
 
     //These won't actually be like this in the future - I'll just have one playerAudioSource;
@@ -34,6 +33,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
 
         transform.GetChild(0).gameObject.SetActive(false);
+        powerUpEquipped = false;
     }
 
     // Update is called once per frame
@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementVelocity = moveInput.normalized * moveSpeed;
 
-        //Movement Animations
+        //Movement Animations - I am positive u can handle this in one line (kat)
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.RightArrow)))
         {
             //Checks for Up,Down,Left,Right Movement and sets the walking boolean in the Animator to true to trigger the walking animation
@@ -62,23 +62,36 @@ public class Player : MonoBehaviour
         // Handle powerUp. Important to do .GetKeyDown(KeyCode.P) instead of .GetKey(KeyCode.P) because GetKey triggers more than once
         if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
         {
-            // get all the enemies within our PowerUpRange
-            Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
-
-            // don't waste powerup unless enemies are in range
-            if(enemiesInRange.Length > 0)
+            if (powerUp == PowerUp.PowerUpType.BugSpray)
             {
-                powerUpObj.GetComponent<PowerUp>().Use();
-                // tempSprayNoise.Play();
-                // TODO put this noise in bug spray powerup
+                // get all the enemies within our PowerUpRange
+                Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
 
-                // have each enemy determine how to handle this powerup being used on them
-                for (int i = 0; i < enemiesInRange.Length; i++)
+                if (enemiesInRange.Length <= 0) //if no enemies?
                 {
-                    enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(powerUp);
+                    powerUp = PowerUp.PowerUpType.None; //use the powerup but do nothing
                 }
-                // set player back to holding no powerup
-                powerUp = PowerUp.PowerUpType.None;
+
+                // don't check enemies unless enemies are in range
+                else if (enemiesInRange.Length > 0)
+                {
+                    powerUpObj.GetComponent<PowerUp>().Use();
+                    // tempSprayNoise.Play();
+                    // TODO put this noise in bug spray powerup/pixie code
+
+                    // have each enemy determine how to handle this powerup being used on them
+                    for (int i = 0; i < enemiesInRange.Length; i++)
+                    {
+                        enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(powerUp);
+                    }
+                    // set player back to holding no powerup
+                    powerUp = PowerUp.PowerUpType.None;
+                }
+            }
+            else
+            {
+                Debug.Log("equip powerup " + powerUp);
+                powerUpEquipped = true;
             }
         }
     }
@@ -95,14 +108,36 @@ public class Player : MonoBehaviour
     {
         rb.MovePosition(rb.position + movementVelocity * Time.fixedDeltaTime);
     }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Enemie" && !other.GetComponent<Enemy>().isStunned)
+
+        if (!powerUpEquipped && other.gameObject.tag == "Enemie")
         {
-            if(anim.GetBool("blind")==false)
-                anim.SetBool("blind", true);
+            Debug.Log("no powerup equipped, loses glasses");
+            if (!other.GetComponent<Enemy>().isStunned)
+            {
+                if (anim.GetBool("blind") == false)
+                    anim.SetBool("blind", true);
                 hitNoise.Play();
+            }
+        } else if (powerUpEquipped && other.CompareTag("Enemie"))
+        {
+            Debug.Log("powerup equipped, doesn't lose glasses");
+            powerUpEquipped = false;
+            other.GetComponent<Enemy>().HandlePowerUp(powerUp);
+            powerUpObj.GetComponent<PowerUp>().Use();
+            powerUp = PowerUp.PowerUpType.None;
+        } else if (powerUpEquipped && powerUp == PowerUp.PowerUpType.EarPlugs)
+        {
+            Debug.Log("prepping for sirens");
+            powerUpEquipped = false;
+            other.GetComponent<Enemy>().HandlePowerUp(powerUp);
+            powerUpObj.GetComponent<PowerUp>().Use();
+            powerUp = PowerUp.PowerUpType.None;
         }
+
+
         if(other.gameObject.tag == "Glasses")
         {
             if(anim.GetBool("blind")==true)

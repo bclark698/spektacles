@@ -207,11 +207,6 @@ public class Pixie : Enemy
         //    giggle2.Play();
         //    Debug.Log("ha ha ");
         //}
-        if (playerObj.GetComponent<Player>().powerUpUsed)
-        {
-            state = State.ReturnToStart;
-
-        }
     }
 
     // sends pixies back to starting position

@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class Jocks : Enemy
 {
-    private enum State { Stunned, Patroling }; // are these states needed?
-    private State state = State.Patroling;
+    //private enum State { Stunned, Patroling }; // are these states needed?
+   // private State state = State.Patroling;
     private PowerUp.PowerUpType jockPowerUp = PowerUp.PowerUpType.Helmet;
     public GameObject[] waypoints;
 	public int num = 0;
@@ -15,11 +15,6 @@ public class Jocks : Enemy
 
 	public bool rand = false;
 	public bool go = true;
-
-    private void Start()
-    {
-
-    }
 
 
     private void Update()
@@ -77,17 +72,13 @@ public class Jocks : Enemy
     public override IEnumerator HandleStun()
     {
         Debug.Log("orc stunned");
+        go = false;
         isStunned = true;
-        // stop movement for a few seconds
-        float originalSpeed = speed;
-        speed = 0;
-        state = State.Stunned;
 
         yield return new WaitForSeconds(1.5f);
 
         Debug.Log("orc no longer stunned");
-        speed = originalSpeed;
-        state = State.Patroling;
+        go = true;
         isStunned = false;
     }
 

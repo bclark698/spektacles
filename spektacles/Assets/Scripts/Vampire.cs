@@ -5,21 +5,10 @@ using UnityEngine;
 public class Vampire : Enemy
 {
     private PowerUp.PowerUpType vampirePowerUp = PowerUp.PowerUpType.Garlic;
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 
     public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
-        Debug.Log("siren handling powerup " + powerUp);
+        Debug.Log("vamp handling powerup " + powerUp);
         if (powerUp == vampirePowerUp)
         {
             StartCoroutine(HandleStun());
