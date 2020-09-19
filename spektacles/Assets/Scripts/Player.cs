@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public bool powerUpEquipped;
     public GameObject eyeglasses;
+    private int lives = 2; //one for w/ glasses, one for without
 
     //These won't actually be like this in the future - I'll just have one playerAudioSource;
     // it'll be clean, promise
@@ -90,7 +92,6 @@ public class Player : MonoBehaviour
             }
             else
             {
-                Debug.Log("equip powerup " + powerUp);
                 powerUpEquipped = true;
             }
         }
@@ -109,28 +110,44 @@ public class Player : MonoBehaviour
         rb.MovePosition(rb.position + movementVelocity * Time.fixedDeltaTime);
     }
 
+    void checkLives()
+    {
+        //hitNoise.Play();
+
+        if (lives > 2) //has glasses and buff
+        {
+            //dont lose glasses, just a life + buff if applicable
+            lives--;
+        } else if (lives == 2) //has glasses but no buff
+        {
+            lives--;
+            if (anim.GetBool("blind") == false)
+                anim.SetBool("blind", true);
+        } else if (lives == 1) //no glasses and no buff
+        {
+            lives--;
+            //game over :) just reloads the scene rn
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
 
-        if (!powerUpEquipped && other.gameObject.tag == "Enemie")
+        if (!powerUpEquipped && other.CompareTag("Enemie"))
         {
-            Debug.Log("no powerup equipped, loses glasses");
             if (!other.GetComponent<Enemy>().isStunned)
             {
-                if (anim.GetBool("blind") == false)
-                    anim.SetBool("blind", true);
-                hitNoise.Play();
+                checkLives();
             }
         } else if (powerUpEquipped && other.CompareTag("Enemie"))
         {
-            Debug.Log("powerup equipped, doesn't lose glasses");
             powerUpEquipped = false;
             other.GetComponent<Enemy>().HandlePowerUp(powerUp);
             powerUpObj.GetComponent<PowerUp>().Use();
             powerUp = PowerUp.PowerUpType.None;
         } else if (powerUpEquipped && powerUp == PowerUp.PowerUpType.EarPlugs)
         {
-            Debug.Log("prepping for sirens");
             powerUpEquipped = false;
             other.GetComponent<Enemy>().HandlePowerUp(powerUp);
             powerUpObj.GetComponent<PowerUp>().Use();
@@ -138,10 +155,19 @@ public class Player : MonoBehaviour
         }
 
 
-        if(other.gameObject.tag == "Glasses")
+        if(other.CompareTag("Glasses"))
         {
             if(anim.GetBool("blind")==true)
                 anim.SetBool("blind", false);
         }
+
+        if(other.CompareTag("GlassesBuff"))
+        {
+            lives++;
+            Destroy(other.gameObject);
+            Debug.Log("add lives. current lives " + lives);
+            //add any ui code here!
+        }
+
     }
 }
