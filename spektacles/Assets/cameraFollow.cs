@@ -5,25 +5,25 @@ using UnityEngine;
 public class cameraFollow : MonoBehaviour
 {
 
-    private Camera camera;
+    private Camera cam;
     private float camX;
     private float camY;
     private float playerX;
     private float playerY;
 
 
-    public float cameraFollowSpeed;
+    public float camFollowSpeed;
     public GameObject player;
 
     // Start is called before the first frame update
     void Start()
     {
-      camera =  gameObject.GetComponent<Camera>();
+      cam =  gameObject.GetComponent<Camera>();
       playerX = player.transform.position.x;
       playerY = player.transform.position.y;
-      camX = camera.transform.position.x;
-      camY = camera.transform.position.y;
-      camera.transform.position = new Vector3(camX, camY, -3f);
+      camX = cam.transform.position.x;
+      camY = cam.transform.position.y;
+      cam.transform.position = new Vector3(camX, camY, -3f);
     }
 
     // Update is called once per frame
@@ -35,27 +35,27 @@ public class cameraFollow : MonoBehaviour
         //StartCoroutine(upatePosition(playerX, playerY));
 
       }
-      //Debug.Log(camera.transform.position);
+      //Debug.Log(cam.transform.position);
       //Vector3 camUpdate = (camX, camY);
-      //camera.transform.position = new Vector3(camX, camY, -3);
-      camera.transform.position = Vector3.Slerp(camera.transform.position,new Vector3(playerX, playerY, -3), cameraFollowSpeed * Time.deltaTime);
+      //cam.transform.position = new Vector3(camX, camY, -3);
+      cam.transform.position = Vector3.Slerp(cam.transform.position,new Vector3(playerX, playerY, -3), camFollowSpeed * Time.deltaTime);
     }
 
     IEnumerator upatePosition(float pX, float pY){
       if (pX >= camX && camX <= (pX - .1)){
-        camX += (Time.deltaTime * cameraFollowSpeed);
+        camX += (Time.deltaTime * camFollowSpeed);
 
       }
       else if (pX < camX){
-        camX -= (Time.deltaTime * cameraFollowSpeed);
+        camX -= (Time.deltaTime * camFollowSpeed);
         //yield return camX;
       }
       if (pY >= camY && camY <= (pY - .1)){
-        camY += (Time.deltaTime * cameraFollowSpeed);
+        camY += (Time.deltaTime * camFollowSpeed);
         //yield return camY;
       }
       else if (pY < camY){
-        camY -= (Time.deltaTime * cameraFollowSpeed);
+        camY -= (Time.deltaTime * camFollowSpeed);
 
       }
         yield return camX;

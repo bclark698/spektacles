@@ -5,31 +5,42 @@ using UnityEngine.SceneManagement;
 
 public class musicController : MonoBehaviour
 {
+  private static musicController controllerInstance;
   public AudioSource currentMusic;
   public AudioSource lvlMusic;
   public AudioSource cutMusic;
 
-  float fadeTime;
-  float musicVol;
-  // Start is called before the first frame update
+
+  //float fadeTime;
+  public float musicVol;
+  float currentVol;
+
+
   void Awake(){
-     DontDestroyOnLoad (transform.gameObject);
+    // DontDestroyOnLoad (transform.gameObject);
+    DontDestroyOnLoad (this);
      currentMusic.clip = lvlMusic.clip;
      currentMusic.Play();
-
+     if (controllerInstance == null) {
+         controllerInstance = this;
+     } else {
+         Object.Destroy(gameObject);
+     }
   }
   void Start()
   {
   //  currentMusic.clip = lvlMusic.clip;
   //  currentMusic.Play();
-    fadeTime = 100000;
-    musicVol = 1;
+    //fadeTime = 100000;
+    currentVol = .2f;
+    musicVol = .2f;
+
   }
 
   // Update is called once per frame
   void Update()
   {
-    currentMusic.volume = musicVol;
+    currentMusic.volume = currentVol;
 
     if (Input.GetKeyDown(KeyCode.U)){
       StartCoroutine(MusicSwitch(cutMusic, 2, 5));
@@ -68,17 +79,17 @@ public class musicController : MonoBehaviour
   }
 
   public IEnumerator MusicSwitch(AudioSource nextMusic, float transistionTimeDown, float transistionTimeUp){
-    musicVol = 1;
-   while (musicVol > 0){
-      musicVol -= Time.deltaTime / transistionTimeDown;
-      yield return musicVol;
+    currentVol = musicVol;
+   while (currentVol > 0){
+      currentVol -= Time.deltaTime / transistionTimeDown;
+      yield return currentVol;
     }
 
     yield return currentMusic.clip = nextMusic.clip;
     currentMusic.Play();
-    while (musicVol < 1){
-      musicVol += Time.deltaTime / transistionTimeUp;
-      yield return musicVol;
+    while (currentVol < musicVol){
+      currentVol += Time.deltaTime / transistionTimeUp;
+      yield return currentVol;
     }
 
     yield return null;

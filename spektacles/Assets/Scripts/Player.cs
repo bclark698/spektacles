@@ -17,9 +17,13 @@ public class Player : MonoBehaviour
     //These won't actually be like this in the future - I'll just have one playerAudioSource;
     // it'll be clean, promise
     // But for now, just assist the showing of functionality
+    //public PlayerSoundController playerSounds;
+    private PlayerSoundController playerSounds;
+    /*
     public AudioSource tempPickupNoise;
     public AudioSource tempSprayNoise;
     public AudioSource hitNoise;
+    */
 
     // powerUp variables
     public PowerUp.PowerUpType powerUp = PowerUp.PowerUpType.None;
@@ -33,6 +37,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
 
         transform.GetChild(0).gameObject.SetActive(false);
         powerUpEquipped = false;
@@ -97,7 +102,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    /* For testing purposes, this draws red line around the player's power up range. 
+    /* For testing purposes, this draws red line around the player's power up range.
      * This has no effect during gameplay, so we can leave this in. */
     void OnDrawGizmosSelected()
     {
@@ -113,6 +118,7 @@ public class Player : MonoBehaviour
     void checkLives()
     {
         //hitNoise.Play();
+        playerSounds.hitSound();
 
         if (lives > 2) //has glasses and buff
         {
@@ -127,6 +133,7 @@ public class Player : MonoBehaviour
         {
             lives--;
             //game over :) just reloads the scene rn
+            playerSounds.reloadSound();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
