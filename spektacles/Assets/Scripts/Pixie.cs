@@ -207,11 +207,6 @@ public class Pixie : Enemy
         //    giggle2.Play();
         //    Debug.Log("ha ha ");
         //}
-        if (playerObj.GetComponent<Player>().powerUpUsed)
-        {
-            state = State.ReturnToStart;
-
-        }
     }
 
     // sends pixies back to starting position
@@ -230,12 +225,12 @@ public class Pixie : Enemy
 
     public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
-        Debug.Log("pixie handing powerup" + powerUp);
+        Debug.Log("pixie handling powerup" + powerUp);
         if(powerUp == pixiePowerUp)
         {
             state = State.ReturnToStart;
-            returnToStart();
-            
+            returnHome();
+
         }
         /* //TODO stun not fully implemented yet
          else if(powerUp == PowerUp.Stun) {
@@ -247,6 +242,7 @@ public class Pixie : Enemy
     public override IEnumerator HandleStun()
     {
         // stop movement for a few seconds
+        isStunned = true;
         float originalSpeed = moveSpeed;
         float originalRotationSpeed = rotationSpeed;
         State originalState = state;
@@ -258,9 +254,10 @@ public class Pixie : Enemy
         // wait for 1.5 seconds
         yield return new WaitForSeconds(1.5f);
 
-        //moveSpeed = originalSpeed;
+        moveSpeed = originalSpeed;
         rotationSpeed = originalSpeed; //TODO change back
         state = originalState;
+        isStunned = false;
     }
 
 

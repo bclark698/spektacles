@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Player : MonoBehaviour
 {
@@ -9,9 +10,9 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     private Animator anim;
     [HideInInspector]
-    public bool powerUpUsed;
-    private bool hasPowerUp;
+    public bool powerUpEquipped;
     public GameObject eyeglasses;
+    private int lives = 2; //one for w/ glasses, one for without
 
     //These won't actually be like this in the future - I'll just have one playerAudioSource;
     // it'll be clean, promise
@@ -34,6 +35,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
 
         transform.GetChild(0).gameObject.SetActive(false);
+        powerUpEquipped = false;
     }
 
     // Update is called once per frame
@@ -42,7 +44,7 @@ public class Player : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementVelocity = moveInput.normalized * moveSpeed;
 
-        //Movement Animations
+        //Movement Animations - I am positive u can handle this in one line (kat)
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.RightArrow)))
         {
             //Checks for Up,Down,Left,Right Movement and sets the walking boolean in the Animator to true to trigger the walking animation
@@ -62,22 +64,36 @@ public class Player : MonoBehaviour
         // Handle powerUp. Important to do .GetKeyDown(KeyCode.P) instead of .GetKey(KeyCode.P) because GetKey triggers more than once
         if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
         {
-            powerUpObj.GetComponent<PowerUp>().Use();
-            // tempSprayNoise.Play();
-            // TODO put this noise in bug spray powerup
-            
-            // get all the enemies within our PowerUpRange
-            Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
-
-            // have each enemy determine how to handle this powerup being used on them
-            for(int i = 0; i < enemiesInRange.Length; i++)
+            if (powerUp == PowerUp.PowerUpType.BugSpray)
             {
-                enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(powerUp);
+                // get all the enemies within our PowerUpRange
+                Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
+
+                if (enemiesInRange.Length <= 0) //if no enemies?
+                {
+                    powerUp = PowerUp.PowerUpType.None; //use the powerup but do nothing
+                }
+
+                // don't check enemies unless enemies are in range
+                else if (enemiesInRange.Length > 0)
+                {
+                    powerUpObj.GetComponent<PowerUp>().Use();
+                    // tempSprayNoise.Play();
+                    // TODO put this noise in bug spray powerup/pixie code
+
+                    // have each enemy determine how to handle this powerup being used on them
+                    for (int i = 0; i < enemiesInRange.Length; i++)
+                    {
+                        enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(powerUp);
+                    }
+                    // set player back to holding no powerup
+                    powerUp = PowerUp.PowerUpType.None;
+                }
             }
-
-            // set player back to holding no powerup
-            powerUp = PowerUp.PowerUpType.None;
-
+            else
+            {
+                powerUpEquipped = true;
+            }
         }
     }
 
@@ -93,25 +109,64 @@ public class Player : MonoBehaviour
     {
         rb.MovePosition(rb.position + movementVelocity * Time.fixedDeltaTime);
     }
+
+    void checkLives()
+    {
+        //hitNoise.Play();
+
+        if (lives > 2) //has glasses and buff
+        {
+            //dont lose glasses, just a life + buff if applicable
+            lives--;
+        } else if (lives == 2) //has glasses but no buff
+        {
+            lives--;
+            if (anim.GetBool("blind") == false)
+                anim.SetBool("blind", true);
+        } else if (lives == 1) //no glasses and no buff
+        {
+            lives--;
+            //game over :) just reloads the scene rn
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        }
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.gameObject.tag == "Enemie")
+
+        if (!powerUpEquipped && other.CompareTag("Enemie"))
         {
-            if(anim.GetBool("blind")==false)
-                anim.SetBool("blind", true);
-                hitNoise.Play();
+            if (!other.GetComponent<Enemy>().isStunned)
+            {
+                checkLives();
+            }
+        } else if (powerUpEquipped && other.CompareTag("Enemie"))
+        {
+            powerUpEquipped = false;
+            other.GetComponent<Enemy>().HandlePowerUp(powerUp);
+            powerUpObj.GetComponent<PowerUp>().Use();
+            powerUp = PowerUp.PowerUpType.None;
+        } else if (powerUpEquipped && powerUp == PowerUp.PowerUpType.EarPlugs)
+        {
+            powerUpEquipped = false;
+            other.GetComponent<Enemy>().HandlePowerUp(powerUp);
+            powerUpObj.GetComponent<PowerUp>().Use();
+            powerUp = PowerUp.PowerUpType.None;
         }
-        if(other.gameObject.tag == "Glasses")
+
+
+        if(other.CompareTag("Glasses"))
         {
             if(anim.GetBool("blind")==true)
                 anim.SetBool("blind", false);
         }
-        if(other.CompareTag("Powerup")) //TODO: delete this && make actual powerup script
+
+        if(other.CompareTag("GlassesBuff"))
         {
-            Debug.Log("has powerup");
-            transform.GetChild(0).gameObject.SetActive(true);
-            tempPickupNoise.Play();
-            hasPowerUp = true;
+            lives++;
+            Destroy(other.gameObject);
+            Debug.Log("add lives. current lives " + lives);
+            //add any ui code here!
         }
 
     }

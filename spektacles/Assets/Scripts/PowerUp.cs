@@ -4,13 +4,12 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    //public string powerUpName; // ex: "bug spray", "helmet" TODO make an enum?
-    public enum PowerUpType { None, BugSpray, Helmet };
+    public enum PowerUpType { None, BugSpray, Helmet, EarPlugs, Garlic };
     public PowerUpType powerUpName;
 
     [SerializeField]
     public float duration = 3f; // how long the powerup is in use for in seconds I think
-    
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -22,6 +21,7 @@ public class PowerUp : MonoBehaviour
     void PickUp(Collider2D player)
     {
         // play a pick up sound effect
+        //tempPickupNoise.Play();
 
         // spawn cool particle effects
 
@@ -29,7 +29,7 @@ public class PowerUp : MonoBehaviour
         Player p = player.GetComponent<Player>();
         p.powerUp = powerUpName;
         p.powerUpObj = gameObject; // TODO do we need to destroy the player's previous held powerup gameobject?
-        Debug.Log("Player picked up "+ p.powerUp);
+        Debug.Log("Player picked up " + p.powerUp);
 
         // turn off collider and sprite renderer for the object
         GetComponent<SpriteRenderer>().enabled = false;
