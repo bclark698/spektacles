@@ -271,7 +271,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 108
     y: 117
-    width: 101
+    width: 141
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -476,6 +476,56 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!1 &484218514
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 484218516}
+  - component: {fileID: 484218515}
+  m_Layer: 0
+  m_Name: Character
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &484218515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484218514}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: Character Name
+  nameColor: {r: 1, g: 1, b: 1, a: 1}
+  soundEffect: {fileID: 0}
+  portraits: []
+  portraitsFace: 0
+  setSayDialog: {fileID: 0}
+  description: 
+--- !u!4 &484218516
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 484218514}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &586589376
 GameObject:
   m_ObjectHideFlags: 0
@@ -611,7 +661,6 @@ GameObject:
   - component: {fileID: 2076023440}
   - component: {fileID: 2076023436}
   - component: {fileID: 2076023439}
-  - component: {fileID: 2076023438}
   - component: {fileID: 2076023437}
   - component: {fileID: 2076023441}
   - component: {fileID: 2076023445}
@@ -628,6 +677,7 @@ GameObject:
   - component: {fileID: 2076023449}
   - component: {fileID: 2076023455}
   - component: {fileID: 2076023454}
+  - component: {fileID: 2076023438}
   m_Layer: 0
   m_Name: Flowchart
   m_TagString: Untagged
@@ -648,7 +698,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 23.102875, y: 252.41174}
+  scrollPos: {x: 99.1029, y: 241.41173}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
@@ -659,8 +709,7 @@ MonoBehaviour:
     y: -340
     width: 1114
     height: 859
-  selectedBlocks:
-  - {fileID: 2076023439}
+  selectedBlocks: []
   selectedCommands: []
   variables: []
   description: 
@@ -733,7 +782,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 68
     y: 70
-    width: 60
+    width: 75
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -804,7 +853,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 197
     y: 103
-    width: 76
+    width: 116
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -858,7 +907,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 205
     y: 0
-    width: 60
+    width: 66
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1065,7 +1114,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 320.66586
     y: 54.088264
-    width: 63
+    width: 103
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
