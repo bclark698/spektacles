@@ -75,16 +75,6 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             UsePowerUp();
-            /*
-            // TODO replace with Dash script, combine into other script
-            if (powerUp == PowerUp.PowerUpType.Dash)
-            {
-                Dash();
-                powerUpObj.GetComponent<PowerUp>().Use();
-            } else
-            {
-                UsePowerUp();
-            }*/
         }
     }
 
