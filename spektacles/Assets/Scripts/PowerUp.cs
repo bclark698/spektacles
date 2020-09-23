@@ -7,9 +7,6 @@ public class PowerUp : MonoBehaviour
     public enum PowerUpType { None, BugSpray, Helmet, EarPlugs, Garlic, Dash };
     public PowerUpType powerUpName;
 
-    private Player p;
-
-    // currently UNUSED
     [SerializeField]
     public float duration = 3f; // how long the powerup is in use for in seconds I think
 
@@ -17,19 +14,19 @@ public class PowerUp : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            PickUp();
+            PickUp(collision);
         }
     }
 
-    public void PickUp()
+    void PickUp(Collider2D player)
     {
         // play a pick up sound effect
         //tempPickupNoise.Play();
 
         // spawn cool particle effects
 
-        // set player powerup variables
-        p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        // set player powerup type
+        Player p = player.GetComponent<Player>();
         p.powerUp = powerUpName;
 
         // destroy the player's previous held powerup gameobject and set to new one
@@ -51,7 +48,7 @@ public class PowerUp : MonoBehaviour
 
         // destroy powerup gameObject
         Destroy(gameObject);
-        p.powerUp = PowerUpType.None;
+
     }
 
 

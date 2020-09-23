@@ -9,9 +9,9 @@ public class Player : MonoBehaviour
     private Vector2 movementVelocity;
     public float moveSpeed;
     private Animator anim;
-    [HideInInspector]
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
+    
     //dash stuff
     public float dashSpeed;
     public float startDashTime;
@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
 
         transform.GetChild(0).gameObject.SetActive(false);
+        powerUpEquipped = false;
 
         dashTime = startDashTime;
     }
@@ -76,6 +77,17 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             UsePowerUp();
+        }
+
+        // TODO replace with Dash script
+        if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
+        {
+            // do some dashy shit
+            if(powerUp == PowerUp.PowerUpType.Dash)
+            {
+                dashyShit();
+                powerUpObj.GetComponent<PowerUp.Dash>().Use();
+            }
         }
     }
 

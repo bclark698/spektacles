@@ -212,6 +212,7 @@ public class Pixie : Enemy
     // sends pixies back to starting position
     IEnumerator returnHome()
     {
+        Debug.Log("pixie return to start");
         float reachedPosDist = 1f;
         while (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
         {
@@ -222,23 +223,20 @@ public class Pixie : Enemy
         state = State.Waiting;
     }
 
-    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
+    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
         Debug.Log("pixie handling powerup" + powerUp);
         if(powerUp == pixiePowerUp)
         {
-            StartCoroutine(HandleStun());
-            Debug.Log("pixie state is return to start");
             state = State.ReturnToStart;
             //returnHome();
-            return true;
+
         }
         /* //TODO stun not fully implemented yet
          else if(powerUp == PowerUp.Stun) {
             StartCoroutine(HandleStun());
          }
           */
-        return false;
     }
 
     public override IEnumerator HandleStun()
@@ -257,7 +255,7 @@ public class Pixie : Enemy
         yield return new WaitForSeconds(1.5f);
 
         moveSpeed = originalSpeed;
-        rotationSpeed = originalRotationSpeed;
+        rotationSpeed = originalSpeed; //TODO change back
         state = originalState;
         isStunned = false;
     }
