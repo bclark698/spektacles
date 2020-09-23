@@ -12,6 +12,12 @@ public class PowerUp : MonoBehaviour
     [SerializeField]
     public float duration = 3f; // how long the powerup is in use for in seconds I think
 
+    private PowerupSoundController powerupSounds;
+
+    void Start(){
+      powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Player"))
@@ -46,14 +52,36 @@ public class PowerUp : MonoBehaviour
     // default Use function unless overridden in child classes
     public virtual void Use()
     {
-        // play a use sound effect (specialized for each powerup?)
+        // play a use sound effect (specialized for each powerup)
+        // specialized powerup particle effect TODO
+        /*
+        switch (powerUpName){
+        case BugSpray:
+        powerupSounds.bugSpraySound();
+        break;
 
-        // specialized powerup particle effect?
+        case Helmet:
+        powerupSounds.helmetBlockSound();
+        break;
+
+        case EarPlugs:
+        //powerupSounds.earbudsBlockSoundStart(); //(This would be a sound that signifies earbuds breaking.. so dunno)
+        break;
+
+        case Garlic:
+        powerupSounds.garlicBlockSound();
+        break;
+
+        case Dash:
+        powerupSounds.zoomSound();
+        break;
+        }
+
+        */
+
 
         // destroy powerup gameObject
         Destroy(gameObject);
         p.powerUp = PowerUpType.None;
     }
 }
-
-
