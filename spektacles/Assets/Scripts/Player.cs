@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movementVelocity;
     public float moveSpeed;
-    private Animator anim;
+    public Animator anim;
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
 
@@ -52,23 +52,6 @@ public class Player : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementVelocity = moveInput.normalized * moveSpeed;
-
-        //Movement Animations - I am positive u can handle this in one line (kat)
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.RightArrow)))
-        {
-            //Checks for Up,Down,Left,Right Movement and sets the walking boolean in the Animator to true to trigger the walking animation
-            anim.SetBool("walking", true);
-        }
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.S) || (Input.GetKey(KeyCode.D))))
-        {
-            //Same as above for WASD
-            anim.SetBool("walking", true);
-        }
-        if (!Input.anyKey)
-        {
-            //If the player is not pressing any key at all, sets walking to false
-            anim.SetBool("walking", false);
-        }
 
         /* Important to use.GetKeyDown(KeyCode.P) instead of.GetKey(KeyCode.P) because
          * GetKey triggers more than once */
