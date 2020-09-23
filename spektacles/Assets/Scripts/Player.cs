@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class Player : MonoBehaviour
 {
@@ -28,6 +29,7 @@ public class Player : MonoBehaviour
     public LayerMask whatIsEnemies;
     public float powerUpRange;
     public GameObject powerUpObj; //TODO make private
+    public Text powerUpText;
 
     // Start is called before the first frame update
     void Start()

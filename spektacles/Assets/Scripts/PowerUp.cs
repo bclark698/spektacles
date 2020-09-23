@@ -42,7 +42,7 @@ public class PowerUp : MonoBehaviour
         Destroy(p.powerUpObj);
         p.powerUpObj = gameObject;
 
-        Debug.Log("Player picked up " + p.powerUp);
+        p.powerUpText.text = "Held Powerup: " + p.powerUp;
 
         // turn off collider and sprite renderer for the object
         GetComponent<SpriteRenderer>().enabled = false;
@@ -82,5 +82,7 @@ public class PowerUp : MonoBehaviour
         // destroy powerup gameObject
         Destroy(gameObject);
         p.powerUp = PowerUpType.None;
+        p.powerUpText.text = "Held Powerup: " + p.powerUp;
+
     }
 }
