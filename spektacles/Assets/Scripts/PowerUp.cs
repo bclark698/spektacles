@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PowerUp : MonoBehaviour
 {
-    public enum PowerUpType { None, BugSpray, Helmet, EarPlugs, Garlic, Dash };
+    public enum PowerUpType { None, BugSpray, Helmet, EarPlugs, Garlic };
     public PowerUpType powerUpName;
 
     [SerializeField]
@@ -46,25 +46,4 @@ public class PowerUp : MonoBehaviour
         Destroy(gameObject);
 
     }
-
-
-    public class Dash : PowerUp
-    {
-        // 3 uses, when at 0 (aka last use) destroy
-        private int numUses = 2;
-        public void Use()
-        {
-            if(numUses == 0)
-            {
-                Destroy(gameObject);
-                numUses = 2;
-            }
-            else
-            {
-                numUses--;
-            }
-        }
-    }
 }
-
-
