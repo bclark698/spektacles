@@ -862,12 +862,12 @@ PrefabInstance:
     - target: {fileID: 8945818760807311905, guid: 20148aafd0d69406493f651a315c523d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.06
+      value: 32.55
       objectReference: {fileID: 0}
     - target: {fileID: 8945818760807311905, guid: 20148aafd0d69406493f651a315c523d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -8.46
+      value: 2.32
       objectReference: {fileID: 0}
     - target: {fileID: 8945818760807311905, guid: 20148aafd0d69406493f651a315c523d,
         type: 3}
@@ -1749,7 +1749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cc2133e378ce5464ba602fe6b1acdd01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  powerUpName: 3
+  powerUpName: 1
   duration: 3
 --- !u!1 &1528142845
 GameObject:
@@ -2231,8 +2231,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  powerUpEquipped: 0
   eyeglasses: {fileID: 956119195}
+  dashSpeed: 0
+  startDashTime: 0
   powerUp: 0
   powerUpRangePos: {fileID: 1339348220}
   whatIsEnemies:

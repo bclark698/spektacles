@@ -46,7 +46,6 @@ public class PowerUp : MonoBehaviour
     // default Use function unless overridden in child classes
     public virtual void Use()
     {
-        Debug.Log("inside poweurp destrroy");
         // play a use sound effect (specialized for each powerup?)
 
         // specialized powerup particle effect?
