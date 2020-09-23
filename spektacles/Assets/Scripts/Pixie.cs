@@ -229,7 +229,7 @@ public class Pixie : Enemy
         if(powerUp == pixiePowerUp)
         {
             state = State.ReturnToStart;
-            returnHome();
+            //returnHome();
 
         }
         /* //TODO stun not fully implemented yet
