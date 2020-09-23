@@ -12,6 +12,9 @@ public class Gravity : MonoBehaviour
 
     [SerializeField] private float gravitationalForce = 90; //adjust gravity
 
+    public AudioSource sirenPullSound;
+    public AudioSource sirenBlockedSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +31,8 @@ public class Gravity : MonoBehaviour
 
             // adds force to the player to pull them towards siren
             playerRB.AddForce(directionOfPlayer * gravitationalForce);
+
+
         }
     }
 
@@ -36,6 +41,10 @@ public class Gravity : MonoBehaviour
         if (collision.CompareTag("Player") && collision.GetComponent<Player>().powerUp != PowerUp.PowerUpType.EarPlugs)
         {
             inRange = true; //start pulling player
+            sirenPullSound.Play();
+        }
+        else if ( collision.CompareTag("Player") && collision.GetComponent<Player>().powerUp == PowerUp.PowerUpType.EarPlugs){
+            sirenBlockedSound.Play();
         }
 
     }
@@ -45,6 +54,9 @@ public class Gravity : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             inRange = false; //stop pulling player
+
+            sirenBlockedSound.Stop();
+            sirenPullSound.Stop();
         }
     }
 }
