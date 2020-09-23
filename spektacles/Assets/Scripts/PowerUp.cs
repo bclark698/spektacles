@@ -40,8 +40,9 @@ public class PowerUp : MonoBehaviour
         GetComponent<Collider2D>().enabled = false;
     }
 
-    public void Use()
+    public virtual void Use()
     {
+        Debug.Log("inside poweurp destrroy");
         // play a use sound effect (specialized for each powerup?)
 
         // specialized powerup particle effect?
@@ -54,13 +55,15 @@ public class PowerUp : MonoBehaviour
     public class Dash : PowerUp
     {
         // 3 uses, when at 0 (aka last use) destroy
-        private int numUses = 2;
-        public void Use()
+        private int numUses = 3;
+
+        public override void Use()
         {
-            if(numUses == 0)
+            if(numUses <= 0)
             {
+                Debug.Log("inside dash destroy");
+                Destroy(gameObject);
                 
-                numUses = 2;
             }
             else
             {

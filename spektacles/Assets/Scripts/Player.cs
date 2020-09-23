@@ -11,13 +11,11 @@ public class Player : MonoBehaviour
     private Animator anim;
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
-    private bool powerUpEquipped;
 
     //dash stuff
     public float dashSpeed;
     public float startDashTime;
     private float dashTime;
-    private int direction;
 
     //These won't actually be like this in the future - I'll just have one playerAudioSource;
     // it'll be clean, promise
@@ -45,7 +43,6 @@ public class Player : MonoBehaviour
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
 
         transform.GetChild(0).gameObject.SetActive(false);
-        powerUpEquipped = false;
 
         dashTime = startDashTime;
     }
@@ -80,16 +77,21 @@ public class Player : MonoBehaviour
             UsePowerUp();
         }
 
-        // TODO replace with Dash script
-        if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
+        // TODO replace with Dash script, combine into other script
+        if (Input.GetKeyDown(KeyCode.R) && powerUp != PowerUp.PowerUpType.None)
         {
             // do some dashy shit
             if (powerUp == PowerUp.PowerUpType.Dash)
             {
-                dashyShit();
-                powerUpObj.GetComponent<PowerUp.Dash>().Use();
+               dashyShit(moveInput);
+               // powerUpObj.GetComponent<PowerUp.Dash>().Use();
             }
         }
+    }
+
+    private void FixedUpdate() //all physics adjusting code goes here
+    {
+        rb.MovePosition(rb.position + movementVelocity * Time.fixedDeltaTime);
     }
 
     /* Handle powerUp. A held powerUp still gets used (wasted) even if no enemies are
@@ -129,10 +131,6 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(powerUpRangePos.position, powerUpRange);
     }
 
-    private void FixedUpdate() //all physics adjusting code goes here
-    {
-        rb.MovePosition(rb.position + movementVelocity * Time.fixedDeltaTime);
-    }
 
     void checkLives()
     {
@@ -199,43 +197,20 @@ public class Player : MonoBehaviour
     }
 
     // makes melita zoom zoom
-    public void dashyShit()
+    public void dashyShit(Vector2 direction)
     {
-
         if (dashTime <= 0)
         {
-            direction = 0;
             dashTime = startDashTime;
             movementVelocity = Vector2.zero;
         }
         else
         {
             dashTime -= Time.deltaTime;
-
-            if (movementVelocity.x < 0)
-            {
-                movementVelocity = Vector2.left.normalized * dashSpeed;
-            }
-            else if (movementVelocity.x > 0)
-            {
-                movementVelocity = Vector2.right.normalized * dashSpeed;
-            }
-            else if (movementVelocity.y > 0)
-            {
-                movementVelocity = Vector2.up.normalized * dashSpeed;
-            }
-            else if (movementVelocity.y < 0)
-            {
-                movementVelocity = Vector2.down.normalized * dashSpeed;
-            }
-            else if (movementVelocity.x == 0 && movementVelocity.y == 0)
-            {
-                movementVelocity = Vector2.down.normalized * dashSpeed;
-                Debug.Log("Vector2.down.normalized = " + Vector2.down.normalized);
-                Debug.Log("dashSpeed = " + dashSpeed);
-                Debug.Log("Movement Velocity = " + movementVelocity);
-            }
+            movementVelocity = direction.normalized * dashSpeed;
+            Debug.Log("dashSpeed = " + dashSpeed);
+            Debug.Log("Movement Velocity = " + movementVelocity);
+            FixedUpdate();
         }
-
     }
 }
