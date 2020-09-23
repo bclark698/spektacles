@@ -12,6 +12,11 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
+    //dash stuff
+    public float dashSpeed;
+    public float startDashTime;
+    private float dashTime;
+    private int direction;
 
     //These won't actually be like this in the future - I'll just have one playerAudioSource;
     // it'll be clean, promise
@@ -39,6 +44,8 @@ public class Player : MonoBehaviour
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
 
         transform.GetChild(0).gameObject.SetActive(false);
+
+        dashTime = startDashTime;
     }
 
     // Update is called once per frame
@@ -171,5 +178,59 @@ public class Player : MonoBehaviour
             //add any ui code here!
         }
 
+    }
+
+    // makes melita zoom zoom
+    public void dashyShit()
+    {
+        if (direction == 0)
+        {
+            if (Input.GetKeyDown(KeyCode.LeftArrow))
+            {
+                direction = 1;
+            }
+            else if (Input.GetKeyDown(KeyCode.RightArrow))
+            {
+                direction = 2;
+            }
+            else if (Input.GetKeyDown(KeyCode.UpArrow))
+            {
+                direction = 3;
+            }
+            else if (Input.GetKeyDown(KeyCode.DownArrow))
+            {
+                direction = 4;
+            }
+        }
+        else
+        {
+            if (dashTime <= 0)
+            {
+                direction = 0;
+                dashTime = startDashTime;
+                rb.velocity = Vector2.zero;
+            }
+            else
+            {
+                dashTime -= Time.deltaTime;
+
+                if (direction == 1)
+                {
+                    rb.velocity = Vector2.left * dashSpeed;
+                }
+                else if (direction == 2)
+                {
+                    rb.velocity = Vector2.right * dashSpeed;
+                }
+                else if (direction == 3)
+                {
+                    rb.velocity = Vector2.up * dashSpeed;
+                }
+                else if (direction == 4)
+                {
+                    rb.velocity = Vector2.down * dashSpeed;
+                }
+            }
+        }
     }
 }
