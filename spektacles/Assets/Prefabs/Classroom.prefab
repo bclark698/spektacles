@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 937135086928292026}
   - component: {fileID: 2396904322898012518}
+  - component: {fileID: 5699841951342212830}
   m_Layer: 0
   m_Name: classWall
   m_TagString: Untagged
@@ -70,17 +71,43 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 9a8d297643f5646699554c0aeb61b433, type: 3}
+  m_Sprite: {fileID: 21300000, guid: d75fc9e1c3ee64202b9adbc9cac8fa63, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 2
-  m_Size: {x: 1.99, y: 0.61}
+  m_Size: {x: 1.99, y: 0.67}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!61 &5699841951342212830
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7027689896024239475}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0034796, y: 0.012586474}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 0.64, y: 0.67}
+    newSize: {x: 1.99, y: 0.67}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 2
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 1.983141, y: 0.6338999}
+  m_EdgeRadius: 0
 --- !u!1 &8514323024787254809
 GameObject:
   m_ObjectHideFlags: 0
@@ -151,7 +178,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: e03ce9da5f5f70946813e481ef61a44a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ef2ef115c23a049549adbf7bfd843dfc, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -254,7 +281,7 @@ GameObject:
   - component: {fileID: 8514323025717854228}
   - component: {fileID: 8514323025717854229}
   m_Layer: 0
-  m_Name: classWall (23)
+  m_Name: Classroom
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -324,6 +351,6 @@ SpriteRenderer:
   m_Size: {x: 1.99, y: 0.6325908}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0

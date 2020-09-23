@@ -90,8 +90,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5331540507497840373}
-  - component: {fileID: 5331540507497840374}
   - component: {fileID: 5331540507497840375}
+  - component: {fileID: 5331540507497840374}
   - component: {fileID: 6816278557060633040}
   m_Layer: 8
   m_Name: Inner Colliders
@@ -114,22 +114,6 @@ Transform:
   m_Father: {fileID: 5331540507851166396}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!58 &5331540507497840374
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5331540507497840372}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.7460556, y: -0.34389877}
-  serializedVersion: 2
-  m_Radius: 10.557301
 --- !u!58 &5331540507497840375
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -146,6 +130,22 @@ CircleCollider2D:
   m_Offset: {x: -0.8588257, y: -0.16187286}
   serializedVersion: 2
   m_Radius: 12.35387
+--- !u!58 &5331540507497840374
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331540507497840372}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.7460556, y: -0.34389877}
+  serializedVersion: 2
+  m_Radius: 10.557301
 --- !u!114 &6816278557060633040
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -159,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
-  gravitationalForce: 5
+  pull: {fileID: 747573177}
 --- !u!1 &5331540507851166375
 GameObject:
   m_ObjectHideFlags: 0
@@ -171,9 +171,10 @@ GameObject:
   - component: {fileID: 5331540507851166396}
   - component: {fileID: 5331540507851166395}
   - component: {fileID: 5331540507851166393}
+  - component: {fileID: 747573177}
   m_Layer: 8
   m_Name: Siren
-  m_TagString: Untagged
+  m_TagString: PIgnore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -187,7 +188,7 @@ Transform:
   m_GameObject: {fileID: 5331540507851166375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 44.4, y: -5.1, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 22.237999}
+  m_LocalScale: {x: 0.2, y: 0.2, z: 22.237999}
   m_Children:
   - {fileID: 5331540507497840373}
   - {fileID: 7580900265054249604}
@@ -260,3 +261,18 @@ CircleCollider2D:
   m_Offset: {x: -1.841011, y: -0.6523943}
   serializedVersion: 2
   m_Radius: 39.2971
+--- !u!114 &747573177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331540507851166375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226d22961511842aa80da9b63e9da3ba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  inRange: 0
+  gravityRange: {fileID: 0}
+  gravitationalForce: 90
