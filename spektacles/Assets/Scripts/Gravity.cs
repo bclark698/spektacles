@@ -33,7 +33,7 @@ public class Gravity : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision) //once u enter the range
     {
-        if (collision.CompareTag("Player"))
+        if (collision.CompareTag("Player") && collision.GetComponent<Player>().powerUp != PowerUp.PowerUpType.EarPlugs)
         {
             inRange = true; //start pulling player
         }

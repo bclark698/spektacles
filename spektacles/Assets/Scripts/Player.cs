@@ -169,7 +169,6 @@ public class Player : MonoBehaviour
                     checkLives();
                 }
             }
-
         }
         else if (other.CompareTag("Glasses")) // pick up glasses
         {

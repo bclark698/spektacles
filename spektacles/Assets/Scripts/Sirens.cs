@@ -9,14 +9,14 @@ public class Sirens : Enemy
 
     public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
-        Debug.Log("siren handling powerup " + powerUp);
+        Debug.Log("siren handling powerup " + powerUp+ ", and does nothing");
+        /*
         if (powerUp == sirenPowerUp)
         {
             StartCoroutine(HandleStun());
             return true;
-        }
-
-        return false; // TODO change this to what it should be
+        }*/
+        return false;
     }
 
     public override IEnumerator HandleStun()
@@ -31,5 +31,4 @@ public class Sirens : Enemy
         pull.gravityRange.enabled = true; //turn on range
         isStunned = false; //no longer stunned
     }
-
 }
