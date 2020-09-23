@@ -25,8 +25,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2200099529696946931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 450, y: 450, z: 1}
+  m_LocalPosition: {x: 0, y: 0.0000047684, z: 0}
+  m_LocalScale: {x: 49.554756, y: 49.554756, z: 0.11012168}
   m_Children: []
   m_Father: {fileID: 5331540507851166396}
   m_RootOrder: 1
@@ -70,7 +70,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 10913, guid: 0000000000000000f000000000000000, type: 0}
+  m_Sprite: {fileID: 21300000, guid: 6f62c397230d6d845b87a8e53d67c0e1, type: 3}
   m_Color: {r: 1, g: 0.3420409, b: 0, a: 0.12156863}
   m_FlipX: 0
   m_FlipY: 0
@@ -416,6 +416,7 @@ GameObject:
   - component: {fileID: 5331540507851166395}
   - component: {fileID: 5331540507851166393}
   - component: {fileID: 747573177}
+  - component: {fileID: 6114564565231809295}
   m_Layer: 0
   m_Name: Siren
   m_TagString: Untagged
@@ -432,7 +433,7 @@ Transform:
   m_GameObject: {fileID: 5331540507851166375}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 44.4, y: -5.1, z: 0}
-  m_LocalScale: {x: 0.2, y: 0.2, z: 22.237999}
+  m_LocalScale: {x: 0.32648, y: 0.32648, z: 36.30131}
   m_Children:
   - {fileID: 5331540507497840373}
   - {fileID: 7580900265054249604}
@@ -479,7 +480,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 27e5e4a8cf89646d594c154744b6791d, type: 3}
+  m_Sprite: {fileID: -6490729788492874733, guid: a8bc3ca759183054d933ffa1b86bd2fc,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -523,3 +525,22 @@ MonoBehaviour:
   gravitationalForce: 90
   sirenPullSound: {fileID: 5966529636156336293}
   sirenBlockedSound: {fileID: 1974671795986578816}
+--- !u!95 &6114564565231809295
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331540507851166375}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 799d017607c917e4e82d02e6032ec8b2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
