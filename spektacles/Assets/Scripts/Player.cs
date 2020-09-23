@@ -1,4 +1,4 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -8,7 +8,7 @@ public class Player : MonoBehaviour
     private Rigidbody2D rb;
     private Vector2 movementVelocity;
     public float moveSpeed;
-    public Animator anim;
+    private Animator anim;
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
 
@@ -17,16 +17,10 @@ public class Player : MonoBehaviour
     public float startDashTime;
     private float dashTime;
 
-    //These won't actually be like this in the future - I'll just have one playerAudioSource;
-    // it'll be clean, promise
-    // But for now, just assist the showing of functionality
-    //public PlayerSoundController playerSounds;
+
     private PlayerSoundController playerSounds;
-    /*
-    public AudioSource tempPickupNoise;
-    public AudioSource tempSprayNoise;
-    public AudioSource hitNoise;
-    */
+    private PowerupSoundController powerupSounds;
+
 
     // powerUp variables
     public PowerUp.PowerUpType powerUp = PowerUp.PowerUpType.None;
@@ -41,6 +35,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
+        powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
 
         transform.GetChild(0).gameObject.SetActive(false);
 
@@ -52,6 +47,23 @@ public class Player : MonoBehaviour
     {
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementVelocity = moveInput.normalized * moveSpeed;
+
+        //Movement Animations - I am positive u can handle this in one line (kat)
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.RightArrow)))
+        {
+            //Checks for Up,Down,Left,Right Movement and sets the walking boolean in the Animator to true to trigger the walking animation
+            anim.SetBool("walking", true);
+        }
+        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.S) || (Input.GetKey(KeyCode.D))))
+        {
+            //Same as above for WASD
+            anim.SetBool("walking", true);
+        }
+        if (!Input.anyKey)
+        {
+            //If the player is not pressing any key at all, sets walking to false
+            anim.SetBool("walking", false);
+        }
 
         /* Important to use.GetKeyDown(KeyCode.P) instead of.GetKey(KeyCode.P) because
          * GetKey triggers more than once */
@@ -134,8 +146,8 @@ public class Player : MonoBehaviour
     {
         if (other.CompareTag("Enemy"))
         {
-            /* If the enemy is stunned, they have no effect on Melita. 
-             * Otherwise, automatically use a held powerup if it is applicable to the enemy 
+            /* If the enemy is stunned, they have no effect on Melita.
+             * Otherwise, automatically use a held powerup if it is applicable to the enemy
              * that Melita is touching. */
             if (!other.GetComponent<Enemy>().isStunned)
             {
@@ -152,12 +164,14 @@ public class Player : MonoBehaviour
                     checkLives();
                 }
             }
+
         }
         else if (other.CompareTag("Glasses")) // pick up glasses
         {
             if (anim.GetBool("blind"))
             {
                 anim.SetBool("blind", false);
+                playerSounds.aquireSound();
             }
         }
         else if (other.CompareTag("GlassesBuff"))
@@ -165,6 +179,7 @@ public class Player : MonoBehaviour
             lives++;
             Destroy(other.gameObject);
             Debug.Log("add lives. current lives " + lives);
+            playerSounds.aquireSound();
             //add any ui code here!
         }
 
@@ -175,7 +190,7 @@ public class Player : MonoBehaviour
     {
         Debug.Log("zoom?");
         Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-        
+
         if (dashTime <= 0)
         {
             dashTime = startDashTime;
