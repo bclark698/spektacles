@@ -7,13 +7,15 @@ public class Sirens : Enemy
     private PowerUp.PowerUpType sirenPowerUp = PowerUp.PowerUpType.EarPlugs;
     public Gravity pull;
 
-    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
+    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
         Debug.Log("siren handling powerup " + powerUp);
         if (powerUp == sirenPowerUp)
         {
             StartCoroutine(HandleStun());
+            return true;
         }
+        return false;
     }
 
     public override IEnumerator HandleStun()
