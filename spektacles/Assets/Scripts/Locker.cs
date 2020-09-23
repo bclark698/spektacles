@@ -6,11 +6,17 @@ public class Locker : MonoBehaviour
 {
     [SerializeField]
     private PowerUp.PowerUpType item = PowerUp.PowerUpType.None; // powerup that can always be retrieved from this locker
-    private bool playerInRange;
+    private bool playerInRange; //
 
     // Reference to the powerUp Prefab. Drag a Prefab into this field in the Inspector.
     [SerializeField]
-    private GameObject powerUpPrefab;
+    public GameObject powerUpPrefab;
+
+    private PowerupSoundController powerupSounds;
+
+    private void Start(){
+      powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
+    }
 
     private void Update()
     {
@@ -49,8 +55,9 @@ public class Locker : MonoBehaviour
             newPowerUp.GetComponent<PowerUp>().PickUp();
             Debug.Log("Player picked up " + powerUpPrefab.GetComponent<PowerUp>().powerUpName + " from a locker");
 
+            powerupSounds.pickUpSound();
+
             // play a closing animation on the locker??
         }
     }
 }
-
