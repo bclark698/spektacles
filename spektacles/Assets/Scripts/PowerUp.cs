@@ -18,7 +18,7 @@ public class PowerUp : MonoBehaviour
         }
     }
 
-    void PickUp(Collider2D player)
+    public void PickUp(Collider2D player)
     {
         // play a pick up sound effect
         //tempPickupNoise.Play();

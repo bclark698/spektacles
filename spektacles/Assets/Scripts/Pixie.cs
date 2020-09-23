@@ -219,7 +219,7 @@ public class Pixie : Enemy
         state = State.Waiting;
     }
 
-    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
+    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
         Debug.Log("pixie handling powerup" + powerUp);
         if(powerUp == pixiePowerUp)
@@ -233,6 +233,7 @@ public class Pixie : Enemy
             StartCoroutine(HandleStun());
          }
           */
+        return false; // TODO change this to what it should be
     }
 
     public override IEnumerator HandleStun()

@@ -11,11 +11,9 @@ public class Player : MonoBehaviour
     private Animator anim;
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
-<<<<<<< Updated upstream
-    
-=======
+    private bool powerUpEquipped;
 
->>>>>>> Stashed changes
+
     //dash stuff
     public float dashSpeed;
     public float startDashTime;
@@ -89,14 +87,10 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
         {
             // do some dashy shit
-<<<<<<< Updated upstream
             if(powerUp == PowerUp.PowerUpType.Dash)
-=======
-            else if (powerUp == PowerUp.PowerUpType.Dash)
->>>>>>> Stashed changes
             {
                 dash();
-                //powerUpObj.GetComponent<PowerUp.Dash>().Use();
+                powerUpObj.GetComponent<PowerUp.Dash>().Use();
             }
         }
     }

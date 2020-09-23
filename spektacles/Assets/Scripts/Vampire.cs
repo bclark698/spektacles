@@ -6,13 +6,14 @@ public class Vampire : Enemy
 {
     private PowerUp.PowerUpType vampirePowerUp = PowerUp.PowerUpType.Garlic;
 
-    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
+    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
         Debug.Log("vamp handling powerup");
         if (powerUp == vampirePowerUp)
         {
             StartCoroutine(HandleStun());
         }
+        return false; // TODO change this to what it should be
     }
 
     public override IEnumerator HandleStun()
