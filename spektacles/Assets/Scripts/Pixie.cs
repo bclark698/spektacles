@@ -114,7 +114,7 @@ public class Pixie : Enemy
     private bool canSeePlayer()
     {
         bool collisionCheck = false;
-        if (hitInfo.collider != null)
+        if (hitInfo.collider != null && !hitInfo.collider.CompareTag("PIgnore"))
         {
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
             if (hitInfo.collider.CompareTag("Player"))
