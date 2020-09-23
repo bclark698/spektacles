@@ -60,15 +60,13 @@ public class Jocks : Enemy
 		gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
-    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
+    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
         Debug.Log("orc handing powerup");
         if(powerUp == jockPowerUp)
         {
             StartCoroutine(HandleStun());
-            return true;
         }
-        return false;
     }
 
     public override IEnumerator HandleStun()
