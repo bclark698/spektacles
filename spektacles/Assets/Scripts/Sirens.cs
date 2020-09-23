@@ -13,6 +13,7 @@ public class Sirens : Enemy
         if (powerUp == sirenPowerUp)
         {
             StartCoroutine(HandleStun());
+            return true;
         }
 
         return false; // TODO change this to what it should be

@@ -147,7 +147,7 @@ public class Pixie : Enemy
         }
         return collisionCheck;
     }
-
+    /*
     // check if pixies touches player
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -156,7 +156,7 @@ public class Pixie : Enemy
             playerHit = true;
             giggle2.Play();
         }
-    }
+    }*/
 
 
     // searches for player
@@ -209,7 +209,6 @@ public class Pixie : Enemy
     // sends pixies back to starting position
     IEnumerator returnHome()
     {
-        Debug.Log("pixie return to start");
         float reachedPosDist = 1f;
         while (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
         {
@@ -224,15 +223,9 @@ public class Pixie : Enemy
         Debug.Log("pixie handling powerup" + powerUp);
         if(powerUp == pixiePowerUp)
         {
-            state = State.ReturnToStart;
-            //returnHome();
-
-        }
-        /* //TODO stun not fully implemented yet
-         else if(powerUp == PowerUp.Stun) {
             StartCoroutine(HandleStun());
-         }
-          */
+            return true;
+        }
         return false; // TODO change this to what it should be
     }
 
@@ -242,7 +235,6 @@ public class Pixie : Enemy
         isStunned = true;
         float originalSpeed = moveSpeed;
         float originalRotationSpeed = rotationSpeed;
-        State originalState = state;
 
         moveSpeed = 0;
         rotationSpeed = 0;
@@ -252,9 +244,10 @@ public class Pixie : Enemy
         yield return new WaitForSeconds(1.5f);
 
         moveSpeed = originalSpeed;
-        rotationSpeed = originalSpeed; //TODO change back
-        state = originalState;
+        rotationSpeed = originalRotationSpeed;
         isStunned = false;
+        state = State.ReturnToStart;
+        Debug.Log("pixie state is return home");
     }
 
 
