@@ -11,13 +11,8 @@ public class Player : MonoBehaviour
     private Animator anim;
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
-<<<<<<< HEAD
     private bool powerUpEquipped;
 
-
-=======
-    
->>>>>>> parent of 9c57850... Update Player.cs
     //dash stuff
     public float dashSpeed;
     public float startDashTime;
@@ -89,13 +84,9 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
         {
             // do some dashy shit
-            if(powerUp == PowerUp.PowerUpType.Dash)
+            if (powerUp == PowerUp.PowerUpType.Dash)
             {
-<<<<<<< HEAD
-                dash();
-=======
                 dashyShit();
->>>>>>> parent of 9c57850... Update Player.cs
                 powerUpObj.GetComponent<PowerUp.Dash>().Use();
             }
         }
@@ -105,7 +96,7 @@ public class Player : MonoBehaviour
      * in range to let player try out using powerups. */
     void UsePowerUp()
     {
-        if(powerUp != PowerUp.PowerUpType.None)
+        if (powerUp != PowerUp.PowerUpType.None)
         {
             // get all the enemies within our PowerUpRange
             Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
@@ -113,7 +104,7 @@ public class Player : MonoBehaviour
             // temporarily keep track of the held powerup item because .Use() sets powerUp to None.
             PowerUp.PowerUpType temp = powerUp;
 
-            if(powerUpObj != null)
+            if (powerUpObj != null)
             {
                 powerUpObj.GetComponent<PowerUp>().Use();
 
@@ -126,7 +117,7 @@ public class Player : MonoBehaviour
                     enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(temp);
                 }
             }
-            
+
         }
     }
 
@@ -188,16 +179,16 @@ public class Player : MonoBehaviour
                     checkLives();
                 }
             }
-            
+
         }
-        else if(other.CompareTag("Glasses")) // pick up glasses
+        else if (other.CompareTag("Glasses")) // pick up glasses
         {
-            if(anim.GetBool("blind"))
+            if (anim.GetBool("blind"))
             {
                 anim.SetBool("blind", false);
             }
         }
-        else if(other.CompareTag("GlassesBuff"))
+        else if (other.CompareTag("GlassesBuff"))
         {
             lives++;
             Destroy(other.gameObject);
@@ -210,54 +201,41 @@ public class Player : MonoBehaviour
     // makes melita zoom zoom
     public void dashyShit()
     {
-        if (direction == 0)
+
+        if (dashTime <= 0)
         {
-            if (Input.GetKeyDown(KeyCode.LeftArrow))
-            {
-                direction = 1;
-            }
-            else if (Input.GetKeyDown(KeyCode.RightArrow))
-            {
-                direction = 2;
-            }
-            else if (Input.GetKeyDown(KeyCode.UpArrow))
-            {
-                direction = 3;
-            }
-            else if (Input.GetKeyDown(KeyCode.DownArrow))
-            {
-                direction = 4;
-            }
+            direction = 0;
+            dashTime = startDashTime;
+            movementVelocity = Vector2.zero;
         }
         else
         {
-            if (dashTime <= 0)
-            {
-                direction = 0;
-                dashTime = startDashTime;
-                rb.velocity = Vector2.zero;
-            }
-            else
-            {
-                dashTime -= Time.deltaTime;
+            dashTime -= Time.deltaTime;
 
-                if (direction == 1)
-                {
-                    rb.velocity = Vector2.left * dashSpeed;
-                }
-                else if (direction == 2)
-                {
-                    rb.velocity = Vector2.right * dashSpeed;
-                }
-                else if (direction == 3)
-                {
-                    rb.velocity = Vector2.up * dashSpeed;
-                }
-                else if (direction == 4)
-                {
-                    rb.velocity = Vector2.down * dashSpeed;
-                }
+            if (movementVelocity.x < 0)
+            {
+                movementVelocity = Vector2.left.normalized * dashSpeed;
+            }
+            else if (movementVelocity.x > 0)
+            {
+                movementVelocity = Vector2.right.normalized * dashSpeed;
+            }
+            else if (movementVelocity.y > 0)
+            {
+                movementVelocity = Vector2.up.normalized * dashSpeed;
+            }
+            else if (movementVelocity.y < 0)
+            {
+                movementVelocity = Vector2.down.normalized * dashSpeed;
+            }
+            else if (movementVelocity.x == 0 && movementVelocity.y == 0)
+            {
+                movementVelocity = Vector2.down.normalized * dashSpeed;
+                Debug.Log("Vector2.down.normalized = " + Vector2.down.normalized);
+                Debug.Log("dashSpeed = " + dashSpeed);
+                Debug.Log("Movement Velocity = " + movementVelocity);
             }
         }
+
     }
 }
