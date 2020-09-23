@@ -6,7 +6,7 @@ public class Sirens : Enemy
 {
     private Rigidbody2D playerRB; //var for player rigidbody
     private bool inRange = false; //if player is in range
-    
+
     [SerializeField] private float gravitationalForce = 5; //adjust gravity
     private PowerUp.PowerUpType sirenPowerUp = PowerUp.PowerUpType.EarPlugs;
 
@@ -65,8 +65,7 @@ public class Sirens : Enemy
         yield return new WaitForSeconds(5f);
 
         gameObject.GetComponent<CircleCollider2D>().enabled = true; //turn on range
-        isStunned = false; //no longer stunned 
+        isStunned = false; //no longer stunned
     }
 
 }
-
