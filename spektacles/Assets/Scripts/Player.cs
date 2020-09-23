@@ -75,17 +75,16 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             UsePowerUp();
-        }
-
-        // TODO replace with Dash script, combine into other script
-        if (Input.GetKeyDown(KeyCode.R) && powerUp != PowerUp.PowerUpType.None)
-        {
-            // do some dashy shit
+            /*
+            // TODO replace with Dash script, combine into other script
             if (powerUp == PowerUp.PowerUpType.Dash)
             {
-               dashyShit(moveInput);
-               // powerUpObj.GetComponent<PowerUp.Dash>().Use();
-            }
+                Dash();
+                powerUpObj.GetComponent<PowerUp>().Use();
+            } else
+            {
+                UsePowerUp();
+            }*/
         }
     }
 
@@ -106,6 +105,7 @@ public class Player : MonoBehaviour
             // temporarily keep track of the held powerup item because .Use() sets powerUp to None.
             PowerUp.PowerUpType temp = powerUp;
 
+            //TODO this if might not be needed
             if (powerUpObj != null)
             {
                 powerUpObj.GetComponent<PowerUp>().Use();
@@ -122,6 +122,8 @@ public class Player : MonoBehaviour
 
         }
     }
+
+
 
     /* For testing purposes, this draws red line around the player's power up range.
      * This has no effect during gameplay, so we can leave this in. */
@@ -197,8 +199,11 @@ public class Player : MonoBehaviour
     }
 
     // makes melita zoom zoom
-    public void dashyShit(Vector2 direction)
+    public void Dash()
     {
+        Debug.Log("zoom?");
+        Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        
         if (dashTime <= 0)
         {
             dashTime = startDashTime;
