@@ -31,7 +31,11 @@ public class PowerUp : MonoBehaviour
         // set player powerup variables
         p = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         p.powerUp = powerUpName;
-        p.powerUpObj = gameObject; // TODO do we need to destroy the player's previous held powerup gameobject?
+
+        // destroy the player's previous held powerup gameobject and set to new one
+        Destroy(p.powerUpObj);
+        p.powerUpObj = gameObject;
+
         Debug.Log("Player picked up " + p.powerUp);
 
         // turn off collider and sprite renderer for the object

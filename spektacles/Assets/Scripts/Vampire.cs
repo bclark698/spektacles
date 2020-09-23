@@ -8,7 +8,7 @@ public class Vampire : Enemy
 
     public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
-        Debug.Log("vamp handling powerup " + powerUp);
+        Debug.Log("vamp handling powerup");
         if (powerUp == vampirePowerUp)
         {
             StartCoroutine(HandleStun());

@@ -91,15 +91,20 @@ public class Player : MonoBehaviour
             // temporarily keep track of the held powerup item because .Use() sets powerUp to None.
             PowerUp.PowerUpType temp = powerUp;
 
-            powerUpObj.GetComponent<PowerUp>().Use();
-            // tempSprayNoise.Play();
-            // TODO put this sound effect in bug spray powerup/pixie code
-
-            // have each enemy determine how to handle this powerup being used on them
-            for (int i = 0; i < enemiesInRange.Length; i++)
+            if(powerUpObj != null)
             {
-                enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(temp);
+                powerUpObj.GetComponent<PowerUp>().Use();
+
+                // tempSprayNoise.Play();
+                // TODO put this sound effect in bug spray powerup/pixie code
+
+                // have each enemy determine how to handle this powerup being used on them
+                for (int i = 0; i < enemiesInRange.Length; i++)
+                {
+                    enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(temp);
+                }
             }
+            
         }
     }
 
@@ -141,7 +146,7 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if(other.CompareTag("Enemy"))
+        if (other.CompareTag("Enemy"))
         {
             /* If the enemy is stunned, they have no effect on Melita. 
              * Otherwise, automatically use a held powerup if it is applicable to the enemy 

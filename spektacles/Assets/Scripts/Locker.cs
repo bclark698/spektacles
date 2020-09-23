@@ -5,7 +5,7 @@ using UnityEngine;
 public class Locker : MonoBehaviour
 {
     [SerializeField]
-    private PowerUp.PowerUpType item; // powerup that can always be retrieved from this locker
+    private PowerUp.PowerUpType item = PowerUp.PowerUpType.None; // powerup that can always be retrieved from this locker
     private bool playerInRange;
 
     // Reference to the powerUp Prefab. Drag a Prefab into this field in the Inspector.
@@ -39,15 +39,18 @@ public class Locker : MonoBehaviour
     // This script will simply instantiate the Prefab whenever the locker is opened.
     public void Open()
     {
-        // play an open animation on the locker?? to reveal the powerup inside?
-        // TODO possibly
+        if(powerUpPrefab != null)
+        {
+            // play an open animation on the locker?? to reveal the powerup inside?
+            // TODO possibly
 
-        GameObject newPowerUp = Instantiate(powerUpPrefab);
+            GameObject newPowerUp = Instantiate(powerUpPrefab);
 
-        newPowerUp.GetComponent<PowerUp>().PickUp();
-        Debug.Log("Player picked up " + powerUpPrefab.GetComponent<PowerUp>().powerUpName + " from a locker");
+            newPowerUp.GetComponent<PowerUp>().PickUp();
+            Debug.Log("Player picked up " + powerUpPrefab.GetComponent<PowerUp>().powerUpName + " from a locker");
 
-        // play a closing animation on the locker??
+            // play a closing animation on the locker??
+        }
     }
 }
 
