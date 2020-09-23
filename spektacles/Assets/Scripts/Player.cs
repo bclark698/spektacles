@@ -157,7 +157,7 @@ public class Player : MonoBehaviour
         } else if (powerUpEquipped && powerUp == PowerUp.PowerUpType.EarPlugs)
         {
             powerUpEquipped = false;
-            other.GetComponentInChildren<Enemy>().HandlePowerUp(powerUp);
+            other.GetComponentInChildren<Enemy>().HandlePowerUp(powerUp); //bc i kno its in the child
             powerUpObj.GetComponent<PowerUp>().Use();
             powerUp = PowerUp.PowerUpType.None;
         }
