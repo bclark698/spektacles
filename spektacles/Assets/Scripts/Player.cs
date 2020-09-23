@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     public float moveSpeed;
     private Animator anim;
     [HideInInspector]
-    public bool powerUpEquipped;
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
 
@@ -40,7 +39,6 @@ public class Player : MonoBehaviour
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
 
         transform.GetChild(0).gameObject.SetActive(false);
-        powerUpEquipped = false;
     }
 
     // Update is called once per frame
@@ -66,38 +64,34 @@ public class Player : MonoBehaviour
             anim.SetBool("walking", false);
         }
 
-        // Handle powerUp. Important to do .GetKeyDown(KeyCode.P) instead of .GetKey(KeyCode.P) because GetKey triggers more than once
-        if (Input.GetKeyDown(KeyCode.P) && powerUp != PowerUp.PowerUpType.None)
+        /* Important to use.GetKeyDown(KeyCode.P) instead of.GetKey(KeyCode.P) because
+         * GetKey triggers more than once */
+        if (Input.GetKeyDown(KeyCode.P))
         {
-            if (powerUp == PowerUp.PowerUpType.BugSpray)
+            UsePowerUp();
+        }
+    }
+
+    /* Handle powerUp. A held powerUp still gets used (wasted) even if no enemies are
+     * in range to let player try out using powerups. */
+    void UsePowerUp()
+    {
+        if(powerUp != PowerUp.PowerUpType.None)
+        {
+            // get all the enemies within our PowerUpRange
+            Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
+
+            // temporarily keep track of the held powerup item because .Use() sets powerUp to None.
+            PowerUp.PowerUpType temp = powerUp;
+
+            powerUpObj.GetComponent<PowerUp>().Use();
+            // tempSprayNoise.Play();
+            // TODO put this sound effect in bug spray powerup/pixie code
+
+            // have each enemy determine how to handle this powerup being used on them
+            for (int i = 0; i < enemiesInRange.Length; i++)
             {
-                // get all the enemies within our PowerUpRange
-                Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
-
-                if (enemiesInRange.Length <= 0) //if no enemies?
-                {
-                    powerUp = PowerUp.PowerUpType.None; //use the powerup but do nothing
-                }
-
-                // don't check enemies unless enemies are in range
-                else if (enemiesInRange.Length > 0)
-                {
-                    powerUpObj.GetComponent<PowerUp>().Use();
-                    // tempSprayNoise.Play();
-                    // TODO put this noise in bug spray powerup/pixie code
-
-                    // have each enemy determine how to handle this powerup being used on them
-                    for (int i = 0; i < enemiesInRange.Length; i++)
-                    {
-                        enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(powerUp);
-                    }
-                    // set player back to holding no powerup
-                    powerUp = PowerUp.PowerUpType.None;
-                }
-            }
-            else
-            {
-                powerUpEquipped = true;
+                enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(temp);
             }
         }
     }
@@ -140,35 +134,36 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-
-        if (!powerUpEquipped && other.CompareTag("Enemie"))
+        if(other.CompareTag("Enemy"))
         {
+            /* If the enemy is stunned, they have no effect on Melita. 
+             * Otherwise, automatically use a held powerup if it is applicable to the enemy 
+             * that Melita is touching. */
             if (!other.GetComponent<Enemy>().isStunned)
             {
-                checkLives();
+                // Automatically use a powerup if applicable to enemy
+                // Note: the HandlePowerUp function returns true if the powerup used on them is applicable to them
+                if (powerUp != PowerUp.PowerUpType.None && other.GetComponent<Enemy>().HandlePowerUp(powerUp))
+                {
+                    // also affects all other applicable enemies in range
+                    UsePowerUp();
+                }
+                else
+                {
+                    // possible death if not enough lives
+                    checkLives();
+                }
             }
-        } else if (powerUpEquipped && other.CompareTag("Enemie"))
-        {
-            powerUpEquipped = false;
-            other.GetComponent<Enemy>().HandlePowerUp(powerUp);
-            powerUpObj.GetComponent<PowerUp>().Use();
-            powerUp = PowerUp.PowerUpType.None;
-        } else if (powerUpEquipped && powerUp == PowerUp.PowerUpType.EarPlugs)
-        {
-            powerUpEquipped = false;
-            other.GetComponent<Enemy>().HandlePowerUp(powerUp);
-            powerUpObj.GetComponent<PowerUp>().Use();
-            powerUp = PowerUp.PowerUpType.None;
+            
         }
-
-
-        if(other.CompareTag("Glasses"))
+        else if(other.CompareTag("Glasses")) // pick up glasses
         {
-            if(anim.GetBool("blind")==true)
+            if(anim.GetBool("blind"))
+            {
                 anim.SetBool("blind", false);
+            }
         }
-
-        if(other.CompareTag("GlassesBuff"))
+        else if(other.CompareTag("GlassesBuff"))
         {
             lives++;
             Destroy(other.gameObject);

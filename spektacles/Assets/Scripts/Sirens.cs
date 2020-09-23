@@ -46,13 +46,15 @@ public class Sirens : Enemy
     }
 
 
-    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
+    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
         Debug.Log("siren handling powerup " + powerUp);
         if (powerUp == sirenPowerUp)
         {
             StartCoroutine(HandleStun());
+            return true;
         }
+        return false;
     }
 
     public override IEnumerator HandleStun()
