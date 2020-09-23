@@ -51,7 +51,6 @@ public class PowerUp : MonoBehaviour
 
     }
 
-
     public class Dash : PowerUp
     {
         // 3 uses, when at 0 (aka last use) destroy
@@ -60,7 +59,7 @@ public class PowerUp : MonoBehaviour
         {
             if(numUses == 0)
             {
-                Destroy(gameObject);
+                
                 numUses = 2;
             }
             else

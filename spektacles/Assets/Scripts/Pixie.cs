@@ -28,7 +28,6 @@ public class Pixie : Enemy
     private GameObject playerObj;   // player object (melita)
     private Vector2 lastSeenPos;    // players last seen position
     private bool playerHit;         // true if player has been hit, false if not
-    private bool atHome;            // true if pixies are at starting position
     private PowerUp.PowerUpType pixiePowerUp = PowerUp.PowerUpType.BugSpray;    // bug spray, TODO can this be taken out and put in enemy script?
     //private SpriteRenderer spriteRenderer; // used to flip sprite depending on movement direction
 
@@ -58,7 +57,6 @@ public class Pixie : Enemy
     {
         Physics2D.queriesStartInColliders = false; // stops ray from detecting pixies own collider
         startingPos = transform.position; // gets pixie's starting position
-        atHome = true;
         playerObj = GameObject.FindGameObjectWithTag("Player"); // create player object
         lastSeenPos = playerObj.transform.position;
 
@@ -120,7 +118,6 @@ public class Pixie : Enemy
             if (hitInfo.collider.CompareTag("Player"))
             {
                 collisionCheck = true;
-                atHome = false;
             }
         }
         else
@@ -219,7 +216,6 @@ public class Pixie : Enemy
             transform.position = Vector2.MoveTowards(transform.position, startingPos, (moveSpeed * Time.deltaTime) / 50);
             yield return null;
         }
-        atHome = true;
         state = State.Waiting;
     }
 
