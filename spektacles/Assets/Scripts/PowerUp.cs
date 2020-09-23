@@ -54,30 +54,29 @@ public class PowerUp : MonoBehaviour
     {
         // play a use sound effect (specialized for each powerup)
         // specialized powerup particle effect TODO
-        /*
         switch (powerUpName){
-        case BugSpray:
+        case PowerUpType.BugSpray:
         powerupSounds.bugSpraySound();
         break;
 
-        case Helmet:
+        case PowerUpType.Helmet:
         powerupSounds.helmetBlockSound();
         break;
 
-        case EarPlugs:
+        case PowerUpType.EarPlugs:
         //powerupSounds.earbudsBlockSoundStart(); //(This would be a sound that signifies earbuds breaking.. so dunno)
         break;
 
-        case Garlic:
+        case PowerUpType.Garlic:
         powerupSounds.garlicBlockSound();
         break;
 
-        case Dash:
+        case PowerUpType.Dash:
         powerupSounds.zoomSound();
         break;
         }
 
-        */
+
 
 
         // destroy powerup gameObject
