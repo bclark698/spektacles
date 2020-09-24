@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 7716433429904561942}
   - component: {fileID: 7716433429904561943}
   - component: {fileID: 7716433429904561936}
+  - component: {fileID: 8659623822783101277}
   m_Layer: 8
   m_Name: Vampire
   m_TagString: Enemy
@@ -122,3 +123,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
+--- !u!95 &8659623822783101277
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7716433429904561937}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1ec33f1136914a54eabc57b68bc7eff9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
