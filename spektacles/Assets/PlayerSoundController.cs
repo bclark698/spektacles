@@ -6,11 +6,14 @@ public class PlayerSoundController : MonoBehaviour
 {
     public AudioSource playerHit;
     public AudioSource reloadLvl;
+    public AudioSource aquire;
 
+    /*
     public AudioSource bugSpray;
     public AudioSource zooOom;
     public AudioSource helmetProtect;
     public AudioSource earbudsProtect;
+    */
 
     // Start is called before the first frame update
     void Start()
@@ -26,23 +29,8 @@ public class PlayerSoundController : MonoBehaviour
       reloadLvl.Play();
     }
 
-    public void bugSpraySound(){
-      bugSpray.Play();
+    public void aquireSound(){
+      aquire.Play();
     }
 
-    public void zoomSound(){
-      zooOom.Play();
-    }
-
-    public void helmetProtectSound(){
-      helmetProtect.Play();
-    }
-
-    public void earbudsProtectingStart(){
-      earbudsProtect.Play();
-    }
-
-    public void earbudsProectingStop(){
-      earbudsProtect.Stop();
-    }
 }

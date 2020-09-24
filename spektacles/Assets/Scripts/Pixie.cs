@@ -28,7 +28,6 @@ public class Pixie : Enemy
     private GameObject playerObj;   // player object (melita)
     private Vector2 lastSeenPos;    // players last seen position
     private bool playerHit;         // true if player has been hit, false if not
-    private bool atHome;            // true if pixies are at starting position
     private PowerUp.PowerUpType pixiePowerUp = PowerUp.PowerUpType.BugSpray;    // bug spray, TODO can this be taken out and put in enemy script?
     //private SpriteRenderer spriteRenderer; // used to flip sprite depending on movement direction
 
@@ -58,7 +57,6 @@ public class Pixie : Enemy
     {
         Physics2D.queriesStartInColliders = false; // stops ray from detecting pixies own collider
         startingPos = transform.position; // gets pixie's starting position
-        atHome = true;
         playerObj = GameObject.FindGameObjectWithTag("Player"); // create player object
         lastSeenPos = playerObj.transform.position;
 
@@ -114,13 +112,12 @@ public class Pixie : Enemy
     private bool canSeePlayer()
     {
         bool collisionCheck = false;
-        if (hitInfo.collider != null)
+        if (hitInfo.collider != null && !hitInfo.collider.CompareTag("PIgnore"))
         {
             Debug.DrawLine(transform.position, hitInfo.point, Color.red);
             if (hitInfo.collider.CompareTag("Player"))
             {
                 collisionCheck = true;
-                atHome = false;
             }
         }
         else
@@ -150,7 +147,7 @@ public class Pixie : Enemy
         }
         return collisionCheck;
     }
-
+    /*
     // check if pixies touches player
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -159,7 +156,7 @@ public class Pixie : Enemy
             playerHit = true;
             giggle2.Play();
         }
-    }
+    }*/
 
 
     // searches for player
@@ -212,31 +209,24 @@ public class Pixie : Enemy
     // sends pixies back to starting position
     IEnumerator returnHome()
     {
-        Debug.Log("pixie return to start");
         float reachedPosDist = 1f;
         while (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
         {
             transform.position = Vector2.MoveTowards(transform.position, startingPos, (moveSpeed * Time.deltaTime) / 50);
             yield return null;
         }
-        atHome = true;
         state = State.Waiting;
     }
 
-    public override void HandlePowerUp(PowerUp.PowerUpType powerUp)
+    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
         Debug.Log("pixie handling powerup" + powerUp);
         if(powerUp == pixiePowerUp)
         {
-            state = State.ReturnToStart;
-            //returnHome();
-
-        }
-        /* //TODO stun not fully implemented yet
-         else if(powerUp == PowerUp.Stun) {
             StartCoroutine(HandleStun());
-         }
-          */
+            return true;
+        }
+        return false; // TODO change this to what it should be
     }
 
     public override IEnumerator HandleStun()
@@ -245,7 +235,6 @@ public class Pixie : Enemy
         isStunned = true;
         float originalSpeed = moveSpeed;
         float originalRotationSpeed = rotationSpeed;
-        State originalState = state;
 
         moveSpeed = 0;
         rotationSpeed = 0;
@@ -255,9 +244,10 @@ public class Pixie : Enemy
         yield return new WaitForSeconds(1.5f);
 
         moveSpeed = originalSpeed;
-        rotationSpeed = originalSpeed; //TODO change back
-        state = originalState;
+        rotationSpeed = originalRotationSpeed;
         isStunned = false;
+        state = State.ReturnToStart;
+        Debug.Log("pixie state is return home");
     }
 
 
