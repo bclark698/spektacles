@@ -50,22 +50,9 @@ public class Player : MonoBehaviour
         Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
         movementVelocity = moveInput.normalized * moveSpeed;
 
-        //Movement Animations - I am positive u can handle this in one line (kat)
-        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow) || Input.GetKey(KeyCode.LeftArrow) || (Input.GetKey(KeyCode.RightArrow)))
-        {
-            //Checks for Up,Down,Left,Right Movement and sets the walking boolean in the Animator to true to trigger the walking animation
-            anim.SetBool("walking", true);
-        }
-        if (Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A) || (Input.GetKey(KeyCode.S) || (Input.GetKey(KeyCode.D))))
-        {
-            //Same as above for WASD
-            anim.SetBool("walking", true);
-        }
-        if (!Input.anyKey)
-        {
-            //If the player is not pressing any key at all, sets walking to false
-            anim.SetBool("walking", false);
-        }
+        anim.SetFloat("Horizontal", moveInput.x);
+        anim.SetFloat("Vertical", moveInput.y);
+        anim.SetFloat("Magnitude", moveInput.magnitude);
 
         /* Important to use.GetKeyDown(KeyCode.P) instead of.GetKey(KeyCode.P) because
          * GetKey triggers more than once */
