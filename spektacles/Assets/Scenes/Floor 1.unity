@@ -300,6 +300,33 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c916b34ce535c4de883b4ff611c77799, type: 3}
+--- !u!1 &16773437 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2702425795038805966, guid: 8d6a4267772454d229c28dc53962fa9a,
+    type: 3}
+  m_PrefabInstance: {fileID: 36352131}
+  m_PrefabAsset: {fileID: 0}
+--- !u!50 &16773443
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 16773437}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
 --- !u!4 &20369830 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 5034593368048674809, guid: fe5a89c221a69af43ad5c4b4c3bf1979,
@@ -393,6 +420,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Pixie (1)
       objectReference: {fileID: 0}
+    - target: {fileID: 2702425795038805967, guid: 8d6a4267772454d229c28dc53962fa9a,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 2471661979293291346, guid: 1e110863b3e5a4141a8ed027d19cc365,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8d6a4267772454d229c28dc53962fa9a, type: 3}
 --- !u!4 &38774312 stripped

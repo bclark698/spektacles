@@ -39,6 +39,7 @@ public class Pixie : Enemy
     public float moveSpeed;     // movement speed of pixies
     public AudioSource giggle1; //agro sound
     public AudioSource giggle2; //dissapointed sound
+    public Animator anim;
 
 
     ////////////////////
@@ -59,6 +60,7 @@ public class Pixie : Enemy
         startingPos = transform.position; // gets pixie's starting position
         playerObj = GameObject.FindGameObjectWithTag("Player"); // create player object
         lastSeenPos = playerObj.transform.position;
+        anim = GetComponent<Animator>();
 
     }
 
@@ -100,6 +102,8 @@ public class Pixie : Enemy
 
 
         }
+        anim.SetFloat("lookingAngle", transform.rotation.z);
+        Debug.Log(transform.rotation.z);
 
     }
 
