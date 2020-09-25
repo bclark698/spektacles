@@ -38,7 +38,10 @@ public class cameraFollow : MonoBehaviour
       //Debug.Log(cam.transform.position);
       //Vector3 camUpdate = (camX, camY);
       //cam.transform.position = new Vector3(camX, camY, -3);
-      cam.transform.position = Vector3.Slerp(cam.transform.position,new Vector3(playerX, playerY, -3), camFollowSpeed * Time.deltaTime);
+      // cam.transform.position = Vector3.Slerp(cam.transform.position,new Vector3(playerX, playerY, -3), camFollowSpeed * Time.deltaTime);
+      if (cam.transform.position != player.transform.position){
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, -3f) , Time.deltaTime * camFollowSpeed);
+      }
     }
 
     IEnumerator upatePosition(float pX, float pY){
@@ -61,4 +64,8 @@ public class cameraFollow : MonoBehaviour
         yield return camX;
         yield return camY;
     }
+
+    IEnumerator updateVector(Vector2 camPos, Vector2 playerPos){
+    yield return null;
+  }
 }

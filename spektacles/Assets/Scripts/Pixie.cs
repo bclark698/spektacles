@@ -103,7 +103,7 @@ public class Pixie : Enemy
 
         }
         anim.SetFloat("lookingAngle", transform.rotation.z);
-        Debug.Log(transform.rotation.z);
+        //Debug.Log(transform.rotation.z);
 
     }
 
