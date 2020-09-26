@@ -12,6 +12,7 @@ public class Player : MonoBehaviour
     private Animator anim;
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
+    private cameraFollow cameraF;
 
     //dash stuff
     public float dashSpeed;
@@ -36,6 +37,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+        cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
         powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
 
@@ -170,6 +172,14 @@ public class Player : MonoBehaviour
             Debug.Log("add lives. current lives " + lives);
             playerSounds.aquireSound();
             //add any ui code here!
+        }
+        else if(other.CompareTag("End"))
+        {
+            //turn everything off so the player cant lose when they talk to irving
+            //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
+            gameObject.SetActive(false); 
+            cameraF.enabled = false; //camera follow turned off separately 
+            
         }
 
     }
