@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
     private cameraFollow cameraF;
+    private CircleCollider2D irving; 
 
     //dash stuff
     public float dashSpeed;
@@ -38,6 +39,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
+        irving = GameObject.FindGameObjectWithTag("End").GetComponent<CircleCollider2D>();
+
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
         powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
 
@@ -124,6 +127,8 @@ public class Player : MonoBehaviour
             lives--;
             if (anim.GetBool("blind") == false)
                 anim.SetBool("blind", true);
+            irving.isTrigger = false; //turn irving off
+
         } else if (lives == 1) //no glasses and no buff
         {
             lives--;
@@ -132,6 +137,7 @@ public class Player : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
     }
+
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -160,10 +166,9 @@ public class Player : MonoBehaviour
         else if (other.CompareTag("Glasses")) // pick up glasses
         {
             if (anim.GetBool("blind"))
-            {
                 anim.SetBool("blind", false);
-                playerSounds.aquireSound();
-            }
+            playerSounds.aquireSound();
+            irving.isTrigger = true; 
         }
         else if (other.CompareTag("GlassesBuff"))
         {
@@ -177,9 +182,9 @@ public class Player : MonoBehaviour
         {
             //turn everything off so the player cant lose when they talk to irving
             //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
-            gameObject.SetActive(false); 
+            //irving is not able to handle 'complex' collisions so thats on the player
+            gameObject.SetActive(false);
             cameraF.enabled = false; //camera follow turned off separately 
-            
         }
 
     }
