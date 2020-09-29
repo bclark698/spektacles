@@ -185,9 +185,8 @@ public class Player : MonoBehaviour
             //turn everything off so the player cant lose when they talk to irving
             //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
             //irving is not able to handle 'complex' collisions so thats on the player
+            cameraF.stopFollow(true); //camera follow turned off separately
             musicSounds.loadCustceneMusic();
-            gameObject.SetActive(false);
-            cameraF.enabled = false; //camera follow turned off separately
         }
 
     }

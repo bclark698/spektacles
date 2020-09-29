@@ -306,8 +306,6 @@ GameObject:
   - component: {fileID: 69824115}
   - component: {fileID: 69824114}
   - component: {fileID: 69824113}
-  - component: {fileID: 69824112}
-  - component: {fileID: 69824124}
   - component: {fileID: 69824125}
   - component: {fileID: 69824126}
   - component: {fileID: 69824128}
@@ -316,7 +314,6 @@ GameObject:
   - component: {fileID: 69824140}
   - component: {fileID: 69824138}
   - component: {fileID: 69824130}
-  - component: {fileID: 69824137}
   - component: {fileID: 69824150}
   - component: {fileID: 69824149}
   - component: {fileID: 69824148}
@@ -337,12 +334,23 @@ GameObject:
   - component: {fileID: 69824122}
   - component: {fileID: 69824139}
   - component: {fileID: 69824129}
-  - component: {fileID: 69824156}
   - component: {fileID: 69824155}
   - component: {fileID: 69824153}
   - component: {fileID: 69824152}
   - component: {fileID: 69824151}
   - component: {fileID: 69824154}
+  - component: {fileID: 69824137}
+  - component: {fileID: 69824112}
+  - component: {fileID: 69824124}
+  - component: {fileID: 69824156}
+  - component: {fileID: 69824158}
+  - component: {fileID: 69824157}
+  - component: {fileID: 69824160}
+  - component: {fileID: 69824159}
+  - component: {fileID: 69824162}
+  - component: {fileID: 69824161}
+  - component: {fileID: 69824164}
+  - component: {fileID: 69824163}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -408,42 +416,38 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.93, y: -18.58, z: 0}
+  m_LocalPosition: {x: -4.93, y: -21.72, z: 0}
   m_LocalScale: {x: 1.4987803, y: 1.4987803, z: 1.4987803}
-  m_Children: []
+  m_Children:
+  - {fileID: 257246216}
   m_Father: {fileID: 0}
   m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &69824112
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Script: {fileID: 11500000, guid: 437f9a4e3dbc647f9bdce95308418bff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 4
+  itemId: 59
   indentLevel: 0
-  display: 1
-  stage: {fileID: 0}
-  character: {fileID: 1970083263}
-  replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: ed0257bdc03b947e7bb0889118e9e2c6, type: 3}
-  offset: 0
-  fromPosition: {fileID: 0}
-  toPosition: {fileID: 2025350944}
-  facing: 2
-  useDefaultSettings: 1
-  fadeDuration: 0.5
-  moveDuration: 1
-  shiftOffset: {x: 0, y: 0}
-  move: 0
-  shiftIntoPlace: 0
-  waitUntilFinished: 0
+  duration: 0.2
+  fadeOut: 1
+  targetView: {fileID: 1860077393}
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  targetCamera: {fileID: 0}
+  fadeTweenType: 4
+  orthoSizeTweenType: 4
+  posTweenType: 4
+  rotTweenType: 4
 --- !u!114 &69824113
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -486,9 +490,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 633.3207
-    y: 434.2625
-    width: 114.38835
+    x: 631.02026
+    y: 433.2625
+    width: 151
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -497,12 +501,19 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 69824155}
-  - {fileID: 69824154}
+  - {fileID: 69824159}
+  - {fileID: 69824112}
+  - {fileID: 69824157}
+  - {fileID: 69824158}
   - {fileID: 69824136}
   - {fileID: 69824153}
   - {fileID: 69824152}
   - {fileID: 69824151}
+  - {fileID: 69824155}
+  - {fileID: 69824154}
+  - {fileID: 69824162}
+  - {fileID: 69824124}
+  - {fileID: 69824161}
   - {fileID: 69824133}
   suppressAllAutoSelections: 0
 --- !u!114 &69824115
@@ -536,7 +547,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 306.94952
     y: 153.89879
-    width: 63.191517
+    width: 101
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -545,9 +556,7 @@ MonoBehaviour:
   description: somethin's cookin
   eventHandler: {fileID: 69824115}
   commandList:
-  - {fileID: 69824112}
   - {fileID: 69824113}
-  - {fileID: 69824124}
   suppressAllAutoSelections: 0
 --- !u!114 &69824117
 MonoBehaviour:
@@ -583,7 +592,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 258.36697
     y: 411.2105
-    width: 82.47344
+    width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -609,12 +618,12 @@ CircleCollider2D:
   m_Enabled: 1
   m_Density: 1
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.009612111, y: 0}
   serializedVersion: 2
-  m_Radius: 0.49999997
+  m_Radius: 0.6057339
 --- !u!114 &69824120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -628,18 +637,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -128.07109, y: -159.22836}
+  scrollPos: {x: -321.13202, y: -220.64943}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 402
-  zoom: 0.7519996
+  zoom: 1
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 69824150}
   selectedCommands: []
   variables:
   - {fileID: 69824125}
@@ -687,7 +697,7 @@ MonoBehaviour:
     going. '
   description: 
   character: {fileID: 1670029141}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 2497837ae24cc47e5931716144542aea, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -711,9 +721,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 440.42044
+    x: 437.9844
     y: 552.0602
-    width: 85.13302
+    width: 122
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -722,39 +732,70 @@ MonoBehaviour:
   description: mom tells u to go to school
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 69824156}
   - {fileID: 69824122}
   suppressAllAutoSelections: 0
 --- !u!114 &69824124
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 8
+  itemId: 60
   indentLevel: 0
-  display: 2
-  stage: {fileID: 0}
-  character: {fileID: 1970083263}
-  replacedCharacter: {fileID: 0}
-  portrait: {fileID: 0}
-  offset: 0
-  fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
-  facing: 0
-  useDefaultSettings: 1
-  fadeDuration: 0.5
-  moveDuration: 1
-  shiftOffset: {x: 0, y: 0}
-  move: 0
-  shiftIntoPlace: 0
-  waitUntilFinished: 0
+  description: 
+  targetObject: {fileID: 1557143081}
+  targetComponentAssemblyName: cameraFollow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: cameraFollow
+  targetMethod: returnToPlayer
+  targetMethodText: 'returnToPlayer (Single, Single): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Single
+      intValue: 0
+      boolValue: 0
+      floatValue: 2
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  - objValue:
+      typeAssemblyname: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Single
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &69824125
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -784,9 +825,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 440.46762
+    x: 439.32867
     y: 437.64093
-    width: 115.71814
+    width: 152
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1718,32 +1759,66 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &69824137
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 59927941e3d79be4dac4408058904465, type: 3}
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 28
+  itemId: 58
   indentLevel: 0
-  rb:
-    rigidbody2DRef: {fileID: 0}
-    rigidbody2DVal: {fileID: 1640667241}
-  forceMode: 1
-  forceFunction: 0
-  force:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 20, y: -20}
-  forceScaleFactor:
-    floatRef: {fileID: 0}
-    floatVal: 20
-  atPosition:
-    vector2Ref: {fileID: 0}
-    vector2Val: {x: 0, y: 0}
+  description: 
+  targetObject: {fileID: 1557143081}
+  targetComponentAssemblyName: cameraFollow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: cameraFollow
+  targetMethod: returnToPlayer
+  targetMethodText: 'returnToPlayer (Single, Single): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Single
+      intValue: 0
+      boolValue: 0
+      floatValue: 2
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  - objValue:
+      typeAssemblyname: System.Single, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Single
+      intValue: 0
+      boolValue: 0
+      floatValue: 2
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &69824138
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2019,9 +2094,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 639.03925
-    y: 336.9953
-    width: 60
+    x: 636.5705
+    y: 335.66553
+    width: 75
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2031,7 +2106,9 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 69824130}
+  - {fileID: 69824164}
   - {fileID: 69824137}
+  - {fileID: 69824163}
   - {fileID: 69824138}
   suppressAllAutoSelections: 0
 --- !u!114 &69824141
@@ -2092,7 +2169,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
@@ -2313,7 +2390,7 @@ MonoBehaviour:
   indentLevel: 0
   duration: 0.2
   amount: {x: 1, y: 1}
-  waitUntilFinished: 0
+  waitUntilFinished: 1
 --- !u!114 &69824147
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2367,7 +2444,7 @@ MonoBehaviour:
   portrait: {fileID: 21300000, guid: 2497837ae24cc47e5931716144542aea, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 1632151790}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -2420,9 +2497,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 448.31476
-    y: 303.37582
-    width: 89.78728
+    x: 448.01437
+    y: 302.37582
+    width: 127
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2431,6 +2508,8 @@ MonoBehaviour:
   description: talk to mom & knock off glasses
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 69824160}
+  - {fileID: 69824156}
   - {fileID: 69824149}
   - {fileID: 69824148}
   - {fileID: 69824147}
@@ -2519,22 +2598,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 57
   indentLevel: 0
-  display: 1
+  display: 2
   stage: {fileID: 0}
   character: {fileID: 1970083263}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: ed0257bdc03b947e7bb0889118e9e2c6, type: 3}
+  portrait: {fileID: 0}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 2025350944}
-  facing: 2
+  toPosition: {fileID: 0}
+  facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
   moveDuration: 1
   shiftOffset: {x: 0, y: 0}
   move: 0
   shiftIntoPlace: 0
-  waitUntilFinished: 0
+  waitUntilFinished: 1
 --- !u!114 &69824155
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2549,14 +2628,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 53
   indentLevel: 0
-  display: 1
+  display: 2
   stage: {fileID: 0}
   character: {fileID: 1670029141}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 2497837ae24cc47e5931716144542aea, type: 3}
+  portrait: {fileID: 0}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 1632151790}
+  toPosition: {fileID: 0}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -2574,10 +2653,35 @@ MonoBehaviour:
   m_GameObject: {fileID: 69824109}
   m_Enabled: 1
   m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437f9a4e3dbc647f9bdce95308418bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 61
+  indentLevel: 0
+  duration: 0.2
+  fadeOut: 1
+  targetView: {fileID: 1860077393}
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  targetCamera: {fileID: 0}
+  fadeTweenType: 4
+  orthoSizeTweenType: 4
+  posTweenType: 4
+  rotTweenType: 4
+--- !u!114 &69824157
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 52
+  itemId: 63
   indentLevel: 0
   display: 1
   stage: {fileID: 0}
@@ -2586,7 +2690,7 @@ MonoBehaviour:
   portrait: {fileID: 21300000, guid: 2497837ae24cc47e5931716144542aea, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
+  toPosition: {fileID: 1632151790}
   facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
@@ -2595,6 +2699,206 @@ MonoBehaviour:
   move: 0
   shiftIntoPlace: 0
   waitUntilFinished: 0
+--- !u!114 &69824158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 62
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 1970083263}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: ed0257bdc03b947e7bb0889118e9e2c6, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 2025350944}
+  facing: 2
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &69824159
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 65
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1557143081}
+  targetComponentAssemblyName: cameraFollow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: cameraFollow
+  targetMethod: stopFollow
+  targetMethodText: 'stopFollow (Boolean): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 1
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &69824160
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 64
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1557143081}
+  targetComponentAssemblyName: cameraFollow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: cameraFollow
+  targetMethod: stopFollow
+  targetMethodText: 'stopFollow (Boolean): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 1
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &69824161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 67
+  indentLevel: 0
+  duration: 1.75
+  targetAlpha: 0
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
+--- !u!114 &69824162
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 66
+  indentLevel: 0
+  duration: 0.3
+  targetAlpha: 1
+  waitUntilFinished: 0
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
+--- !u!114 &69824163
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 69
+  indentLevel: 0
+  duration: 1.75
+  targetAlpha: 0
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
+--- !u!114 &69824164
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 68
+  indentLevel: 0
+  duration: 0.3
+  targetAlpha: 1
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 1}
+  fadeTexture: {fileID: 0}
+  fadeTweenType: 4
 --- !u!1 &221243734
 GameObject:
   m_ObjectHideFlags: 0
@@ -2677,6 +2981,53 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &257246215
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 257246216}
+  - component: {fileID: 257246217}
+  m_Layer: 0
+  m_Name: Inner Collider
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &257246216
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257246215}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 2.6375, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 69824111}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!58 &257246217
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 257246215}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.0036444021, y: 0}
+  serializedVersion: 2
+  m_Radius: 0.18293476
 --- !u!1 &357507623
 GameObject:
   m_ObjectHideFlags: 0
@@ -2971,12 +3322,12 @@ PrefabInstance:
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -0.9
+      value: 2.1
       objectReference: {fileID: 0}
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -0.5
+      value: -22
       objectReference: {fileID: 0}
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
@@ -3387,6 +3738,87 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 769139864}
   m_CullTransparentMesh: 0
+--- !u!1 &781385802
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 781385803}
+  - component: {fileID: 781385804}
+  m_Layer: 0
+  m_Name: Background
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &781385803
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781385802}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -80, y: -0.6127987, z: 1}
+  m_LocalScale: {x: 3.992106, y: 3.992106, z: 3.992106}
+  m_Children: []
+  m_Father: {fileID: 2128354433}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!212 &781385804
+SpriteRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 781385802}
+  m_Enabled: 1
+  m_CastShadows: 0
+  m_ReceiveShadows: 0
+  m_DynamicOccludee: 1
+  m_MotionVectors: 1
+  m_LightProbeUsage: 1
+  m_ReflectionProbeUsage: 1
+  m_RayTracingMode: 0
+  m_RenderingLayerMask: 1
+  m_RendererPriority: 0
+  m_Materials:
+  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
+  m_StaticBatchInfo:
+    firstSubMesh: 0
+    subMeshCount: 0
+  m_StaticBatchRoot: {fileID: 0}
+  m_ProbeAnchor: {fileID: 0}
+  m_LightProbeVolumeOverride: {fileID: 0}
+  m_ScaleInLightmap: 1
+  m_ReceiveGI: 1
+  m_PreserveUVs: 0
+  m_IgnoreNormalsForChartDetection: 0
+  m_ImportantGI: 0
+  m_StitchLightmapSeams: 1
+  m_SelectedEditorRenderState: 0
+  m_MinimumChartSize: 4
+  m_AutoUVMaxDistance: 0.5
+  m_AutoUVMaxAngle: 89
+  m_LightmapParameters: {fileID: 0}
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_Sprite: {fileID: 21300000, guid: 78bc8db714c3749cc8bd8c0b7e525b85, type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_FlipX: 0
+  m_FlipY: 0
+  m_DrawMode: 0
+  m_Size: {x: 12.5199995, y: 9.145469}
+  m_AdaptiveModeThreshold: 0.5
+  m_SpriteTileMode: 0
+  m_WasSpriteAssigned: 1
+  m_MaskInteraction: 0
+  m_SpriteSortPoint: 0
 --- !u!1 &816100067
 GameObject:
   m_ObjectHideFlags: 0
@@ -42970,6 +43402,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camFollowSpeed: 3
+  cameraOffset: -10
   player: {fileID: 1640667235}
 --- !u!1 &1579483732
 GameObject:
@@ -43160,12 +43593,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 576042641}
   m_PrefabAsset: {fileID: 0}
---- !u!50 &1640667241 stripped
-Rigidbody2D:
-  m_CorrespondingSourceObject: {fileID: 1135156641809806168, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
-    type: 3}
-  m_PrefabInstance: {fileID: 576042641}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1670029139
 GameObject:
   m_ObjectHideFlags: 0
@@ -43326,6 +43753,52 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.5647943, y: 1}
   m_EdgeRadius: 0
+--- !u!1 &1860077391
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1860077392}
+  - component: {fileID: 1860077393}
+  m_Layer: 0
+  m_Name: View
+  m_TagString: Untagged
+  m_Icon: {fileID: 5721338939258241955, guid: 0000000000000000d000000000000000, type: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1860077392
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860077391}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -80.6, y: -0.30590248, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 2128354433}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1860077393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1860077391}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95c387d3e32404bcc91c60318d766bb1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  viewSize: 11.05
+  primaryAspectRatio: {x: 4, y: 3}
+  secondaryAspectRatio: {x: 2, y: 1}
 --- !u!1 &1907249471
 GameObject:
   m_ObjectHideFlags: 0
@@ -44140,7 +44613,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2128354432}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -50.773293, y: -21.757627, z: -329.75952}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1970083262}
@@ -44148,6 +44621,8 @@ Transform:
   - {fileID: 477377930}
   - {fileID: 44934376}
   - {fileID: 1085824302}
+  - {fileID: 781385803}
+  - {fileID: 1860077392}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

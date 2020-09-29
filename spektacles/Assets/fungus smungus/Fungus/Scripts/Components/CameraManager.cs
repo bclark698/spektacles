@@ -24,10 +24,10 @@ namespace Fungus
         [SerializeField] protected Vector2 swipeIconPosition = new Vector2(1,0);
 
         [Tooltip("Set the camera z coordinate to a fixed value every frame.")]
-        [SerializeField] protected bool setCameraZ = true;
+        [SerializeField] protected bool setCameraZ = false;
 
         [Tooltip("Fixed Z coordinate of main camera.")]
-        [SerializeField] protected float cameraZ = -10f;
+        [SerializeField] protected float cameraZ = -3f;
 
         [Tooltip("Camera to use when in swipe mode")]
         [SerializeField] protected Camera swipeCamera;

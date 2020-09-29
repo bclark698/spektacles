@@ -6,14 +6,16 @@ public class cameraFollow : MonoBehaviour
 {
 
     private Camera cam;
-    private float camX;
-    private float camY;
+
     private float playerX;
     private float playerY;
 
-
+    [Tooltip("Set how fast the camera follows the player")]
     public float camFollowSpeed;
+    [Tooltip("Set how far away from the player the camera is")]
+    public float cameraOffset; 
     public GameObject player;
+
 
     // Start is called before the first frame update
     void Start()
@@ -21,9 +23,6 @@ public class cameraFollow : MonoBehaviour
       cam =  gameObject.GetComponent<Camera>();
       playerX = player.transform.position.x;
       playerY = player.transform.position.y;
-      camX = cam.transform.position.x;
-      camY = cam.transform.position.y;
-      cam.transform.position = new Vector3(camX, camY, -3f);
     }
 
     // Update is called once per frame
@@ -31,41 +30,31 @@ public class cameraFollow : MonoBehaviour
     {
       playerX = player.transform.position.x;
       playerY = player.transform.position.y;
-      if (playerX != camX || playerY != camY){
-        //StartCoroutine(upatePosition(playerX, playerY));
 
-      }
-      //Debug.Log(cam.transform.position);
-      //Vector3 camUpdate = (camX, camY);
-      //cam.transform.position = new Vector3(camX, camY, -3);
-      // cam.transform.position = Vector3.Slerp(cam.transform.position,new Vector3(playerX, playerY, -3), camFollowSpeed * Time.deltaTime);
       if (cam.transform.position != player.transform.position){
-        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, -3f) , Time.deltaTime * camFollowSpeed);
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, cameraOffset) , Time.deltaTime * camFollowSpeed);
       }
     }
 
-    IEnumerator upatePosition(float pX, float pY){
-      if (pX >= camX && camX <= (pX - .1)){
-        camX += (Time.deltaTime * camFollowSpeed);
+    public void returnToPlayer(float offsetX, float offsetY)
+    {
+        //for use in fungus
+        player.SetActive(true); //turn player back on
+        enabled = true; //follow player again
+        player.transform.position = new Vector2(playerX + offsetX, playerY + offsetY); //move player a certain distance away from collider
 
-      }
-      else if (pX < camX){
-        camX -= (Time.deltaTime * camFollowSpeed);
-        //yield return camX;
-      }
-      if (pY >= camY && camY <= (pY - .1)){
-        camY += (Time.deltaTime * camFollowSpeed);
-        //yield return camY;
-      }
-      else if (pY < camY){
-        camY -= (Time.deltaTime * camFollowSpeed);
-
-      }
-        yield return camX;
-        yield return camY;
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, cameraOffset), Time.deltaTime * camFollowSpeed); //move camera
     }
 
-    IEnumerator updateVector(Vector2 camPos, Vector2 playerPos){
-    yield return null;
-  }
+    public void stopFollow(bool hidePlayer)
+    {
+        //sometimes i just need the camera to stop following
+        //but not for the player to stop/be removed from the scene ya know
+        if(hidePlayer)
+        {
+            player.SetActive(false);
+        }
+        enabled = false;
+    }
+
 }

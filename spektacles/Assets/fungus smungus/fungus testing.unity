@@ -153,6 +153,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camFollowSpeed: 5
   player: {fileID: 1604709348}
+  offsetX: -2
+  offsetY: 0
 --- !u!20 &293033205
 Camera:
   m_ObjectHideFlags: 0
@@ -359,8 +361,8 @@ MonoBehaviour:
   nameColor: {r: 0.9339623, g: 0.6559935, b: 0.09251513, a: 1}
   soundEffect: {fileID: 0}
   portraits:
-  - {fileID: 21300000, guid: 0d2109f237fd94175ba8d2260bacd8a1, type: 3}
-  - {fileID: 21300000, guid: 176ee21e9ea504492852ae01e85c60a5, type: 3}
+  - {fileID: 21300000, guid: 57e5f40271c8b46db989561abd8e2a7b, type: 3}
+  - {fileID: 21300000, guid: f2ef3e6d5ff4d4f8cb7eb6598285a7e4, type: 3}
   portraitsFace: 1
   setSayDialog: {fileID: 1054655313}
   description: 
@@ -411,8 +413,8 @@ MonoBehaviour:
   nameColor: {r: 0.35517457, g: 0.735849, b: 0.079832695, a: 1}
   soundEffect: {fileID: 0}
   portraits:
+  - {fileID: 21300000, guid: ed0257bdc03b947e7bb0889118e9e2c6, type: 3}
   - {fileID: 21300000, guid: 7fbbbde7cd62c440989aeee90137b0aa, type: 3}
-  - {fileID: 21300000, guid: aa8307fd9a4384f77b33d4fb308634b2, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 1524221721}
   description: 
@@ -2621,6 +2623,11 @@ GameObject:
   - component: {fileID: 1898052608}
   - component: {fileID: 1898052616}
   - component: {fileID: 1898052615}
+  - component: {fileID: 1898052618}
+  - component: {fileID: 1898052617}
+  - component: {fileID: 1898052620}
+  - component: {fileID: 1898052619}
+  - component: {fileID: 1898052621}
   m_Layer: 0
   m_Name: Irving
   m_TagString: End
@@ -2721,21 +2728,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 133.99452, y: 284.6053}
+  scrollPos: {x: 148.89958, y: 200.4613}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.7879994
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 1898052612}
-  selectedCommands:
-  - {fileID: 1898052615}
+  selectedBlocks: []
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -2761,15 +2766,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 7
   indentLevel: 0
-  display: 1
+  display: 2
   stage: {fileID: 0}
   character: {fileID: 484218515}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 0d2109f237fd94175ba8d2260bacd8a1, type: 3}
+  portrait: {fileID: 0}
   offset: 0
   fromPosition: {fileID: 0}
-  toPosition: {fileID: 2009382193}
-  facing: 1
+  toPosition: {fileID: 0}
+  facing: 0
   useDefaultSettings: 1
   fadeDuration: 0.5
   moveDuration: 1
@@ -2809,9 +2814,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 106.84125
+    x: 105.84125
     y: 94
-    width: 86
+    width: 85.507675
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2862,7 +2867,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 264.48956
+    x: 263.46286
     y: 115.61639
     width: 60
     height: 40
@@ -2873,10 +2878,13 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 1898052608}
+  - {fileID: 1898052620}
   - {fileID: 1898052615}
   - {fileID: 1898052614}
   - {fileID: 1898052616}
+  - {fileID: 1898052608}
+  - {fileID: 1898052619}
+  - {fileID: 1898052621}
   suppressAllAutoSelections: 0
 --- !u!114 &1898052613
 MonoBehaviour:
@@ -2944,7 +2952,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 581754023}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: aa8307fd9a4384f77b33d4fb308634b2, type: 3}
+  portrait: {fileID: 21300000, guid: 7fbbbde7cd62c440989aeee90137b0aa, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 1227646896}
@@ -2983,6 +2991,142 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1898052617
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898052603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 11
+  indentLevel: 0
+  description: find player
+  targetObject: {fileID: 293033203}
+  targetComponentAssemblyName: cameraFollow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: cameraFollow
+  targetMethod: returnToPlayer
+  targetMethodText: 'returnToPlayer (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &1898052618
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898052603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d3d73aef2cfc4f51abf34ac00241f60, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nodeRect:
+    serializedVersion: 2
+    x: 383.75745
+    y: 90.87232
+    width: 82.33508
+    height: 40
+  tint: {r: 1, g: 1, b: 1, a: 1}
+  useCustomTint: 0
+  itemId: 10
+  blockName: main camera
+  description: going away from the first view
+  eventHandler: {fileID: 0}
+  commandList:
+  - {fileID: 1898052617}
+  suppressAllAutoSelections: 0
+--- !u!114 &1898052619
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898052603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 13
+  indentLevel: 0
+  display: 2
+  stage: {fileID: 0}
+  character: {fileID: 581754023}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 1
+--- !u!114 &1898052620
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898052603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 12
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 484218515}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: f2ef3e6d5ff4d4f8cb7eb6598285a7e4, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 2009382193}
+  facing: 1
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &1898052621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1898052603}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 14
+  indentLevel: 0
+  targetFlowchart: {fileID: 0}
+  targetBlock: {fileID: 1898052618}
+  startLabel:
+    stringRef: {fileID: 0}
+    stringVal: 
+  startIndex: 0
+  callMode: 0
 --- !u!1 &1974693903
 GameObject:
   m_ObjectHideFlags: 0
