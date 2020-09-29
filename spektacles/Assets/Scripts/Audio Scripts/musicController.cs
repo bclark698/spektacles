@@ -7,88 +7,90 @@ public class musicController : MonoBehaviour
 {
   private static musicController controllerInstance;
   public AudioSource currentMusic;
-  public AudioSource lvlMusic;
-  public AudioSource cutMusic;
+  public AudioSource homeMusic;
+  public AudioSource homeCutMusic;
+  public AudioSource lvl1Music;
+  public AudioSource cut1Music;
 
 
   //float fadeTime;
   public float musicVol;
   float currentVol;
 
+  private string currentLevel;
+
 
   void Awake(){
-    // DontDestroyOnLoad (transform.gameObject);
+
     DontDestroyOnLoad (this);
-     currentMusic.clip = lvlMusic.clip;
-     currentMusic.Play();
+
      if (controllerInstance == null) {
          controllerInstance = this;
      } else {
          Object.Destroy(gameObject);
      }
+
+
   }
   void Start()
   {
-  //  currentMusic.clip = lvlMusic.clip;
-  //  currentMusic.Play();
-    //fadeTime = 100000;
+
     currentVol = .2f;
     musicVol = .2f;
 
+    currentLevel = SceneManager.GetActiveScene().name;
+    LoadMusic();
+    currentMusic.Play();
   }
 
   // Update is called once per frame
   void Update()
   {
+
     currentMusic.volume = currentVol;
 
-    if (Input.GetKeyDown(KeyCode.U)){
-      StartCoroutine(MusicSwitch(cutMusic, 2, 5));
-    }
-    if (Input.GetKeyDown(KeyCode.J)){
-      StartCoroutine(MusicSwitch(lvlMusic, 5, 2));
-    }
+  }
+  public void LoadMusic(){
+    switch (currentLevel){
 
-    if (Input.GetKeyDown(KeyCode.M)){
-      LoadNextScene();
-      StartCoroutine(MusicSwitch(cutMusic, 1, 3));
-    }
-    if (Input.GetKeyDown(KeyCode.M)){
-      LoadNextScene();
-      StartCoroutine(MusicSwitch(cutMusic, 1, 3));
-    }
-    if (Input.GetKeyDown(KeyCode.N)){
-      SceneManager.LoadScene(0);
-      StartCoroutine(MusicSwitch(lvlMusic, 1, 3));
-      Destroy(transform.gameObject);
+      case "Home_Test":
+      currentMusic.clip = homeMusic.clip;
+      break;
+      case "Floor1 NEW":
+      currentMusic.clip = lvl1Music.clip;
+      break;
+
+
     }
 
   }
-  public void PlayLvlMusic(){
-    currentMusic.clip = lvlMusic.clip;
-    currentMusic.Play();
-  }
-  public void PlayCutMusic(){
-    currentMusic.clip = cutMusic.clip;
-    currentMusic.Play();
-  }
+
 
   public void LoadNextScene(){
     SceneManager.LoadScene(1);
-    StartCoroutine(MusicSwitch(cutMusic, 2, 5));
+    StartCoroutine(MusicSwitch(cut1Music, 2, 5));
   }
 
   public void loadCustceneMusic(){
-    //get current scene.
-    //based on scene, have set music and time transistions set (controlled in this script)
-    //prolly using a switch / case cause thats what I know to do 
+    switch (currentLevel){
+
+      case "Floor1 NEW":
+      Debug.Log("switching to cut1Music");
+      StartCoroutine(MusicSwitch(cut1Music, 2, 4));
+      break;
+
+
+    }
+    //prolly using a switch / case cause thats what I know to do
     //Then trigger MusicSwitch() w/ the right values.
   }
 
   public IEnumerator MusicSwitch(AudioSource nextMusic, float transistionTimeDown, float transistionTimeUp){
-    currentVol = musicVol;
+    Debug.Log("starting switch");
+  currentVol = musicVol;
    while (currentVol > 0){
       currentVol -= Time.deltaTime / transistionTimeDown;
+      Debug.Log("switching");
       yield return currentVol;
     }
 
