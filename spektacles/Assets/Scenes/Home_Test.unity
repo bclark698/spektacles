@@ -337,6 +337,12 @@ GameObject:
   - component: {fileID: 69824122}
   - component: {fileID: 69824139}
   - component: {fileID: 69824129}
+  - component: {fileID: 69824156}
+  - component: {fileID: 69824155}
+  - component: {fileID: 69824153}
+  - component: {fileID: 69824152}
+  - component: {fileID: 69824151}
+  - component: {fileID: 69824154}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -402,7 +408,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -5.22, y: -18.38, z: 0}
+  m_LocalPosition: {x: -4.93, y: -18.58, z: 0}
   m_LocalScale: {x: 1.4987803, y: 1.4987803, z: 1.4987803}
   m_Children: []
   m_Father: {fileID: 0}
@@ -482,7 +488,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 633.3207
     y: 434.2625
-    width: 153.38571
+    width: 114.38835
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -491,7 +497,12 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 69824155}
+  - {fileID: 69824154}
   - {fileID: 69824136}
+  - {fileID: 69824153}
+  - {fileID: 69824152}
+  - {fileID: 69824151}
   - {fileID: 69824133}
   suppressAllAutoSelections: 0
 --- !u!114 &69824115
@@ -525,7 +536,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 306.94952
     y: 153.89879
-    width: 101.99516
+    width: 63.191517
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -572,7 +583,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 258.36697
     y: 411.2105
-    width: 121.34219
+    width: 82.47344
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -617,21 +628,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -101.58455, y: -212.38123}
+  scrollPos: {x: -128.07109, y: -159.22836}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 402
-  zoom: 0.8270001
+  zoom: 0.7519996
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 69824114}
-  selectedCommands:
-  - {fileID: 69824136}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -674,9 +683,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 49
   indentLevel: 0
-  storyText: go to school lmao
+  storyText: 'What are you doing sweetie? The bus''ll leave soon so you need to get
+    going. '
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1670029141}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -703,7 +713,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 440.42044
     y: 552.0602
-    width: 123.760574
+    width: 85.13302
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -712,6 +722,7 @@ MonoBehaviour:
   description: mom tells u to go to school
   eventHandler: {fileID: 0}
   commandList:
+  - {fileID: 69824156}
   - {fileID: 69824122}
   suppressAllAutoSelections: 0
 --- !u!114 &69824124
@@ -773,9 +784,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 441.67682
+    x: 440.46762
     y: 437.64093
-    width: 154.59491
+    width: 115.71814
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1691,9 +1702,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 20
   indentLevel: 0
-  storyText: got glasses
+  storyText: 'Be careful! These are you only pair, we don''t want something to happen
+    to them. '
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1670029141}
   portrait: {fileID: 0}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -2009,7 +2021,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 639.03925
     y: 336.9953
-    width: 75.39298
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2341,7 +2353,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
@@ -2352,7 +2364,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 1670029141}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 2497837ae24cc47e5931716144542aea, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 0}
@@ -2410,7 +2422,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 448.31476
     y: 303.37582
-    width: 127.99274
+    width: 89.78728
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2429,6 +2441,160 @@ MonoBehaviour:
   - {fileID: 69824142}
   - {fileID: 69824141}
   suppressAllAutoSelections: 0
+--- !u!114 &69824151
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 56
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Momdusa: Oh, looks like the bus is here already. Here, \nMomdusa
+      center: Take your lunch and have a fantastic first day of school! Kisses!\nMomdusa
+      right: \nMelita: Moommmmmmmm"
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &69824152
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 55
+  indentLevel: 0
+  soundClip: {fileID: 8300000, guid: 51867143f29244ef78e12feca606d9a5, type: 3}
+  volume: 1
+  waitUntilFinished: 0
+--- !u!114 &69824153
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 54
+  indentLevel: 0
+  commenterName: 
+  commentText: add some sort of bus noise
+--- !u!114 &69824154
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 57
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 1970083263}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: ed0257bdc03b947e7bb0889118e9e2c6, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 2025350944}
+  facing: 2
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &69824155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 53
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 1670029141}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 2497837ae24cc47e5931716144542aea, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 1632151790}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &69824156
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 52
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 1670029141}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 2497837ae24cc47e5931716144542aea, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 0}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!1 &221243734
 GameObject:
   m_ObjectHideFlags: 0
@@ -3599,7 +3765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1085824307}
+  selectedFlowchart: {fileID: 69824120}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -35621,7 +35787,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 96
     y: 219
-    width: 129
+    width: 89
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -42518,6 +42684,86 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &1443844379
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1443844383}
+  - component: {fileID: 1443844382}
+  - component: {fileID: 1443844381}
+  - component: {fileID: 1443844380}
+  m_Layer: 0
+  m_Name: EventSystem
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1443844380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443844379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d49b7c1bcd2e07499844da127be038d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_ForceModuleActive: 0
+--- !u!114 &1443844381
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443844379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
+--- !u!114 &1443844382
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443844379}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_FirstSelected: {fileID: 0}
+  m_sendNavigationEvents: 1
+  m_DragThreshold: 5
+--- !u!4 &1443844383
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1443844379}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 6
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1457393589
 GameObject:
   m_ObjectHideFlags: 0
@@ -42966,7 +43212,8 @@ MonoBehaviour:
   nameText: Momdusa
   nameColor: {r: 0.32855, g: 0.745283, b: 0.17225882, a: 1}
   soundEffect: {fileID: 0}
-  portraits: []
+  portraits:
+  - {fileID: 21300000, guid: 2497837ae24cc47e5931716144542aea, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 
