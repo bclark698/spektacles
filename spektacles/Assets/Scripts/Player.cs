@@ -13,16 +13,17 @@ public class Player : MonoBehaviour
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
     private cameraFollow cameraF;
-    private CircleCollider2D irving; 
+    private CircleCollider2D irving;
 
     //dash stuff
     public float dashSpeed;
     public float startDashTime;
     private float dashTime;
 
-
+    //audio
     private PlayerSoundController playerSounds;
     private PowerupSoundController powerupSounds;
+    private musicController musicSounds;
 
 
     // powerUp variables
@@ -41,6 +42,7 @@ public class Player : MonoBehaviour
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
         irving = GameObject.FindGameObjectWithTag("End").GetComponent<CircleCollider2D>();
 
+        musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
         powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
 
@@ -168,7 +170,7 @@ public class Player : MonoBehaviour
             if (anim.GetBool("blind"))
                 anim.SetBool("blind", false);
             playerSounds.aquireSound();
-            irving.isTrigger = true; 
+            irving.isTrigger = true;
         }
         else if (other.CompareTag("GlassesBuff"))
         {
@@ -183,8 +185,9 @@ public class Player : MonoBehaviour
             //turn everything off so the player cant lose when they talk to irving
             //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
             //irving is not able to handle 'complex' collisions so thats on the player
+            musicSounds.loadCustceneMusic();
             gameObject.SetActive(false);
-            cameraF.enabled = false; //camera follow turned off separately 
+            cameraF.enabled = false; //camera follow turned off separately
         }
 
     }

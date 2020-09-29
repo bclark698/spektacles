@@ -78,6 +78,13 @@ public class musicController : MonoBehaviour
     StartCoroutine(MusicSwitch(cutMusic, 2, 5));
   }
 
+  public void loadCustceneMusic(){
+    //get current scene.
+    //based on scene, have set music and time transistions set (controlled in this script)
+    //prolly using a switch / case cause thats what I know to do 
+    //Then trigger MusicSwitch() w/ the right values.
+  }
+
   public IEnumerator MusicSwitch(AudioSource nextMusic, float transistionTimeDown, float transistionTimeUp){
     currentVol = musicVol;
    while (currentVol > 0){
