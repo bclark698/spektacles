@@ -11,7 +11,7 @@ public class BoxBlur : MonoBehaviour
     public int DownRes;
     public int maxIterations = 4;
 
-    public float increasePerSec = 2f;
+    public float increasePerSec = 2.5f;
     public float iterationsFloat;
     public bool increase = true;
 
@@ -44,10 +44,10 @@ public class BoxBlur : MonoBehaviour
     {
         // increase and decrease blur over time by changing the number of iterations
         float delta = Time.deltaTime * increasePerSec;
-        if(iterationsFloat + delta >= maxIterations)
+        if(iterationsFloat + delta >= maxIterations + 0.5)
         {
             increase = false;
-        } else if(iterationsFloat <= 1)
+        } else if(iterationsFloat <= 1.5)
         {
             increase = true;
         }
