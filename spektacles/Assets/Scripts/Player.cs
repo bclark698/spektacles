@@ -13,7 +13,7 @@ public class Player : MonoBehaviour
     public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
     private cameraFollow cameraF;
-    private CircleCollider2D irving;
+    public CircleCollider2D irving;
 
     //dash stuff
     public float dashSpeed;
@@ -41,7 +41,8 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
-        irving = GameObject.FindGameObjectWithTag("End").GetComponent<CircleCollider2D>();
+        //irving = GameObject.FindGameObjectWithTag("End").GetComponent<CircleCollider2D>();
+
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
@@ -199,6 +200,11 @@ public class Player : MonoBehaviour
             //irving is not able to handle 'complex' collisions so thats on the player
             cameraF.stopFollow(true); //camera follow turned off separately
             musicSounds.loadCustceneMusic();
+        }
+        else if(other.CompareTag("StartNextScene"))
+        {
+          SceneManager.LoadScene(1);
+          musicSounds.LoadHallScene();
         }
 
     }

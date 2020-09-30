@@ -59,12 +59,19 @@ public class musicController : MonoBehaviour
       case "Floor1 NEW":
       currentMusic.clip = lvl1Music.clip;
       break;
+      case "TEST Floor1 NEW":
+      currentMusic.clip = lvl1Music.clip;
+      break;
+
 
 
     }
 
   }
-
+  public void LoadHallScene(){
+    SceneManager.LoadScene(1);
+    StartCoroutine(MusicSwitch(lvl1Music, 2, 5));
+  }
 
   public void LoadNextScene(){
     SceneManager.LoadScene(1);

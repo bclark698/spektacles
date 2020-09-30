@@ -360,6 +360,7 @@ GameObject:
   - component: {fileID: 69824173}
   - component: {fileID: 69824172}
   - component: {fileID: 69824168}
+  - component: {fileID: 69824174}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -525,6 +526,7 @@ MonoBehaviour:
   - {fileID: 69824124}
   - {fileID: 69824161}
   - {fileID: 69824133}
+  - {fileID: 69824174}
   suppressAllAutoSelections: 0
 --- !u!114 &69824115
 MonoBehaviour:
@@ -661,7 +663,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 69824114}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 69824174}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -2992,7 +2995,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &69824168
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3080,7 +3083,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &69824172
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3101,7 +3104,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &69824173
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3120,6 +3123,72 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 1
   targetGameObjectOLD: {fileID: 0}
+--- !u!114 &69824174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 82
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 0
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1304906984}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1304906983}
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &117501691
 GameObject:
   m_ObjectHideFlags: 0
@@ -4090,6 +4159,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1135156641809806182, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+        type: 3}
+      propertyPath: irving
+      value: 
+      objectReference: {fileID: 1304906983}
     - target: {fileID: 1135156643403289690, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_Enabled
@@ -5319,6 +5393,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Irving
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387167895076370669, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_TagString
+      value: StartNextScene
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7, type: 3}
@@ -37715,6 +37794,18 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!58 &1304906983 stripped
+CircleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 5387167895076370667, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1032331428}
+  m_PrefabAsset: {fileID: 0}
+--- !u!212 &1304906984 stripped
+SpriteRenderer:
+  m_CorrespondingSourceObject: {fileID: 5387167895076370666, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1032331428}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1440545646
 GameObject:
   m_ObjectHideFlags: 0
