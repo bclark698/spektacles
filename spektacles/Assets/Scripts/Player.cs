@@ -173,6 +173,7 @@ public class Player : MonoBehaviour
                 anim.SetBool("blind", false);
                 Camera mainCamera = Camera.main;
                 mainCamera.GetComponent<BoxBlur>().enabled = false;
+                lives = 2;
             }
             playerSounds.aquireSound();
             irving.isTrigger = true;
