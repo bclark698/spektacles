@@ -15,7 +15,7 @@ public class Locker : MonoBehaviour
     private PowerupSoundController powerupSounds;
 
     private void Start(){
-      powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
+        powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
     }
 
     private void Update()
