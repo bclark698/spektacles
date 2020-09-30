@@ -17,10 +17,10 @@ public class PowerUp : MonoBehaviour
 
     private ChangeIcon Indicator;
 
+    public SpriteRenderer powerUpRange; // used to display range circle (TODO replace with enemy highlighting later)
+
     void Start(){
         powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
-        
-        //powerUpSprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -57,8 +57,10 @@ public class PowerUp : MonoBehaviour
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
 
-        
-    }
+        // show powerup range around player
+        powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<SpriteRenderer>();
+        powerUpRange.enabled = true;
+}
 
     // default Use function unless overridden in child classes
     public virtual void Use()
@@ -96,5 +98,7 @@ public class PowerUp : MonoBehaviour
         p.powerUp = PowerUpType.None;
         p.powerUpText.text = "Held Powerup: " + p.powerUp;
 
+        // unshow powerup range indicator around player
+        powerUpRange.enabled = false;
     }
 }
