@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PowerUp : MonoBehaviour
 {
@@ -14,8 +15,12 @@ public class PowerUp : MonoBehaviour
 
     private PowerupSoundController powerupSounds;
 
+    private ChangeIcon Indicator;
+
     void Start(){
-      powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
+        powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
+        
+        //powerUpSprite = GetComponent<SpriteRenderer>().sprite;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -44,9 +49,15 @@ public class PowerUp : MonoBehaviour
 
         p.powerUpText.text = "Held Powerup: " + p.powerUp;
 
+        // show powerup in the indicator
+        Indicator = GameObject.FindGameObjectWithTag("PowerUp Indicator").GetComponent<ChangeIcon>();
+        Indicator.update(GetComponent<SpriteRenderer>().sprite);
+
         // turn off collider and sprite renderer for the object
         GetComponent<SpriteRenderer>().enabled = false;
         GetComponent<Collider2D>().enabled = false;
+
+        
     }
 
     // default Use function unless overridden in child classes
@@ -77,7 +88,8 @@ public class PowerUp : MonoBehaviour
         }
 
 
-
+        // remove powerup from indicator
+        Indicator.clear();
 
         // destroy powerup gameObject
         Destroy(gameObject);
