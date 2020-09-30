@@ -33,6 +33,7 @@ public class Player : MonoBehaviour
     public float powerUpRange;
     public GameObject powerUpObj; //TODO make private
     public Text powerUpText;
+    public GameObject sprayEffect;
 
     // Start is called before the first frame update
     void Start()
@@ -66,6 +67,11 @@ public class Player : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.P))
         {
             UsePowerUp();
+            if(powerUp == PowerUp.PowerUpType.BugSpray)
+            {
+                sprayEffect.SetActive(true);
+                //Destroy(sprayEffect, 100f);
+            }
         }
     }
 
