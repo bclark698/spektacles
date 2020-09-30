@@ -57,4 +57,16 @@ public class cameraFollow : MonoBehaviour
         enabled = false;
     }
 
+    public void loseGlasses()
+    {
+        gameObject.GetComponent<BoxBlur>().enabled = true;
+        player.GetComponent<Animator>().SetBool("blind", true);
+    }
+
+    public void gainGlasses()
+    {
+        gameObject.GetComponent<BoxBlur>().enabled = false;
+        player.GetComponent<Animator>().SetBool("blind", false);
+    }
+
 }
