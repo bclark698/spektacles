@@ -299,7 +299,6 @@ GameObject:
   - component: {fileID: 69824111}
   - component: {fileID: 69824110}
   - component: {fileID: 69824120}
-  - component: {fileID: 69824119}
   - component: {fileID: 69824118}
   - component: {fileID: 69824117}
   - component: {fileID: 69824116}
@@ -354,12 +353,13 @@ GameObject:
   - component: {fileID: 69824165}
   - component: {fileID: 69824167}
   - component: {fileID: 69824166}
-  - component: {fileID: 69824168}
   - component: {fileID: 69824169}
   - component: {fileID: 69824170}
   - component: {fileID: 69824171}
+  - component: {fileID: 69824119}
   - component: {fileID: 69824173}
   - component: {fileID: 69824172}
+  - component: {fileID: 69824168}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -511,7 +511,6 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 69824159}
-  - {fileID: 69824168}
   - {fileID: 69824112}
   - {fileID: 69824157}
   - {fileID: 69824158}
@@ -620,8 +619,8 @@ MonoBehaviour:
   - {fileID: 69824135}
   - {fileID: 69824132}
   suppressAllAutoSelections: 0
---- !u!58 &69824119
-CircleCollider2D:
+--- !u!70 &69824119
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -633,9 +632,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12400334, y: -3.5565014}
-  serializedVersion: 2
-  m_Radius: 2.0320866
+  m_Offset: {x: -0.049443986, y: -1.5117927}
+  m_Size: {x: 3.6381428, y: 5.9082522}
+  m_Direction: 0
 --- !u!114 &69824120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -649,7 +648,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -230.75218, y: -263.93774}
+  scrollPos: {x: -270.75223, y: -198.05536}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
@@ -661,9 +660,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 69824140}
+  - {fileID: 69824126}
   selectedCommands:
-  - {fileID: 69824172}
+  - {fileID: 69824168}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -851,6 +850,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 69824128}
   - {fileID: 69824166}
+  - {fileID: 69824168}
   - {fileID: 69824127}
   suppressAllAutoSelections: 0
 --- !u!114 &69824127
@@ -2121,10 +2121,10 @@ MonoBehaviour:
   commandList:
   - {fileID: 69824130}
   - {fileID: 69824164}
+  - {fileID: 69824173}
   - {fileID: 69824167}
   - {fileID: 69824137}
   - {fileID: 69824171}
-  - {fileID: 69824173}
   - {fileID: 69824172}
   - {fileID: 69824163}
   - {fileID: 69824138}
@@ -2993,7 +2993,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &69824168
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3003,14 +3003,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 73
+  itemId: 81
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 117501691}
+    gameObjectVal: {fileID: 1490946728}
   activeState:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &69824169
 MonoBehaviour:
@@ -3081,87 +3081,46 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &69824172
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 78
+  itemId: 80
   indentLevel: 0
-  description: 
-  delay: 0
-  invokeType: 1
-  staticEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  booleanParameter:
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 1490946728}
+  activeState:
     booleanRef: {fileID: 0}
     booleanVal: 1
-  booleanEvent:
-    m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1490946728}
-        m_MethodName: SetActive
-        m_Mode: 0
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-  integerParameter:
-    integerRef: {fileID: 0}
-    integerVal: 0
-  integerEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  floatParameter:
-    floatRef: {fileID: 0}
-    floatVal: 0
-  floatEvent:
-    m_PersistentCalls:
-      m_Calls: []
-  stringParameter:
-    stringRef: {fileID: 0}
-    stringVal: 
-  stringEvent:
-    m_PersistentCalls:
-      m_Calls: []
+  targetGameObjectOLD: {fileID: 0}
 --- !u!114 &69824173
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 77
+  itemId: 79
   indentLevel: 0
-  description: 
-  targetObject: {fileID: 1490946728}
-  targetComponentAssemblyName: UnityEngine.SpriteRenderer, UnityEngine.CoreModule,
-    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: SpriteRenderer
-  targetMethod: 
-  targetMethodText: 
-  methodParameters: []
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: 
-  showInherited: 0
-  callMode: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 117501691}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  targetGameObjectOLD: {fileID: 0}
 --- !u!1 &117501691
 GameObject:
   m_ObjectHideFlags: 0
