@@ -10,7 +10,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: lookingAngle
-    m_EventTreshold: 0.7
+    m_EventTreshold: 135
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 4937339310591902249}
   m_Solo: 0
@@ -33,9 +33,12 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
+  - m_ConditionMode: 4
+    m_ConditionEvent: lookingAngle
+    m_EventTreshold: 300
   - m_ConditionMode: 3
     m_ConditionEvent: lookingAngle
-    m_EventTreshold: 0.02
+    m_EventTreshold: 45
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 888012101638210478}
   m_Solo: 0
@@ -60,7 +63,7 @@ AnimatorStateTransition:
   m_Conditions:
   - m_ConditionMode: 3
     m_ConditionEvent: lookingAngle
-    m_EventTreshold: -0.6
+    m_EventTreshold: 315
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: 914708535503594386}
   m_Solo: 0
@@ -192,9 +195,9 @@ AnimatorStateTransition:
   m_PrefabAsset: {fileID: 0}
   m_Name: 
   m_Conditions:
-  - m_ConditionMode: 4
+  - m_ConditionMode: 3
     m_ConditionEvent: lookingAngle
-    m_EventTreshold: -0.99
+    m_EventTreshold: 225
   m_DstStateMachine: {fileID: 0}
   m_DstState: {fileID: -51839466062710054}
   m_Solo: 0
