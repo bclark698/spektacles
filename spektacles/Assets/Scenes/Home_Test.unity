@@ -650,7 +650,8 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 69824150}
-  selectedCommands: []
+  selectedCommands:
+  - {fileID: 69824156}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -2139,7 +2140,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
   m_Name: 
@@ -2409,8 +2410,8 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: "Melita: Good morning....\nMomdusa: Happy first day of school sweetie!
       Are you excited? \nMelita: {i} I think you might be more excited than I am.
-      {/i}\nMelita: Yeah! I have some really cool classes this year.\nCerebrus: {b}
-      BORK {/b}"
+      {/i}\nMelita: Yeah! I have some really cool classes this year.\nCerebrus doggo
+      center: {b} BORK {/b}"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -2419,7 +2420,7 @@ MonoBehaviour:
     booleanVal: 1
   waitForSeconds:
     floatRef: {fileID: 0}
-    floatVal: 0
+    floatVal: 0.3
   fadeWhenDone:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -3258,7 +3259,8 @@ MonoBehaviour:
   nameText: Cerebrus
   nameColor: {r: 0.5943396, g: 0.06448025, b: 0.101794355, a: 1}
   soundEffect: {fileID: 0}
-  portraits: []
+  portraits:
+  - {fileID: 21300000, guid: eec858712982445ada298d7cddde09f7, type: 3}
   portraitsFace: 0
   setSayDialog: {fileID: 0}
   description: 
