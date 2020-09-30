@@ -299,7 +299,6 @@ GameObject:
   - component: {fileID: 69824111}
   - component: {fileID: 69824110}
   - component: {fileID: 69824120}
-  - component: {fileID: 69824119}
   - component: {fileID: 69824118}
   - component: {fileID: 69824117}
   - component: {fileID: 69824116}
@@ -354,8 +353,13 @@ GameObject:
   - component: {fileID: 69824165}
   - component: {fileID: 69824167}
   - component: {fileID: 69824166}
-  - component: {fileID: 69824168}
   - component: {fileID: 69824169}
+  - component: {fileID: 69824170}
+  - component: {fileID: 69824171}
+  - component: {fileID: 69824119}
+  - component: {fileID: 69824173}
+  - component: {fileID: 69824172}
+  - component: {fileID: 69824168}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -507,13 +511,13 @@ MonoBehaviour:
   eventHandler: {fileID: 0}
   commandList:
   - {fileID: 69824159}
-  - {fileID: 69824168}
   - {fileID: 69824112}
   - {fileID: 69824157}
   - {fileID: 69824158}
   - {fileID: 69824136}
   - {fileID: 69824153}
   - {fileID: 69824152}
+  - {fileID: 69824170}
   - {fileID: 69824151}
   - {fileID: 69824155}
   - {fileID: 69824154}
@@ -615,8 +619,8 @@ MonoBehaviour:
   - {fileID: 69824135}
   - {fileID: 69824132}
   suppressAllAutoSelections: 0
---- !u!58 &69824119
-CircleCollider2D:
+--- !u!70 &69824119
+CapsuleCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
@@ -628,9 +632,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12400334, y: 0.2842993}
-  serializedVersion: 2
-  m_Radius: 3.2997298
+  m_Offset: {x: -0.049443986, y: -1.5117927}
+  m_Size: {x: 3.6381428, y: 5.9082522}
+  m_Direction: 0
 --- !u!114 &69824120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -644,10 +648,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -230.75218, y: -263.93774}
+  scrollPos: {x: -270.75223, y: -198.05536}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 402
+  blockViewHeight: 404
   zoom: 0.84999955
   scrollViewRect:
     serializedVersion: 2
@@ -656,7 +660,7 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 69824126}
+  - {fileID: 69824114}
   selectedCommands: []
   variables:
   - {fileID: 69824125}
@@ -845,6 +849,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 69824128}
   - {fileID: 69824166}
+  - {fileID: 69824168}
   - {fileID: 69824127}
   suppressAllAutoSelections: 0
 --- !u!114 &69824127
@@ -2102,7 +2107,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 637.69916
+    x: 638.8756
     y: 334.53302
     width: 75.29413
     height: 40
@@ -2115,8 +2120,11 @@ MonoBehaviour:
   commandList:
   - {fileID: 69824130}
   - {fileID: 69824164}
+  - {fileID: 69824173}
   - {fileID: 69824167}
   - {fileID: 69824137}
+  - {fileID: 69824171}
+  - {fileID: 69824172}
   - {fileID: 69824163}
   - {fileID: 69824138}
   suppressAllAutoSelections: 0
@@ -2576,8 +2584,8 @@ MonoBehaviour:
   itemId: 55
   indentLevel: 0
   soundClip: {fileID: 8300000, guid: 2185db9ea2b9d48a9b4809ac562f3c1f, type: 3}
-  volume: 0.057
-  waitUntilFinished: 0
+  volume: 0.27
+  waitUntilFinished: 1
 --- !u!114 &69824153
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2984,7 +2992,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &69824168
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -2994,14 +3002,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 73
+  itemId: 81
   indentLevel: 0
   _targetGameObject:
     gameObjectRef: {fileID: 0}
-    gameObjectVal: {fileID: 117501691}
+    gameObjectVal: {fileID: 1490946728}
   activeState:
     booleanRef: {fileID: 0}
-    booleanVal: 1
+    booleanVal: 0
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &69824169
 MonoBehaviour:
@@ -3024,6 +3032,94 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
+--- !u!114 &69824170
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 75
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
+--- !u!114 &69824171
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 76
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1640667235}
+  targetComponentAssemblyName: Player, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: Player
+  targetMethod: checkLives
+  targetMethodText: 'checkLives (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &69824172
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 80
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 1490946728}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  targetGameObjectOLD: {fileID: 0}
+--- !u!114 &69824173
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dbd8c931f22994b9d90e2037fffaa770, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 79
+  indentLevel: 0
+  _targetGameObject:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 117501691}
+  activeState:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  targetGameObjectOLD: {fileID: 0}
 --- !u!1 &117501691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3543,6 +3639,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Glasses
       objectReference: {fileID: 0}
+    - target: {fileID: 5694533419263775050, guid: c916b34ce535c4de883b4ff611c77799,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775052, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
       propertyPath: m_SortingOrder
@@ -3568,15 +3669,20 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5694533419263775052, guid: c916b34ce535c4de883b4ff611c77799,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.85
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.81
+      value: -22.85
       objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
@@ -3606,7 +3712,7 @@ PrefabInstance:
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
@@ -3947,7 +4053,7 @@ PrefabInstance:
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
@@ -4787,7 +4893,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 69824120}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -5098,7 +5204,7 @@ PrefabInstance:
     - target: {fileID: 3680198019972581110, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3680198019972581110, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
         type: 3}
@@ -44078,6 +44184,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2401427, y: 0.814162}
   m_EdgeRadius: 0
+--- !u!1 &1490946728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5694533419263775050, guid: c916b34ce535c4de883b4ff611c77799,
+    type: 3}
+  m_PrefabInstance: {fileID: 404548512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1490946732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490946728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542ea7dc854424e8ea272eac85811dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1579483732
 GameObject:
   m_ObjectHideFlags: 0
