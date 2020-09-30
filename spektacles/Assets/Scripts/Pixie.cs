@@ -39,7 +39,7 @@ public class Pixie : Enemy
     public float moveSpeed;     // movement speed of pixies
     public AudioSource giggle1; //agro sound
     public AudioSource giggle2; //dissapointed sound
-    public Animator anim;
+  //  public Animator anim;
 
 
     ////////////////////
@@ -102,8 +102,8 @@ public class Pixie : Enemy
 
 
         }
-        anim.SetFloat("lookingAngle", transform.transform.localEulerAngles.z);
-        Debug.Log(transform.transform.localEulerAngles.z);
+        //anim.SetFloat("lookingAngle", transform.transform.localEulerAngles.z);
+        //Debug.Log(transform.transform.localEulerAngles.z);
 
     }
 
@@ -151,7 +151,7 @@ public class Pixie : Enemy
         }
         return collisionCheck;
     }
-    /*
+
     // check if pixies touches player
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -160,7 +160,7 @@ public class Pixie : Enemy
             playerHit = true;
             giggle2.Play();
         }
-    }*/
+    }
 
 
     // searches for player

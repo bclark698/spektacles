@@ -46,7 +46,7 @@ public class musicController : MonoBehaviour
   // Update is called once per frame
   void Update()
   {
-
+        currentLevel = SceneManager.GetActiveScene().name;
     currentMusic.volume = currentVol;
 
   }
@@ -79,9 +79,14 @@ public class musicController : MonoBehaviour
   }
 
   public void loadCustceneMusic(){
+    //Debug.Log("should be switching");
     switch (currentLevel){
 
       case "Floor1 NEW":
+      Debug.Log("switching to cut1Music");
+      StartCoroutine(MusicSwitch(cut1Music, 2, 4));
+      break;
+      case "TEST Floor1 NEW":
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;

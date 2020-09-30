@@ -3125,7 +3125,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &69824174
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4534,7 +4534,7 @@ Transform:
   m_GameObject: {fileID: 781385802}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -80, y: -0.6127987, z: 1}
-  m_LocalScale: {x: 3.992106, y: 3.992106, z: 3.992106}
+  m_LocalScale: {x: 10, y: 10, z: 3.992106}
   m_Children: []
   m_Father: {fileID: 2128354433}
   m_RootOrder: 5
@@ -4578,12 +4578,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 78bc8db714c3749cc8bd8c0b7e525b85, type: 3}
+  m_Sprite: {fileID: 567803697364751648, guid: 7ac8f9bc0c8984629b3babe54694ffbd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 12.5199995, y: 9.145469}
+  m_DrawMode: 2
+  m_Size: {x: 12.88, y: 7.33}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -4967,7 +4967,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 69824120}
+  selectedFlowchart: {fileID: 1085824307}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -5314,6 +5314,11 @@ PrefabInstance:
       propertyPath: m_SortingOrder
       value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 5387167895076370666, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370667, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_Offset.x
@@ -5323,6 +5328,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Radius
       value: 0.08552412
+      objectReference: {fileID: 0}
+    - target: {fileID: 5387167895076370667, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
@@ -5337,7 +5347,7 @@ PrefabInstance:
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 386.49313
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
@@ -37164,7 +37174,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 96
     y: 219
-    width: 89
+    width: 129
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
