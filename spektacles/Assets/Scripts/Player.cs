@@ -91,9 +91,6 @@ public class Player : MonoBehaviour
             {
                 powerUpObj.GetComponent<PowerUp>().Use();
 
-                // tempSprayNoise.Play();
-                // TODO put this sound effect in bug spray powerup/pixie code
-
                 // have each enemy determine how to handle this powerup being used on them
                 for (int i = 0; i < enemiesInRange.Length; i++)
                 {
@@ -128,7 +125,11 @@ public class Player : MonoBehaviour
         {
             lives--;
             if (anim.GetBool("blind") == false)
+            {
                 anim.SetBool("blind", true);
+                Camera mainCamera = Camera.main;
+                mainCamera.GetComponent<BoxBlur>().enabled = true;
+            }
             irving.isTrigger = false; //turn irving off
 
         } else if (lives == 1) //no glasses and no buff
@@ -168,7 +169,11 @@ public class Player : MonoBehaviour
         else if (other.CompareTag("Glasses")) // pick up glasses
         {
             if (anim.GetBool("blind"))
+            {
                 anim.SetBool("blind", false);
+                Camera mainCamera = Camera.main;
+                mainCamera.GetComponent<BoxBlur>().enabled = false;
+            }
             playerSounds.aquireSound();
             irving.isTrigger = true;
         }
