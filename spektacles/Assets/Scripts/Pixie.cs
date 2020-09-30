@@ -60,7 +60,7 @@ public class Pixie : Enemy
         startingPos = transform.position; // gets pixie's starting position
         playerObj = GameObject.FindGameObjectWithTag("Player"); // create player object
         lastSeenPos = playerObj.transform.position;
-        anim = GetComponent<Animator>();
+        //anim = GetComponent<Animator>();
 
     }
 
@@ -102,8 +102,8 @@ public class Pixie : Enemy
 
 
         }
-        anim.SetFloat("lookingAngle", transform.rotation.z);
-        //Debug.Log(transform.rotation.z);
+        anim.SetFloat("lookingAngle", transform.transform.localEulerAngles.z);
+        Debug.Log(transform.transform.localEulerAngles.z);
 
     }
 
