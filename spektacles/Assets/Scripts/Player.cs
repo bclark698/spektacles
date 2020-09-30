@@ -112,7 +112,7 @@ public class Player : MonoBehaviour
     }
 
 
-    void checkLives()
+    public void checkLives()
     {
         //hitNoise.Play();
         playerSounds.hitSound();
@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
                 Camera mainCamera = Camera.main;
                 mainCamera.GetComponent<BoxBlur>().enabled = false;
             }
-          //  playerSounds.aquireSound();
+            playerSounds.aquireSound();
             irving.isTrigger = true;
         }
         else if (other.CompareTag("GlassesBuff"))

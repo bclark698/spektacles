@@ -356,6 +356,10 @@ GameObject:
   - component: {fileID: 69824166}
   - component: {fileID: 69824168}
   - component: {fileID: 69824169}
+  - component: {fileID: 69824170}
+  - component: {fileID: 69824171}
+  - component: {fileID: 69824173}
+  - component: {fileID: 69824172}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -514,6 +518,7 @@ MonoBehaviour:
   - {fileID: 69824136}
   - {fileID: 69824153}
   - {fileID: 69824152}
+  - {fileID: 69824170}
   - {fileID: 69824151}
   - {fileID: 69824155}
   - {fileID: 69824154}
@@ -628,9 +633,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.12400334, y: 0.2842993}
+  m_Offset: {x: -0.12400334, y: -3.5565014}
   serializedVersion: 2
-  m_Radius: 3.2997298
+  m_Radius: 2.0320866
 --- !u!114 &69824120
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -647,7 +652,7 @@ MonoBehaviour:
   scrollPos: {x: -230.75218, y: -263.93774}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 402
+  blockViewHeight: 404
   zoom: 0.84999955
   scrollViewRect:
     serializedVersion: 2
@@ -656,8 +661,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 69824126}
-  selectedCommands: []
+  - {fileID: 69824140}
+  selectedCommands:
+  - {fileID: 69824172}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -2102,7 +2108,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 637.69916
+    x: 638.8756
     y: 334.53302
     width: 75.29413
     height: 40
@@ -2117,6 +2123,9 @@ MonoBehaviour:
   - {fileID: 69824164}
   - {fileID: 69824167}
   - {fileID: 69824137}
+  - {fileID: 69824171}
+  - {fileID: 69824173}
+  - {fileID: 69824172}
   - {fileID: 69824163}
   - {fileID: 69824138}
   suppressAllAutoSelections: 0
@@ -3024,6 +3033,135 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
+--- !u!114 &69824170
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 75
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1
+  durationOLD: 0
+--- !u!114 &69824171
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 76
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1640667235}
+  targetComponentAssemblyName: Player, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: Player
+  targetMethod: checkLives
+  targetMethodText: 'checkLives (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &69824172
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 95d9ff288f3904c05ada7ac9c9a075bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 78
+  indentLevel: 0
+  description: 
+  delay: 0
+  invokeType: 1
+  staticEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  booleanParameter:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  booleanEvent:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 1490946728}
+        m_MethodName: SetActive
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  integerParameter:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  integerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  floatParameter:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  floatEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  stringParameter:
+    stringRef: {fileID: 0}
+    stringVal: 
+  stringEvent:
+    m_PersistentCalls:
+      m_Calls: []
+--- !u!114 &69824173
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 77
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1490946728}
+  targetComponentAssemblyName: UnityEngine.SpriteRenderer, UnityEngine.CoreModule,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: SpriteRenderer
+  targetMethod: 
+  targetMethodText: 
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: 
+  showInherited: 0
+  callMode: 0
 --- !u!1 &117501691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3543,6 +3681,11 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Glasses
       objectReference: {fileID: 0}
+    - target: {fileID: 5694533419263775050, guid: c916b34ce535c4de883b4ff611c77799,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775052, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
       propertyPath: m_SortingOrder
@@ -3568,15 +3711,20 @@ PrefabInstance:
       propertyPath: m_Color.b
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 5694533419263775052, guid: c916b34ce535c4de883b4ff611c77799,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -2.85
+      value: -3.3
       objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -21.81
+      value: -22.85
       objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
@@ -3606,7 +3754,7 @@ PrefabInstance:
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5694533419263775055, guid: c916b34ce535c4de883b4ff611c77799,
         type: 3}
@@ -3947,7 +4095,7 @@ PrefabInstance:
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_RootOrder
-      value: 2
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
@@ -4787,7 +4935,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 69824120}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -5098,7 +5246,7 @@ PrefabInstance:
     - target: {fileID: 3680198019972581110, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3680198019972581110, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
         type: 3}
@@ -44078,6 +44226,24 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2401427, y: 0.814162}
   m_EdgeRadius: 0
+--- !u!1 &1490946728 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5694533419263775050, guid: c916b34ce535c4de883b4ff611c77799,
+    type: 3}
+  m_PrefabInstance: {fileID: 404548512}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1490946732
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1490946728}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 542ea7dc854424e8ea272eac85811dcc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1579483732
 GameObject:
   m_ObjectHideFlags: 0

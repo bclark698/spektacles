@@ -2,9 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TransportPlayer : MonoBehaviour
+public class glassesOffTemp : MonoBehaviour
 {
-    public Player player;
     // Start is called before the first frame update
     void Start()
     {
@@ -18,7 +17,6 @@ public class TransportPlayer : MonoBehaviour
     }
 
     void OnTriggerEnter2D(){
-      //Debug.Log("hey look! A thing!");
-      player.transform.position = new Vector3(6.8f, -19f, 0f);
-    }
+      gameObject.SetActive(false)
+;    }
 }
