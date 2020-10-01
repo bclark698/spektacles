@@ -41,8 +41,6 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
-        //irving = GameObject.FindGameObjectWithTag("End").GetComponent<CircleCollider2D>();
-
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
