@@ -332,10 +332,8 @@ GameObject:
   - component: {fileID: 69824122}
   - component: {fileID: 69824139}
   - component: {fileID: 69824129}
-  - component: {fileID: 69824155}
   - component: {fileID: 69824152}
   - component: {fileID: 69824151}
-  - component: {fileID: 69824154}
   - component: {fileID: 69824137}
   - component: {fileID: 69824112}
   - component: {fileID: 69824124}
@@ -363,6 +361,10 @@ GameObject:
   - component: {fileID: 69824177}
   - component: {fileID: 69824178}
   - component: {fileID: 69824130}
+  - component: {fileID: 69824180}
+  - component: {fileID: 69824153}
+  - component: {fileID: 69824170}
+  - component: {fileID: 69824179}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -449,10 +451,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 59
   indentLevel: 0
-  duration: 0.2
+  duration: 0.3
   fadeOut: 1
   targetView: {fileID: 1860077393}
-  waitUntilFinished: 1
+  waitUntilFinished: 0
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeTexture: {fileID: 0}
   targetCamera: {fileID: 0}
@@ -502,9 +504,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 631.02026
-    y: 433.35266
-    width: 148.98776
+    x: 628.88354
+    y: 431.21588
+    width: 112.396706
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -513,16 +515,18 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 69824159}
   - {fileID: 69824112}
+  - {fileID: 69824159}
   - {fileID: 69824133}
   - {fileID: 69824157}
   - {fileID: 69824158}
+  - {fileID: 69824180}
   - {fileID: 69824136}
+  - {fileID: 69824179}
+  - {fileID: 69824170}
+  - {fileID: 69824153}
   - {fileID: 69824152}
   - {fileID: 69824151}
-  - {fileID: 69824155}
-  - {fileID: 69824154}
   - {fileID: 69824162}
   - {fileID: 69824124}
   - {fileID: 69824161}
@@ -558,7 +562,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 142.89879
-    width: 100.056305
+    width: 61.74302
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -604,9 +608,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 260.6683
-    y: 411.2105
-    width: 118.61651
+    x: 304.5938
+    y: 420.26575
+    width: 80.80624
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -652,11 +656,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -134.04187, y: -29.425638}
+  scrollPos: {x: -38.416157, y: -56.388805}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
-  zoom: 0.88899887
+  zoom: 0.91799825
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -666,7 +670,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 69824114}
   selectedCommands:
-  - {fileID: 69824133}
+  - {fileID: 69824151}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -740,7 +744,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 436.8519
     y: 552.0602
-    width: 119.74137
+    width: 83.52955
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -843,8 +847,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 438.20383
-    y: 438.6021
-    width: 150.11261
+    y: 437.53372
+    width: 113.48604
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1770,9 +1774,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 20
-  indentLevel: 0
-  storyText: 'Be careful! These are you only pair, we don''t want something to happen
-    to them. '
+  indentLevel: 1
+  storyText: 'Be careful! Here, I picked your glasses up for you. These are you only
+    pair, we don''t want something to happen to them. '
   description: 
   character: {fileID: 1670029141}
   portrait: {fileID: 0}
@@ -2122,9 +2126,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 637.8421
+    x: 636.77374
     y: 335.53302
-    width: 74.74694
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2420,7 +2424,7 @@ MonoBehaviour:
   indentLevel: 0
   duration: 0.5
   amount: {x: 1, y: 1}
-  waitUntilFinished: 1
+  waitUntilFinished: 0
 --- !u!114 &69824147
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2440,7 +2444,7 @@ MonoBehaviour:
     stringVal: "Melita: Good morning....\nMomdusa: Happy first day of school sweetie!
       Are you excited? \nMelita: {i} I think you might be more excited than I am.
       {/i}\nMelita: Yeah! I have some really cool classes this year.\nCerebrus doggo
-      center: {b} BORK {/b}"
+      middle: {b} BORK {/b}"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -2528,8 +2532,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 446.96945
-    y: 301.3309
-    width: 125.92811
+    y: 300.2625
+    width: 87.886856
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2538,8 +2542,8 @@ MonoBehaviour:
   description: talk to mom & knock off glasses
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 69824160}
   - {fileID: 69824156}
+  - {fileID: 69824160}
   - {fileID: 69824149}
   - {fileID: 69824148}
   - {fileID: 69824147}
@@ -2568,8 +2572,8 @@ MonoBehaviour:
   conversationText:
     stringRef: {fileID: 0}
     stringVal: "Momdusa: Oh, looks like the bus is here already. Here, \nMomdusa
-      center: Take your lunch and have a fantastic first day of school! Kisses!\nMomdusa
-      right: \nMelita: Moommmmmmmm"
+      middle: Take your lunch and have a fantastic first day of school! Kisses!\nMelita:
+      Moommmmmmmm\n\nMomdusa hide:\nMelita hide:"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -2599,66 +2603,20 @@ MonoBehaviour:
   soundClip: {fileID: 8300000, guid: 2185db9ea2b9d48a9b4809ac562f3c1f, type: 3}
   volume: 0.27
   waitUntilFinished: 1
---- !u!114 &69824154
+--- !u!114 &69824153
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Script: {fileID: 11500000, guid: 93cb9773f2ca04e2bbf7a68ccfc23267, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 57
+  itemId: 89
   indentLevel: 0
-  display: 2
-  stage: {fileID: 0}
-  character: {fileID: 1970083263}
-  replacedCharacter: {fileID: 0}
-  portrait: {fileID: 0}
-  offset: 0
-  fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
-  facing: 0
-  useDefaultSettings: 1
-  fadeDuration: 0.5
-  moveDuration: 1
-  shiftOffset: {x: 0, y: 0}
-  move: 0
-  shiftIntoPlace: 0
-  waitUntilFinished: 1
---- !u!114 &69824155
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69824109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 53
-  indentLevel: 0
-  display: 2
-  stage: {fileID: 0}
-  character: {fileID: 1670029141}
-  replacedCharacter: {fileID: 0}
-  portrait: {fileID: 0}
-  offset: 0
-  fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
-  facing: 0
-  useDefaultSettings: 1
-  fadeDuration: 0.5
-  moveDuration: 1
-  shiftOffset: {x: 0, y: 0}
-  move: 0
-  shiftIntoPlace: 0
-  waitUntilFinished: 0
 --- !u!114 &69824156
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -2673,10 +2631,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 61
   indentLevel: 0
-  duration: 0.2
+  duration: 0.3
   fadeOut: 1
   targetView: {fileID: 1860077393}
-  waitUntilFinished: 1
+  waitUntilFinished: 0
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeTexture: {fileID: 0}
   targetCamera: {fileID: 0}
@@ -3029,6 +2987,34 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
+--- !u!114 &69824170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 90
+  indentLevel: 1
+  storyText: Glad you got your glasses back, but be more careful next time. They're
+    your only pair, so keep a close eye on them.
+  description: 
+  character: {fileID: 1670029141}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &69824171
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3410,6 +3396,263 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 4
   durationOLD: 0
+--- !u!114 &69824179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3fa968f01a7f9496bb50e13dfe16760d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 91
+  indentLevel: 0
+--- !u!114 &69824180
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 70c5622b8a80845c980954170295f292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 88
+  indentLevel: 0
+  anyOrAllConditions: 0
+  conditions:
+  - compareOperator: 0
+    anyVar:
+      variable: {fileID: 69824171}
+      data:
+        animatorData:
+          animatorRef: {fileID: 0}
+          animatorVal: {fileID: 0}
+        audioSourceData:
+          audioSourceRef: {fileID: 0}
+          audioSourceVal: {fileID: 0}
+        booleanData:
+          booleanRef: {fileID: 0}
+          booleanVal: 1
+        collectionData:
+          collectionRef: {fileID: 0}
+          collectionVal: {fileID: 0}
+        collider2DData:
+          collider2DRef: {fileID: 0}
+          collider2DVal: {fileID: 0}
+        colliderData:
+          colliderRef: {fileID: 0}
+          colliderVal: {fileID: 0}
+        colorData:
+          colorRef: {fileID: 0}
+          colorVal: {r: 0, g: 0, b: 0, a: 0}
+        floatData:
+          floatRef: {fileID: 0}
+          floatVal: 0
+        gameObjectData:
+          gameObjectRef: {fileID: 0}
+          gameObjectVal: {fileID: 0}
+        integerData:
+          integerRef: {fileID: 0}
+          integerVal: 0
+        materialData:
+          materialRef: {fileID: 0}
+          materialVal: {fileID: 0}
+        matrix4x4Data:
+          matrix4x4Ref: {fileID: 0}
+          matrix4x4Val:
+            e00: 0
+            e01: 0
+            e02: 0
+            e03: 0
+            e10: 0
+            e11: 0
+            e12: 0
+            e13: 0
+            e20: 0
+            e21: 0
+            e22: 0
+            e23: 0
+            e30: 0
+            e31: 0
+            e32: 0
+            e33: 0
+        objectData:
+          objectRef: {fileID: 0}
+          objectVal: {fileID: 0}
+        quaternionData:
+          quaternionRef: {fileID: 0}
+          quaternionVal: {x: 0, y: 0, z: 0, w: 0}
+        rigidbody2DData:
+          rigidbody2DRef: {fileID: 0}
+          rigidbody2DVal: {fileID: 0}
+        rigidbodyData:
+          rigidbodyRef: {fileID: 0}
+          rigidbodyVal: {fileID: 0}
+        spriteData:
+          spriteRef: {fileID: 0}
+          spriteVal: {fileID: 0}
+        stringData:
+          stringRef: {fileID: 0}
+          stringVal: 
+        textureData:
+          textureRef: {fileID: 0}
+          textureVal: {fileID: 0}
+        transformData:
+          transformRef: {fileID: 0}
+          transformVal: {fileID: 0}
+        vector2Data:
+          vector2Ref: {fileID: 0}
+          vector2Val: {x: 0, y: 0}
+        vector3Data:
+          vector3Ref: {fileID: 0}
+          vector3Val: {x: 0, y: 0, z: 0}
+        vector4Data:
+          vector4Ref: {fileID: 0}
+          vector4Val: {x: 0, y: 0, z: 0, w: 0}
+  compareOperator: 0
+  anyVar:
+    variable: {fileID: 0}
+    data:
+      animatorData:
+        animatorRef: {fileID: 0}
+        animatorVal: {fileID: 0}
+      audioSourceData:
+        audioSourceRef: {fileID: 0}
+        audioSourceVal: {fileID: 0}
+      booleanData:
+        booleanRef: {fileID: 0}
+        booleanVal: 0
+      collectionData:
+        collectionRef: {fileID: 0}
+        collectionVal: {fileID: 0}
+      collider2DData:
+        collider2DRef: {fileID: 0}
+        collider2DVal: {fileID: 0}
+      colliderData:
+        colliderRef: {fileID: 0}
+        colliderVal: {fileID: 0}
+      colorData:
+        colorRef: {fileID: 0}
+        colorVal: {r: 0, g: 0, b: 0, a: 0}
+      floatData:
+        floatRef: {fileID: 0}
+        floatVal: 0
+      gameObjectData:
+        gameObjectRef: {fileID: 0}
+        gameObjectVal: {fileID: 0}
+      integerData:
+        integerRef: {fileID: 0}
+        integerVal: 0
+      materialData:
+        materialRef: {fileID: 0}
+        materialVal: {fileID: 0}
+      matrix4x4Data:
+        matrix4x4Ref: {fileID: 0}
+        matrix4x4Val:
+          e00: 0
+          e01: 0
+          e02: 0
+          e03: 0
+          e10: 0
+          e11: 0
+          e12: 0
+          e13: 0
+          e20: 0
+          e21: 0
+          e22: 0
+          e23: 0
+          e30: 0
+          e31: 0
+          e32: 0
+          e33: 0
+      objectData:
+        objectRef: {fileID: 0}
+        objectVal: {fileID: 0}
+      quaternionData:
+        quaternionRef: {fileID: 0}
+        quaternionVal: {x: 0, y: 0, z: 0, w: 0}
+      rigidbody2DData:
+        rigidbody2DRef: {fileID: 0}
+        rigidbody2DVal: {fileID: 0}
+      rigidbodyData:
+        rigidbodyRef: {fileID: 0}
+        rigidbodyVal: {fileID: 0}
+      spriteData:
+        spriteRef: {fileID: 0}
+        spriteVal: {fileID: 0}
+      stringData:
+        stringRef: {fileID: 0}
+        stringVal: 
+      textureData:
+        textureRef: {fileID: 0}
+        textureVal: {fileID: 0}
+      transformData:
+        transformRef: {fileID: 0}
+        transformVal: {fileID: 0}
+      vector2Data:
+        vector2Ref: {fileID: 0}
+        vector2Val: {x: 0, y: 0}
+      vector3Data:
+        vector3Ref: {fileID: 0}
+        vector3Val: {x: 0, y: 0, z: 0}
+      vector4Data:
+        vector4Ref: {fileID: 0}
+        vector4Val: {x: 0, y: 0, z: 0, w: 0}
+  variable: {fileID: 0}
+  booleanData:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  integerData:
+    integerRef: {fileID: 0}
+    integerVal: 0
+  floatData:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  stringData:
+    stringRef: {fileID: 0}
+    stringVal: 
+  animatorData:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 0}
+  audioSourceData:
+    audioSourceRef: {fileID: 0}
+    audioSourceVal: {fileID: 0}
+  colorData:
+    colorRef: {fileID: 0}
+    colorVal: {r: 0, g: 0, b: 0, a: 0}
+  gameObjectData:
+    gameObjectRef: {fileID: 0}
+    gameObjectVal: {fileID: 0}
+  materialData:
+    materialRef: {fileID: 0}
+    materialVal: {fileID: 0}
+  objectData:
+    objectRef: {fileID: 0}
+    objectVal: {fileID: 0}
+  rigidbody2DData:
+    rigidbody2DRef: {fileID: 0}
+    rigidbody2DVal: {fileID: 0}
+  spriteData:
+    spriteRef: {fileID: 0}
+    spriteVal: {fileID: 0}
+  textureData:
+    textureRef: {fileID: 0}
+    textureVal: {fileID: 0}
+  transformData:
+    transformRef: {fileID: 0}
+    transformVal: {fileID: 0}
+  vector2Data:
+    vector2Ref: {fileID: 0}
+    vector2Val: {x: 0, y: 0}
+  vector3Data:
+    vector3Ref: {fileID: 0}
+    vector3Val: {x: 0, y: 0, z: 0}
 --- !u!1 &117501691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3442,7 +3685,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117501691}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -7.1, y: -24.1, z: 0}
+  m_LocalPosition: {x: -7.04, y: -21.97, z: 0}
   m_LocalScale: {x: 0.21536744, y: 0.18548612, z: 0.29328713}
   m_Children: []
   m_Father: {fileID: 2128354433}
@@ -3506,9 +3749,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 242
-    y: 196
-    width: 113
+    x: 303.70215
+    y: 215.14894
+    width: 72.76601
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3533,11 +3776,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 0, y: 0}
+  scrollPos: {x: -85.059296, y: 107.384224}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 1
+  zoom: 0.9399993
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -5120,7 +5363,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 117501696}
+  selectedFlowchart: {fileID: 69824120}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -44877,8 +45120,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 460.43, y: -1000}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_AnchoredPosition: {x: 487.3, y: -1000}
+  m_SizeDelta: {x: 825.77905, y: 878.9634}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1632151791
 MonoBehaviour:
@@ -45835,8 +46078,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: -460.43, y: -1000}
-  m_SizeDelta: {x: 1000, y: 1000}
+  m_AnchoredPosition: {x: -485, y: -1000}
+  m_SizeDelta: {x: 807.62646, y: 807.62646}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &2025350945
 MonoBehaviour:
@@ -45951,7 +46194,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 169
     y: 90
-    width: 95
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -46021,7 +46264,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 179
     y: 252
-    width: 126
+    width: 86
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -46061,7 +46304,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2053604412}
   selectedCommands:
-  - {fileID: 2053604415}
+  - {fileID: 2053604414}
   variables: []
   description: 
   stepPause: 0
@@ -46093,8 +46336,8 @@ MonoBehaviour:
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: FungusManager
-  targetMethod: nextScene
-  targetMethodText: 'nextScene (): Void'
+  targetMethod: NextScene
+  targetMethodText: 'NextScene (): Void'
   methodParameters: []
   saveReturnValue: 0
   returnValueVariableKey: 
