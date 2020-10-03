@@ -9,16 +9,14 @@ public class FungusManager : MonoBehaviour
     private Player player;
     private GameObject mainCamera;
     private PlayerSoundController playerSounds;
-    private Animator fungusAnims;
 
     // Start is called before the first frame update
     void Start()
     {
-        DontDestroyOnLoad(gameObject);
+       // DontDestroyOnLoad(gameObject); //i want this to persist across scenes but idk
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
-        fungusAnims = gameObject.GetComponent<Animator>();
 
     }
 
