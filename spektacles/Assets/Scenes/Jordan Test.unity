@@ -645,8 +645,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 1103560449}
+  selectedCommands:
+  - {fileID: 1103560452}
   variables:
   - {fileID: 1103560437}
   description: 
@@ -688,9 +690,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 404
-    y: 172
-    width: 97
+    x: 448
+    y: 167
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -700,7 +702,6 @@ MonoBehaviour:
   eventHandler: {fileID: 1103560447}
   commandList:
   - {fileID: 1103560439}
-  - {fileID: 1103560440}
   suppressAllAutoSelections: 0
 --- !u!114 &1103560439
 MonoBehaviour:
@@ -729,27 +730,6 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
---- !u!114 &1103560440
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1103560435}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 050fb9e6e72f442b3b883da8a965bdeb, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 6
-  indentLevel: 0
-  targetFlowchart: {fileID: 0}
-  targetBlock: {fileID: 1103560449}
-  startLabel:
-    stringRef: {fileID: 0}
-    stringVal: 
-  startIndex: 0
-  callMode: 1
 --- !u!114 &1103560447
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -781,16 +761,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 609
-    y: 211
-    width: 113
+    x: 602
+    y: 156
+    width: 73
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 2
   blockName: Pixie Spray
   description: 
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 1103560451}
   commandList:
   - {fileID: 1103560452}
   - {fileID: 1103560450}
@@ -822,6 +802,22 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!114 &1103560451
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1103560435}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000864f8e9e1748a39807861d0e60e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1103560449}
+  suppressBlockAutoSelect: 0
+  keyPressType: 0
+  keyCode: 101
 --- !u!114 &1103560452
 MonoBehaviour:
   m_ObjectHideFlags: 2
