@@ -10,9 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3867247426962283134}
   - component: {fileID: 3867247426962283129}
-  - component: {fileID: 3867247426962283135}
   - component: {fileID: 3867247426962283128}
-  - component: {fileID: 3867247426962283132}
   - component: {fileID: 5841483648947470852}
   - component: {fileID: 8986224138742732826}
   - component: {fileID: 2884739378346602578}
@@ -88,32 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &3867247426962283135
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3867247426962283131}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.12049556, y: -5.491689}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.3408358, y: 10.030001}
-    newSize: {x: 10, y: 10}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 2.7633119, y: 1.2046633}
-  m_EdgeRadius: 0
 --- !u!114 &3867247426962283128
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -129,27 +101,6 @@ MonoBehaviour:
   item: 1
   powerUpPrefab: {fileID: 7884733022290086916, guid: a1b4858386f27fc45b75a662c8a2e518,
     type: 3}
---- !u!50 &3867247426962283132
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3867247426962283131}
-  m_BodyType: 1
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 1
-  m_Constraints: 0
 --- !u!61 &5841483648947470852
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -163,7 +114,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.19113016, y: 0}
+  m_Offset: {x: 0.19, y: -3.71}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -174,7 +125,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.6780405, y: 10}
+  m_Size: {x: 1.9566107, y: 2.6348057}
   m_EdgeRadius: 0
 --- !u!114 &8986224138742732826
 MonoBehaviour:
