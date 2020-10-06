@@ -10,14 +10,27 @@ public class FungusManager : MonoBehaviour
     private GameObject mainCamera;
     private PlayerSoundController playerSounds;
 
-    // Start is called before the first frame update
+    //private FungusManager managerInstance;
+
+    //void Awake() //cant get this to work, will come back to it maybe
+    //{
+    //    DontDestroyOnLoad(this);
+
+    //    if (managerInstance == null)
+    //    {
+    //        managerInstance = this;
+    //    }
+    //    else
+    //    {
+    //        Object.Destroy(gameObject);
+    //    }
+    //}
+
     void Start()
     {
-       // DontDestroyOnLoad(gameObject); //i want this to persist across scenes but idk
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
-
     }
 
     public void LoseGlasses()
@@ -36,6 +49,11 @@ public class FungusManager : MonoBehaviour
     public void NextScene()
     {
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+    }
+
+    public void TeleportPlayer(Vector2 newPos)
+    {
+        player.transform.position = newPos;
     }
 
     public void Quit()

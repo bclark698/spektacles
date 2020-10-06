@@ -12,8 +12,6 @@ public class cameraFollow : MonoBehaviour
 
     [Tooltip("Set how fast the camera follows the player")]
     public float camFollowSpeed;
-    [Tooltip("Set how far away from the player the camera is")]
-    public float cameraOffset; 
     public GameObject player;
 
 
@@ -32,7 +30,7 @@ public class cameraFollow : MonoBehaviour
       playerY = player.transform.position.y;
 
       if (cam.transform.position != player.transform.position){
-        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, cameraOffset) , Time.deltaTime * camFollowSpeed);
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, -3f) , Time.deltaTime * camFollowSpeed);
       }
     }
 
@@ -43,7 +41,7 @@ public class cameraFollow : MonoBehaviour
         enabled = true; //follow player again
         player.transform.position = new Vector2(playerX + offsetX, playerY + offsetY); //move player a certain distance away from collider
 
-        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, cameraOffset), Time.deltaTime * camFollowSpeed); //move camera
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, -3f), Time.deltaTime * camFollowSpeed); //move camera
     }
 
     public void stopFollow(bool hidePlayer)
