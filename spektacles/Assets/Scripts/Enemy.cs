@@ -12,7 +12,7 @@ public abstract class Enemy : MonoBehaviour
 
     public abstract IEnumerator HandleStun();
 
-    public void TurnIntoStone()
+    public virtual void TurnIntoStone()
     {
         Debug.Log("turned into stone");
         StartCoroutine(HandleStun());

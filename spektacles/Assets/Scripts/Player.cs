@@ -135,23 +135,18 @@ public class Player : MonoBehaviour
 
     void HandleHit()
     {
-        //hitNoise.Play();
         playerSounds.hitSound();
 
-        if (lives > 2) //has glasses and buff
-        {
-            //dont lose glasses, just a life + buff if applicable
-            lives--;
-        } else if (lives == 2) //has glasses but no buff
+        if (lives == 2) //has glasses but no buff
         {
             LoseGlasses();
         } else if (lives == 1) //no glasses and no buff
         {
-            lives--;
             //game over :) just reloads the scene rn
             playerSounds.reloadSound();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        lives--;
     }
 
     public void PickUpGlasses()
@@ -170,7 +165,6 @@ public class Player : MonoBehaviour
     private void LoseGlasses()
     {
         StonePower();
-        lives--;
         if (anim.GetBool("blind") == false)
         {
             anim.SetBool("blind", true);
