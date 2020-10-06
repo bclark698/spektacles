@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 3867247426962283132}
   - component: {fileID: 5841483648947470852}
   - component: {fileID: 8986224138742732826}
+  - component: {fileID: 2884739378346602578}
   m_Layer: 0
   m_Name: Locker With Garlic
   m_TagString: Locker
@@ -75,8 +76,9 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: dafc2dc7874294519a94569be5e69722, type: 3}
-  m_Color: {r: 1, g: 0.13123205, b: 0, a: 1}
+  m_Sprite: {fileID: -716764635480081968, guid: 54193fb6eeed199438dc6af201a0da46,
+    type: 3}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -103,7 +105,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
+    oldSize: {x: 3.7405038, y: 10.05}
     newSize: {x: 10, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -165,7 +167,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10, y: 10}
+    oldSize: {x: 3.7405038, y: 10.05}
     newSize: {x: 10, y: 10}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -187,3 +189,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   InteractIndicator: {fileID: 0}
+--- !u!95 &2884739378346602578
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3867247426962283131}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e088fb33585f355499395a02b8996b19, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
