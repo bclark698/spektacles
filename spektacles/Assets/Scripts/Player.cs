@@ -50,6 +50,12 @@ public class Player : MonoBehaviour
 
         transform.GetChild(0).gameObject.SetActive(false);
 
+        // TODO delete later when implement outline enemies
+        // change power up range indicator to be proper size
+        powerUpRangePos.localScale = new Vector3(2*powerUpRange, 2*powerUpRange, 0);
+        // make sure it isn't visible at the start of the game
+        GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<SpriteRenderer>().enabled = false;
+
         dashTime = startDashTime;
     }
 
@@ -88,7 +94,7 @@ public class Player : MonoBehaviour
         if (powerUp != PowerUp.PowerUpType.None)
         {
             // get all the enemies within our PowerUpRange
-            Collider2D[] enemiesInRange = Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
+            Collider2D[] enemiesInRange = GetEnemiesInRange();
 
             // temporarily keep track of the held powerup item because .Use() sets powerUp to None.
             PowerUp.PowerUpType temp = powerUp;
@@ -106,6 +112,12 @@ public class Player : MonoBehaviour
             }
 
         }
+    }
+
+    Collider2D[] GetEnemiesInRange()
+    {
+        // get all the enemies within our PowerUpRange
+        return Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
     }
     
     /* For testing purposes, this draws red line around the player's power up range.
@@ -157,6 +169,7 @@ public class Player : MonoBehaviour
 
     private void LoseGlasses()
     {
+        StonePower();
         lives--;
         if (anim.GetBool("blind") == false)
         {
@@ -165,6 +178,17 @@ public class Player : MonoBehaviour
             mainCamera.GetComponent<BoxBlur>().enabled = true;
         }
         irving.isTrigger = false; //turn irving off
+    }
+
+    private void StonePower()
+    {
+        // get all the enemies within our PowerUpRange
+        Collider2D[] enemiesInRange = GetEnemiesInRange();
+
+        for(int i = 0; i < enemiesInRange.Length; i++)
+        {
+            enemiesInRange[i].GetComponent<Enemy>().TurnIntoStone();
+        }
     }
 
     private void OnTriggerEnter2D(Collider2D other)

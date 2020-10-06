@@ -145,7 +145,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 8
-  eyeglasses: {fileID: 0}
   irving: {fileID: 0}
   dashSpeed: 0
   startDashTime: 0
@@ -154,7 +153,7 @@ MonoBehaviour:
   whatIsEnemies:
     serializedVersion: 2
     m_Bits: 256
-  powerUpRange: 6.69
+  powerUpRange: 10
   powerUpObj: {fileID: 0}
   powerUpText: {fileID: 0}
   sprayEffect: {fileID: 0}
@@ -857,7 +856,7 @@ SpriteRenderer:
   m_Size: {x: 2.936152, y: 2.82}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!95 &6155060640262903702
@@ -870,7 +869,7 @@ Animator:
   m_GameObject: {fileID: 1734068418630068288}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: eff0bc51df0c58d48a79f6008f1c9a40, type: 2}
+  m_Controller: {fileID: 0}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

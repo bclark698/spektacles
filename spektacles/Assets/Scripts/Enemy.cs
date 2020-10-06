@@ -11,4 +11,12 @@ public abstract class Enemy : MonoBehaviour
     public abstract bool HandlePowerUp(PowerUp.PowerUpType powerUp);
 
     public abstract IEnumerator HandleStun();
+
+    public void TurnIntoStone()
+    {
+        Debug.Log("turned into stone");
+        StartCoroutine(HandleStun());
+
+        // play grayscale stone animation
+    }
 }

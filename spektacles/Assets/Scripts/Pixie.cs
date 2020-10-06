@@ -230,7 +230,7 @@ public class Pixie : Enemy
             StartCoroutine(HandleStun());
             return true;
         }
-        return false; // TODO change this to what it should be
+        return false;
     }
 
     public override IEnumerator HandleStun()
