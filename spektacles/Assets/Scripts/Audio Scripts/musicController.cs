@@ -59,7 +59,7 @@ public class musicController : MonoBehaviour
       case "Floor1 NEW":
       currentMusic.clip = lvl1Music.clip;
       break;
-      case "TEST Floor1 NEW":
+      case "School Level 1":
       currentMusic.clip = lvl1Music.clip;
       break;
 
@@ -86,7 +86,7 @@ public class musicController : MonoBehaviour
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
-      case "TEST Floor1 NEW":
+      case "School Level 1":
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
