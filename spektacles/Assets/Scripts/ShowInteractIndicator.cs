@@ -5,7 +5,8 @@ using TMPro;
 
 public class ShowInteractIndicator : MonoBehaviour
 {
-    public GameObject InteractIndicator;
+    [SerializeField]
+    private GameObject InteractIndicator;
 
     // Start is called before the first frame update
     void Start()
@@ -13,19 +14,20 @@ public class ShowInteractIndicator : MonoBehaviour
         InteractIndicator = GameObject.FindGameObjectWithTag("Interact");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
             // show interact indicator
             InteractIndicator.GetComponent<TextMeshProUGUI>().enabled = true;
         }
     }
 
-    private void OnTriggerExit2D(Collider2D collision)
+    private void OnCollisionExit2D(Collision2D collision)
     {
-        if (collision.CompareTag("Player"))
+        if (collision.gameObject.tag == "Player")
         {
+            // unshow interact indicator
             InteractIndicator.GetComponent<TextMeshProUGUI>().enabled = false;
         }
     }

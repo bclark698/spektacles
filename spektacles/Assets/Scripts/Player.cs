@@ -10,7 +10,6 @@ public class Player : MonoBehaviour
     private Vector2 movementVelocity;
     public float moveSpeed;
     private Animator anim;
-    public GameObject eyeglasses;
     private int lives = 2; //one for w/ glasses, one for without
     private cameraFollow cameraF;
     public CircleCollider2D irving;
@@ -27,11 +26,14 @@ public class Player : MonoBehaviour
 
 
     // powerUp variables
-    public PowerUp.PowerUpType powerUp = PowerUp.PowerUpType.None;
-    public Transform powerUpRangePos;
-    public LayerMask whatIsEnemies;
-    public float powerUpRange;
-    public GameObject powerUpObj; //TODO make private
+    public PowerUp.PowerUpType powerUp = PowerUp.PowerUpType.None; // TODO make this a private serialized field?
+    [SerializeField]
+    private Transform powerUpRangePos;
+    [SerializeField]
+    private LayerMask whatIsEnemies;
+    [SerializeField]
+    private float powerUpRange;
+    public GameObject powerUpObj;
     public Text powerUpText;
     public GameObject sprayEffect;
 
@@ -105,9 +107,7 @@ public class Player : MonoBehaviour
 
         }
     }
-
-
-
+    
     /* For testing purposes, this draws red line around the player's power up range.
      * This has no effect during gameplay, so we can leave this in. */
     void OnDrawGizmosSelected()
@@ -116,8 +116,12 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireSphere(powerUpRangePos.position, powerUpRange);
     }
 
+    public bool HasGlasses()
+    {
+        return (lives >= 2);
+    }
 
-    public void checkLives()
+    void HandleHit()
     {
         //hitNoise.Play();
         playerSounds.hitSound();
@@ -128,15 +132,7 @@ public class Player : MonoBehaviour
             lives--;
         } else if (lives == 2) //has glasses but no buff
         {
-            lives--;
-            if (anim.GetBool("blind") == false)
-            {
-                anim.SetBool("blind", true);
-                Camera mainCamera = Camera.main;
-                mainCamera.GetComponent<BoxBlur>().enabled = true;
-            }
-            irving.isTrigger = false; //turn irving off
-
+            LoseGlasses();
         } else if (lives == 1) //no glasses and no buff
         {
             lives--;
@@ -146,6 +142,30 @@ public class Player : MonoBehaviour
         }
     }
 
+    public void PickUpGlasses()
+    {
+        if (anim.GetBool("blind"))
+        {
+            anim.SetBool("blind", false);
+            Camera mainCamera = Camera.main;
+            mainCamera.GetComponent<BoxBlur>().enabled = false;
+            lives = 2;
+        }
+        playerSounds.aquireSound();
+        irving.isTrigger = true;
+    }
+
+    private void LoseGlasses()
+    {
+        lives--;
+        if (anim.GetBool("blind") == false)
+        {
+            anim.SetBool("blind", true);
+            Camera mainCamera = Camera.main;
+            mainCamera.GetComponent<BoxBlur>().enabled = true;
+        }
+        irving.isTrigger = false; //turn irving off
+    }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
@@ -166,22 +186,14 @@ public class Player : MonoBehaviour
                 else
                 {
                     // possible death if not enough lives
-                    checkLives();
+                    HandleHit();
                 }
             }
 
         }
-        else if (other.CompareTag("Glasses")) // pick up glasses
+        else if (other.CompareTag("Glasses") || other.CompareTag("LostNFound"))
         {
-            if (anim.GetBool("blind"))
-            {
-                anim.SetBool("blind", false);
-                Camera mainCamera = Camera.main;
-                mainCamera.GetComponent<BoxBlur>().enabled = false;
-                lives = 2;
-            }
-            playerSounds.aquireSound();
-            irving.isTrigger = true;
+            PickUpGlasses();
         }
         else if (other.CompareTag("GlassesBuff"))
         {
