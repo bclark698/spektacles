@@ -114,9 +114,9 @@ public class Pixie : Enemy
             // CASE 3
             // Return to start if line of sight is broken or power-up is used.
             case State.ReturnToStart:
-                //StartCoroutine(ReturnHome());
-                ReturnHome();
-                //giggle2.Play();
+                StartCoroutine(ReturnHome());
+                //ReturnHome();
+                giggle2.Play();
                 break;
 
 
@@ -198,13 +198,12 @@ public class Pixie : Enemy
         if (collision.tag == "Player")
         {
             giggle2.Play();
-            Debug.LogError("PLAYER HIT");
-            state = State.ReturnToStart;
         }
     }
-
+    /*
     private void ReturnHome()
     {
+        Debug.Log("RETURNING HOME");
         // causes pixies to continously look towards their starting position
         Vector3 direction = startingPos - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -218,19 +217,30 @@ public class Pixie : Enemy
             state = State.Waiting;
         }
     }
-
-    /*
+    */
+    
     // sends pixies back to starting position
     IEnumerator ReturnHome()
     {
+        Debug.Log("RETURNING HOME");
+        Debug.Log("stateINRETURN = " + state);
+        
+
+        Vector3 direction = startingPos - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(2, 2, angle);
+        Debug.Log("rotated");
+        moveSpeed = 15;
+
         float reachedPosDist = 1f;
-        while (Vector2.Distance(GetPosition(), startingPos) > reachedPosDist)
+        while (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
         {
-            transform.position = Vector2.MoveTowards(GetPosition(), startingPos, (moveSpeed * Time.deltaTime) / 50);
+            Debug.Log("MOVING");
+            transform.position = Vector2.MoveTowards(transform.position, startingPos, moveSpeed * Time.deltaTime/50);
             yield return null;
         }
         state = State.Waiting;
-    }*/
+    }
 
     public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
@@ -257,11 +267,13 @@ public class Pixie : Enemy
         // wait for 1.5 seconds
         yield return new WaitForSeconds(1.5f);
 
+   
+
         moveSpeed = originalSpeed;
         rotationSpeed = originalRotationSpeed;
         isStunned = false;
-        moveSpeed = 30;
         state = State.ReturnToStart;
+        Debug.Log("stateHANDLESTUN = " + state);
         Debug.Log("pixie state is return home");
     }
 

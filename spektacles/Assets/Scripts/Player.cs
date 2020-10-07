@@ -181,6 +181,7 @@ public class Player : MonoBehaviour
 
         for(int i = 0; i < enemiesInRange.Length; i++)
         {
+            Debug.Log("enemiesInRange = " + enemiesInRange.Length);
             enemiesInRange[i].GetComponent<Enemy>().TurnIntoStone();
         }
     }
@@ -198,10 +199,14 @@ public class Player : MonoBehaviour
             {
                 // Automatically use a powerup if applicable to enemy
                 // Note: the HandlePowerUp function returns true if the powerup used on them is applicable to them
-                if (powerUp != PowerUp.PowerUpType.None && enemy.HandlePowerUp(powerUp))
+                if (powerUp != PowerUp.PowerUpType.None)
                 {
-                    // also affects all other applicable enemies in range
-                    UsePowerUp();
+                    if(enemy.HandlePowerUp(powerUp))
+                    {
+                        // also affects all other applicable enemies in range
+                        UsePowerUp();
+                    }
+                    
                 }
                 else
                 {
