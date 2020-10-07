@@ -80,9 +80,13 @@ public class Pixie : Enemy
 
         if (state == State.Waiting && Time.time > nextActionTime)
         {
-            nextActionTime = Time.time + period;
+            if (!PlayerInSight())
+            {
+                nextActionTime = Time.time + period;
 
-            directionIdx = (directionIdx + 1) % directions.Length;
+                directionIdx = (directionIdx + 1) % directions.Length;
+            }
+
         }
 
 
@@ -186,11 +190,14 @@ public class Pixie : Enemy
             transform.rotation = Quaternion.Euler(2, 2, angle);
 
             transform.position = Vector2.MoveTowards(transform.position, playerObj.transform.position, moveSpeed * Time.deltaTime);
-            if (!wallHit.collider.CompareTag("Player"))
-            {
-                Debug.Log("Lost the player!");
-                state = State.ReturnToStart;
-            }
+
+            //if (wallHit.collider.gameObject.tag != "Player")
+            //{
+            //    Debug.Log("Lost the player!");
+            //    state = State.ReturnToStart;
+            //}
+
+
         }
     }
 
@@ -268,7 +275,7 @@ public class Pixie : Enemy
         state = State.Stunned;
 
         // wait for 1.5 seconds
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
 
    
 
