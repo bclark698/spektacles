@@ -21,15 +21,15 @@ public class PlayerSoundController : MonoBehaviour
 
     }
 
-    public void hitSound(){
+    public void HitSound(){
       playerHit.Play();
     }
 
-    public void reloadSound(){
+    public void ReloadSound(){
       reloadLvl.Play();
     }
 
-    public void aquireSound(){
+    public void AcquireSound(){
       aquire.Play();
     }
 

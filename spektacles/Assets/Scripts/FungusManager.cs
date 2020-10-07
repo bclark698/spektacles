@@ -33,6 +33,7 @@ public class FungusManager : MonoBehaviour
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
     }
 
+    // TODO use player's functions for losing and gaining glasses instead
     public void LoseGlasses()
     {
         mainCamera.GetComponent<BoxBlur>().enabled = true;
@@ -43,7 +44,7 @@ public class FungusManager : MonoBehaviour
     {
         mainCamera.GetComponent<BoxBlur>().enabled = false;
         player.GetComponent<Animator>().SetBool("blind", false);
-        playerSounds.aquireSound();
+        playerSounds.AcquireSound();
     }
 
     public void NextScene()

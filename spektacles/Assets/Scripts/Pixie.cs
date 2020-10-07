@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Pixie : Enemy
 {
-    ////////////
-    // STATES //
-    ////////////
     private enum State
     {
         Waiting,        // waiting to see enemy
@@ -16,35 +13,32 @@ public class Pixie : Enemy
         Stunned         // temporary stop of movement due to a stun powerup
     }
 
-
-    ///////////////////////
-    // PRIVATE VARIABLES //
-    ///////////////////////
-    private State state;            // current state of enemy (chasing, roaming, etc)
-    private Vector2 startingPos;    // pixies' starting position
+    [SerializeField] private State state;            // current state of enemy (chasing, roaming, etc)
+    private Vector3 startingPos;    // pixies' starting position
     private RaycastHit2D hitInfo;   // ray that searches for player
     private RaycastHit2D wallHit;   // ray that looks for walls / blocking objects
     private RaycastHit2D searchHit; // ray that searches for player after losing
     private GameObject playerObj;   // player object (melita)
     private Vector2 lastSeenPos;    // players last seen position
-    private bool playerHit;         // true if player has been hit, false if not
     private PowerUp.PowerUpType pixiePowerUp = PowerUp.PowerUpType.BugSpray;    // bug spray, TODO can this be taken out and put in enemy script?
     //private SpriteRenderer spriteRenderer; // used to flip sprite depending on movement direction
 
-    ///////////////////////////////////////
-    // PUBLIC VARIABLES / UNITY EDITABLE //
-    ///////////////////////////////////////
     public float rotationSpeed; // speed at which pixies spin
     public float fovDistance;   // distance away from pixies that they can see
     public float moveSpeed;     // movement speed of pixies
     public AudioSource giggle1; //agro sound
     public AudioSource giggle2; //dissapointed sound
-  //  public Animator anim;
+                                //  public Animator anim;
 
-
-    ////////////////////
-    // MAIN FUNCTIONS //
-    ////////////////////
+    private FieldOfView fieldOfView;
+    [SerializeField] private Transform pfFieldOfView; // a prefab of our field of view. drag this into the pixie's inspector
+    [SerializeField] private float fov = 90f;
+    [SerializeField] private float viewDistance = 30f;
+    private Vector3 lastMoveDir;
+    private Vector3[] directions;
+    private int directionIdx = 0;
+    private float nextActionTime = 0.0f;
+    [SerializeField] private float period = 2.5f;
 
     // Awake is called before Start
     private void Awake()
@@ -62,7 +56,18 @@ public class Pixie : Enemy
         lastSeenPos = playerObj.transform.position;
         //anim = GetComponent<Animator>();
 
-    }
+        fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
+        fieldOfView.SetFoV(fov);
+        fieldOfView.SetViewDistance(viewDistance);
+
+        // TODO make cleaner
+        Vector3 up = new Vector3(0, 1, 0);
+        Vector3 down = new Vector3(0, -1, 0);
+        Vector3 left = new Vector3(-1, 0, 0);
+        Vector3 right = new Vector3(1, 0, 0);
+        directions = new Vector3[]{up, right, down, left};
+        
+}
 
     // Update is called once per frame
     void Update()
@@ -71,32 +76,46 @@ public class Pixie : Enemy
         // casts ray starting at transform.pos; casts in direction transform.right; length of ray = fovDistance
         hitInfo = Physics2D.Raycast(transform.position, transform.right, fovDistance);
 
+        
+
+        if (state == State.Waiting && Time.time > nextActionTime)
+        {
+            nextActionTime = Time.time + period;
+
+            directionIdx = (directionIdx + 1) % directions.Length;
+        }
+
+
+        if (fieldOfView != null)
+        {
+            fieldOfView.SetOrigin(transform.position);
+            fieldOfView.SetAimDirection(GetAimDir());
+        }
+
+        
         switch (state)
         {
             // CASE 1
             // Rotate. If player found, change state to chasing target.
             default:
             case State.Waiting:
-                lookForPlayer();
+                if (PlayerInSight())
+                {
+                    state = State.ChaseTarget;
+                }
                 break;
 
             // CASE 2
             // Chase target until line of sight is broken or power-up is used.
             case State.ChaseTarget:
-                chaseTarget();
-                break;
-
-            // CASE 4
-            // Search for player after losing vision
-            case State.Search:
-                StartCoroutine(searchForPlayer());
-                giggle2.Play();
+                ChaseTarget();
                 break;
 
             // CASE 3
             // Return to start if line of sight is broken or power-up is used.
             case State.ReturnToStart:
-                StartCoroutine(returnHome());
+                //StartCoroutine(ReturnHome());
+                ReturnHome();
                 giggle2.Play();
                 break;
 
@@ -107,11 +126,143 @@ public class Pixie : Enemy
 
     }
 
+    public Vector3 GetPosition()
+    {
+        return transform.position;
+    }
 
-    //////////////////////
-    // HELPER FUNCTIONS //
-    //////////////////////
+    public Vector3 GetAimDir()
+    {
+        if(state == State.Waiting)
+        {
+            lastMoveDir = directions[directionIdx];
+        } else if(state == State.ChaseTarget)
+        {
+            lastMoveDir = (playerObj.transform.position - transform.position).normalized; //face player
+        } else
+        {
+            // do something for return home direction?
+        }
+        
+        return lastMoveDir;
+    }
 
+    // using a cone of vision
+    private bool PlayerInSight()
+    {
+        if (Vector3.Distance(GetPosition(), playerObj.transform.position) < viewDistance)
+        {
+            // Player inside viewDistance
+            Vector3 dirToPlayer = (playerObj.transform.position - GetPosition()).normalized;
+            if (Vector3.Angle(GetAimDir(), dirToPlayer) < fov / 2f)
+            {
+                // Player inside Field of View
+                RaycastHit2D raycastHit2D = Physics2D.Raycast(GetPosition(), dirToPlayer, viewDistance);
+                if (raycastHit2D.collider != null)
+                {
+                    // Hit something
+                    if (raycastHit2D.collider.gameObject.GetComponent<Player>() != null)
+                    {
+                        // Hit Player
+                        return true;
+                    }
+                }
+            }
+        }
+        return false;
+    }
+
+    // causes pixies to chase player
+    private void ChaseTarget()
+    {
+        wallHit = Physics2D.Raycast(transform.position, transform.right, viewDistance);
+        // move towards the player using Vector2.MoveTowards(fromPosition, toPosition, speed);
+        if (!isStunned)
+        {
+            // causes pixies to continously look towards player
+            Vector2 direction = playerObj.transform.position - transform.position;
+            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(2, 2, angle);
+
+            transform.position = Vector2.MoveTowards(transform.position, playerObj.transform.position, moveSpeed * Time.deltaTime);
+            if (!PlayerInSight())
+            {
+                state = State.ReturnToStart;
+            }
+        }
+    }
+
+    // check if pixies touches player
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.tag == "Player")
+        {
+            giggle2.Play();
+        }
+    }
+
+    private void ReturnHome()
+    {
+        // causes pixies to continously look towards their starting position
+        Vector3 direction = startingPos - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(2, 2, angle);
+
+        transform.position = Vector2.MoveTowards(transform.position, startingPos, moveSpeed * Time.deltaTime);
+
+        float reachedPosDist = 1f;
+        if (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
+        {
+            state = State.Waiting;
+        }
+    }
+
+    /*
+    // sends pixies back to starting position
+    IEnumerator ReturnHome()
+    {
+        float reachedPosDist = 1f;
+        while (Vector2.Distance(GetPosition(), startingPos) > reachedPosDist)
+        {
+            transform.position = Vector2.MoveTowards(GetPosition(), startingPos, (moveSpeed * Time.deltaTime) / 50);
+            yield return null;
+        }
+        state = State.Waiting;
+    }*/
+
+    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
+    {
+        Debug.Log("pixie handling powerup" + powerUp);
+        if(powerUp == pixiePowerUp)
+        {
+            StartCoroutine(HandleStun());
+            return true;
+        }
+        return false;
+    }
+
+    public override IEnumerator HandleStun()
+    {
+        // stop movement for a few seconds
+        isStunned = true;
+        float originalSpeed = moveSpeed;
+        float originalRotationSpeed = rotationSpeed;
+
+        moveSpeed = 0;
+        rotationSpeed = 0;
+        state = State.Stunned;
+
+        // wait for 1.5 seconds
+        yield return new WaitForSeconds(1.5f);
+
+        moveSpeed = originalSpeed;
+        rotationSpeed = originalRotationSpeed;
+        isStunned = false;
+        state = State.ReturnToStart;
+        Debug.Log("pixie state is return home");
+    }
+
+    /*
     // check if player is in line of sight
     private bool canSeePlayer()
     {
@@ -152,19 +303,8 @@ public class Pixie : Enemy
         return collisionCheck;
     }
 
-    // check if pixies touches player
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.tag == "Player")
-        {
-            playerHit = true;
-            giggle2.Play();
-        }
-    }
-
-
     // searches for player
-    private void lookForPlayer()
+    private void LookForPlayer()
     {
         if (!canSeePlayer())
         {
@@ -178,87 +318,9 @@ public class Pixie : Enemy
         }
     }
 
-    // causes pixies to chase player
-    private void chaseTarget()
-    {
-        wallHit = Physics2D.Raycast(transform.position, transform.right, fovDistance);
-        // move towards the player using Vector2.MoveTowards(fromPosition, toPosition, speed);
-        if (!playerHit)
-        {
-            // causes pixies to continously look towards player
-            Vector3 direction = playerObj.transform.position - transform.position;
-            float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(2, 2, angle);
-
-            transform.position = Vector2.MoveTowards(transform.position, playerObj.GetComponent<Transform>().position, moveSpeed * Time.deltaTime);
-            if (cantSeePlayer())
-            {
-                lastSeenPos = playerObj.transform.position;
-                state = State.Search;
-            }
-        }
-        else
-        {
-            state = State.ReturnToStart;
-            playerHit = false;
-        }
-        //if(nonPlayerSightCheck()) // CURRENTLY DOESN'T WORK
-        //{
-        //    state = State.ReturnToStart;
-        //    giggle2.Play();
-        //    Debug.Log("ha ha ");
-        //}
-    }
-
-    // sends pixies back to starting position
-    IEnumerator returnHome()
-    {
-        float reachedPosDist = 1f;
-        while (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, startingPos, (moveSpeed * Time.deltaTime) / 50);
-            yield return null;
-        }
-        state = State.Waiting;
-    }
-
-    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
-    {
-        Debug.Log("pixie handling powerup" + powerUp);
-        if(powerUp == pixiePowerUp)
-        {
-            StartCoroutine(HandleStun());
-            return true;
-        }
-        return false;
-    }
-
-    public override IEnumerator HandleStun()
-    {
-        // stop movement for a few seconds
-        isStunned = true;
-        float originalSpeed = moveSpeed;
-        float originalRotationSpeed = rotationSpeed;
-
-        moveSpeed = 0;
-        rotationSpeed = 0;
-        state = State.Stunned;
-
-        // wait for 1.5 seconds
-        yield return new WaitForSeconds(1.5f);
-
-        moveSpeed = originalSpeed;
-        rotationSpeed = originalRotationSpeed;
-        isStunned = false;
-        state = State.ReturnToStart;
-        Debug.Log("pixie state is return home");
-    }
-
-
     // pixie searches for player after losing sight
-    IEnumerator searchForPlayer()
+    IEnumerator SearchForPlayer()
     {
-
         float time = 0;
         float duration = 3f;
         Vector2 startPosition = transform.position;
@@ -270,12 +332,12 @@ public class Pixie : Enemy
             yield return null;
         }
         transform.position = targetPosition;
-        StartCoroutine(lookAround());
+        //StartCoroutine(LookAround());
         state = State.ReturnToStart;
     }
 
     // kinda works
-    IEnumerator lookAround()
+    IEnumerator LookAround()
     {
         float time = 0.0f;
         float duration = 0.5f;
@@ -313,8 +375,6 @@ public class Pixie : Enemy
             time += Time.deltaTime;
             yield return null;
         }
-
-
-
     }
+    */
 }

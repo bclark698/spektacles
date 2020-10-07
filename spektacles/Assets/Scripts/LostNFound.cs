@@ -50,6 +50,7 @@ public class LostNFound : MonoBehaviour
         }
     }
 
+    // unused functions currently
     public void Activate()
     {
         sr.enabled = true;

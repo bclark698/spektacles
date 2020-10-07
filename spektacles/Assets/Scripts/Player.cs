@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
 
     void HandleHit()
     {
-        playerSounds.hitSound();
+        playerSounds.HitSound();
 
         if (lives == 2) //has glasses but no buff
         {
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
         } else if (lives == 1) //no glasses and no buff
         {
             //game over :) just reloads the scene rn
-            playerSounds.reloadSound();
+            playerSounds.ReloadSound();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
         lives--;
@@ -158,7 +158,7 @@ public class Player : MonoBehaviour
             mainCamera.GetComponent<BoxBlur>().enabled = false;
             lives = 2;
         }
-        playerSounds.aquireSound();
+        playerSounds.AcquireSound();
         irving.isTrigger = true;
     }
 
@@ -185,6 +185,7 @@ public class Player : MonoBehaviour
         }
     }
 
+    
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
@@ -192,11 +193,12 @@ public class Player : MonoBehaviour
             /* If the enemy is stunned, they have no effect on Melita.
              * Otherwise, automatically use a held powerup if it is applicable to the enemy
              * that Melita is touching. */
-            if (!other.GetComponent<Enemy>().isStunned)
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            if (!enemy.isStunned)
             {
                 // Automatically use a powerup if applicable to enemy
                 // Note: the HandlePowerUp function returns true if the powerup used on them is applicable to them
-                if (powerUp != PowerUp.PowerUpType.None && other.GetComponent<Enemy>().HandlePowerUp(powerUp))
+                if (powerUp != PowerUp.PowerUpType.None && enemy.HandlePowerUp(powerUp))
                 {
                     // also affects all other applicable enemies in range
                     UsePowerUp();
@@ -218,7 +220,7 @@ public class Player : MonoBehaviour
             lives++;
             Destroy(other.gameObject);
             Debug.Log("add lives. current lives " + lives);
-            playerSounds.aquireSound();
+            playerSounds.AcquireSound();
             //add any ui code here!
         }
         else if(other.CompareTag("End"))
@@ -237,25 +239,79 @@ public class Player : MonoBehaviour
 
     }
 
-
-    // makes melita zoom zoom
-    public void Dash()
+    /*
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        Debug.Log("zoom?");
-        Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        if (other.gameObject.tag == "Enemy")
+        {
+            /* If the enemy is stunned, they have no effect on Melita.
+             * Otherwise, automatically use a held powerup if it is applicable to the enemy
+             * that Melita is touching. 
+            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+            if (!enemy.isStunned)
+            {
+                // Automatically use a powerup if applicable to enemy
+                // Note: the HandlePowerUp function returns true if the powerup used on them is applicable to them
+                if (powerUp != PowerUp.PowerUpType.None && enemy.HandlePowerUp(powerUp))
+                {
+                    // also affects all other applicable enemies in range
+                    UsePowerUp();
+                }
+                else
+                {
+                    // possible death if not enough lives
+                    HandleHit();
+                }
+            }
 
-        if (dashTime <= 0)
-        {
-            dashTime = startDashTime;
-            movementVelocity = Vector2.zero;
         }
-        else
+        else if (other.gameObject.tag == "Glasses")
         {
-            dashTime -= Time.deltaTime;
-            movementVelocity = direction.normalized * dashSpeed;
-            Debug.Log("dashSpeed = " + dashSpeed);
-            Debug.Log("Movement Velocity = " + movementVelocity);
-            FixedUpdate();
+            PickUpGlasses();
         }
-    }
+        else if (other.gameObject.tag == "GlassesBuff")
+        {
+            lives++;
+            Destroy(other.gameObject);
+            Debug.Log("add lives. current lives " + lives);
+            playerSounds.AcquireSound();
+            //add any ui code here!
+        }
+        else if (other.gameObject.tag == "End")
+        {
+            //turn everything off so the player cant lose when they talk to irving
+            //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
+            //irving is not able to handle 'complex' collisions so thats on the player
+            cameraF.stopFollow(true); //camera follow turned off separately
+            musicSounds.loadCustceneMusic();
+        }
+        else if (other.gameObject.tag == "StartNextScene")
+        {
+            SceneManager.LoadScene(1);
+            musicSounds.LoadHallScene();
+        }
+    }*/
+
+
+     // makes melita zoom zoom
+     public void Dash()
+     {
+            Debug.Log("zoom?");
+            Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+
+            if (dashTime <= 0)
+            {
+                dashTime = startDashTime;
+                movementVelocity = Vector2.zero;
+            }
+            else
+            {
+                dashTime -= Time.deltaTime;
+                movementVelocity = direction.normalized * dashSpeed;
+                Debug.Log("dashSpeed = " + dashSpeed);
+                Debug.Log("Movement Velocity = " + movementVelocity);
+                FixedUpdate();
+            }
+        
+     }
 }
