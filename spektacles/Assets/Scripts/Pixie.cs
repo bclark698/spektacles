@@ -175,7 +175,8 @@ public class Pixie : Enemy
     // causes pixies to chase player
     private void ChaseTarget()
     {
-        wallHit = Physics2D.Raycast(transform.position, transform.right, viewDistance);
+        wallHit = Physics2D.Raycast(transform.position, playerObj.transform.position, 3);
+        Debug.DrawLine(transform.position, hitInfo.point, Color.red);
         // move towards the player using Vector2.MoveTowards(fromPosition, toPosition, speed);
         if (!isStunned)
         {
@@ -185,11 +186,11 @@ public class Pixie : Enemy
             transform.rotation = Quaternion.Euler(2, 2, angle);
 
             transform.position = Vector2.MoveTowards(transform.position, playerObj.transform.position, moveSpeed * Time.deltaTime);
-            //if (!PlayerInSight())
-            //{
-            //    Debug.Log("Lost the player!");
-            //    state = State.ReturnToStart;
-            //}
+            if (!wallHit.collider.CompareTag("Player"))
+            {
+                Debug.Log("Lost the player!");
+                state = State.ReturnToStart;
+            }
         }
     }
 
