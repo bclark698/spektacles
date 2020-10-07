@@ -78,11 +78,13 @@ public class Jocks : Enemy
         go = false;
         isStunned = true;
 
+
         yield return new WaitForSeconds(1.5f);
 
         Debug.Log("orc no longer stunned");
         go = true;
         isStunned = false;
+
     }
 
 }

@@ -6,11 +6,21 @@ public abstract class Enemy : MonoBehaviour
 {
     public bool isStunned;
 
-    /* The bool return value represents whether the powerup used on them was applicable to them. 
+    private SpriteRenderer spriteRenderer;
+    private EnemySoundController enemySounds;
+
+
+
+    /* The bool return value represents whether the powerup used on them was applicable to them.
      * This is used to determine the automatic powerup use case. */
     public abstract bool HandlePowerUp(PowerUp.PowerUpType powerUp);
 
     public abstract IEnumerator HandleStun();
+
+    void Start(){
+      spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+      enemySounds = GameObject.Find("/Unbreakable iPod/Enemy Sounds").GetComponent<EnemySoundController>();
+    }
 
     public virtual void TurnIntoStone()
     {
@@ -18,5 +28,17 @@ public abstract class Enemy : MonoBehaviour
         StartCoroutine(HandleStun());
 
         // play grayscale stone animation
+        StartCoroutine(stoneAnimation());
+
+    }
+
+    public IEnumerator stoneAnimation(){
+      spriteRenderer.color = Color.gray;
+      enemySounds.playTurnStoneSound();
+      enemySounds.playStoneCrackSound();
+
+      yield return new WaitForSeconds(1.5f);
+      
+      spriteRenderer.color = Color.white;
     }
 }

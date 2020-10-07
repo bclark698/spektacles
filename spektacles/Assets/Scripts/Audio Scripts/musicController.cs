@@ -91,7 +91,7 @@ public class musicController : MonoBehaviour
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
-      case "School Level 1":
+      case "School Hall 1":
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;

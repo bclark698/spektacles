@@ -232,7 +232,7 @@ public class Player : MonoBehaviour
         else if(other.CompareTag("StartNextScene"))
         {
           SceneManager.LoadScene(1);
-          //musicSounds.LoadHallScene();
+        //  musicSounds.loadCustceneMusic();
         }
 
     }
