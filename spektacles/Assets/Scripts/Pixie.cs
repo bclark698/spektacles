@@ -116,7 +116,7 @@ public class Pixie : Enemy
             case State.ReturnToStart:
                 //StartCoroutine(ReturnHome());
                 ReturnHome();
-                giggle2.Play();
+                //giggle2.Play();
                 break;
 
 
@@ -198,6 +198,8 @@ public class Pixie : Enemy
         if (collision.tag == "Player")
         {
             giggle2.Play();
+            Debug.LogError("PLAYER HIT");
+            state = State.ReturnToStart;
         }
     }
 
@@ -258,6 +260,7 @@ public class Pixie : Enemy
         moveSpeed = originalSpeed;
         rotationSpeed = originalRotationSpeed;
         isStunned = false;
+        moveSpeed = 30;
         state = State.ReturnToStart;
         Debug.Log("pixie state is return home");
     }
