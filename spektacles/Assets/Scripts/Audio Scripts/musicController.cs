@@ -9,6 +9,7 @@ public class musicController : MonoBehaviour
   public AudioSource currentMusic;
   public AudioSource homeMusic;
   public AudioSource homeCutMusic;
+  public AudioSource busMusic;
   public AudioSource lvl1Music;
   public AudioSource cut1Music;
 
@@ -19,10 +20,24 @@ public class musicController : MonoBehaviour
 
   private string currentLevel;
 
+  void OnEnable()
+  {
+      Debug.Log("OnEnable called");
+      SceneManager.sceneLoaded += OnSceneLoaded;
+  }
+
+  void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+     {
+       currentLevel = SceneManager.GetActiveScene().name;
+       Debug.Log("current level is ");
+       Debug.Log(currentLevel);
+       LoadMusic();
+       currentMusic.Play();
+     }
 
   void Awake(){
 
-    DontDestroyOnLoad (this);
+     DontDestroyOnLoad (this);
 
      if (controllerInstance == null) {
          controllerInstance = this;
@@ -30,11 +45,9 @@ public class musicController : MonoBehaviour
          Object.Destroy(gameObject);
      }
 
-
   }
   void Start()
   {
-
     currentVol = .2f;
     musicVol = .2f;
 
@@ -43,10 +56,12 @@ public class musicController : MonoBehaviour
     currentMusic.Play();
   }
 
+
+
   // Update is called once per frame
   void Update()
   {
-        currentLevel = SceneManager.GetActiveScene().name;
+    currentLevel = SceneManager.GetActiveScene().name;
     currentMusic.volume = currentVol;
 
   }
@@ -56,26 +71,16 @@ public class musicController : MonoBehaviour
       case "Home_Test":
       currentMusic.clip = homeMusic.clip;
       break;
-      case "Floor1 NEW":
-      currentMusic.clip = lvl1Music.clip;
+      case "Bus":
+      currentMusic.clip = busMusic.clip;
       break;
       case "School Level 1":
       currentMusic.clip = lvl1Music.clip;
       break;
 
-
-
     }
-
-  }
-  public void LoadHallScene(){
-    SceneManager.LoadScene(1);
-    StartCoroutine(MusicSwitch(lvl1Music, 2, 5));
-  }
-
-  public void LoadNextScene(){
-    SceneManager.LoadScene(1);
-    StartCoroutine(MusicSwitch(cut1Music, 2, 5));
+    //Debug.Log("you're now listening to the sweet tunes of... ");
+    //Debug.Log(currentMusic.clip);
   }
 
   public void loadCustceneMusic(){

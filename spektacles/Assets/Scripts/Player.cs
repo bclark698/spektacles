@@ -119,7 +119,7 @@ public class Player : MonoBehaviour
         // get all the enemies within our PowerUpRange
         return Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
     }
-    
+
     /* For testing purposes, this draws red line around the player's power up range.
      * This has no effect during gameplay, so we can leave this in. */
     void OnDrawGizmosSelected()
@@ -232,7 +232,7 @@ public class Player : MonoBehaviour
         else if(other.CompareTag("StartNextScene"))
         {
           SceneManager.LoadScene(1);
-          musicSounds.LoadHallScene();
+          //musicSounds.LoadHallScene();
         }
 
     }
