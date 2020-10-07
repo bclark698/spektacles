@@ -51,6 +51,10 @@ public class FungusManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
+    public void RestartGame(){
+        SceneManager.LoadScene(0);
+    }
+
     public void TeleportPlayer(Vector2 newPos)
     {
         player.transform.position = newPos;

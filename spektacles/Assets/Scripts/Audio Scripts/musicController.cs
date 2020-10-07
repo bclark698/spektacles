@@ -22,7 +22,7 @@ public class musicController : MonoBehaviour
 
   void OnEnable()
   {
-      Debug.Log("OnEnable called");
+    //  Debug.Log("OnEnable called");
       SceneManager.sceneLoaded += OnSceneLoaded;
   }
 
@@ -68,13 +68,13 @@ public class musicController : MonoBehaviour
   public void LoadMusic(){
     switch (currentLevel){
 
-      case "Home_Test":
+      case "Home":
       currentMusic.clip = homeMusic.clip;
       break;
       case "Bus":
       currentMusic.clip = busMusic.clip;
       break;
-      case "School Level 1":
+      case "School Hall 1":
       currentMusic.clip = lvl1Music.clip;
       break;
 

@@ -28,11 +28,11 @@ public class Player : MonoBehaviour
     // powerUp variables
     public PowerUp.PowerUpType powerUp = PowerUp.PowerUpType.None; // TODO make this a private serialized field?
     [SerializeField]
-    private Transform powerUpRangePos;
+    public Transform powerUpRangePos;
     [SerializeField]
-    private LayerMask whatIsEnemies;
+    public LayerMask whatIsEnemies;
     [SerializeField]
-    private float powerUpRange;
+    public float powerUpRange;
     public GameObject powerUpObj;
     public Text powerUpText;
     public GameObject sprayEffect;

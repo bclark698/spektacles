@@ -6,7 +6,7 @@ using UnityEngine.UI;
 public class ChangeIcon : MonoBehaviour
 {
     [SerializeField]
-    private Sprite empty;
+    public Sprite empty;
     private Image imgObj;
 
     // Start is called before the first frame update

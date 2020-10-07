@@ -5,7 +5,7 @@ using UnityEngine;
 public class Locker : MonoBehaviour
 {
     [SerializeField]
-    private PowerUp.PowerUpType item = PowerUp.PowerUpType.None; // powerup that can always be retrieved from this locker
+    public PowerUp.PowerUpType item = PowerUp.PowerUpType.None; // powerup that can always be retrieved from this locker
     private bool playerInRange;
 
     // Reference to the powerUp Prefab. Drag a Prefab into this field in the Inspector.
