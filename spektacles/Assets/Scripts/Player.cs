@@ -91,6 +91,7 @@ public class Player : MonoBehaviour
      * in range to let player try out using powerups. */
     void UsePowerUp()
     {
+        //bool affectedAnEnemy = false;
         if (powerUp != PowerUp.PowerUpType.None)
         {
             // get all the enemies within our PowerUpRange
@@ -112,6 +113,7 @@ public class Player : MonoBehaviour
             }
 
         }
+        //return affectedAnEnemy;
     }
 
     Collider2D[] GetEnemiesInRange()
@@ -205,8 +207,10 @@ public class Player : MonoBehaviour
                     {
                         // also affects all other applicable enemies in range
                         UsePowerUp();
+                    } else
+                    {
+                        HandleHit();
                     }
-                    
                 }
                 else
                 {

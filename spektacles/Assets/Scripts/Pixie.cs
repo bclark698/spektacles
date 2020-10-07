@@ -15,11 +15,7 @@ public class Pixie : Enemy
 
     [SerializeField] private State state;            // current state of enemy (chasing, roaming, etc)
     private Vector3 startingPos;    // pixies' starting position
-    private RaycastHit2D hitInfo;   // ray that searches for player
-    private RaycastHit2D wallHit;   // ray that looks for walls / blocking objects
-    private RaycastHit2D searchHit; // ray that searches for player after losing
     private GameObject playerObj;   // player object (melita)
-    private Vector2 lastSeenPos;    // players last seen position
     private PowerUp.PowerUpType pixiePowerUp = PowerUp.PowerUpType.BugSpray;    // bug spray, TODO can this be taken out and put in enemy script?
     //private SpriteRenderer spriteRenderer; // used to flip sprite depending on movement direction
 
@@ -52,7 +48,6 @@ public class Pixie : Enemy
         Physics2D.queriesStartInColliders = false; // stops ray from detecting pixies own collider
         startingPos = transform.position; // gets pixie's starting position
         playerObj = GameObject.FindGameObjectWithTag("Player"); // create player object
-        lastSeenPos = playerObj.transform.position;
         //anim = GetComponent<Animator>();
 
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
@@ -71,11 +66,6 @@ public class Pixie : Enemy
     // Update is called once per frame
     void Update()
     {
-        //this.spriteRenderer.flipX = playerObj.transform.position.x < this.transform.position.x;
-        // casts ray starting at transform.pos; casts in direction transform.right; length of ray = viewDistance
-        hitInfo = Physics2D.Raycast(transform.position, transform.right, viewDistance);
-
-
         // cycle to the next direction to face every period (currently 2.5)
         if (state == State.Waiting && Time.time > nextActionTime)
         {
@@ -179,8 +169,6 @@ public class Pixie : Enemy
     // causes pixies to chase player
     private void ChaseTarget()
     {
-        //wallHit = Physics2D.Raycast(transform.position, playerObj.transform.position, 3);
-        //Debug.DrawLine(transform.position, hitInfo.point, Color.red);
         // move towards the player using Vector2.MoveTowards(fromPosition, toPosition, speed);
         if (!isStunned)
         {
@@ -191,9 +179,9 @@ public class Pixie : Enemy
 
             transform.position = Vector2.MoveTowards(transform.position, playerObj.transform.position, moveSpeed * Time.deltaTime);
 
+            // lost sight of player
             if (!PlayerInSight())
             {
-                Debug.Log("Lost the player!");
                 state = State.ReturnToStart;
             }
         }
@@ -207,24 +195,6 @@ public class Pixie : Enemy
             giggle2.Play();
         }
     }
-    /*
-    private void ReturnHome()
-    {
-        Debug.Log("RETURNING HOME");
-        // causes pixies to continously look towards their starting position
-        Vector3 direction = startingPos - transform.position;
-        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
-        transform.rotation = Quaternion.Euler(2, 2, angle);
-
-        transform.position = Vector2.MoveTowards(transform.position, startingPos, moveSpeed * Time.deltaTime);
-
-        float reachedPosDist = 1f;
-        if (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
-        {
-            state = State.Waiting;
-        }
-    }
-    */
 
     // sends pixies back to starting position
     IEnumerator ReturnHome()
@@ -232,13 +202,11 @@ public class Pixie : Enemy
         Vector3 direction = startingPos - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(2, 2, angle);
-        //Debug.Log("rotated");
         moveSpeed = 10f;
 
         float reachedPosDist = 1f;
         while (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
         {
-            //Debug.Log("MOVING");
             transform.position = Vector2.MoveTowards(transform.position, startingPos, moveSpeed * Time.deltaTime);
             yield return null;
         }
@@ -276,124 +244,5 @@ public class Pixie : Enemy
         rotationSpeed = originalRotationSpeed;
         isStunned = false;
         state = State.ReturnToStart;
-
-        //Debug.Log("stateHANDLESTUN = " + state);
-        //Debug.Log("pixie state is return home");
     }
-
-    /*
-    // check if player is in line of sight
-    private bool canSeePlayer()
-    {
-        bool collisionCheck = false;
-        if (hitInfo.collider != null && !hitInfo.collider.CompareTag("PIgnore"))
-        {
-            Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-            if (hitInfo.collider.CompareTag("Player"))
-            {
-                collisionCheck = true;
-            }
-        }
-        else
-        {
-            Debug.DrawLine(transform.position, transform.position + transform.right * fovDistance, Color.green);
-            collisionCheck = false;
-        }
-        return collisionCheck;
-    }
-
-    // check if pixie loses sight of player
-    private bool cantSeePlayer()
-    {
-        bool collisionCheck = false;
-        if (wallHit.collider != null)
-        {
-            Debug.DrawLine(transform.position, hitInfo.point, Color.red);
-            if (!wallHit.collider.CompareTag("Player")) //FIX THIS; needs to check for any non player objects (walls, tables, doors)
-            {
-                collisionCheck = true;
-            }
-        }
-        else
-        {
-            Debug.DrawLine(transform.position, transform.position + transform.right * fovDistance, Color.green);
-            collisionCheck = false;
-        }
-        return collisionCheck;
-    }
-
-    // searches for player
-    private void LookForPlayer()
-    {
-        if (!canSeePlayer())
-        {
-            transform.Rotate(Vector3.forward * rotationSpeed * Time.deltaTime);
-        }
-        else
-        {
-            giggle1.Play();
-            state = State.ChaseTarget;
-            //Debug.Log("Chasing Target");
-        }
-    }
-
-    // pixie searches for player after losing sight
-    IEnumerator SearchForPlayer()
-    {
-        float time = 0;
-        float duration = 3f;
-        Vector2 startPosition = transform.position;
-        Vector2 targetPosition = lastSeenPos;
-        while (time < duration)
-        {
-            transform.position = Vector2.Lerp(startPosition, targetPosition, time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        transform.position = targetPosition;
-        //StartCoroutine(LookAround());
-        state = State.ReturnToStart;
-    }
-
-    // kinda works
-    IEnumerator LookAround()
-    {
-        float time = 0.0f;
-        float duration = 0.5f;
-        float dist = 2;
-        Vector2 startPosition = transform.position;
-        //look up
-        while (time < duration)
-        {
-            transform.position = Vector2.Lerp(startPosition, new Vector2(lastSeenPos.x, lastSeenPos.y + dist), time / duration);
-            //canSeePlayer();
-            time += Time.deltaTime;
-            yield return null;
-        }
-        // look right
-        time = 0;
-        while (time < duration)
-        {
-            transform.position = Vector2.Lerp(transform.position, new Vector2(lastSeenPos.x + dist, lastSeenPos.y), time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        // look down
-        time = 0;
-        while (time < duration)
-        {
-            transform.position = Vector2.Lerp(transform.position, new Vector2(lastSeenPos.x, lastSeenPos.y - dist), time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-        // look left
-        time = 0;
-        while (time < duration)
-        {
-            transform.position = Vector2.Lerp(transform.position, new Vector2(lastSeenPos.x - dist, lastSeenPos.y), time / duration);
-            time += Time.deltaTime;
-            yield return null;
-        }
-    }
-    */
 }
