@@ -6,12 +6,12 @@ using TMPro;
 public class ShowInteractIndicator : MonoBehaviour
 {
     [SerializeField]
-    private GameObject InteractIndicator;
+    public GameObject InteractIndicator;
 
     // Start is called before the first frame update
     void Start()
     {
-        InteractIndicator = GameObject.FindGameObjectWithTag("Interact");
+      //  InteractIndicator = GameObject.FindGameObjectWithTag("Interact");
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

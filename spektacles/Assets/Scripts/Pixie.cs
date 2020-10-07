@@ -66,7 +66,7 @@ public class Pixie : Enemy
         Vector3 left = new Vector3(-1, 0, 0);
         Vector3 right = new Vector3(1, 0, 0);
         directions = new Vector3[]{up, right, down, left};
-        
+
 }
 
     // Update is called once per frame
@@ -76,7 +76,7 @@ public class Pixie : Enemy
         // casts ray starting at transform.pos; casts in direction transform.right; length of ray = fovDistance
         hitInfo = Physics2D.Raycast(transform.position, transform.right, fovDistance);
 
-        
+
 
         if (state == State.Waiting && Time.time > nextActionTime)
         {
@@ -92,7 +92,7 @@ public class Pixie : Enemy
             fieldOfView.SetAimDirection(GetAimDir());
         }
 
-        
+
         switch (state)
         {
             // CASE 1
@@ -102,6 +102,7 @@ public class Pixie : Enemy
                 if (PlayerInSight())
                 {
                     state = State.ChaseTarget;
+                    giggle1.Play();
                 }
                 break;
 
@@ -143,7 +144,7 @@ public class Pixie : Enemy
         {
             // do something for return home direction?
         }
-        
+
         return lastMoveDir;
     }
 
@@ -219,13 +220,13 @@ public class Pixie : Enemy
         }
     }
     */
-    
+
     // sends pixies back to starting position
     IEnumerator ReturnHome()
     {
         //Debug.Log("RETURNING HOME");
         //Debug.Log("stateINRETURN = " + state);
-        
+
 
         Vector3 direction = startingPos - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
@@ -267,9 +268,9 @@ public class Pixie : Enemy
         state = State.Stunned;
 
         // wait for 1.5 seconds
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
 
-   
+
 
         moveSpeed = originalSpeed;
         rotationSpeed = originalRotationSpeed;
