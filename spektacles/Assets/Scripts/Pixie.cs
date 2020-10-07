@@ -24,7 +24,6 @@ public class Pixie : Enemy
     //private SpriteRenderer spriteRenderer; // used to flip sprite depending on movement direction
 
     public float rotationSpeed; // speed at which pixies spin
-    public float fovDistance;   // distance away from pixies that they can see
     public float moveSpeed;     // movement speed of pixies
     public AudioSource giggle1; //agro sound
     public AudioSource giggle2; //dissapointed sound
@@ -73,11 +72,11 @@ public class Pixie : Enemy
     void Update()
     {
         //this.spriteRenderer.flipX = playerObj.transform.position.x < this.transform.position.x;
-        // casts ray starting at transform.pos; casts in direction transform.right; length of ray = fovDistance
-        hitInfo = Physics2D.Raycast(transform.position, transform.right, fovDistance);
+        // casts ray starting at transform.pos; casts in direction transform.right; length of ray = viewDistance
+        hitInfo = Physics2D.Raycast(transform.position, transform.right, viewDistance);
 
 
-
+        // cycle to the next direction to face every period (currently 2.5)
         if (state == State.Waiting && Time.time > nextActionTime)
         {
             if (!PlayerInSight())
@@ -144,9 +143,9 @@ public class Pixie : Enemy
         } else if(state == State.ChaseTarget)
         {
             lastMoveDir = (playerObj.transform.position - transform.position).normalized; //face player
-        } else
+        } else if(state == State.ReturnToStart)
         {
-            // do something for return home direction?
+            lastMoveDir = (startingPos - transform.position).normalized; // face starting pos
         }
 
         return lastMoveDir;
@@ -180,8 +179,8 @@ public class Pixie : Enemy
     // causes pixies to chase player
     private void ChaseTarget()
     {
-        wallHit = Physics2D.Raycast(transform.position, playerObj.transform.position, 3);
-        Debug.DrawLine(transform.position, hitInfo.point, Color.red);
+        //wallHit = Physics2D.Raycast(transform.position, playerObj.transform.position, 3);
+        //Debug.DrawLine(transform.position, hitInfo.point, Color.red);
         // move towards the player using Vector2.MoveTowards(fromPosition, toPosition, speed);
         if (!isStunned)
         {
@@ -192,13 +191,11 @@ public class Pixie : Enemy
 
             transform.position = Vector2.MoveTowards(transform.position, playerObj.transform.position, moveSpeed * Time.deltaTime);
 
-            //if (wallHit.collider.gameObject.tag != "Player")
-            //{
-            //    Debug.Log("Lost the player!");
-            //    state = State.ReturnToStart;
-            //}
-
-
+            if (!PlayerInSight())
+            {
+                Debug.Log("Lost the player!");
+                state = State.ReturnToStart;
+            }
         }
     }
 
@@ -232,15 +229,11 @@ public class Pixie : Enemy
     // sends pixies back to starting position
     IEnumerator ReturnHome()
     {
-        //Debug.Log("RETURNING HOME");
-        //Debug.Log("stateINRETURN = " + state);
-
-
         Vector3 direction = startingPos - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(2, 2, angle);
         //Debug.Log("rotated");
-        moveSpeed = 15;
+        moveSpeed = 10f;
 
         float reachedPosDist = 1f;
         while (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
@@ -283,6 +276,7 @@ public class Pixie : Enemy
         rotationSpeed = originalRotationSpeed;
         isStunned = false;
         state = State.ReturnToStart;
+
         //Debug.Log("stateHANDLESTUN = " + state);
         //Debug.Log("pixie state is return home");
     }

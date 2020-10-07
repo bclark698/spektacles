@@ -326,15 +326,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
+  state: 0
   rotationSpeed: 20
-  fovDistance: 50
-  moveSpeed: 14
+  moveSpeed: 10
   giggle1: {fileID: 2702425794842673147}
   giggle2: {fileID: 2702425794842673146}
   pfFieldOfView: {fileID: 4397119209587593998, guid: 40ff7bf37a4c0fb4db1d9598a37d3180,
     type: 3}
   fov: 90
   viewDistance: 30
+  period: 2.5
 --- !u!58 &2702425795038805962
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -401,7 +402,7 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.15, y: 1.41}
   m_Size: {x: 5.14, y: 2.74}
-  m_Direction: 1
+  m_Direction: 0
 --- !u!70 &258865068147013476
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -417,4 +418,4 @@ CapsuleCollider2D:
   m_UsedByComposite: 0
   m_Offset: {x: -0.14, y: 1.43}
   m_Size: {x: 4.53, y: 2.05}
-  m_Direction: 1
+  m_Direction: 0
