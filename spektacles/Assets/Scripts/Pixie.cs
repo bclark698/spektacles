@@ -150,7 +150,7 @@ public class Pixie : Enemy
     // using a cone of vision
     private bool PlayerInSight()
     {
-        if (Vector3.Distance(GetPosition(), playerObj.transform.position) < viewDistance)
+        if (Vector3.Distance(transform.position, playerObj.transform.position) < viewDistance)
         {
             // Player inside viewDistance
             Vector3 dirToPlayer = (playerObj.transform.position - GetPosition()).normalized;
@@ -185,10 +185,11 @@ public class Pixie : Enemy
             transform.rotation = Quaternion.Euler(2, 2, angle);
 
             transform.position = Vector2.MoveTowards(transform.position, playerObj.transform.position, moveSpeed * Time.deltaTime);
-            if (!PlayerInSight())
-            {
-                state = State.ReturnToStart;
-            }
+            //if (!PlayerInSight())
+            //{
+            //    Debug.Log("Lost the player!");
+            //    state = State.ReturnToStart;
+            //}
         }
     }
 
@@ -222,21 +223,21 @@ public class Pixie : Enemy
     // sends pixies back to starting position
     IEnumerator ReturnHome()
     {
-        Debug.Log("RETURNING HOME");
-        Debug.Log("stateINRETURN = " + state);
+        //Debug.Log("RETURNING HOME");
+        //Debug.Log("stateINRETURN = " + state);
         
 
         Vector3 direction = startingPos - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(2, 2, angle);
-        Debug.Log("rotated");
+        //Debug.Log("rotated");
         moveSpeed = 15;
 
         float reachedPosDist = 1f;
         while (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
         {
-            Debug.Log("MOVING");
-            transform.position = Vector2.MoveTowards(transform.position, startingPos, moveSpeed * Time.deltaTime/50);
+            //Debug.Log("MOVING");
+            transform.position = Vector2.MoveTowards(transform.position, startingPos, moveSpeed * Time.deltaTime);
             yield return null;
         }
         transform.rotation = Quaternion.Euler(1, 0, 0);
@@ -245,7 +246,7 @@ public class Pixie : Enemy
 
     public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
-        Debug.Log("pixie handling powerup" + powerUp);
+        //Debug.Log("pixie handling powerup" + powerUp);
         if(powerUp == pixiePowerUp)
         {
             StartCoroutine(HandleStun());
@@ -274,8 +275,8 @@ public class Pixie : Enemy
         rotationSpeed = originalRotationSpeed;
         isStunned = false;
         state = State.ReturnToStart;
-        Debug.Log("stateHANDLESTUN = " + state);
-        Debug.Log("pixie state is return home");
+        //Debug.Log("stateHANDLESTUN = " + state);
+        //Debug.Log("pixie state is return home");
     }
 
     /*
