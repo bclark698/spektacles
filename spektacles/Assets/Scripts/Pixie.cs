@@ -239,6 +239,7 @@ public class Pixie : Enemy
             transform.position = Vector2.MoveTowards(transform.position, startingPos, moveSpeed * Time.deltaTime/50);
             yield return null;
         }
+        transform.rotation = Quaternion.Euler(1, 0, 0);
         state = State.Waiting;
     }
 
@@ -265,7 +266,7 @@ public class Pixie : Enemy
         state = State.Stunned;
 
         // wait for 1.5 seconds
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(0.5f);
 
    
 
