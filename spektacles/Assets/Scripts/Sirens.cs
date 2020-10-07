@@ -25,7 +25,7 @@ public class Sirens : Enemy
         pull.gravityRange.enabled = false; //turn off range
 
         // wait for 5 seconds - long enough to get across range
-        yield return new WaitForSeconds(5f);
+        yield return new WaitForSeconds(1.5f);
 
         pull.gravityRange.enabled = true; //turn on range
         isStunned = false; //no longer stunned

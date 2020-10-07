@@ -24,6 +24,14 @@ public abstract class Enemy : MonoBehaviour
 
     public virtual void TurnIntoStone()
     {
+      if (gameObject.GetComponent<SpriteRenderer>() != null){
+      spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+      }
+      else{
+        spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
+      }
+      enemySounds = GameObject.Find("/Unbreakable iPod/Enemy Sounds").GetComponent<EnemySoundController>();
+
         Debug.Log("turned into stone");
         StartCoroutine(HandleStun());
 
@@ -38,7 +46,7 @@ public abstract class Enemy : MonoBehaviour
       enemySounds.playStoneCrackSound();
 
       yield return new WaitForSeconds(1.5f);
-      
+
       spriteRenderer.color = Color.white;
     }
 }
