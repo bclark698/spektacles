@@ -5,12 +5,14 @@ using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
 
+
+
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
 
 /*
- * Xbox (Universal Windows Platform): 
+ * Xbox (Universal Windows Platform):
  *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.WSAPlayer
  * Windows
  *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneWindows64
@@ -84,6 +86,7 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+
         Debug.Log("platform: "+ Application.platform+" target build: "+ EditorUserBuildSettings.activeBuildTarget);
         if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.WSAPlayer)
         {
@@ -97,6 +100,7 @@ public class Player : MonoBehaviour
         {
             Debug.Log("build target is StandaloneWindows64");
         }
+
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
@@ -247,7 +251,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
@@ -307,7 +311,7 @@ public class Player : MonoBehaviour
 
     }
 
-     
+
      // makes melita zoom zoom
      public void Dash()
      {
@@ -328,6 +332,6 @@ public class Player : MonoBehaviour
                 Debug.Log("Movement Velocity = " + movementVelocity);
                 FixedUpdate();
             }*/
-        
+
      }
 }
