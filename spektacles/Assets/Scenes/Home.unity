@@ -3691,7 +3691,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fa4cc259baec7604c87bd66bbf1521e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  flowchart: {fileID: 69824120}
+  blockRef:
+    block: {fileID: 69824118}
 --- !u!114 &69824181
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5733,7 +5734,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 2053604413}
+  selectedFlowchart: {fileID: 69824120}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1

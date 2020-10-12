@@ -7,13 +7,14 @@ using Fungus;
 public class FungusInteract : MonoBehaviour
 {
     public PlayerControls controls;
-    //public BlockReference blockRef;
-    public Flowchart flowchart;
+    public BlockReference blockRef;
+    //public Flowchart flowchart;
 
     void Awake()
     {
         controls = new PlayerControls();
-        controls.Gameplay.EquipOrInteract.performed += _ => flowchart.ExecuteBlock("Talk to Mom"); ;
+        //controls.Gameplay.EquipOrInteract.performed += _ => flowchart.ExecuteBlock("Talk to Mom");
+        controls.Gameplay.EquipOrInteract.performed += _ => blockRef.Execute();
     }
 
     // Called when the Player object is enabled
