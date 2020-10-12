@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class LostNFound : MonoBehaviour
 {
@@ -9,29 +10,49 @@ public class LostNFound : MonoBehaviour
     private bool playerInRange;
     private Player player;
 
+    public PlayerControls controls;
+
+    void Awake()
+    {
+        controls = new PlayerControls();
+        controls.Gameplay.EquipOrInteract.performed += _ => Interact();
+    }
+
+    void Interact()
+    {
+        if (playerInRange)
+        {
+            if (player.HasGlasses())
+            {
+                // show quick popup in fungus that doesnt obscure the game saying "Nothing in here"
+
+                // for now, just show debug message
+                Debug.Log("Nothing in lost and found!");
+            }
+            else
+            {
+                player.PickUpGlasses();
+            }
+        }
+    }
+
+    // Called when the Player object is enabled
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
         sr = GetComponent<SpriteRenderer>();
         col = GetComponent<BoxCollider2D>();
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-    }
-
-    private void Update()
-    {
-        if (playerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            if(player.HasGlasses())
-            {
-                // show quick popup in fungus that doesnt obscure the game saying "Nothing in here"
-
-                // for now, just show debug message
-                Debug.Log("Nothing in lost and found!");
-            } else
-            {
-                player.PickUpGlasses();
-            }
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

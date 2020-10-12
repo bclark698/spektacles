@@ -3,6 +3,20 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
+using UnityEngine.InputSystem;
+
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
+/*
+ * Xbox (Universal Windows Platform): 
+ *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.WSAPlayer
+ * Windows
+ *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneWindows64
+ * Mac
+ *   - assume EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneOSX
+ */
 
 public class Player : MonoBehaviour
 {
@@ -34,12 +48,55 @@ public class Player : MonoBehaviour
     [SerializeField]
     public float powerUpRange;
     public GameObject powerUpObj;
+
     public Text powerUpText;
     public GameObject sprayEffect;
+
+    public PlayerControls controls;
+
+    // called before Start
+    void Awake()
+    {
+        controls = new PlayerControls();
+        controls.Gameplay.Petrify.performed += _ => Petrify();
+        controls.Gameplay.UsePowerUp.performed += _ => UsePowerUp();
+        controls.Gameplay.Pause.performed += _ => Pause();
+        //controls.Gameplay.Move.performed += context => Move(context.ReadValue<Vector2>());
+    }
+
+    // TODO make a separate script for pause
+    void Pause()
+    {
+        Debug.Log("pause button pressed");
+    }
+
+    // Called when the Player object is enabled
+    private void OnEnable()
+    {
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        Debug.Log("platform: "+ Application.platform+" target build: "+ EditorUserBuildSettings.activeBuildTarget);
+        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.WSAPlayer)
+        {
+            Debug.Log("build target is WSAPlayer");
+        }
+        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneWindows)
+        {
+            Debug.Log("build target is StandaloneWindows");
+        }
+        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneWindows64)
+        {
+            Debug.Log("build target is StandaloneWindows64");
+        }
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
@@ -62,7 +119,8 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Vector2 moveInput = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
+        Vector2 moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+
         movementVelocity = moveInput.normalized * moveSpeed;
 
         anim.SetFloat("Horizontal", moveInput.x);
@@ -71,6 +129,8 @@ public class Player : MonoBehaviour
 
         /* Important to use.GetKeyDown(KeyCode.P) instead of.GetKey(KeyCode.P) because
          * GetKey triggers more than once */
+
+        /* TODO replace with new input system
         if (Input.GetKeyDown(KeyCode.P))
         {
             UsePowerUp();
@@ -79,7 +139,7 @@ public class Player : MonoBehaviour
                 sprayEffect.SetActive(true);
                 //Destroy(sprayEffect, 100f);
             }
-        }
+        }*/
     }
 
     private void FixedUpdate() //all physics adjusting code goes here
@@ -91,7 +151,6 @@ public class Player : MonoBehaviour
      * in range to let player try out using powerups. */
     void UsePowerUp()
     {
-        //bool affectedAnEnemy = false;
         if (powerUp != PowerUp.PowerUpType.None)
         {
             // get all the enemies within our PowerUpRange
@@ -113,7 +172,6 @@ public class Player : MonoBehaviour
             }
 
         }
-        //return affectedAnEnemy;
     }
 
     Collider2D[] GetEnemiesInRange()
@@ -166,7 +224,7 @@ public class Player : MonoBehaviour
 
     private void LoseGlasses()
     {
-        StonePower();
+        Petrify();
         if (anim.GetBool("blind") == false)
         {
             anim.SetBool("blind", true);
@@ -176,8 +234,9 @@ public class Player : MonoBehaviour
         irving.isTrigger = false; //turn irving off
     }
 
-    private void StonePower()
+    private void Petrify()
     {
+        Debug.Log("petrify");
         // get all the enemies within our PowerUpRange
         Collider2D[] enemiesInRange = GetEnemiesInRange();
 
@@ -248,63 +307,11 @@ public class Player : MonoBehaviour
 
     }
 
-    /*
-    private void OnCollisionEnter2D(Collision2D other)
-    {
-        if (other.gameObject.tag == "Enemy")
-        {
-            /* If the enemy is stunned, they have no effect on Melita.
-             * Otherwise, automatically use a held powerup if it is applicable to the enemy
-             * that Melita is touching. 
-            Enemy enemy = other.gameObject.GetComponent<Enemy>();
-            if (!enemy.isStunned)
-            {
-                // Automatically use a powerup if applicable to enemy
-                // Note: the HandlePowerUp function returns true if the powerup used on them is applicable to them
-                if (powerUp != PowerUp.PowerUpType.None && enemy.HandlePowerUp(powerUp))
-                {
-                    // also affects all other applicable enemies in range
-                    UsePowerUp();
-                }
-                else
-                {
-                    // possible death if not enough lives
-                    HandleHit();
-                }
-            }
-
-        }
-        else if (other.gameObject.tag == "Glasses")
-        {
-            PickUpGlasses();
-        }
-        else if (other.gameObject.tag == "GlassesBuff")
-        {
-            lives++;
-            Destroy(other.gameObject);
-            Debug.Log("add lives. current lives " + lives);
-            playerSounds.AcquireSound();
-            //add any ui code here!
-        }
-        else if (other.gameObject.tag == "End")
-        {
-            //turn everything off so the player cant lose when they talk to irving
-            //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
-            //irving is not able to handle 'complex' collisions so thats on the player
-            cameraF.stopFollow(true); //camera follow turned off separately
-            musicSounds.loadCustceneMusic();
-        }
-        else if (other.gameObject.tag == "StartNextScene")
-        {
-            SceneManager.LoadScene(1);
-            musicSounds.LoadHallScene();
-        }
-    }*/
-
-
+     
      // makes melita zoom zoom
      public void Dash()
      {
+        /*
             Debug.Log("zoom?");
             Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
 
@@ -320,7 +327,7 @@ public class Player : MonoBehaviour
                 Debug.Log("dashSpeed = " + dashSpeed);
                 Debug.Log("Movement Velocity = " + movementVelocity);
                 FixedUpdate();
-            }
+            }*/
         
      }
 }

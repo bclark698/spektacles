@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class Locker : MonoBehaviour
 {
@@ -14,16 +15,27 @@ public class Locker : MonoBehaviour
 
     private PowerupSoundController powerupSounds;
 
-    private void Start(){
-        powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
+    public PlayerControls controls;
+
+    void Awake()
+    {
+        controls = new PlayerControls();
+        controls.Gameplay.EquipOrInteract.performed += _ => Open();
     }
 
-    private void Update()
+    // Called when the Player object is enabled
+    private void OnEnable()
     {
-        if(playerInRange && Input.GetKeyDown(KeyCode.E))
-        {
-            Open();
-        }
+        controls.Enable();
+    }
+
+    private void OnDisable()
+    {
+        controls.Disable();
+    }
+
+    private void Start(){
+        powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -45,7 +57,7 @@ public class Locker : MonoBehaviour
     // This script will simply instantiate the Prefab whenever the locker is opened.
     public void Open()
     {
-        if(powerUpPrefab != null)
+        if(playerInRange && powerUpPrefab != null)
         {
             // play an open animation on the locker?? to reveal the powerup inside?
             // TODO possibly

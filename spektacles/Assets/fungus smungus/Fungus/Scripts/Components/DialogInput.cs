@@ -3,6 +3,7 @@
 
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+//using UnityEngine.InputSystem;
 
 namespace Fungus
 {
@@ -86,11 +87,22 @@ namespace Fungus
 
             if (writer != null && writer.IsWriting)
             {
+                SetNextLineFlag(); // TODO delete later-temp fix
+                // TODO use the new input system properly
+                /*
+                Keyboard kb = new InputSystem.GetDevice<Keyboard>();
+                if(kb.enterKey.wasPressedThisFrame ||
+                    (cancelEnabled) )
+                {
+                    SetNextLineFlag();
+                }*/
+
+                /*
                 if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
                     (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
                 {
                     SetNextLineFlag();
-                }
+                }*/
             }
 
             switch (clickMode)
@@ -98,10 +110,18 @@ namespace Fungus
             case ClickMode.Disabled:
                 break;
             case ClickMode.ClickAnywhere:
+                SetNextLineFlag(); // TODO delete later-temp fix
+                /*
+                Mouse mouse = new InputSystem.GetDevice<Mouse>();
+                if(mouse.leftButton.wasPressedThisFrame)
+                {
+                    SetNextLineFlag();
+                }*/
+                /* TODO use new input system properly
                 if (Input.GetMouseButtonDown(0))
                 {
                     SetNextLineFlag();
-                }
+                }*/
                 break;
             case ClickMode.ClickOnDialog:
                 if (dialogClickedFlag)

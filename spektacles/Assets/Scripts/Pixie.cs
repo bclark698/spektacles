@@ -23,15 +23,15 @@ public class Pixie : Enemy
     public float moveSpeed;     // movement speed of pixies
     public AudioSource giggle1; //agro sound
     public AudioSource giggle2; //dissapointed sound
-                                //  public Animator anim;
+    //  public Animator anim;
 
     private FieldOfView fieldOfView;
     [SerializeField] private Transform pfFieldOfView; // a prefab of our field of view. drag this into the pixie's inspector
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 30f;
     private Vector3 lastMoveDir;
-    private Vector3[] directions;
-    private int directionIdx = 0;
+    private Vector3[] directions; // directions to face
+    private int directionIdx = 0; // current direction
     private float nextActionTime = 0.0f;
     [SerializeField] private float period = 2.5f;
 
@@ -66,7 +66,7 @@ public class Pixie : Enemy
     // Update is called once per frame
     void Update()
     {
-        // cycle to the next direction to face every period (currently 2.5)
+        // every period (currently 2.5 seconds), cycle through the directions to face
         if (state == State.Waiting && Time.time > nextActionTime)
         {
             if (!PlayerInSight())
