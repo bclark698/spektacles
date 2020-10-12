@@ -452,7 +452,6 @@ GameObject:
   - component: {fileID: 69824130}
   - component: {fileID: 69824153}
   - component: {fileID: 69824127}
-  - component: {fileID: 69824180}
   - component: {fileID: 69824154}
   - component: {fileID: 69824174}
   - component: {fileID: 69824117}
@@ -462,6 +461,7 @@ GameObject:
   - component: {fileID: 69824155}
   - component: {fileID: 69824179}
   - component: {fileID: 69824170}
+  - component: {fileID: 69824180}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -603,7 +603,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 626.7043
     y: 431.21588
-    width: 151.4289
+    width: 149.63712
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 142.89879
-    width: 101.42874
+    width: 101.20241
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -701,14 +701,14 @@ MonoBehaviour:
     serializedVersion: 2
     x: 154.95094
     y: 409.31873
-    width: 120.00023
+    width: 119.19244
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
   itemId: 0
   blockName: Talk to Mom
   description: good morning :)
-  eventHandler: {fileID: 69824180}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 69824181}
   - {fileID: 69824139}
@@ -748,21 +748,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -240.98074, y: -12.063735}
+  scrollPos: {x: 87.83448, y: 140.48409}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
-  zoom: 0.6999977
+  zoom: 0.48174822
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 69824150}
-  selectedCommands:
-  - {fileID: 69824156}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -838,7 +836,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 436.8519
     y: 552.0602
-    width: 122.857376
+    width: 121.96014
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -942,7 +940,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 440.20383
     y: 437.53372
-    width: 152.85748
+    width: 151.02097
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2214,7 +2212,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 636.77374
     y: 334.53302
-    width: 75.000084
+    width: 74.90928
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2619,7 +2617,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 446.96945
     y: 300.2625
-    width: 126.42882
+    width: 126.11168
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2719,7 +2717,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -30.161682
     y: 255.63647
-    width: 125.000244
+    width: 123.34398
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2747,7 +2745,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -70.16168
     y: 350.63647
-    width: 136.42886
+    width: 134.41476
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3683,20 +3681,17 @@ MonoBehaviour:
   colliderVar: {fileID: 69824127}
 --- !u!114 &69824180
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 69824109}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000864f8e9e1748a39807861d0e60e29, type: 3}
+  m_Script: {fileID: 11500000, guid: fa4cc259baec7604c87bd66bbf1521e2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentBlock: {fileID: 69824118}
-  suppressBlockAutoSelect: 0
-  keyPressType: 0
-  keyCode: 101
+  flowchart: {fileID: 69824120}
 --- !u!114 &69824181
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -5738,7 +5733,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 69824120}
+  selectedFlowchart: {fileID: 2053604413}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -37840,7 +37835,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 96
     y: 219
-    width: 130.64557
+    width: 131.72084
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -37879,8 +37874,7 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 1085824306}
-  selectedCommands:
-  - {fileID: 1085824311}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -46592,7 +46586,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 169
     y: 90
-    width: 95
+    width: 96.66667
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -46662,7 +46656,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 179
     y: 252
-    width: 126
+    width: 129.33334
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -46701,8 +46695,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 2053604412}
-  selectedCommands:
-  - {fileID: 2053604416}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
