@@ -6,7 +6,7 @@ public class BoxBlur : MonoBehaviour
 {
     public Material BlurMaterial;
     //[Range(0, 10)]
-    public int iterations = 1;
+    public int iterations = 2;
     [Range(0, 4)]
     public int DownRes;
     public int maxIterations = 4;
