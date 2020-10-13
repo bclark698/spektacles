@@ -138016,7 +138016,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 603990767}
+  selectedFlowchart: {fileID: 2073737681}
 --- !u!4 &1407784229
 Transform:
   m_ObjectHideFlags: 1
@@ -146779,6 +146779,11 @@ PrefabInstance:
       propertyPath: m_Offset.x
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5387167895076370667, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -146874,7 +146879,8 @@ PrefabInstance:
       propertyPath: selectedBlocks.Array.data[0]
       value: 
       objectReference: {fileID: 2073737671}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 1755550019957881398, guid: 912c4182eb4e64bd7a4ab3a581afe8f7, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 912c4182eb4e64bd7a4ab3a581afe8f7, type: 3}
 --- !u!1 &2073737646 stripped
 GameObject:
@@ -147015,7 +147021,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 428.88586
     y: 35.942917
-    width: 61
+    width: 63.333332
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -147236,7 +147242,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 542
     y: -11.942917
-    width: 74
+    width: 77.333336
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -147466,7 +147472,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 318.23926
     y: -13.383331
-    width: 63
+    width: 65.33333
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -147553,7 +147559,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 178.82037
     y: -26.232298
-    width: 80
+    width: 82.666664
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -147661,7 +147667,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 173.2314
     y: -181.04118
-    width: 96
+    width: 98.666664
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -147736,6 +147742,18 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &2073737681 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2073737645}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073737646}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2076237394
 GameObject:
   m_ObjectHideFlags: 0
@@ -149140,6 +149158,12 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 630578474}
     m_Modifications:
+    - target: {fileID: 4228802448372112572, guid: 66a56fc2af6fc467eb68937124f732bd,
+        type: 3}
+      propertyPath: inputActionAsset
+      value: 
+      objectReference: {fileID: -944628639613478452, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+        type: 3}
     - target: {fileID: 4228802448372112573, guid: 66a56fc2af6fc467eb68937124f732bd,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -149249,6 +149273,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SD Irving
+      objectReference: {fileID: 0}
+    - target: {fileID: 4228802448548269067, guid: 66a56fc2af6fc467eb68937124f732bd,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -118
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 66a56fc2af6fc467eb68937124f732bd, type: 3}
