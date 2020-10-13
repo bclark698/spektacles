@@ -91,7 +91,7 @@ namespace Fungus
              {
                 //SetNextLineFlag(); // TODO delete later-temp fix
                 // TODO use the new input system properly
-                
+
                 //Keyboard kb = new InputSystem.GetDevice<Keyboard>();
                 //if(kb.enterKey.wasPressedThisFrame ||
                 //    (cancelEnabled) )
@@ -100,8 +100,8 @@ namespace Fungus
                 //}
 
                 if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
-                     (cancelEnabled && Input.GetButton(currentStandaloneInputModule.submitButton)))
-                 {
+                     (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
+                {
                      SetNextLineFlag();
                  }
              }
