@@ -3,7 +3,6 @@
 
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-//using Fungus;
 //using UnityEngine.InputSystem.UI;
 
 namespace Fungus
@@ -85,22 +84,22 @@ namespace Fungus
             if (currentStandaloneInputModule == null)
             {
                 currentStandaloneInputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
-                // currentStandaloneInputModule = EventSystem.current.GetComponent<InputSystemUIInputModule>(); 
+                //currentStandaloneInputModule = EventSystem.current.GetComponent<InputSystemUIInputModule>(); 
             }
 
             if (writer != null && writer.IsWriting)
              {
-                 //SetNextLineFlag(); // TODO delete later-temp fix
-                 // TODO use the new input system properly
-                 /*
-                 Keyboard kb = new InputSystem.GetDevice<Keyboard>();
-                 if(kb.enterKey.wasPressedThisFrame ||
-                     (cancelEnabled) )
-                 {
-                     SetNextLineFlag();
-                 }*/
+                //SetNextLineFlag(); // TODO delete later-temp fix
+                // TODO use the new input system properly
+                
+                //Keyboard kb = new InputSystem.GetDevice<Keyboard>();
+                //if(kb.enterKey.wasPressedThisFrame ||
+                //    (cancelEnabled) )
+                //{
+                //    SetNextLineFlag();
+                //}
 
-                 if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
+                if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
                      (cancelEnabled && Input.GetButton(currentStandaloneInputModule.submitButton)))
                  {
                      SetNextLineFlag();
@@ -109,29 +108,29 @@ namespace Fungus
 
              switch (clickMode)
              {
-             case ClickMode.Disabled:
-                 break;
-             case ClickMode.ClickAnywhere:
-                 //SetNextLineFlag(); // TODO delete later-temp fix
-                 /*
-                 Mouse mouse = new InputSystem.GetDevice<Mouse>();
-                 if(mouse.leftButton.wasPressedThisFrame)
-                 {
-                     SetNextLineFlag();
-                 }*/
+                 case ClickMode.Disabled:
+                     break;
+                 case ClickMode.ClickAnywhere:
+                     //SetNextLineFlag(); // TODO delete later-temp fix
+                 
+                     //Mouse mouse = new InputSystem.GetDevice<Mouse>();
+                     //if(mouse.leftButton.wasPressedThisFrame)
+                     //{
+                     //    SetNextLineFlag();
+                     //}
 
-                 if (Input.GetMouseButtonDown(0))
-                 {
-                     SetNextLineFlag();
-                 }
-                 break;
-            case ClickMode.ClickOnDialog:
-                if (dialogClickedFlag)
-                {
-                    SetNextLineFlag();
-                    dialogClickedFlag = false;
-                }
-                break;
+                    if (Input.GetMouseButtonDown(0))
+                    {
+                        SetNextLineFlag();
+                    }
+                    break;
+                case ClickMode.ClickOnDialog:
+                    if (dialogClickedFlag)
+                    {
+                        SetNextLineFlag();
+                        dialogClickedFlag = false;
+                    }
+                    break;
             }
 
             if (ignoreClickTimer > 0f)
