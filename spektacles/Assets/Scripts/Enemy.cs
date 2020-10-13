@@ -39,7 +39,7 @@ public abstract class Enemy : MonoBehaviour
         StartCoroutine(HandleStun());
 
         // play grayscale stone animation
-        anim.SetBool("stoned", isStunned);
+
         StartCoroutine(stoneAnimation());
 
     }
@@ -48,6 +48,7 @@ public abstract class Enemy : MonoBehaviour
       //spriteRenderer.color = Color.gray;
       enemySounds.playTurnStoneSound();
       enemySounds.playStoneCrackSound();
+      anim.SetBool("stoned", true);
 
       yield return new WaitForSeconds(1.5f);
 
