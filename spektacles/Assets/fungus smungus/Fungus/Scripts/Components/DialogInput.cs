@@ -3,10 +3,12 @@
 
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-//using UnityEngine.InputSystem;
+//using Fungus;
+//using UnityEngine.InputSystem.UI;
 
 namespace Fungus
 {
+
     /// <summary>
     /// Supported modes for clicking through a Say Dialog.
     /// </summary>
@@ -83,6 +85,7 @@ namespace Fungus
             if (currentStandaloneInputModule == null)
             {
                 currentStandaloneInputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
+                // currentStandaloneInputModule = EventSystem.current.GetComponent<InputSystemUIInputModule>(); 
             }
 
             if (writer != null && writer.IsWriting)
@@ -97,9 +100,8 @@ namespace Fungus
                      SetNextLineFlag();
                  }*/
 
-
                  if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
-                     (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
+                     (cancelEnabled && Input.GetButton(currentStandaloneInputModule.submitButton)))
                  {
                      SetNextLineFlag();
                  }

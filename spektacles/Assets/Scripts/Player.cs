@@ -4,7 +4,8 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 using UnityEngine.InputSystem;
-
+using Fungus;
+using UnityEngine.EventSystems;
 
 
 #if UNITY_EDITOR
@@ -55,6 +56,7 @@ public class Player : MonoBehaviour
     public GameObject sprayEffect;
 
     public PlayerControls controls;
+    public bool inCutscene;
 
     // called before Start
     void Awake()
@@ -124,6 +126,10 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector2 moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+        if(inCutscene)
+        {
+            moveInput = Vector2.zero;
+        }
 
         movementVelocity = moveInput.normalized * moveSpeed;
 
@@ -302,10 +308,14 @@ public class Player : MonoBehaviour
             //irving is not able to handle 'complex' collisions so thats on the player
             cameraF.stopFollow(true); //camera follow turned off separately
             musicSounds.loadCustceneMusic();
+
+            inCutscene = true;
+            //other.gameObject.GetComponent<FungusInteract>().SetMenuDialog(GameObject.FindObjectOfType<MenuDialog>());
         }
         else if(other.CompareTag("StartNextScene"))
         {
-          SceneManager.LoadScene(1);
+            inCutscene = false;
+            SceneManager.LoadScene(1);
         //  musicSounds.loadCustceneMusic();
         }
 

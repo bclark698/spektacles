@@ -118687,6 +118687,7 @@ GameObject:
   - component: {fileID: 1845620942}
   - component: {fileID: 1845620941}
   - component: {fileID: 1845620940}
+  - component: {fileID: 1845620943}
   m_Layer: 0
   m_Name: EventSystem
   m_TagString: Untagged
@@ -118701,18 +118702,37 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1845620939}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Script: {fileID: 11500000, guid: 01614664b831546d2ae94a42149d80ac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_HorizontalAxis: Horizontal
-  m_VerticalAxis: Vertical
-  m_SubmitButton: Submit
-  m_CancelButton: Cancel
-  m_InputActionsPerSecond: 10
-  m_RepeatDelay: 0.5
-  m_ForceModuleActive: 0
+  m_MoveRepeatDelay: 0.5
+  m_MoveRepeatRate: 0.1
+  m_ActionsAsset: {fileID: -944628639613478452, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_PointAction: {fileID: 4137841108759928611, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_MoveAction: {fileID: 6267934110213992367, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_SubmitAction: {fileID: -9156883341151019548, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_CancelAction: {fileID: -3588480383716364556, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_LeftClickAction: {fileID: -7031339451046848495, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_MiddleClickAction: {fileID: 3002536931785353217, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_RightClickAction: {fileID: 1624465625399723953, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_ScrollWheelAction: {fileID: -2761558810158770748, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_TrackedDevicePositionAction: {fileID: 3755664382265305461, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_TrackedDeviceOrientationAction: {fileID: 6586987874390322304, guid: e8ca64a21d49cfc4ab9ee13fb0ef74e4,
+    type: 3}
+  m_DeselectOnBackgroundClick: 1
+  m_PointerBehavior: 0
 --- !u!114 &1845620941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -118742,6 +118762,25 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1845620943
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1845620939}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalAxis: Horizontal
+  m_VerticalAxis: Vertical
+  m_SubmitButton: Submit
+  m_CancelButton: Cancel
+  m_InputActionsPerSecond: 10
+  m_RepeatDelay: 0.5
+  m_ForceModuleActive: 0
 --- !u!1 &1862526051 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5694533419263775050, guid: c916b34ce535c4de883b4ff611c77799,
@@ -122551,7 +122590,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 431.88394
     y: -65
-    width: 83
+    width: 83.33333
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -122583,7 +122622,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 428.88586
     y: 35.942917
-    width: 101
+    width: 103.33333
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -122804,7 +122843,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 543
     y: -10.942917
-    width: 114
+    width: 117.333336
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -123033,7 +123072,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 318.23926
     y: -13.383331
-    width: 103
+    width: 105.33333
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -123120,7 +123159,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 178.82037
     y: -26.232298
-    width: 120
+    width: 122.666664
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -123199,7 +123238,7 @@ CircleCollider2D:
   m_PrefabAsset: {fileID: 0}
 --- !u!114 &2073737676
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -123226,7 +123265,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &2073737677
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -123240,7 +123279,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 173.2314
     y: -181.04118
-    width: 136
+    width: 138.66666
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -123254,7 +123293,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &2073737678
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -123269,7 +123308,7 @@ MonoBehaviour:
   waitForFrames: 1
 --- !u!114 &2073737679
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
