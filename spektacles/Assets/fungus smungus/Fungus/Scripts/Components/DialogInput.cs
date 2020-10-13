@@ -3,7 +3,9 @@
 
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
-//using UnityEngine.InputSystem.UI;
+using UnityEngine.InputSystem;
+using System.Collections;
+using System.Collections.Generic;
 
 namespace Fungus
 {
@@ -50,6 +52,10 @@ namespace Fungus
 
         protected Writer writer;
 
+        public InputActionAsset inputActionAsset;
+    
+        public List<InputAction> actions { get; }
+
         protected virtual void Awake()
         {
             writer = GetComponent<Writer>();
@@ -81,57 +87,78 @@ namespace Fungus
                 return;
             }
 
+            if (writer != null && writer.IsWriting) {
+                if (cancelEnabled && (Keyboard.current.anyKey.wasPressedThisFrame || Gamepad.current.aButton.wasPressedThisFrame)) {
+                    SetNextLineFlag();
+                }
+            }
+
+            switch (clickMode) {
+                case ClickMode.Disabled:
+                    break;
+                case ClickMode.ClickAnywhere:
+                    if ((Keyboard.current.anyKey.wasPressedThisFrame || Gamepad.current.aButton.wasPressedThisFrame)) {
+                        SetNextLineFlag();
+                    }
+                    break;
+                case ClickMode.ClickOnDialog:
+                    if (dialogClickedFlag) {
+                        SetNextLineFlag();
+                        dialogClickedFlag = false;
+                    }
+                    break;
+            }
+
+
+            /*
             if (currentStandaloneInputModule == null)
             {
                 currentStandaloneInputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
-                //currentStandaloneInputModule = EventSystem.current.GetComponent<InputSystemUIInputModule>(); 
+                // currentStandaloneInputModule = EventSystem.current.GetComponent<InputSystemUIInputModule>(); 
             }
 
             if (writer != null && writer.IsWriting)
              {
-                //SetNextLineFlag(); // TODO delete later-temp fix
-                // TODO use the new input system properly
+                 // TODO use the new input system properly
+                 
+                 // Keyboard kb = new InputSystem.GetDevice<Keyboard>();
+                 // if(kb.enterKey.wasPressedThisFrame ||
+                 //     (cancelEnabled) )
+                 // {
+                 //     SetNextLineFlag();
+                 // }
 
-                //Keyboard kb = new InputSystem.GetDevice<Keyboard>();
-                //if(kb.enterKey.wasPressedThisFrame ||
-                //    (cancelEnabled) )
-                //{
-                //    SetNextLineFlag();
-                //}
-
-                if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
+                 if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
                      (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
-                {
+                 {
                      SetNextLineFlag();
                  }
              }
 
              switch (clickMode)
              {
-                 case ClickMode.Disabled:
-                     break;
-                 case ClickMode.ClickAnywhere:
-                     //SetNextLineFlag(); // TODO delete later-temp fix
-                 
-                     //Mouse mouse = new InputSystem.GetDevice<Mouse>();
-                     //if(mouse.leftButton.wasPressedThisFrame)
-                     //{
-                     //    SetNextLineFlag();
-                     //}
+             case ClickMode.Disabled:
+                 break;
+             case ClickMode.ClickAnywhere:
+                 // Mouse mouse = new InputSystem.GetDevice<Mouse>();
+                 // if(mouse.leftButton.wasPressedThisFrame)
+                 // {
+                 //     SetNextLineFlag();
+                 // }
 
-                    if (Input.GetMouseButtonDown(0))
-                    {
-                        SetNextLineFlag();
-                    }
-                    break;
-                case ClickMode.ClickOnDialog:
-                    if (dialogClickedFlag)
-                    {
-                        SetNextLineFlag();
-                        dialogClickedFlag = false;
-                    }
-                    break;
-            }
+                 if (Input.GetMouseButtonDown(0))
+                 {
+                     SetNextLineFlag();
+                 }
+                 break;
+            case ClickMode.ClickOnDialog:
+                if (dialogClickedFlag)
+                {
+                    SetNextLineFlag();
+                    dialogClickedFlag = false;
+                }
+                break;
+            } */
 
             if (ignoreClickTimer > 0f)
             {
