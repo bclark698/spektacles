@@ -132,9 +132,15 @@ public class Player : MonoBehaviour
 
         movementVelocity = moveInput.normalized * moveSpeed;
 
+        if (movementVelocity != new Vector2(0, 0)){
         anim.SetFloat("Horizontal", moveInput.x);
         anim.SetFloat("Vertical", moveInput.y);
         anim.SetFloat("Magnitude", moveInput.magnitude);
+        anim.SetBool("Moving", true);
+        }
+        else{
+        anim.SetBool("Moving", false);
+        }
 
         /* Important to use.GetKeyDown(KeyCode.P) instead of.GetKey(KeyCode.P) because
          * GetKey triggers more than once */
