@@ -324,7 +324,7 @@ RectTransform:
   - {fileID: 1992184542}
   - {fileID: 919048264}
   m_Father: {fileID: 0}
-  m_RootOrder: 15
+  m_RootOrder: 14
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -1821,7 +1821,7 @@ GameObject:
   - component: {fileID: 747056262}
   - component: {fileID: 747056261}
   m_Layer: 5
-  m_Name: Text
+  m_Name: timer indicator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1973,7 +1973,7 @@ GameObject:
   - component: {fileID: 919048266}
   - component: {fileID: 919048265}
   m_Layer: 5
-  m_Name: Image (1)
+  m_Name: b/w image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2599,6 +2599,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: Player
       objectReference: {fileID: 0}
+    - target: {fileID: 1135156641809806182, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+        type: 3}
+      propertyPath: irving
+      value: 
+      objectReference: {fileID: 1898052604}
+    - target: {fileID: 7479928421931626928, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+        type: 3}
+      propertyPath: timerText
+      value: 
+      objectReference: {fileID: 747056261}
+    - target: {fileID: 7479928421931626928, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+        type: 3}
+      propertyPath: ability
+      value: 
+      objectReference: {fileID: 919048265}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d4ff2d6b5b294fbbbfb1853bce10752, type: 3}
 --- !u!1 &1126274180 stripped
@@ -4079,7 +4094,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 448499878}
+  selectedFlowchart: {fileID: 1898052607}
 --- !u!4 &1689384869
 Transform:
   m_ObjectHideFlags: 1
@@ -4796,7 +4811,7 @@ GameObject:
   - component: {fileID: 1992184544}
   - component: {fileID: 1992184543}
   m_Layer: 5
-  m_Name: Image
+  m_Name: 'full '
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4936,51 +4951,6 @@ MonoBehaviour:
     m_VerticalOverflow: 0
     m_LineSpacing: 1
   m_Text: Character Name
---- !u!1 &2006584564
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2006584566}
-  - component: {fileID: 2006584565}
-  m_Layer: 0
-  m_Name: Timer Testing
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &2006584565
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006584564}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 44afcf140063a471abdec233dbe01657, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  timerText: {fileID: 747056261}
-  ability: {fileID: 919048265}
---- !u!4 &2006584566
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2006584564}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 319.40604, y: 149.41063, z: -219.05933}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 14
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2009382192
 GameObject:
   m_ObjectHideFlags: 0

@@ -62,7 +62,6 @@ public class Player : MonoBehaviour
     void Awake()
     {
         controls = new PlayerControls();
-        controls.Gameplay.Petrify.performed += _ => Petrify();
         controls.Gameplay.UsePowerUp.performed += _ => UsePowerUp();
         controls.Gameplay.Pause.performed += _ => Pause();
         //controls.Gameplay.Move.performed += context => Move(context.ReadValue<Vector2>());
@@ -190,6 +189,7 @@ public class Player : MonoBehaviour
         return Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
     }
 
+
     /* For testing purposes, this draws red line around the player's power up range.
      * This has no effect during gameplay, so we can leave this in. */
     void OnDrawGizmosSelected()
@@ -234,7 +234,7 @@ public class Player : MonoBehaviour
 
     private void LoseGlasses()
     {
-        Petrify();
+        GetComponent<Petrify>().PetrifyEnemy();
         if (anim.GetBool("blind") == false)
         {
             anim.SetBool("blind", true);
@@ -242,19 +242,6 @@ public class Player : MonoBehaviour
             mainCamera.GetComponent<BoxBlur>().enabled = true;
         }
         irving.isTrigger = false; //turn irving off
-    }
-
-    private void Petrify()
-    {
-        Debug.Log("petrify");
-        // get all the enemies within our PowerUpRange
-        Collider2D[] enemiesInRange = GetEnemiesInRange();
-
-        for(int i = 0; i < enemiesInRange.Length; i++)
-        {
-            Debug.Log("enemiesInRange = " + enemiesInRange.Length);
-            enemiesInRange[i].GetComponent<Enemy>().TurnIntoStone();
-        }
     }
 
 
