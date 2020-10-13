@@ -48,8 +48,8 @@ public class musicController : MonoBehaviour
   }
   void Start()
   {
-    currentVol = .2f;
-    musicVol = .2f;
+    currentVol = musicVol;
+
 
     currentLevel = SceneManager.GetActiveScene().name;
     LoadMusic();
