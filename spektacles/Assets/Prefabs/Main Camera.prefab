@@ -91,7 +91,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camFollowSpeed: 15
-  cameraOffset: -3
   player: {fileID: 0}
 --- !u!123 &8899837112879319783
 LensFlare:
@@ -121,9 +120,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ddb2b85cfa9fef94ba53630c27eff40a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  BlurMaterial: {fileID: 2100000, guid: d70e6f50b4162aa4c89aef9c67e53676, type: 2}
-  iterations: 1
-  DownRes: 1
+  BlurMaterial: {fileID: 2100000, guid: 779e679773ddc4e01bc097520befa096, type: 2}
+  iterations: 2
+  DownRes: 2
   maxIterations: 4
   increasePerSec: 2.5
   iterationsFloat: 1
