@@ -23,7 +23,7 @@ public class Pixie : Enemy
     public float moveSpeed;     // movement speed of pixies
     public AudioSource giggle1; //agro sound
     public AudioSource giggle2; //dissapointed sound
-    //  public Animator anim;
+    //public Animator anim;
 
     private FieldOfView fieldOfView;
     [SerializeField] private Transform pfFieldOfView; // a prefab of our field of view. drag this into the pixie's inspector
@@ -48,7 +48,7 @@ public class Pixie : Enemy
         Physics2D.queriesStartInColliders = false; // stops ray from detecting pixies own collider
         startingPos = transform.position; // gets pixie's starting position
         playerObj = GameObject.FindGameObjectWithTag("Player"); // create player object
-        //anim = GetComponent<Animator>();
+        anim = GetComponent<Animator>();
 
         fieldOfView = Instantiate(pfFieldOfView, null).GetComponent<FieldOfView>();
         fieldOfView.SetFoV(fov);
