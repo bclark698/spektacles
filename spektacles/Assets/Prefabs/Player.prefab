@@ -16,6 +16,7 @@ GameObject:
   - component: {fileID: 1135156641809806183}
   - component: {fileID: 1135156641809806180}
   - component: {fileID: 1135156641809806181}
+  - component: {fileID: 7479928421931626928}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -157,6 +158,7 @@ MonoBehaviour:
   powerUpObj: {fileID: 0}
   powerUpText: {fileID: 0}
   sprayEffect: {fileID: 0}
+  inCutscene: 0
 --- !u!70 &1135156641809806183
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -196,6 +198,25 @@ MonoBehaviour:
   powerUpName: 0
   duration: 3
   powerUpRange: {fileID: 0}
+--- !u!114 &7479928421931626928
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1135156641809806178}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0b7679fc39f45e7911baae3648c31a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  rangePos: {fileID: 1135156643099482478}
+  whatIsEnemies:
+    serializedVersion: 2
+    m_Bits: 256
+  range: 10
+  timerText: {fileID: 0}
+  ability: {fileID: 0}
 --- !u!1 &1135156643022093587
 GameObject:
   m_ObjectHideFlags: 0
