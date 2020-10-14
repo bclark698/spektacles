@@ -603,7 +603,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 626.7043
     y: 430.1313
-    width: 111.38903
+    width: 151.38904
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -656,7 +656,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 142.89879
-    width: 60.694515
+    width: 100.69452
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 154.95094
     y: 409.31873
-    width: 79.44454
+    width: 119.44454
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -838,7 +838,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 434.6827
     y: 552.0602
-    width: 81.52788
+    width: 121.52788
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -942,7 +942,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 440.20383
     y: 437.53372
-    width: 112.08347
+    width: 152.08347
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1891,8 +1891,7 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 131980618}
-  targetComponentAssemblyName: CameraFollow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
+  targetComponentAssemblyName: 
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: CameraFollow
   targetMethod: returnToPlayer
@@ -2214,7 +2213,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 636.4694
     y: 333.44843
-    width: 60
+    width: 75.00003
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2619,7 +2618,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 448.05405
     y: 301.3471
-    width: 86.38899
+    width: 126.38899
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2719,7 +2718,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -30.161682
     y: 255.63647
-    width: 83.61121
+    width: 123.61121
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2747,7 +2746,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -70.16168
     y: 350.63647
-    width: 94.722336
+    width: 134.72234
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4759,6 +4758,11 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 1640667235}
+    - target: {fileID: 1998834498754919333, guid: d41489107e5694509a675cc69ba0c9dc,
+        type: 3}
+      propertyPath: field of view
+      value: 162.4
+      objectReference: {fileID: 0}
     - target: {fileID: 1998834498754919335, guid: d41489107e5694509a675cc69ba0c9dc,
         type: 3}
       propertyPath: m_Name
@@ -4768,6 +4772,16 @@ PrefabInstance:
         type: 3}
       propertyPath: DownRes
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703068542747357226, guid: d41489107e5694509a675cc69ba0c9dc,
+        type: 3}
+      propertyPath: iterations
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 3703068542747357226, guid: d41489107e5694509a675cc69ba0c9dc,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d41489107e5694509a675cc69ba0c9dc, type: 3}
