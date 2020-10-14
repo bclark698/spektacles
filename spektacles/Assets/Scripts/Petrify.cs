@@ -7,7 +7,7 @@ using UnityEngine.UI;
 public class Petrify : MonoBehaviour
 {
     public PlayerControls controls;
-    
+
     [SerializeField] private Transform petrifyRangePos;
     [SerializeField] private LayerMask whatIsEnemies;
     [SerializeField] private float petrifyRange = 10;
@@ -16,6 +16,8 @@ public class Petrify : MonoBehaviour
     private Image stoneIcon; // should be the grayscale version of the icon
     public bool coolingDown;
     private float finishCooldownTime;
+
+    private PlayerSoundController playerSounds;
 
     // Start is called before the first frame update
     private void Awake()
@@ -30,6 +32,8 @@ public class Petrify : MonoBehaviour
         // changes power up range indicator to be proper size
         petrifyRangePos.localScale = new Vector3(2 * petrifyRange, 2 * petrifyRange, 0);
         stoneIcon = GameObject.FindGameObjectWithTag("Petrify Icon").GetComponent<Image>();
+
+        playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
     }
 
     // Update is called once per frame
@@ -43,7 +47,7 @@ public class Petrify : MonoBehaviour
             } else {
                 stoneIcon.fillAmount -= 1 / cooldownTime * Time.deltaTime;
             }
-            
+
         }
     }
 
@@ -57,9 +61,10 @@ public class Petrify : MonoBehaviour
         controls.Disable();
     }
 
-    public void PetrifyEnemy() 
+    public void PetrifyEnemy()
     {
         if(!coolingDown) {
+            playerSounds.StoneBlastSound();
             Debug.Log("petrify");
             coolingDown = true; //set timer to start cooling down
             finishCooldownTime = Time.time + cooldownTime;
@@ -75,7 +80,7 @@ public class Petrify : MonoBehaviour
             {
                 enemiesInRange[i].GetComponent<Enemy>().TurnIntoStone();
             }
-            
+
             stoneIcon.fillAmount = 1;
         }
     }

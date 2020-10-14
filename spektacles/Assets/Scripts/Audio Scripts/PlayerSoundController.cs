@@ -7,6 +7,7 @@ public class PlayerSoundController : MonoBehaviour
     public AudioSource playerHit;
     public AudioSource reloadLvl;
     public AudioSource aquire;
+    public AudioSource stoneBlast;
 
     /*
     public AudioSource bugSpray;
@@ -33,4 +34,7 @@ public class PlayerSoundController : MonoBehaviour
       aquire.Play();
     }
 
+    public void StoneBlastSound(){
+      stoneBlast.Play();
+    }
 }

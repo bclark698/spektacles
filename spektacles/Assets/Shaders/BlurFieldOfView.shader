@@ -96,10 +96,11 @@ Shader "Custom/BlurFieldOfView"
 
             //run a process on our editing bit, in our case, blur
 
-            color *= float4(1, 1, .3, 1);
-            /*
+            color *= float4(1, .3, .3, 1);
+
+
             color = box(_MainTex, i.uv, _MainTex_TexelSize);
-            */
+
             //Gaussian Blur!
             #if GAUSS
             				//failsafe so we can use turn off the blur by setting the deviation to 0
@@ -136,6 +137,7 @@ Shader "Custom/BlurFieldOfView"
             				color = color / sum;
             			//	return color;
 
+            //color *= float4(.5, .8, .4, 1);
 
 
             //lerp between the mask and the original texture, to add the masking
