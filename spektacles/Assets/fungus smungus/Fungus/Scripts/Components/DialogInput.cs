@@ -4,6 +4,7 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
+using UnityEngine.InputSystem.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -48,7 +49,7 @@ namespace Fungus
 
         protected float ignoreClickTimer;
 
-        protected StandaloneInputModule currentStandaloneInputModule;
+        // protected InputSystemUIInputModule currentInputSystemUIInputModule;
 
         protected Writer writer;
 
@@ -56,24 +57,27 @@ namespace Fungus
     
         public List<InputAction> actions { get; }
 
-        //public PlayerControls controls;
+        // public PlayerControls controls;
+        public InputAction submitActions;
 
         protected virtual void Awake()
         {
             writer = GetComponent<Writer>();
 
-            /*
-            for(int i = 0; i < actions.Length; i++) {
-                Debug.Log(actions[i]);
-            }*/
-            //controls = new PlayerControls();
-            //controls.Gameplay.AdvanceDialogue.performed += _ => Helper();
+            
 
             CheckEventSystem();
         }
 
-        public void Helper() {
-            if (writer != null && writer.IsWriting && cancelEnabled) {
+        void Start() {
+            // Debug.Log("enabled? "+inputActionAsset.enabled);
+            // Debug.Log("actionMaps? "+inputActionAsset.actionMaps.GetAction("UI/Submit"));
+            submitActions = inputActionAsset.FindAction("UI/Submit");
+            submitActions.performed += _ => AdvanceDialogue();
+        }
+
+        public void AdvanceDialogue() {
+            if (writer != null && writer.IsWriting) {
                 SetNextLineFlag();
             }
         }
@@ -102,6 +106,7 @@ namespace Fungus
                 return;
             }
             
+            /*
             if (writer != null && writer.IsWriting) {
                 bool here = Keyboard.current.anyKey.wasPressedThisFrame;
                 // bool here2 = Gamepad.current.aButton.wasPressedThisFrame;
@@ -124,33 +129,15 @@ namespace Fungus
                         dialogClickedFlag = false;
                     }
                     break;
-            }
+            }*/
 
 
             /*
-            if (currentStandaloneInputModule == null)
+            if (currentInputSystemUIInputModule == null)
             {
-                currentStandaloneInputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
-                // currentStandaloneInputModule = EventSystem.current.GetComponent<InputSystemUIInputModule>(); 
-            }
-
-            if (writer != null && writer.IsWriting)
-             {
-                 // TODO use the new input system properly
-                 
-                 // Keyboard kb = new InputSystem.GetDevice<Keyboard>();
-                 // if(kb.enterKey.wasPressedThisFrame ||
-                 //     (cancelEnabled) )
-                 // {
-                 //     SetNextLineFlag();
-                 // }
-
-                 if (Input.GetButtonDown(currentStandaloneInputModule.submitButton) ||
-                     (cancelEnabled && Input.GetButton(currentStandaloneInputModule.cancelButton)))
-                 {
-                     SetNextLineFlag();
-                 }
-             }
+                //currentInputSystemUIInputModule = EventSystem.current.GetComponent<StandaloneInputModule>();
+                currentInputSystemUIInputModule = EventSystem.current.GetComponent<InputSystemUIInputModule>(); 
+            }*/
 
              switch (clickMode)
              {
@@ -175,7 +162,7 @@ namespace Fungus
                     dialogClickedFlag = false;
                 }
                 break;
-            } */
+            }
 
             if (ignoreClickTimer > 0f)
             {

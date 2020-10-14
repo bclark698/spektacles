@@ -43,7 +43,6 @@ public class Petrify : MonoBehaviour
                 coolingDown = false;
                 elapsed = 0;
                 print("cooldown finished");
-                OnEnable();
             }
         }
 
@@ -73,7 +72,6 @@ public class Petrify : MonoBehaviour
         coolingDown = true; //set timer to start cooling down
         print("cooling down now");
         ability.fillAmount = 1;
-        OnDisable();
     }
 
     Collider2D[] GetEnemiesInRange()
