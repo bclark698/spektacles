@@ -11,7 +11,9 @@ public class Jocks : Enemy
 	public int num = 0;
 
 	public float minDist;
-	public float speed;
+	public float timeToSpot;
+    private float yVelo = 0.0f;
+    private float xVelo = 0.0f;
 
 	public bool rand = false;
 	public bool go = true;
@@ -50,14 +52,9 @@ public class Jocks : Enemy
 
     public void Move()
     {
-
-        gameObject.transform.LookAt(waypoints[num].transform.position);
-        gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
-
-        Vector3 dir = waypoints[num].transform.position;
-        float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
-        gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
-		gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
+        float newPosX = Mathf.SmoothDamp(transform.position.x, waypoints[num].transform.position.x, ref xVelo, timeToSpot);
+        float newPosY = Mathf.SmoothDamp(transform.position.y, waypoints[num].transform.position.y, ref yVelo, timeToSpot);
+        transform.position = new Vector2(newPosX, newPosY);
     }
 
     public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
