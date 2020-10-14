@@ -81,6 +81,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Start"",
+                    ""type"": ""Button"",
+                    ""id"": ""fec86c04-6b73-4628-b4da-e3ed77802cae"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -754,6 +762,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""temp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": true
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c9168e34-8709-485b-a994-a1ab5eca14a1"",
+                    ""path"": ""<Gamepad>/start"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7a2467b3-2522-4d14-852d-398c54a96ee1"",
+                    ""path"": ""<Keyboard>/period"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Start"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1392,6 +1422,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_UsePowerUp = m_Gameplay.FindAction("UsePowerUp", throwIfNotFound: true);
         m_Gameplay_temp = m_Gameplay.FindAction("temp", throwIfNotFound: true);
+        m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1461,6 +1492,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_UsePowerUp;
     private readonly InputAction m_Gameplay_temp;
+    private readonly InputAction m_Gameplay_Start;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -1473,6 +1505,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @UsePowerUp => m_Wrapper.m_Gameplay_UsePowerUp;
         public InputAction @temp => m_Wrapper.m_Gameplay_temp;
+        public InputAction @Start => m_Wrapper.m_Gameplay_Start;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1506,6 +1539,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @temp.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTemp;
                 @temp.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTemp;
                 @temp.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTemp;
+                @Start.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
+                @Start.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
+                @Start.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1534,6 +1570,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @temp.started += instance.OnTemp;
                 @temp.performed += instance.OnTemp;
                 @temp.canceled += instance.OnTemp;
+                @Start.started += instance.OnStart;
+                @Start.performed += instance.OnStart;
+                @Start.canceled += instance.OnStart;
             }
         }
     }
@@ -1671,6 +1710,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnUsePowerUp(InputAction.CallbackContext context);
         void OnTemp(InputAction.CallbackContext context);
+        void OnStart(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
