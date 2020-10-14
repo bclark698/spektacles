@@ -10,6 +10,7 @@ public class musicController : MonoBehaviour
   public AudioSource homeMusic;
   public AudioSource homeCutMusic;
   public AudioSource busMusic;
+  public AudioSource busCutMusic;
   public AudioSource lvl1Music;
   public AudioSource cut1Music;
 
@@ -77,6 +78,12 @@ public class musicController : MonoBehaviour
       case "School Hall 1":
       currentMusic.clip = lvl1Music.clip;
       break;
+      case "Full School Scene":
+      currentMusic.clip = lvl1Music.clip;
+      break;
+      case "Sohee TEST - Start Screen":
+      currentMusic.clip = busMusic.clip;
+      break;
 
     }
     //Debug.Log("you're now listening to the sweet tunes of... ");
@@ -91,7 +98,15 @@ public class musicController : MonoBehaviour
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
+      case "Bus":
+      Debug.Log("switching to cut1Music");
+      StartCoroutine(MusicSwitch(busCutMusic, 2, 4));
+      break;
       case "School Hall 1":
+      Debug.Log("switching to cut1Music");
+      StartCoroutine(MusicSwitch(cut1Music, 2, 4));
+      break;
+      case "Full School Scene":
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
