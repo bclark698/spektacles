@@ -114,7 +114,7 @@ public class Player : MonoBehaviour
         powerUpRangePos.localScale = new Vector3(2*powerUpRange, 2*powerUpRange, 0);
         // make sure it isn't visible at the start of the game
         GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<SpriteRenderer>().enabled = false;
-x
+        
         dashTime = startDashTime;
         // if home scene
         if(showMovementIndicator) {
