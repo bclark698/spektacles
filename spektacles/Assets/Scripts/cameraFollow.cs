@@ -19,21 +19,22 @@ public class CameraFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-      target = GameObject.FindGameObjectWithTag(targetTag);
-      cam =  gameObject.GetComponent<Camera>();
-      targetX = target.transform.position.x;
-      targetY = target.transform.position.y;
+        target = GameObject.FindGameObjectWithTag(targetTag);
+        cam = gameObject.GetComponent<Camera>();
+        targetX = target.transform.position.x;
+        targetY = target.transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-      targetX = target.transform.position.x;
-      targetY = target.transform.position.y;
+        targetX = target.transform.position.x;
+        targetY = target.transform.position.y;
 
-      if (cam.transform.position != target.transform.position){
-        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -3f) , Time.deltaTime * followSpeed);
-      }
+        if (cam.transform.position != target.transform.position)
+        {
+            cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(targetX, targetY, -3f), Time.deltaTime * followSpeed);
+        }
     }
 
     public void returnToPlayer(float offsetX, float offsetY)
@@ -42,6 +43,7 @@ public class CameraFollow : MonoBehaviour
         target.SetActive(true); //turn target back on
         enabled = true; //follow target again
         target.transform.position = new Vector2(targetX + offsetX, targetY + offsetY); //move target a certain distance away from collider
+        Debug.Log("moved player");
 
         cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -3f), Time.deltaTime * followSpeed); //move camera
     }
@@ -50,7 +52,7 @@ public class CameraFollow : MonoBehaviour
     {
         //sometimes i just need the camera to stop following
         //but not for the target to stop/be removed from the scene ya know
-        if(hideTarget)
+        if (hideTarget)
         {
             target.SetActive(false);
         }
