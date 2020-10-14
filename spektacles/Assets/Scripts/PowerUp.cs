@@ -47,8 +47,6 @@ public class PowerUp : MonoBehaviour
         Destroy(p.powerUpObj);
         p.powerUpObj = gameObject;
 
-        p.powerUpText.text = "Held Powerup: " + p.powerUp;
-
         // show powerup in the indicator
         Indicator = GameObject.FindGameObjectWithTag("PowerUp Indicator").GetComponent<ChangeIcon>();
         Indicator.update(GetComponent<SpriteRenderer>().sprite);

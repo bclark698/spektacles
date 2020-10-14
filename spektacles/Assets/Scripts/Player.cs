@@ -68,6 +68,8 @@ public class Player : MonoBehaviour
     public PlayerControls controls;
     public bool inCutscene;
 
+    [SerializeField] bool showMovementIndicator = false; // should set to true in inspector for melita in the first home scene
+
     // called before Start
     void Awake()
     {
@@ -112,13 +114,18 @@ public class Player : MonoBehaviour
         powerUpRangePos.localScale = new Vector3(2*powerUpRange, 2*powerUpRange, 0);
         // make sure it isn't visible at the start of the game
         GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<SpriteRenderer>().enabled = false;
-
+x
         dashTime = startDashTime;
+        // if home scene
+        if(showMovementIndicator) {
+            StartCoroutine(GetComponent<ShowInteractIndicator>().ShowForDuration(ShowInteractIndicator.Icon.Movement, 2f));
+        }
     }
 
     // Update is called once per frame
     void Update()
     {
+        
         Vector2 moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
         if(inCutscene)
         {
