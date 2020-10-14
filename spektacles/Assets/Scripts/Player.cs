@@ -212,7 +212,13 @@ public class Player : MonoBehaviour
     void HandleHit()
     {
         playerSounds.HitSound();
+        // game over on one hit
+        playerSounds.ReloadSound();
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        lives = 0;
+        //TODO allow for glasses with buff?
 
+        /*
         if (lives == 2) //has glasses but no buff
         {
             LoseGlasses();
@@ -222,7 +228,7 @@ public class Player : MonoBehaviour
             playerSounds.ReloadSound();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
-        lives--;
+        lives--;*/
     }
 
     public void PickUpGlasses()

@@ -39,6 +39,7 @@ public class Petrify : MonoBehaviour
         {
             if(Time.time >= finishCooldownTime) {
                 coolingDown = false;
+                GetComponent<Player>().PickUpGlasses();
             } else {
                 stoneIcon.fillAmount -= 1 / cooldownTime * Time.deltaTime;
             }
