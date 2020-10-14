@@ -2,55 +2,57 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class cameraFollow : MonoBehaviour
+public class CameraFollow : MonoBehaviour
 {
 
     private Camera cam;
 
-    private float playerX;
-    private float playerY;
+    private float targetX;
+    private float targetY;
 
-    [Tooltip("Set how fast the camera follows the player")]
-    public float camFollowSpeed;
-    public GameObject player;
+    [Tooltip("Set how fast the camera follows the target")]
+    [SerializeField] private float followSpeed = 20f;
+    private GameObject target;
+    [SerializeField] private string targetTag = "Player"; // default value to follow the player
 
 
     // Start is called before the first frame update
     void Start()
     {
+      target = GameObject.FindGameObjectWithTag(targetTag);
       cam =  gameObject.GetComponent<Camera>();
-      playerX = player.transform.position.x;
-      playerY = player.transform.position.y;
+      targetX = target.transform.position.x;
+      targetY = target.transform.position.y;
     }
 
     // Update is called once per frame
     void Update()
     {
-      playerX = player.transform.position.x;
-      playerY = player.transform.position.y;
+      targetX = target.transform.position.x;
+      targetY = target.transform.position.y;
 
-      if (cam.transform.position != player.transform.position){
-        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, -3f) , Time.deltaTime * camFollowSpeed);
+      if (cam.transform.position != target.transform.position){
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -3f) , Time.deltaTime * followSpeed);
       }
     }
 
     public void returnToPlayer(float offsetX, float offsetY)
     {
         //for use in fungus
-        player.SetActive(true); //turn player back on
-        enabled = true; //follow player again
-        player.transform.position = new Vector2(playerX + offsetX, playerY + offsetY); //move player a certain distance away from collider
+        target.SetActive(true); //turn target back on
+        enabled = true; //follow target again
+        target.transform.position = new Vector2(targetX + offsetX, targetY + offsetY); //move target a certain distance away from collider
 
-        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(player.transform.position.x, player.transform.position.y, -3f), Time.deltaTime * camFollowSpeed); //move camera
+        cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -3f), Time.deltaTime * followSpeed); //move camera
     }
 
-    public void stopFollow(bool hidePlayer)
+    public void stopFollow(bool hideTarget)
     {
         //sometimes i just need the camera to stop following
-        //but not for the player to stop/be removed from the scene ya know
-        if(hidePlayer)
+        //but not for the target to stop/be removed from the scene ya know
+        if(hideTarget)
         {
-            player.SetActive(false);
+            target.SetActive(false);
         }
         enabled = false;
     }

@@ -25,10 +25,10 @@ public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
     private Vector2 movementVelocity;
-    public float moveSpeed;
+    public float moveSpeed = 20f;
     private Animator anim;
     private int lives = 2; //one for w/ glasses, one for without
-    private cameraFollow cameraF;
+    private CameraFollow cameraF;
     public BoxCollider2D irving;
 
     //dash stuff
@@ -49,7 +49,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     public LayerMask whatIsEnemies;
     [SerializeField]
-    public float powerUpRange;
+    public float powerUpRange = 10f;
     public GameObject powerUpObj;
 
     public Text powerUpText;
@@ -104,7 +104,7 @@ public class Player : MonoBehaviour
 
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<cameraFollow>();
+        cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
@@ -113,7 +113,7 @@ public class Player : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
 
         // TODO delete later when implement outline enemies
-        // change power up range indicator to be proper size
+        // changes power up range indicator to be proper size
         powerUpRangePos.localScale = new Vector3(2*powerUpRange, 2*powerUpRange, 0);
         // make sure it isn't visible at the start of the game
         GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<SpriteRenderer>().enabled = false;
@@ -230,22 +230,18 @@ public class Player : MonoBehaviour
         if (anim.GetBool("blind"))
         {
             anim.SetBool("blind", false);
-            Camera mainCamera = Camera.main;
-            mainCamera.GetComponent<BoxBlur>().enabled = false;
             lives = 2;
         }
         playerSounds.AcquireSound();
         irving.isTrigger = true;
     }
 
-    private void LoseGlasses()
+    public void LoseGlasses()
     {
         GetComponent<Petrify>().PetrifyEnemy();
         if (anim.GetBool("blind") == false)
         {
             anim.SetBool("blind", true);
-            Camera mainCamera = Camera.main;
-            mainCamera.GetComponent<BoxBlur>().enabled = true;
         }
         irving.isTrigger = false; //turn irving off
     }

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1998834498754919332}
   - component: {fileID: 8899837112879319783}
   - component: {fileID: 3703068542747357226}
+  - component: {fileID: 5622744359199675971}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -91,7 +92,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   camFollowSpeed: 20
-  player: {fileID: 0}
+  target: {fileID: 0}
+  targetTag: Player
 --- !u!123 &8899837112879319783
 LensFlare:
   m_ObjectHideFlags: 0
@@ -121,12 +123,22 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   BlurMaterial: {fileID: 2100000, guid: 779e679773ddc4e01bc097520befa096, type: 2}
-  iterations: 2
-  DownRes: 2
+  iterations: 4
+  downRes: 2
   maxIterations: 4
   increasePerSec: 2.5
-  iterationsFloat: 1
-  increase: 1
+--- !u!114 &5622744359199675971
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998834498754919335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 341173f7588ff084a9d336b6053588df, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7639868180804199195
 GameObject:
   m_ObjectHideFlags: 0

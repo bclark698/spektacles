@@ -10,7 +10,7 @@ public class Petrify : MonoBehaviour
     
     [SerializeField] private Transform petrifyRangePos;
     [SerializeField] private LayerMask whatIsEnemies;
-    [SerializeField] private float petrifyRange;
+    [SerializeField] private float petrifyRange = 10;
     [SerializeField] private float cooldownTime = 3f;
 
     private Image stoneIcon; // should be the grayscale version of the icon
@@ -21,7 +21,7 @@ public class Petrify : MonoBehaviour
     private void Awake()
     {
         controls = new PlayerControls();
-        controls.Gameplay.Petrify.performed += _ => PetrifyEnemy();
+        controls.Gameplay.Petrify.performed += _ => GetComponent<Player>().LoseGlasses();
     }
 
     void Start()
@@ -63,6 +63,9 @@ public class Petrify : MonoBehaviour
             coolingDown = true; //set timer to start cooling down
             finishCooldownTime = Time.time + cooldownTime;
             print("cooling down now");
+
+            Camera mainCamera = Camera.main;
+            StartCoroutine(mainCamera.GetComponent<CameraInteract>().BeginBlur(cooldownTime));
 
             // get all the enemies within our PowerUpRange
             Collider2D[] enemiesInRange = GetEnemiesInRange();
