@@ -7,17 +7,15 @@ using UnityEngine.UI;
 public class Petrify : MonoBehaviour
 {
     public PlayerControls controls;
-    [SerializeField]
-    private Transform rangePos;
-    [SerializeField]
-    private LayerMask whatIsEnemies;
-    [SerializeField]
-    private float range;
+    
+    [SerializeField] private Transform petrifyRangePos;
+    [SerializeField] private LayerMask whatIsEnemies;
+    [SerializeField] private float petrifyRange;
+    [SerializeField] private float cooldownTime = 3f;
 
-    private bool coolingDown;
-    [SerializeField] private Image ability;
-    private float elapsed;
-
+    private Image stoneIcon; // should be the grayscale version of the icon
+    public bool coolingDown;
+    private float finishCooldownTime;
 
     // Start is called before the first frame update
     private void Awake()
@@ -28,7 +26,10 @@ public class Petrify : MonoBehaviour
 
     void Start()
     {
-        rangePos.localScale = new Vector3(2 * range, 2 * range, 0);
+        // TODO delete later when implement outline enemies
+        // changes power up range indicator to be proper size
+        petrifyRangePos.localScale = new Vector3(2 * petrifyRange, 2 * petrifyRange, 0);
+        stoneIcon = GameObject.FindGameObjectWithTag("Petrify Icon").GetComponent<Image>();
     }
 
     // Update is called once per frame
@@ -36,16 +37,13 @@ public class Petrify : MonoBehaviour
     {
         if (coolingDown)
         {
-            elapsed += Time.deltaTime;
-            ability.fillAmount -= 1 / 3f * Time.deltaTime;
-            if (elapsed >= 3f)
-            {
+            if(Time.time >= finishCooldownTime) {
                 coolingDown = false;
-                elapsed = 0;
-                print("cooldown finished");
+            } else {
+                stoneIcon.fillAmount -= 1 / cooldownTime * Time.deltaTime;
             }
+            
         }
-
     }
 
     private void OnEnable()
@@ -60,23 +58,27 @@ public class Petrify : MonoBehaviour
 
     public void PetrifyEnemy() 
     {
-        Debug.Log("petrify");
-        // get all the enemies within our PowerUpRange
-        Collider2D[] enemiesInRange = GetEnemiesInRange();
+        if(!coolingDown) {
+            Debug.Log("petrify");
+            coolingDown = true; //set timer to start cooling down
+            finishCooldownTime = Time.time + cooldownTime;
+            print("cooling down now");
 
-        for (int i = 0; i < enemiesInRange.Length; i++)
-        {
-            Debug.Log("enemiesInRange = " + enemiesInRange.Length);
-            enemiesInRange[i].GetComponent<Enemy>().TurnIntoStone();
+            // get all the enemies within our PowerUpRange
+            Collider2D[] enemiesInRange = GetEnemiesInRange();
+
+            for (int i = 0; i < enemiesInRange.Length; i++)
+            {
+                enemiesInRange[i].GetComponent<Enemy>().TurnIntoStone();
+            }
+            
+            stoneIcon.fillAmount = 1;
         }
-        coolingDown = true; //set timer to start cooling down
-        print("cooling down now");
-        ability.fillAmount = 1;
     }
 
     Collider2D[] GetEnemiesInRange()
     {
         // get all the enemies within our PowerUpRange
-        return Physics2D.OverlapCircleAll(rangePos.position, range, whatIsEnemies);
+        return Physics2D.OverlapCircleAll(petrifyRangePos.position, petrifyRange, whatIsEnemies);
     }
 }
