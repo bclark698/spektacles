@@ -59,9 +59,9 @@ public class Pixie : Enemy
         Vector3 down = new Vector3(0, -1, 0);
         Vector3 left = new Vector3(-1, 0, 0);
         Vector3 right = new Vector3(1, 0, 0);
-        directions = new Vector3[]{up, right, down, left};
+        directions = new Vector3[] { up, right, down, left };
 
-}
+    }
 
     // Update is called once per frame
     void Update()
@@ -127,13 +127,15 @@ public class Pixie : Enemy
 
     public Vector3 GetAimDir()
     {
-        if(state == State.Waiting)
+        if (state == State.Waiting)
         {
             lastMoveDir = directions[directionIdx];
-        } else if(state == State.ChaseTarget)
+        }
+        else if (state == State.ChaseTarget)
         {
             lastMoveDir = (playerObj.transform.position - transform.position).normalized; //face player
-        } else if(state == State.ReturnToStart)
+        }
+        else if (state == State.ReturnToStart)
         {
             lastMoveDir = (startingPos - transform.position).normalized; // face starting pos
         }
@@ -182,7 +184,36 @@ public class Pixie : Enemy
             // lost sight of player
             if (!PlayerInSight())
             {
-                state = State.ReturnToStart;
+
+                // go to last location
+                StartCoroutine(Search());
+
+                // look around
+                for (int i = 0; i < 4; i++)
+                {
+                    nextActionTime = Time.time + period;
+                    directionIdx = (directionIdx + 1) % directions.Length;
+                    i++;
+
+                    // if found, chase
+                    if (PlayerInSight())
+                    {
+                        Debug.Log("trying to chase?");
+                        state = State.ChaseTarget;
+                    }
+                    else
+                    {
+                        Debug.Log("returning to start");
+                        if(i==3)
+                        {
+                           // state = State.ReturnToStart;
+
+                        }
+                    }
+                }
+
+                // else, go home
+                
             }
         }
     }
@@ -194,6 +225,26 @@ public class Pixie : Enemy
         {
             giggle2.Play();
         }
+    }
+
+    // sends pixies back to starting position
+    IEnumerator Search()
+    {
+        Vector3 playerLastKnownPos = playerObj.transform.position;
+        Vector3 direction = playerLastKnownPos - transform.position;
+        float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
+        transform.rotation = Quaternion.Euler(2, 2, angle);
+        moveSpeed = 10f;
+        //transform.position = Vector2.MoveTowards(transform.position, playerLastKnownPos, moveSpeed * Time.deltaTime);
+
+        float reachedPosDist = 1f;
+        while (Vector2.Distance(transform.position, playerLastKnownPos) > reachedPosDist)
+        {
+            transform.position = Vector2.MoveTowards(transform.position, playerLastKnownPos, moveSpeed * Time.deltaTime);
+            yield return null;
+        }
+        transform.rotation = Quaternion.Euler(1, 0, 0);
+
     }
 
     // sends pixies back to starting position
@@ -217,7 +268,7 @@ public class Pixie : Enemy
     public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
     {
         //Debug.Log("pixie handling powerup" + powerUp);
-        if(powerUp == pixiePowerUp)
+        if (powerUp == pixiePowerUp)
         {
             StartCoroutine(HandleStun());
             return true;
