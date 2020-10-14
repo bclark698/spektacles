@@ -29,7 +29,7 @@ public class Player : MonoBehaviour
     private Animator anim;
     private int lives = 2; //one for w/ glasses, one for without
     private cameraFollow cameraF;
-    public CircleCollider2D irving;
+    public BoxCollider2D irving;
 
     //dash stuff
     public float dashSpeed;
