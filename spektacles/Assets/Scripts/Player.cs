@@ -13,12 +13,22 @@ using UnityEditor;
 #endif
 
 /*
+ * We can use EditorUserBuildSettings.activeBuildTarget to check the build target, but only while in the editor.
+ * Using it will cause errors in the build version of our game, so we have to use Application.platform instead.
+ *
  * Xbox (Universal Windows Platform):
  *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.WSAPlayer
+ *   - Application.platform == RuntimePlatform.WSAPlayerX86
+ *   - Application.platform == RuntimePlatform.WSAPlayerX64
+ *   - Application.platform == RuntimePlatform.WSAPlayerARM
  * Windows
  *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneWindows64
- * Mac
- *   - assume EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneOSX
+ *   - Application.platform == RuntimePlatform.WindowsEditor
+ *   - Application.platform == RuntimePlatform.WindowsPlayer
+ * Mac (all of these are assumptions because I don't have a Mac)
+ *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneOSX
+ *   - Application.platform == RuntimePlatform.OSXEditor
+ *   - Application.platform == RuntimePlatform.OSXPlayer
  */
 
 public class Player : MonoBehaviour
@@ -28,7 +38,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 20f;
     private Animator anim;
     private int lives = 2; //one for w/ glasses, one for without
-    private CameraFollow cameraF;
+    private Follow cameraF;
     public BoxCollider2D irving;
 
     //dash stuff
@@ -87,24 +97,9 @@ public class Player : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-
-        Debug.Log("platform: "+ Application.platform+" target build: "+ EditorUserBuildSettings.activeBuildTarget);
-        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.WSAPlayer)
-        {
-            Debug.Log("build target is WSAPlayer");
-        }
-        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneWindows)
-        {
-            Debug.Log("build target is StandaloneWindows");
-        }
-        if (EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneWindows64)
-        {
-            Debug.Log("build target is StandaloneWindows64");
-        }
-
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CameraFollow>();
+        cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Follow>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();

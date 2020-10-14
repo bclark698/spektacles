@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 1998834498754919330}
   - component: {fileID: 1998834498754919333}
-  - component: {fileID: 1998834498754919332}
   - component: {fileID: 8899837112879319783}
   - component: {fileID: 3703068542747357226}
   - component: {fileID: 5622744359199675971}
+  - component: {fileID: 5093714280545775286}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -79,21 +79,6 @@ Camera:
   m_OcclusionCulling: 1
   m_StereoConvergence: 10
   m_StereoSeparation: 0.022
---- !u!114 &1998834498754919332
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1998834498754919335}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0080e6369540f467c8401419060e08ac, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  camFollowSpeed: 20
-  target: {fileID: 0}
-  targetTag: Player
 --- !u!123 &8899837112879319783
 LensFlare:
   m_ObjectHideFlags: 0
@@ -139,6 +124,20 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 341173f7588ff084a9d336b6053588df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &5093714280545775286
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1998834498754919335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 841cafc97f7fe7e4ebf485f6d2b709d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  followSpeed: 20
+  targetTag: Player
 --- !u!1 &7639868180804199195
 GameObject:
   m_ObjectHideFlags: 0
