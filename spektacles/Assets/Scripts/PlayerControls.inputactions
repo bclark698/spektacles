@@ -750,7 +750,7 @@
             "actions": [
                 {
                     "name": "Navigate",
-                    "type": "Value",
+                    "type": "PassThrough",
                     "id": "48ece5a2-0129-4148-a846-4486f02f465a",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -758,7 +758,7 @@
                 },
                 {
                     "name": "Submit",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "f6a2c4b5-854b-4bbf-8187-fa773a2271f9",
                     "expectedControlType": "Button",
                     "processors": "",
@@ -985,9 +985,9 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "Left Joystick Vertical",
+                    "name": "Left Joystick",
                     "id": "6ae19263-c560-4404-98c1-362c5304a0ed",
-                    "path": "1DAxis",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -996,7 +996,7 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "Up",
                     "id": "c96d9340-2fec-4adc-9852-ac7359827745",
                     "path": "<Joystick>/stick/down",
                     "interactions": "",
@@ -1007,7 +1007,7 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
+                    "name": "Down",
                     "id": "95c1fc54-a494-48cc-89c9-d02beeee038c",
                     "path": "<Joystick>/stick/up",
                     "interactions": "",
@@ -1018,9 +1018,31 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "WASD Vertical Only",
+                    "name": "Left",
+                    "id": "f7c0a337-556b-409d-a02b-7aae7f53bf8b",
+                    "path": "<Joystick>/stick/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "b5e28058-b59a-4a54-bfa9-4a22a4596984",
+                    "path": "<Joystick>/stick/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "WASD",
                     "id": "fdc26352-23cd-4ea8-930a-2bc31307e02d",
-                    "path": "1DAxis",
+                    "path": "2DVector",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
@@ -1029,8 +1051,19 @@
                     "isPartOfComposite": false
                 },
                 {
-                    "name": "negative",
+                    "name": "Up",
                     "id": "eab73889-9a62-43de-8e99-17b82513425a",
+                    "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Down",
+                    "id": "36677aea-f885-4d64-822a-7f0a4a7e7bcf",
                     "path": "<Keyboard>/s",
                     "interactions": "",
                     "processors": "",
@@ -1040,9 +1073,185 @@
                     "isPartOfComposite": true
                 },
                 {
-                    "name": "positive",
-                    "id": "36677aea-f885-4d64-822a-7f0a4a7e7bcf",
-                    "path": "<Keyboard>/w",
+                    "name": "Left",
+                    "id": "78e4fcda-c26b-4b44-9c26-9fb3da1b62f2",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "Right",
+                    "id": "2d1f951a-1e25-47a0-886c-49174a05f716",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "DPad (\"HatSwitch\")",
+                    "id": "cf046aff-c83c-4d24-a4d2-935ef4fe7d5b",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "c419c4a5-1002-4472-9f1e-4e809fa4184a",
+                    "path": "<HID::Unknown Wireless Controller>/hat/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "9832af4c-6a94-44a0-9351-0a18bbf43ffb",
+                    "path": "<HID::Unknown Wireless Controller>/hat/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "1cf32573-e9c4-42a3-9f2a-725b5b5ca50a",
+                    "path": "<HID::Unknown Wireless Controller>/hat/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "9229c8c5-c704-4c35-8e3c-33e15c046548",
+                    "path": "<HID::Unknown Wireless Controller>/hat/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "DPad (Gamepad)",
+                    "id": "218cc3fe-1c9b-4e2e-bdd3-cd3525f60282",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "dc896ea3-20bf-4a68-9f67-e244b61d266f",
+                    "path": "<Gamepad>/dpad/up",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "174b007c-1ebe-4884-973f-d59c4fe30fdf",
+                    "path": "<Gamepad>/dpad/down",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "572896f8-835e-4183-95ac-dee011daec61",
+                    "path": "<Gamepad>/dpad/left",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "1e868071-b929-478d-a239-1f7468de7a07",
+                    "path": "<Gamepad>/dpad/right",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "ArrowKeys",
+                    "id": "3c67b669-23b8-4bb2-aa89-fb19ced41e32",
+                    "path": "2DVector",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Navigate",
+                    "isComposite": true,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "up",
+                    "id": "b2ac75ae-cf83-461c-95d2-55dbb5a728fa",
+                    "path": "<Keyboard>/upArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "down",
+                    "id": "a6a44e48-e99c-49e7-90e8-ae885e6e6a1d",
+                    "path": "<Keyboard>/downArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "left",
+                    "id": "2e66ed6c-aaf6-4849-85f5-f5167a37860e",
+                    "path": "<Keyboard>/leftArrow",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "Navigate",
+                    "isComposite": false,
+                    "isPartOfComposite": true
+                },
+                {
+                    "name": "right",
+                    "id": "3b0f4e8e-99a9-461c-a296-0692eb8f43c3",
+                    "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",

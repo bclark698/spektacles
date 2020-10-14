@@ -56,11 +56,26 @@ namespace Fungus
     
         public List<InputAction> actions { get; }
 
+        //public PlayerControls controls;
+
         protected virtual void Awake()
         {
             writer = GetComponent<Writer>();
 
+            /*
+            for(int i = 0; i < actions.Length; i++) {
+                Debug.Log(actions[i]);
+            }*/
+            //controls = new PlayerControls();
+            //controls.Gameplay.AdvanceDialogue.performed += _ => Helper();
+
             CheckEventSystem();
+        }
+
+        public void Helper() {
+            if (writer != null && writer.IsWriting && cancelEnabled) {
+                SetNextLineFlag();
+            }
         }
 
         // There must be an Event System in the scene for Say and Menu input to work.
@@ -86,9 +101,11 @@ namespace Fungus
             {
                 return;
             }
-
+            
             if (writer != null && writer.IsWriting) {
-                if (cancelEnabled && (Keyboard.current.anyKey.wasPressedThisFrame || Gamepad.current.aButton.wasPressedThisFrame)) {
+                bool here = Keyboard.current.anyKey.wasPressedThisFrame;
+                // bool here2 = Gamepad.current.aButton.wasPressedThisFrame;
+                if (cancelEnabled && Keyboard.current.anyKey.wasPressedThisFrame) {
                     SetNextLineFlag();
                 }
             }
