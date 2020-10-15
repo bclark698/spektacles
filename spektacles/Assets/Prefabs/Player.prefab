@@ -162,6 +162,7 @@ MonoBehaviour:
   powerUpText: {fileID: 0}
   sprayEffect: {fileID: 0}
   inCutscene: 0
+  showMovementIndicator: 0
 --- !u!70 &1135156641809806183
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -235,14 +236,14 @@ MonoBehaviour:
   spriteRenderer: {fileID: 787248825849249608}
   desktopIcons:
   - {fileID: 21300000, guid: a638a94f97f18a340b235cd67adae79c, type: 3}
-  - {fileID: 21300000, guid: 0f2ee4e2dc4f84ab499d0b833ff9e7cb, type: 3}
-  - {fileID: 21300000, guid: 9ebe1294670ca489087505690ec77118, type: 3}
-  - {fileID: 21300000, guid: e54e46ac0a3c64211ba8d7a96183b79e, type: 3}
+  - {fileID: 21300000, guid: 00fc7e2c06773fe49b1526c1bf7fdf44, type: 3}
+  - {fileID: 21300000, guid: 13e35688425fe8b48bccd54665709e60, type: 3}
+  - {fileID: 21300000, guid: ebb216c2af338b141ac3b77b71333bf6, type: 3}
   xboxIcons:
-  - {fileID: 21300000, guid: f8b3358d47ae11949809359aea272a23, type: 3}
-  - {fileID: 21300000, guid: 53b87673ca856481b80d9cd8eee0118b, type: 3}
-  - {fileID: 21300000, guid: 88ca7b35e307c43faaa7481a25e5d3f6, type: 3}
-  - {fileID: 21300000, guid: bc18801db95a949f0b3a58a947d9e4a2, type: 3}
+  - {fileID: 21300000, guid: 713c08cc9b66f804dbf048294417a575, type: 3}
+  - {fileID: 21300000, guid: 1dcfa167ee6d06a418584a303ca22c3c, type: 3}
+  - {fileID: 21300000, guid: b5ee4a49185dfce499f1258f321bb3a9, type: 3}
+  - {fileID: 21300000, guid: 2052216147ad83e4b850b623630489d1, type: 3}
 --- !u!1 &1135156643022093587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1021,7 +1022,7 @@ PrefabInstance:
     - target: {fileID: 825397246280633448, guid: 6719b9903fd717e4a85f0ffbe327db1f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 12.53
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 825397246280633448, guid: 6719b9903fd717e4a85f0ffbe327db1f,
         type: 3}
@@ -1072,6 +1073,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Controls Indicator
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016136035247852743, guid: 6719b9903fd717e4a85f0ffbe327db1f,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016136035247852743, guid: 6719b9903fd717e4a85f0ffbe327db1f,
+        type: 3}
+      propertyPath: m_Size.x
+      value: 1.45
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016136035247852743, guid: 6719b9903fd717e4a85f0ffbe327db1f,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 1.44
+      objectReference: {fileID: 0}
+    - target: {fileID: 8016136035247852743, guid: 6719b9903fd717e4a85f0ffbe327db1f,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6719b9903fd717e4a85f0ffbe327db1f, type: 3}
