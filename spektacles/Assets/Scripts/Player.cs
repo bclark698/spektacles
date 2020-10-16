@@ -7,30 +7,6 @@ using UnityEngine.InputSystem;
 using Fungus;
 using UnityEngine.EventSystems;
 
-
-#if UNITY_EDITOR
-using UnityEditor;
-#endif
-
-/*
- * We can use EditorUserBuildSettings.activeBuildTarget to check the build target, but only while in the editor.
- * Using it will cause errors in the build version of our game, so we have to use Application.platform instead.
- *
- * Xbox (Universal Windows Platform):
- *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.WSAPlayer
- *   - Application.platform == RuntimePlatform.WSAPlayerX86
- *   - Application.platform == RuntimePlatform.WSAPlayerX64
- *   - Application.platform == RuntimePlatform.WSAPlayerARM
- * Windows
- *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneWindows64
- *   - Application.platform == RuntimePlatform.WindowsEditor
- *   - Application.platform == RuntimePlatform.WindowsPlayer
- * Mac (all of these are assumptions because I don't have a Mac)
- *   - EditorUserBuildSettings.activeBuildTarget == BuildTarget.StandaloneOSX
- *   - Application.platform == RuntimePlatform.OSXEditor
- *   - Application.platform == RuntimePlatform.OSXPlayer
- */
-
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -66,7 +42,7 @@ public class Player : MonoBehaviour
     public GameObject sprayEffect;
 
     public PlayerControls controls;
-    public bool inCutscene;
+    public bool reachedEnd;
 
     [SerializeField] bool showMovementIndicator = false; // should set to true in inspector for melita in the first home scene
 
@@ -76,6 +52,7 @@ public class Player : MonoBehaviour
         controls = new PlayerControls();
         controls.Gameplay.UsePowerUp.performed += _ => UsePowerUp();
         controls.Gameplay.Pause.performed += _ => Pause();
+        controls.Gameplay.EquipOrInteract.performed += _ => Interact();
         //controls.Gameplay.Move.performed += context => Move(context.ReadValue<Vector2>());
     }
 
@@ -114,11 +91,11 @@ public class Player : MonoBehaviour
         powerUpRangePos.localScale = new Vector3(2*powerUpRange, 2*powerUpRange, 0);
         // make sure it isn't visible at the start of the game
         GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<SpriteRenderer>().enabled = false;
-        
+
         dashTime = startDashTime;
         // if home scene
         if(showMovementIndicator) {
-            StartCoroutine(GetComponent<ShowInteractIndicator>().ShowForDuration(ShowInteractIndicator.Icon.Movement, 2f));
+            StartCoroutine(GetComponent<ControlsIndicator>().ShowForDuration(ControlsIndicator.Icon.Movement, 2f));
         }
     }
 
@@ -127,7 +104,7 @@ public class Player : MonoBehaviour
     {
         
         Vector2 moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
-        if(inCutscene)
+        if(reachedEnd)
         {
             moveInput = Vector2.zero;
         }
@@ -255,6 +232,18 @@ public class Player : MonoBehaviour
     }
 
 
+    // add other player-specific things if needed
+    private void Interact() {
+        if(reachedEnd) {
+            //turn everything off so the player cant lose when they talk to irving
+            //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
+            //irving is not able to handle 'complex' collisions so thats on the player
+            cameraF.stopFollow(true); //camera follow turned off separately
+            musicSounds.loadCustceneMusic();
+        }
+    }
+
+
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Enemy"))
@@ -300,18 +289,11 @@ public class Player : MonoBehaviour
         }
         else if(other.CompareTag("End"))
         {
-            //turn everything off so the player cant lose when they talk to irving
-            //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
-            //irving is not able to handle 'complex' collisions so thats on the player
-            cameraF.stopFollow(true); //camera follow turned off separately
-            musicSounds.loadCustceneMusic();
-
-            inCutscene = true;
-            //other.gameObject.GetComponent<FungusInteract>().SetMenuDialog(GameObject.FindObjectOfType<MenuDialog>());
+            reachedEnd = true;
         }
         else if(other.CompareTag("StartNextScene"))
         {
-            inCutscene = false;
+            reachedEnd = false;
             SceneManager.LoadScene(1);
         //  musicSounds.loadCustceneMusic();
         }

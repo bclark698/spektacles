@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
+
 /*
  * We can use EditorUserBuildSettings.activeBuildTarget to check the build target, but only while in the editor.
  * Using it will cause errors in the build version of our game, so we have to use Application.platform instead.
@@ -22,14 +26,13 @@ using TMPro;
  *   - Application.platform == RuntimePlatform.OSXPlayer
  */
 
-public class ShowInteractIndicator : MonoBehaviour
+public class ControlsIndicator : MonoBehaviour
 {
-    
-    // [SerializeField] private Sprite InteractIndicator;
     [SerializeField] private SpriteRenderer spriteRenderer; // drag into the inspector
 
     private enum Platform { Windows, Mac, Xbox };
     public enum Icon { Movement, Interact, PowerUp, Petrify }; // also used to index into icons array
+
     // private Sprite[] icons;
 
     // MAKE SURE ALL THE ELEMENTS ARE IN ORDER OF THE ICON ENUMS!
@@ -99,28 +102,6 @@ public class ShowInteractIndicator : MonoBehaviour
             //LoadImageIntoTexture compresses JPGs by DXT1 and PNGs by DXT5     
             www.LoadImageIntoTexture(texTmp);
             imageBuffer.Add(texTmp);
-        }
-    }*/
-
-
-
-
-    /*
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            // show interact indicator
-            InteractIndicator.GetComponent<TextMeshProUGUI>().enabled = true;
-        }
-    }
-
-    private void OnCollisionExit2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
-        {
-            // unshow interact indicator
-            InteractIndicator.GetComponent<TextMeshProUGUI>().enabled = false;
         }
     }*/
 

@@ -8,20 +8,24 @@ using UnityEngine.EventSystems;
 public class FungusInteract : MonoBehaviour
 {
     public PlayerControls controls;
-    public BlockReference blockRef; // block in flowchart to execute on interact
-    //public MenuDialog menuDialog;
-    //public Selectable selectable;
-    //public Flowchart flowchart;
+    [SerializeField] private BlockReference blockRef; // block in flowchart to execute on interact
+    [SerializeField] private string targetTag = "Player";
+    private bool targetInRange;
 
     void Awake()
     {
         controls = new PlayerControls();
-        //controls.Gameplay.EquipOrInteract.performed += _ => flowchart.ExecuteBlock("Talk to Mom");
         if (blockRef.block != null)
         {
-            controls.Gameplay.EquipOrInteract.performed += _ => blockRef.Execute();
+            controls.Gameplay.EquipOrInteract.performed += _ => ExecuteBlock();
         }
 
+    }
+
+    void ExecuteBlock() {
+        if(targetInRange) {
+            blockRef.Execute();
+        }
     }
 
     // Called when the Player object is enabled
@@ -35,30 +39,15 @@ public class FungusInteract : MonoBehaviour
         controls.Disable();
     }
 
-    /*
-    public void SetMenuDialog(MenuDialog md)
-    {
-        Debug.Log("menu dialogue set");
-        menuDialog = md;
-        controls.Gameplay.SelectDialogue.performed += context => ChangeSelectedDialogueOption(context.ReadValue<float>());
-    }
-
-    public void SetDefaultSelectable(Selectable s)
-    {
-        Debug.Log("default selectable set");
-        selectable = s;
-        controls.Gameplay.SelectDialogue.performed += context => ChangeSelectedDialogueOption(context.ReadValue<float>());
-    }
-
-    private void ChangeSelectedDialogueOption(float direction)
-    {
-        selectable.OnMove();
-        if(direction < 0)
-        {
-            menuDialog.SelectPrevOption();
-        } else if(direction > 0)
-        {
-            menuDialog.SelectNextOption();
+    void OnTriggerEnter2D(Collider2D other) {
+        if(other.CompareTag(targetTag)) {
+            targetInRange = true;
         }
-    }*/
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if(other.CompareTag(targetTag)) {
+            targetInRange = false;
+        }
+    }
 }

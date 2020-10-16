@@ -17,8 +17,6 @@ public class Locker : MonoBehaviour
 
     public PlayerControls controls;
 
-    private ShowInteractIndicator interactIndicator;
-
     void Awake()
     {
         controls = new PlayerControls();
@@ -38,7 +36,6 @@ public class Locker : MonoBehaviour
 
     private void Start(){
         powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
-        interactIndicator = GetComponent<ShowInteractIndicator>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -46,7 +43,6 @@ public class Locker : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerInRange = true;
-            interactIndicator.Show(ShowInteractIndicator.Icon.Interact);
         }
     }
 
@@ -55,7 +51,6 @@ public class Locker : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerInRange = false;
-            interactIndicator.Hide();
         }
     }
 
