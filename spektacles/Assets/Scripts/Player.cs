@@ -289,6 +289,12 @@ public class Player : MonoBehaviour
 
     }
 
+    void OnTriggerExit2D(Collider2D other) {
+        if(other.CompareTag("End")) {
+            reachedEnd = false;
+        }
+    }
+
 
      // makes melita zoom zoom
      public void Dash()
