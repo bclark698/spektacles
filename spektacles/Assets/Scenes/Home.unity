@@ -447,9 +447,6 @@ GameObject:
   - component: {fileID: 69824175}
   - component: {fileID: 69824171}
   - component: {fileID: 69824176}
-  - component: {fileID: 69824177}
-  - component: {fileID: 69824178}
-  - component: {fileID: 69824130}
   - component: {fileID: 69824153}
   - component: {fileID: 69824127}
   - component: {fileID: 69824154}
@@ -605,7 +602,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 626.7043
     y: 430.1313
-    width: 111.852
+    width: 151.6668
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -657,8 +654,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 283.94952
-    y: 142.89879
-    width: 62.77785
+    y: 140.938
+    width: 101.66673
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -667,9 +664,6 @@ MonoBehaviour:
   description: somethin's cookin
   eventHandler: {fileID: 69824115}
   commandList:
-  - {fileID: 69824177}
-  - {fileID: 69824130}
-  - {fileID: 69824178}
   - {fileID: 69824113}
   suppressAllAutoSelections: 0
 --- !u!114 &69824117
@@ -703,7 +697,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 154.95094
     y: 409.31873
-    width: 81.296394
+    width: 120.000084
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -750,11 +744,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 2.1103182, y: -69.33454}
+  scrollPos: {x: 359.1394, y: -131.9425}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
-  zoom: 0.719999
+  zoom: 0.8999989
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -762,9 +756,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 69824118}
+  - {fileID: 69824114}
   selectedCommands:
-  - {fileID: 69824181}
+  - {fileID: 69824124}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -840,7 +834,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 434.6827
     y: 552.0602
-    width: 84.07418
+    width: 122.22231
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -867,10 +861,10 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 131980618}
-  targetComponentAssemblyName: CameraFollow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  targetComponentAssemblyName: Follow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: CameraFollow
+  targetComponentText: Follow
   targetMethod: returnToPlayer
   targetMethodText: 'returnToPlayer (Single, Single): Void'
   methodParameters:
@@ -944,7 +938,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 440.20383
     y: 437.53372
-    width: 112.77792
+    width: 152.7779
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -1147,28 +1141,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
---- !u!114 &69824130
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69824109}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0729d4f369e6a4241a6e7e3b8b9c1933, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 87
-  indentLevel: 0
-  _animator:
-    animatorRef: {fileID: 0}
-    animatorVal: {fileID: 653571519}
-  _parameterName:
-    stringRef: {fileID: 0}
-    stringVal: 
-  animatorOLD: {fileID: 0}
-  parameterNameOLD: 
 --- !u!114 &69824131
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -1893,9 +1865,10 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 131980618}
-  targetComponentAssemblyName: 
+  targetComponentAssemblyName: Follow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: CameraFollow
+  targetComponentText: Follow
   targetMethod: returnToPlayer
   targetMethodText: 'returnToPlayer (Single, Single): Void'
   methodParameters:
@@ -2215,7 +2188,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 636.4694
     y: 333.44843
-    width: 60
+    width: 75.00003
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2620,7 +2593,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 448.05405
     y: 301.3471
-    width: 87.777885
+    width: 126.66676
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2720,7 +2693,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -30.161682
     y: 255.63647
-    width: 85.00011
+    width: 124.444534
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2748,7 +2721,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -70.16168
     y: 350.63647
-    width: 96.11123
+    width: 135.0001
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2860,10 +2833,10 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 131980618}
-  targetComponentAssemblyName: CameraFollow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  targetComponentAssemblyName: Follow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: CameraFollow
+  targetComponentText: Follow
   targetMethod: stopFollow
   targetMethodText: 'stopFollow (Boolean): Void'
   methodParameters:
@@ -2905,10 +2878,10 @@ MonoBehaviour:
   indentLevel: 0
   description: 
   targetObject: {fileID: 131980618}
-  targetComponentAssemblyName: CameraFollow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+  targetComponentAssemblyName: Follow, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: CameraFollow
+  targetComponentText: Follow
   targetMethod: stopFollow
   targetMethodText: 'stopFollow (Boolean): Void'
   methodParameters:
@@ -3625,52 +3598,6 @@ MonoBehaviour:
     stringVal: 
   startIndex: 0
   callMode: 0
---- !u!114 &69824177
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69824109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 85
-  indentLevel: 0
-  description: 
-  targetObject: {fileID: 653571516}
-  targetComponentAssemblyName: FungusManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: FungusManager
-  targetMethod: WakeUp
-  targetMethodText: 'WakeUp (): Void'
-  methodParameters: []
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
---- !u!114 &69824178
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69824109}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 86
-  indentLevel: 0
-  _duration:
-    floatRef: {fileID: 0}
-    floatVal: 4
-  durationOLD: 0
 --- !u!114 &69824179
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3702,6 +3629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   blockRef:
     block: {fileID: 69824118}
+  targetTag: Player
 --- !u!114 &69824181
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4402,6 +4330,25 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 428672419}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &131980625
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 131980618}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6829d0a281400624e93adfd6dfce15ad, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &221243734
 GameObject:
   m_ObjectHideFlags: 0
@@ -4828,17 +4775,17 @@ PrefabInstance:
     - target: {fileID: 1998834498754919330, guid: d41489107e5694509a675cc69ba0c9dc,
         type: 3}
       propertyPath: m_LocalRotation.x
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1998834498754919330, guid: d41489107e5694509a675cc69ba0c9dc,
         type: 3}
       propertyPath: m_LocalRotation.y
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1998834498754919330, guid: d41489107e5694509a675cc69ba0c9dc,
         type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1998834498754919330, guid: d41489107e5694509a675cc69ba0c9dc,
         type: 3}
@@ -4873,7 +4820,7 @@ PrefabInstance:
     - target: {fileID: 1998834498754919333, guid: d41489107e5694509a675cc69ba0c9dc,
         type: 3}
       propertyPath: field of view
-      value: 162.4
+      value: 153
       objectReference: {fileID: 0}
     - target: {fileID: 1998834498754919335, guid: d41489107e5694509a675cc69ba0c9dc,
         type: 3}
@@ -5271,12 +5218,6 @@ SpriteRenderer:
 --- !u!1 &653571516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7620900067891387553, guid: 652dbf7065698466191fb663fa59932b,
-    type: 3}
-  m_PrefabInstance: {fileID: 7620900068330973469}
-  m_PrefabAsset: {fileID: 0}
---- !u!95 &653571519 stripped
-Animator:
-  m_CorrespondingSourceObject: {fileID: 7620900067891387554, guid: 652dbf7065698466191fb663fa59932b,
     type: 3}
   m_PrefabInstance: {fileID: 7620900068330973469}
   m_PrefabAsset: {fileID: 0}
@@ -38018,7 +37959,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 96
     y: 219
-    width: 90.64557
+    width: 89.03266
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -38057,7 +37998,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 1085824306}
   selectedCommands:
-  - {fileID: 1085824311}
+  - {fileID: 1085824304}
   variables: []
   description: 
   stepPause: 0
@@ -45769,6 +45710,12 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 576042641}
   m_PrefabAsset: {fileID: 0}
+--- !u!95 &1640667236 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 1135156641809806169, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+    type: 3}
+  m_PrefabInstance: {fileID: 576042641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!70 &1640667238 stripped
 CapsuleCollider2D:
   m_CorrespondingSourceObject: {fileID: 1135156641809806183, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
@@ -46682,6 +46629,86 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2025350943}
   m_CullTransparentMesh: 0
+--- !u!1 &2038204118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2038204121}
+  - component: {fileID: 2038204120}
+  - component: {fileID: 2038204119}
+  m_Layer: 0
+  m_Name: Timeline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &2038204119
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038204118}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!320 &2038204120
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038204118}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: da757e4c0a2fe4831831c90a0930f26d, type: 2}
+  m_InitialState: 1
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: 9119856374746872421, guid: 0c24a089b792c59499dc5f99e471566d, type: 2}
+    value: {fileID: 131980625}
+  - key: {fileID: 5163288444008208038, guid: 0c24a089b792c59499dc5f99e471566d, type: 2}
+    value: {fileID: 1640667236}
+  - key: {fileID: 7504227599114613968, guid: 0c24a089b792c59499dc5f99e471566d, type: 2}
+    value: {fileID: 1640667236}
+  - key: {fileID: 9119856374746872421, guid: da757e4c0a2fe4831831c90a0930f26d, type: 2}
+    value: {fileID: 131980625}
+  - key: {fileID: 5163288444008208038, guid: da757e4c0a2fe4831831c90a0930f26d, type: 2}
+    value: {fileID: 1640667236}
+  - key: {fileID: 7504227599114613968, guid: da757e4c0a2fe4831831c90a0930f26d, type: 2}
+    value: {fileID: 1640667236}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &2038204121
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2038204118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.71557134, y: -5.5294523, z: -102.05661}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2053604406
 GameObject:
   m_ObjectHideFlags: 0

@@ -42,7 +42,9 @@ public class Player : MonoBehaviour
     public GameObject sprayEffect;
 
     public PlayerControls controls;
-    public bool reachedEnd;
+    private bool reachedEnd;
+    private bool inCutscene;
+
 
     [SerializeField] bool showMovementIndicator = false; // should set to true in inspector for melita in the first home scene
 
@@ -97,43 +99,26 @@ public class Player : MonoBehaviour
         if(showMovementIndicator) {
             StartCoroutine(GetComponent<ControlsIndicator>().ShowForDuration(ControlsIndicator.Icon.Movement, 2f));
         }
+        inCutscene = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-        
-        Vector2 moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
-        if(reachedEnd)
-        {
-            moveInput = Vector2.zero;
-        }
-
-        movementVelocity = moveInput.normalized * moveSpeed;
-
-        if (movementVelocity != new Vector2(0, 0)){
-        anim.SetFloat("Horizontal", moveInput.x);
-        anim.SetFloat("Vertical", moveInput.y);
-        anim.SetFloat("Magnitude", moveInput.magnitude);
-        anim.SetBool("Moving", true);
-        }
-        else{
-        anim.SetBool("Moving", false);
-        }
-
-        /* Important to use.GetKeyDown(KeyCode.P) instead of.GetKey(KeyCode.P) because
-         * GetKey triggers more than once */
-
-        /* TODO replace with new input system
-        if (Input.GetKeyDown(KeyCode.P))
-        {
-            UsePowerUp();
-            if(powerUp == PowerUp.PowerUpType.BugSpray)
-            {
-                sprayEffect.SetActive(true);
-                //Destroy(sprayEffect, 100f);
+        if(!inCutscene) {
+            Vector2 moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+            movementVelocity = moveInput.normalized * moveSpeed;
+            if (movementVelocity != new Vector2(0, 0)){
+                anim.SetFloat("Horizontal", moveInput.x);
+                anim.SetFloat("Vertical", moveInput.y);
+                anim.SetFloat("Magnitude", moveInput.magnitude);
+                anim.SetBool("Moving", true);
+            } else {
+                anim.SetBool("Moving", false);
             }
-        }*/
+        } else {
+            anim.SetBool("Moving", false);
+        }
     }
 
     private void FixedUpdate() //all physics adjusting code goes here
@@ -223,6 +208,7 @@ public class Player : MonoBehaviour
 
     public void LoseGlasses()
     {
+        lives = 1;
         GetComponent<Petrify>().PetrifyEnemy();
         if (anim.GetBool("blind") == false)
         {
@@ -238,8 +224,11 @@ public class Player : MonoBehaviour
             //turn everything off so the player cant lose when they talk to irving
             //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
             //irving is not able to handle 'complex' collisions so thats on the player
-            cameraF.stopFollow(true); //camera follow turned off separately
+            /* don't turn off the player when turning off camera follow because it will 
+             * say the player is no longer in range */
+            cameraF.stopFollow(false);
             musicSounds.loadCustceneMusic();
+            inCutscene = true;
         }
     }
 
@@ -287,7 +276,7 @@ public class Player : MonoBehaviour
             playerSounds.AcquireSound();
             //add any ui code here!
         }
-        else if(other.CompareTag("End"))
+        else if(other.CompareTag("End") && HasGlasses())
         {
             reachedEnd = true;
         }
@@ -298,6 +287,12 @@ public class Player : MonoBehaviour
         //  musicSounds.loadCustceneMusic();
         }
 
+    }
+
+    void OnTriggerExit2D(Collider2D other) {
+        if(other.CompareTag("End")) {
+            reachedEnd = false;
+        }
     }
 
 
