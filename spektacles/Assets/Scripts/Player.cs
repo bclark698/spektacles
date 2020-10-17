@@ -107,18 +107,17 @@ public class Player : MonoBehaviour
     {
         if(!inCutscene) {
             Vector2 moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
-
             movementVelocity = moveInput.normalized * moveSpeed;
-
             if (movementVelocity != new Vector2(0, 0)){
-            anim.SetFloat("Horizontal", moveInput.x);
-            anim.SetFloat("Vertical", moveInput.y);
-            anim.SetFloat("Magnitude", moveInput.magnitude);
-            anim.SetBool("Moving", true);
-            }
-            else{
+                anim.SetFloat("Horizontal", moveInput.x);
+                anim.SetFloat("Vertical", moveInput.y);
+                anim.SetFloat("Magnitude", moveInput.magnitude);
+                anim.SetBool("Moving", true);
+            } else {
                 anim.SetBool("Moving", false);
             }
+        } else {
+            anim.SetBool("Moving", false);
         }
     }
 
@@ -225,7 +224,9 @@ public class Player : MonoBehaviour
             //turn everything off so the player cant lose when they talk to irving
             //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
             //irving is not able to handle 'complex' collisions so thats on the player
-            cameraF.stopFollow(true); //camera follow turned off separately
+            /* don't turn off the player when turning off camera follow because it will 
+             * say the player is no longer in range */
+            cameraF.stopFollow(false);
             musicSounds.loadCustceneMusic();
             inCutscene = true;
         }
