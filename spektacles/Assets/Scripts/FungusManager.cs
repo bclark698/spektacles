@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
+using System;
 
 public class FungusManager : MonoBehaviour
 {
@@ -52,7 +54,8 @@ public class FungusManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void RestartGame(){
+    public void RestartGame()
+    {
         SceneManager.LoadScene(0);
     }
 
@@ -60,22 +63,30 @@ public class FungusManager : MonoBehaviour
     {
         player.transform.position = newPos;
     }
+    public void PlayCutscene(PlayableDirector pd)
+    {
+        pd.Play();
+    }
+    public void TogglePlayer(GameObject p, Boolean on)
+    {
+        Player player = p.GetComponent<Player>();
+        Petrify petrify = p.GetComponent<Petrify>();
+        if (on)
+        {
+            player.enabled = true;
+            petrify.enabled = true;
+        }
+        else
+        {
+            player.enabled = false;
+            petrify.enabled = false;
+        }
+    }
 
     public void Quit()
     {
         Application.Quit();
     }
 
-    public void WakeUp()
-    {
-        StartCoroutine(WakeUpAnim());
-    }
 
-    IEnumerator WakeUpAnim()
-    {
-        Debug.Log("u got a coroutine");
-        //TODO: figure out how to actually trigger a 2d cutscene in unity lmfao
-
-        yield return null;
-    }
 }
