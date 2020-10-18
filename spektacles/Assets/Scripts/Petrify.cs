@@ -1,39 +1,46 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Petrify : MonoBehaviour
+public class Petrify : Ability
 {
-    public PlayerControls controls;
-
-    [SerializeField] private Transform petrifyRangePos;
-    [SerializeField] private LayerMask whatIsEnemies;
-    [SerializeField] private float petrifyRange = 10;
+    
     [SerializeField] private float cooldownTime = 3f;
 
     private Image stoneIcon; // should be the grayscale version of the icon
-    public bool coolingDown;
+    private bool coolingDown;
     private float finishCooldownTime;
+    private Player player;
 
-    private PlayerSoundController playerSounds;
+    private PlayerSoundController playerSounds; //TODO move to ability script?
 
-    // Start is called before the first frame update
+    /* dont want to override the Awake function in Ability?
     private void Awake()
     {
-        controls = new PlayerControls();
         controls.Gameplay.Petrify.performed += _ => GetComponent<Player>().LoseGlasses();
-    }
+    }*/
 
     void Start()
     {
+        //controls.Gameplay.Petrify.performed += _ => GetComponent<Player>().LoseGlasses();
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        controls.Gameplay.Petrify.started += _ => ButtonHeld();
+
+        controls.Gameplay.Petrify.canceled += _ => ButtonRelease();
         // TODO delete later when implement outline enemies
         // changes power up range indicator to be proper size
-        petrifyRangePos.localScale = new Vector3(2 * petrifyRange, 2 * petrifyRange, 0);
+        //petrifyRangePos.localScale = new Vector3(2 * range, 2 * range, 0);
+
         stoneIcon = GameObject.FindGameObjectWithTag("Petrify Icon").GetComponent<Image>();
 
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
+    }
+
+    void ButtonRelease() {
+        Debug.Log("button release");
+        buttonHeld = false;
+        player.LoseGlasses();
     }
 
     // Update is called once per frame
@@ -43,22 +50,24 @@ public class Petrify : MonoBehaviour
         {
             if(Time.time >= finishCooldownTime) {
                 coolingDown = false;
-                GetComponent<Player>().PickUpGlasses();
+                player.PickUpGlasses();
             } else {
                 stoneIcon.fillAmount -= 1 / cooldownTime * Time.deltaTime;
             }
 
         }
-    }
-
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
+        /*
+        if(buttonHeld) {
+            enemiesInRange = GetEnemiesInRange();
+            for (int i = 0; i < enemiesInRange.Length; i++)
+            {
+                enemiesInRange[i].GetComponent<Enemy>().OutlineOn();
+            }
+            for (int i = 0; i < enemiesInRange.Length; i++)
+            {
+                enemiesInRange[i].GetComponent<Enemy>().OutlineOff(); //??? todo how to determine 
+            }
+        }*/
     }
 
     public void PetrifyEnemy()
@@ -70,7 +79,7 @@ public class Petrify : MonoBehaviour
             finishCooldownTime = Time.time + cooldownTime;
             print("cooling down now");
 
-            Camera mainCamera = Camera.main;
+            Camera mainCamera = Camera.main; //TODO move this elsewhere?
             StartCoroutine(mainCamera.GetComponent<CameraInteract>().BeginBlur(cooldownTime));
 
             // get all the enemies within our PowerUpRange
@@ -83,11 +92,5 @@ public class Petrify : MonoBehaviour
 
             stoneIcon.fillAmount = 1;
         }
-    }
-
-    Collider2D[] GetEnemiesInRange()
-    {
-        // get all the enemies within our PowerUpRange
-        return Physics2D.OverlapCircleAll(petrifyRangePos.position, petrifyRange, whatIsEnemies);
     }
 }

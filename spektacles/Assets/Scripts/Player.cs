@@ -44,6 +44,7 @@ public class Player : MonoBehaviour
     public PlayerControls controls;
     private bool reachedEnd;
     private bool inCutscene;
+    private Petrify petrify;
 
 
     [SerializeField] bool showMovementIndicator = false; // should set to true in inspector for melita in the first home scene
@@ -81,6 +82,7 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Follow>();
+        petrify = GameObject.FindGameObjectWithTag("Petrify Range").GetComponent<Petrify>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
@@ -147,6 +149,8 @@ public class Player : MonoBehaviour
                 for (int i = 0; i < enemiesInRange.Length; i++)
                 {
                     enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(temp);
+
+                    enemiesInRange[i].GetComponent<Enemy>().OutlineOn(); //TODO delete- testing outline
                 }
             }
 
@@ -209,7 +213,7 @@ public class Player : MonoBehaviour
     public void LoseGlasses()
     {
         lives = 1;
-        GetComponent<Petrify>().PetrifyEnemy();
+        petrify.PetrifyEnemy();
         if (anim.GetBool("blind") == false)
         {
             anim.SetBool("blind", true);
@@ -235,6 +239,12 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
+        /* petrify range is a childed object of the player object with it's own collider 
+         * and kinematic rigidbody to allow separate trigger detection, but the triggers of 
+         * the parent and child object will trigger the other, so this check ignores it. */
+        if(other.CompareTag("Petrify Range")) {
+            return;
+        }
         if (other.CompareTag("Enemy"))
         {
             /* If the enemy is stunned, they have no effect on Melita.
