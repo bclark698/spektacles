@@ -28,7 +28,7 @@ using UnityEditor;
 
 public class ControlsIndicator : MonoBehaviour
 {
-    [SerializeField] private SpriteRenderer spriteRenderer; // drag into the inspector
+    [SerializeField] private SpriteRenderer spriteRenderer = null; // drag into the inspector
 
     private enum Platform { Windows, Mac, Xbox };
     public enum Icon { Movement, Interact, PowerUp, Petrify }; // also used to index into icons array
@@ -36,8 +36,8 @@ public class ControlsIndicator : MonoBehaviour
     // private Sprite[] icons;
 
     // MAKE SURE ALL THE ELEMENTS ARE IN ORDER OF THE ICON ENUMS!
-    [SerializeField] private Sprite[] desktopIcons; // TODO replace with a single icons array
-    [SerializeField] private Sprite[] xboxIcons; // TODO replace with a single icons array
+    [SerializeField] private Sprite[] desktopIcons = null; // TODO replace with a single icons array
+    [SerializeField] private Sprite[] xboxIcons = null; // TODO replace with a single icons array
 
     private Platform platform;
 

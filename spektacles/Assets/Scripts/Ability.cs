@@ -5,20 +5,22 @@ using UnityEngine.InputSystem;
 
 public class Ability : MonoBehaviour
 {
+	protected PlayerSoundController playerSounds;
 	public PlayerControls controls;
-	// [SerializeField] private Transform transform; // TODO remove serial
-    [SerializeField] private LayerMask enemyLayerMask; // TODO remove serial
-    [SerializeField] private float range = 10;
-	[SerializeField] protected bool buttonHeld; // TODO remove serialize field- used for testing outline
+    private LayerMask enemyLayerMask;
+    [SerializeField] protected float range = 10;
+	protected bool buttonHeld;
+	protected Player player;
+
 
 	void Awake() {
 		controls = new PlayerControls();
-		// transform = GetComponent<Transform>();
+        playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
 		enemyLayerMask = LayerMask.GetMask("Enemy");
+		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
 	}
 
 	protected virtual void ButtonHeld() {
-        Debug.Log("button held started");
         buttonHeld = true;
 
         // fix bug where enemies already in range when beginning button hold are not outlined
@@ -35,7 +37,6 @@ public class Ability : MonoBehaviour
     		return;
     	}
         if(buttonHeld && other.CompareTag("Enemy")) {
-        	Debug.Log("on trigger outline on");
             other.gameObject.GetComponent<Enemy>().OutlineOn();
         }
     }
@@ -45,7 +46,6 @@ public class Ability : MonoBehaviour
     		return;
     	}
         if(buttonHeld && other.CompareTag("Enemy")) {
-        	Debug.Log("on trigger outline off");
             other.gameObject.GetComponent<Enemy>().OutlineOff();
         }
     }
@@ -64,13 +64,5 @@ public class Ability : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable();
-    }
-
-    /* For testing purposes, this draws red line around the player's power up range.
-     * This has no effect during gameplay, so we can leave this in. */
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

@@ -87,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!95 &6213095808929261612
 Animator:
   serializedVersion: 3
@@ -120,9 +120,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
+  powerUpToHandle: 0
+  stunDuration: 1.5
   anim: {fileID: 0}
-  defaultShader: {fileID: 0}
-  outlineShader: {fileID: 0}
+  defaultShader: {fileID: 10753, guid: 0000000000000000f000000000000000, type: 0}
+  outlineShader: {fileID: 4800000, guid: 62505ee61d20098489c6f861ed25cce1, type: 3}
   waypoints:
   - {fileID: 0}
   - {fileID: 0}

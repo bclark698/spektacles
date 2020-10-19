@@ -8,6 +8,8 @@ public abstract class Enemy : MonoBehaviour
 
     private SpriteRenderer spriteRenderer;
     private EnemySoundController enemySounds;
+    [SerializeField] protected PowerUp.Type powerUpToHandle;
+    [SerializeField] protected float stunDuration = 1.5f;
 
     public Animator anim;
 
@@ -16,14 +18,28 @@ public abstract class Enemy : MonoBehaviour
 
     /* The bool return value represents whether the powerup used on them was applicable to them.
      * This is used to determine the automatic powerup use case. */
-    public abstract bool HandlePowerUp(PowerUp.PowerUpType powerUp);
+    public virtual bool HandlePowerUp(PowerUp.Type powerUp) {
+      if(powerUp == powerUpToHandle)
+        {
+            StartCoroutine(HandleStun());
+            return true;
+        }
+        return false;
+    }
 
-    public abstract IEnumerator HandleStun();
+    public virtual IEnumerator HandleStun() {
+      // mark as stunned for a few seconds
+      isStunned = true;
+
+      // wait for stunDuration number of seconds
+      yield return new WaitForSeconds(stunDuration);
+
+      isStunned = false;
+    }
 
     void Start(){
       spriteRenderer = GetComponent<SpriteRenderer>();
       enemySounds = GameObject.Find("/Unbreakable iPod/Enemy Sounds").GetComponent<EnemySoundController>();
-      // anim = gameObject.GetComponent<Animator>();
       anim = GetComponent<Animator>();
 
       defaultShader = Shader.Find("Sprites/Default");
@@ -52,7 +68,6 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public IEnumerator stoneAnimation(){
-      //spriteRenderer.color = Color.gray;
       enemySounds.playTurnStoneSound();
       enemySounds.playStoneCrackSound();
       anim.SetBool("stoned", true);
@@ -65,15 +80,29 @@ public abstract class Enemy : MonoBehaviour
 
     public void OutlineOn() {
       Debug.Log("outline on");
+      if(!spriteRenderer) {
+        Debug.Log("spriteRenderer null on outline on");
+      } else if(!spriteRenderer.material) {
+        Debug.Log("material null on outline on");
+      } else if(!spriteRenderer.material.shader) {
+        Debug.Log("material null on outline on");
+      } else if(!outlineShader) {
+        Debug.Log("outlineShader null on outline on");
+      }
       spriteRenderer.material.shader = outlineShader;
-      // spriteRenderer.material = outlineMaterial;
-      // spriteRenderer.material.SetInt("_OutlineEnabled", 1);
     }
 
     public void OutlineOff() {
+      if(!spriteRenderer) {
+        Debug.Log("spriteRenderer null on outline off");
+      } else if(!spriteRenderer.material) {
+        Debug.Log("material null on outline off");
+      } else if(!spriteRenderer.material.shader) {
+        Debug.Log("material null on outline off");
+      } else if(!defaultShader) {
+        Debug.Log("defaultShader null on outline off");
+      }
       spriteRenderer.material.shader = defaultShader;
       Debug.Log("outline off");
-      // spriteRenderer.material = defaultMaterial;
-      // spriteRenderer.material.SetInt("_OutlineEnabled", 0);
     }
 }

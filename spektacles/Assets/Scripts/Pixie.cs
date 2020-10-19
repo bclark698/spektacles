@@ -16,17 +16,15 @@ public class Pixie : Enemy
     [SerializeField] private State state;            // current state of enemy (chasing, roaming, etc)
     private Vector3 startingPos;    // pixies' starting position
     private GameObject playerObj;   // player object (melita)
-    private PowerUp.PowerUpType pixiePowerUp = PowerUp.PowerUpType.BugSpray;    // bug spray, TODO can this be taken out and put in enemy script?
     //private SpriteRenderer spriteRenderer; // used to flip sprite depending on movement direction
 
     public float rotationSpeed; // speed at which pixies spin
     public float moveSpeed;     // movement speed of pixies
     public AudioSource giggle1; //agro sound
     public AudioSource giggle2; //dissapointed sound
-    //public Animator anim;
 
-    private FieldOfView fieldOfView;
-    [SerializeField] private Transform pfFieldOfView; // a prefab of our field of view. drag this into the pixie's inspector
+    private FieldOfView fieldOfView = null;
+    [SerializeField] private Transform pfFieldOfView = null; // a prefab of our field of view. drag this into the pixie's inspector
     [SerializeField] private float fov = 90f;
     [SerializeField] private float viewDistance = 30f;
     private Vector3 lastMoveDir;
@@ -45,6 +43,7 @@ public class Pixie : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        powerUpToHandle = PowerUp.Type.BugSpray;
         Physics2D.queriesStartInColliders = false; // stops ray from detecting pixies own collider
         startingPos = transform.position; // gets pixie's starting position
         playerObj = GameObject.FindGameObjectWithTag("Player"); // create player object
@@ -214,17 +213,6 @@ public class Pixie : Enemy
         state = State.Waiting;
     }
 
-    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
-    {
-        //Debug.Log("pixie handling powerup" + powerUp);
-        if(powerUp == pixiePowerUp)
-        {
-            StartCoroutine(HandleStun());
-            return true;
-        }
-        return false;
-    }
-
     public override IEnumerator HandleStun()
     {
         // stop movement for a few seconds
@@ -237,7 +225,7 @@ public class Pixie : Enemy
         state = State.Stunned;
 
         // wait for 1.5 seconds
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(stunDuration);
 
 
         moveSpeed = originalSpeed;

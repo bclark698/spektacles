@@ -6,7 +6,6 @@ public class Jocks : Enemy
 {
     //private enum State { Stunned, Patroling }; // are these states needed?
    // private State state = State.Patroling;
-    private PowerUp.PowerUpType jockPowerUp = PowerUp.PowerUpType.Helmet;
     public GameObject[] waypoints;
 	public int num = 0;
 
@@ -17,6 +16,10 @@ public class Jocks : Enemy
 
 	public bool rand = false;
 	public bool go = true;
+
+    void Awake() {
+        powerUpToHandle = PowerUp.Type.Helmet;
+    }
 
 
     private void Update()
@@ -57,18 +60,6 @@ public class Jocks : Enemy
         transform.position = new Vector2(newPosX, newPosY);
     }
 
-    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
-    {
-        Debug.Log("orc handing powerup");
-        if(powerUp == jockPowerUp)
-        {
-            StartCoroutine(HandleStun());
-            return true;
-        }
-
-        return false;
-    }
-
     public override IEnumerator HandleStun()
     {
         Debug.Log("orc stunned");
@@ -76,7 +67,7 @@ public class Jocks : Enemy
         isStunned = true;
 
 
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(stunDuration);
 
         Debug.Log("orc no longer stunned");
         go = true;

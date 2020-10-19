@@ -17,11 +17,6 @@ public class Player : MonoBehaviour
     private Follow cameraF;
     public BoxCollider2D irving;
 
-    //dash stuff
-    public float dashSpeed;
-    public float startDashTime;
-    private float dashTime;
-
     //audio
     private PlayerSoundController playerSounds;
     private PowerupSoundController powerupSounds;
@@ -30,22 +25,13 @@ public class Player : MonoBehaviour
 
 
     // powerUp variables
-    public PowerUp.PowerUpType powerUp = PowerUp.PowerUpType.None; // TODO make this a private serialized field?
-    [SerializeField]
-    public Transform powerUpRangePos;
-    [SerializeField]
-    public LayerMask whatIsEnemies;
-    [SerializeField]
-    public float powerUpRange = 10f;
-    public GameObject powerUpObj;
-
-    public Text powerUpText;
-    public GameObject sprayEffect;
+    [SerializeField] public PowerUp.Type heldPowerUp = PowerUp.Type.None;
 
     public PlayerControls controls;
     private bool reachedEnd;
     private bool inCutscene;
     private Petrify petrify;
+    private PowerUp powerUp;
 
 
     [SerializeField] bool showMovementIndicator = false; // should set to true in inspector for melita in the first home scene
@@ -54,7 +40,6 @@ public class Player : MonoBehaviour
     void Awake()
     {
         controls = new PlayerControls();
-        controls.Gameplay.UsePowerUp.performed += _ => UsePowerUp();
         controls.Gameplay.Pause.performed += _ => Pause();
         controls.Gameplay.EquipOrInteract.performed += _ => Interact();
         //controls.Gameplay.Move.performed += context => Move(context.ReadValue<Vector2>());
@@ -84,6 +69,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Follow>();
         petrify = GameObject.FindGameObjectWithTag("Petrify Range").GetComponent<Petrify>();
+        powerUp = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUp>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
@@ -91,13 +77,6 @@ public class Player : MonoBehaviour
 
         transform.GetChild(0).gameObject.SetActive(false);
 
-        // TODO delete later when implement outline enemies
-        // changes power up range indicator to be proper size
-        powerUpRangePos.localScale = new Vector3(2*powerUpRange, 2*powerUpRange, 0);
-        // make sure it isn't visible at the start of the game
-        GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<SpriteRenderer>().enabled = false;
-
-        dashTime = startDashTime;
         // if home scene
         if(showMovementIndicator) {
             StartCoroutine(GetComponent<ControlsIndicator>().ShowForDuration(ControlsIndicator.Icon.Movement, 2f));
@@ -133,50 +112,6 @@ public class Player : MonoBehaviour
     private void FixedUpdate() //all physics adjusting code goes here
     {
         rb.MovePosition(rb.position + movementVelocity * Time.fixedDeltaTime);
-    }
-
-    /* Handle powerUp. A held powerUp still gets used (wasted) even if no enemies are
-     * in range to let player try out using powerups. */
-    void UsePowerUp()
-    {
-        if (powerUp != PowerUp.PowerUpType.None)
-        {
-            // get all the enemies within our PowerUpRange
-            Collider2D[] enemiesInRange = GetEnemiesInRange();
-
-            // temporarily keep track of the held powerup item because .Use() sets powerUp to None.
-            PowerUp.PowerUpType temp = powerUp;
-
-            //TODO this if might not be needed
-            if (powerUpObj != null)
-            {
-                powerUpObj.GetComponent<PowerUp>().Use();
-
-                // have each enemy determine how to handle this powerup being used on them
-                for (int i = 0; i < enemiesInRange.Length; i++)
-                {
-                    enemiesInRange[i].GetComponent<Enemy>().HandlePowerUp(temp);
-
-                    enemiesInRange[i].GetComponent<Enemy>().OutlineOn(); //TODO delete- testing outline
-                }
-            }
-
-        }
-    }
-
-    Collider2D[] GetEnemiesInRange()
-    {
-        // get all the enemies within our PowerUpRange
-        return Physics2D.OverlapCircleAll(powerUpRangePos.position, powerUpRange, whatIsEnemies);
-    }
-
-
-    /* For testing purposes, this draws red line around the player's power up range.
-     * This has no effect during gameplay, so we can leave this in. */
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(powerUpRangePos.position, powerUpRange);
     }
 
     public bool HasGlasses()
@@ -262,12 +197,12 @@ public class Player : MonoBehaviour
             {
                 // Automatically use a powerup if applicable to enemy
                 // Note: the HandlePowerUp function returns true if the powerup used on them is applicable to them
-                if (powerUp != PowerUp.PowerUpType.None)
+                if (heldPowerUp != PowerUp.Type.None)
                 {
-                    if(enemy.HandlePowerUp(powerUp))
+                    if(enemy.HandlePowerUp(heldPowerUp))
                     {
                         // also affects all other applicable enemies in range
-                        UsePowerUp();
+                        powerUp.UsePowerUp();
                     } else
                     {
                         HandleHit();
@@ -311,28 +246,4 @@ public class Player : MonoBehaviour
             reachedEnd = false;
         }
     }
-
-
-     // makes melita zoom zoom
-     public void Dash()
-     {
-        /*
-            Debug.Log("zoom?");
-            Vector2 direction = new Vector2(Input.GetAxisRaw("Horizontal"), Input.GetAxisRaw("Vertical"));
-
-            if (dashTime <= 0)
-            {
-                dashTime = startDashTime;
-                movementVelocity = Vector2.zero;
-            }
-            else
-            {
-                dashTime -= Time.deltaTime;
-                movementVelocity = direction.normalized * dashSpeed;
-                Debug.Log("dashSpeed = " + dashSpeed);
-                Debug.Log("Movement Velocity = " + movementVelocity);
-                FixedUpdate();
-            }*/
-
-     }
 }
