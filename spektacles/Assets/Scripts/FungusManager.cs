@@ -63,14 +63,15 @@ public class FungusManager : MonoBehaviour
     {
         player.transform.position = newPos;
     }
+
     public void PlayCutscene(PlayableDirector pd)
     {
         pd.Play();
     }
-    public void TogglePlayer(GameObject p, Boolean on)
+
+    public void TogglePlayer(Boolean on)
     {
-        Player player = p.GetComponent<Player>();
-        Petrify petrify = p.GetComponent<Petrify>();
+        Petrify petrify = player.GetComponentInChildren<Petrify>();
         if (on)
         {
             player.enabled = true;
