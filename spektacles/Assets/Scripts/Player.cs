@@ -26,6 +26,7 @@ public class Player : MonoBehaviour
     private PlayerSoundController playerSounds;
     private PowerupSoundController powerupSounds;
     private musicController musicSounds;
+    private bool isWalking;
 
 
     // powerUp variables
@@ -115,8 +116,14 @@ public class Player : MonoBehaviour
                 anim.SetFloat("Vertical", moveInput.y);
                 anim.SetFloat("Magnitude", moveInput.magnitude);
                 anim.SetBool("Moving", true);
+                if (!isWalking){
+                playerSounds.FootstepLoopPlay();
+                isWalking = true;
+              }
             } else {
                 anim.SetBool("Moving", false);
+                playerSounds.FootstepLoopStop();
+                isWalking = false;
             }
         } else {
             anim.SetBool("Moving", false);
@@ -228,7 +235,7 @@ public class Player : MonoBehaviour
             //turn everything off so the player cant lose when they talk to irving
             //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
             //irving is not able to handle 'complex' collisions so thats on the player
-            /* don't turn off the player when turning off camera follow because it will 
+            /* don't turn off the player when turning off camera follow because it will
              * say the player is no longer in range */
             cameraF.stopFollow(false);
             musicSounds.loadCustceneMusic();
@@ -239,8 +246,8 @@ public class Player : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        /* petrify range is a childed object of the player object with it's own collider 
-         * and kinematic rigidbody to allow separate trigger detection, but the triggers of 
+        /* petrify range is a childed object of the player object with it's own collider
+         * and kinematic rigidbody to allow separate trigger detection, but the triggers of
          * the parent and child object will trigger the other, so this check ignores it. */
         if(other.CompareTag("Petrify Range")) {
             return;
