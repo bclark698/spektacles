@@ -33,7 +33,7 @@ public class Follow : MonoBehaviour
 
         if (cam.transform.position != target.transform.position)
         {
-            cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(targetX, targetY, -3f), Time.deltaTime * followSpeed);
+            cam.transform.position = Vector3.Lerp(cam.transform.position , new Vector3(targetX, targetY + 5, -3f), Time.deltaTime * followSpeed);
         }
     }
 
