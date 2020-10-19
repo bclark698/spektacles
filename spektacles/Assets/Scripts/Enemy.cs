@@ -18,13 +18,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Shader outlineShader;
 
     /* This is used to determine the automatic powerup use case. */
-    public bool CanHandlePowerUp(PowerUp.Type powerUpType) {
-      return (powerUpType == powerUpToHandle);
-    }
-
-    // TODO get rid of above copies to just use this one
     public bool CanHandlePowerUp() {
-      return CanHandlePowerUp(powerUpRange.GetHeldPowerUpType());
+      return (powerUpRange.GetHeldPowerUpType() == powerUpToHandle);
     }
 
     public virtual void HandlePowerUp() {
@@ -88,30 +83,10 @@ public abstract class Enemy : MonoBehaviour
     }
 
     public void OutlineOn() {
-      Debug.Log("outline on");
-      if(!spriteRenderer) {
-        Debug.Log("spriteRenderer null on outline on");
-      } else if(!spriteRenderer.material) {
-        Debug.Log("material null on outline on");
-      } else if(!spriteRenderer.material.shader) {
-        Debug.Log("material null on outline on");
-      } else if(!outlineShader) {
-        Debug.Log("outlineShader null on outline on");
-      }
       spriteRenderer.material.shader = outlineShader;
     }
 
     public void OutlineOff() {
-      if(!spriteRenderer) {
-        Debug.Log("spriteRenderer null on outline off");
-      } else if(!spriteRenderer.material) {
-        Debug.Log("material null on outline off");
-      } else if(!spriteRenderer.material.shader) {
-        Debug.Log("material null on outline off");
-      } else if(!defaultShader) {
-        Debug.Log("defaultShader null on outline off");
-      }
       spriteRenderer.material.shader = defaultShader;
-      Debug.Log("outline off");
     }
 }

@@ -5,11 +5,10 @@ using UnityEngine.InputSystem;
 
 public class Locker : MonoBehaviour
 {
-    // public PowerUp.Type item = PowerUp.Type.None; // powerup that can always be retrieved from this locker
     private bool playerInRange;
 
     // Reference to the powerUp Prefab. Drag a Prefab into this field in the Inspector.
-    public GameObject powerUpPrefab;
+    [SerializeField] private GameObject powerUpPrefab = null;
 
     public PlayerControls controls;
 
@@ -55,9 +54,7 @@ public class Locker : MonoBehaviour
             // TODO possibly
 
             GameObject newPowerUp = Instantiate(powerUpPrefab);
-
             newPowerUp.GetComponent<PowerUp>().PickUp();
-            Debug.Log("Player picked up " + powerUpPrefab.GetComponent<PowerUp>().type.ToString() + " from a locker");
 
             // play a closing animation on the locker??
         }

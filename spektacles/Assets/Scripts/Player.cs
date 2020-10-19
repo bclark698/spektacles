@@ -19,7 +19,6 @@ public class Player : MonoBehaviour
 
     //audio
     private PlayerSoundController playerSounds;
-    private PowerupSoundController powerupSounds;
     private musicController musicSounds;
     private bool isWalking;
 
@@ -69,7 +68,6 @@ public class Player : MonoBehaviour
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
-        powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
 
         transform.GetChild(0).gameObject.SetActive(false);
 
@@ -83,25 +81,20 @@ public class Player : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Vector2 moveInput = new Vector2(0,0);
         if(!inCutscene) {
-            Vector2 moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
-            movementVelocity = moveInput.normalized * moveSpeed;
-            if (movementVelocity != new Vector2(0, 0)){
-                anim.SetFloat("Horizontal", moveInput.x);
-                anim.SetFloat("Vertical", moveInput.y);
-                anim.SetFloat("Magnitude", moveInput.magnitude);
-                anim.SetBool("Moving", true);
-                if (!isWalking){
-                playerSounds.FootstepLoopPlay();
-                isWalking = true;
-              }
-            } else {
-                anim.SetBool("Moving", false);
-                playerSounds.FootstepLoopStop();
-                isWalking = false;
-            }
+            moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
+        }
+        movementVelocity = moveInput.normalized * moveSpeed;
+        if (movementVelocity != new Vector2(0, 0)){
+            anim.SetFloat("Horizontal", moveInput.x);
+            anim.SetFloat("Vertical", moveInput.y);
+            anim.SetFloat("Magnitude", moveInput.magnitude);
+            anim.SetBool("Moving", true);
+            playerSounds.FootstepLoopPlay();
         } else {
             anim.SetBool("Moving", false);
+            playerSounds.FootstepLoopStop();
         }
     }
 
@@ -192,26 +185,14 @@ public class Player : MonoBehaviour
             if (!enemy.isStunned)
             {
                 // Automatically use a powerup if applicable to enemy
-                // Note: the HandlePowerUp function returns true if the powerup used on them is applicable to them
-                // if (heldPowerUp != PowerUp.Type.None)
-                // PowerUpObject powerUpObj = powerUp.powerUpObj;
-                // if(powerUpObj != null)
-                // {
-                    // if(enemy.HandlePowerUp(heldPowerUp))
-                    if(enemy.CanHandlePowerUp())
-                    {
-                        // affects all other applicable enemies in range
-                        powerUpRange.UsePowerUp();
-                    } else
-                    {
-                        HandleHit();
-                    }
-                // }
-                // else
-                // {
-                //     // possible death if not enough lives
-                //     HandleHit();
-                // }
+                if(enemy.CanHandlePowerUp())
+                {
+                    // affects all other applicable enemies in range
+                    powerUpRange.UsePowerUp();
+                } else
+                {
+                    HandleHit();
+                }
             }
 
         }

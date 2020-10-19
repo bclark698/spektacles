@@ -10,14 +10,15 @@ public class Petrify : Ability
     private Image stoneIcon; // should be the grayscale version of the icon
     private bool coolingDown;
     private float finishCooldownTime;
+    private CameraInteract mainCamera;
 
     void Start()
     {
-        // playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
         controls.Gameplay.Petrify.started += _ => ButtonHeld();
         controls.Gameplay.Petrify.canceled += _ => ButtonRelease();
 
         stoneIcon = GameObject.FindGameObjectWithTag("Petrify Icon").GetComponent<Image>();
+        mainCamera = Camera.main.GetComponent<CameraInteract>();
     }
 
     void ButtonRelease() {
@@ -46,11 +47,11 @@ public class Petrify : Ability
             coolingDown = true; //set timer to start cooling down
             finishCooldownTime = Time.time + cooldownTime;
 
-            Camera mainCamera = Camera.main; //TODO move this elsewhere?
-            StartCoroutine(mainCamera.GetComponent<CameraInteract>().BeginBlur(cooldownTime));
+            // Camera mainCamera = Camera.main; //TODO move this elsewhere?
+            // StartCoroutine(mainCamera.GetComponent<CameraInteract>().BeginBlur(cooldownTime));
+            StartCoroutine(mainCamera.BeginBlur(cooldownTime));
             StartCoroutine(playerSounds.RechargedSound());
 
-            // get all the enemies within our PowerUpRange
             Collider2D[] enemiesInRange = GetEnemiesInRange();
 
             for (int i = 0; i < enemiesInRange.Length; i++)

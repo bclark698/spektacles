@@ -6,7 +6,7 @@ public class PowerUp : MonoBehaviour
 {
     public enum Type { None, BugSpray, Helmet, EarPlugs, Garlic };
     public Type type = Type.None;
-    [SerializeField] private PowerupSoundController powerUpSounds; // TODO remove serial
+    private PowerupSoundController powerUpSounds;
     private PowerUpRange powerUpRange;
     private Player player;
     private ChangeIcon indicator;
@@ -30,13 +30,9 @@ public class PowerUp : MonoBehaviour
     public void PickUp()
     {
         // play a pick up sound effect
-        Debug.Log("powerUpSounds is null? "+(powerUpSounds == null));
         powerUpSounds.pickUpSound();
 
         // spawn cool particle effects
-
-        // set player powerup type
-        // player.heldPowerUp = type;
 
         // destroy the player's previous held powerup gameobject and set to new one
         powerUpRange.SetNewHeldPowerUp(gameObject);
@@ -51,12 +47,8 @@ public class PowerUp : MonoBehaviour
 
     public void Use() {
         PlayUseSound();
-        // remove powerup from indicator
         indicator.clear();
-
-        // destroy powerup gameObject
         Destroy(gameObject);
-        // player.heldPowerUp = Type.None;
     }
 
     void PlayUseSound() {

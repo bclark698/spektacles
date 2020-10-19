@@ -62,14 +62,11 @@ public class Jocks : Enemy
 
     public override IEnumerator HandleStun()
     {
-        Debug.Log("orc stunned");
         go = false;
         isStunned = true;
 
-
         yield return new WaitForSeconds(stunDuration);
 
-        Debug.Log("orc no longer stunned");
         go = true;
         isStunned = false;
 

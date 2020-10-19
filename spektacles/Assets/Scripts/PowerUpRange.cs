@@ -7,11 +7,6 @@ public class PowerUpRange : Ability
 {
     public GameObject powerUpObj;
 
-    // MAKE SURE ALL THE ELEMENTS ARE IN ORDER OF THE ICON ENUMS!
-    // [SerializeField] private Sprite[] desktopIcons = null;
-
-    // [SerializeField] private GameObject powerUpObj; // TODO delete serialize
-
     void Start(){
         controls.Gameplay.UsePowerUp.started += _ => ButtonHeld();
         controls.Gameplay.UsePowerUp.canceled += _ => ButtonRelease();
@@ -49,17 +44,10 @@ public class PowerUpRange : Ability
      * in range to let player try out using powerups. */
     public void UsePowerUp()
     {
-        // Type heldPowerUp = player.heldPowerUp;
-
         if (powerUpObj != null)
         {
             // get all the enemies within our PowerUpRange
             Collider2D[] enemiesInRange = GetEnemiesInRange();
-
-            // temporarily keep track of the held powerup item because .Use() sets powerUp to None.
-            PowerUp.Type powerUpType = powerUpObj.GetComponent<PowerUp>().type; // TODO can we call .Use() after the for loop?
-
-            powerUpObj.GetComponent<PowerUp>().Use();
 
             // have each enemy determine how to handle this powerup being used on them
             for (int i = 0; i < enemiesInRange.Length; i++)
@@ -68,6 +56,7 @@ public class PowerUpRange : Ability
                 enemiesInRange[i].GetComponent<Enemy>().OutlineOff();
             }
 
+            powerUpObj.GetComponent<PowerUp>().Use();
         }
     }
 
