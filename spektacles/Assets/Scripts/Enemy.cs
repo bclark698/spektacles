@@ -11,20 +11,28 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected PowerUp.Type powerUpToHandle;
     [SerializeField] protected float stunDuration = 1.5f;
 
-    public Animator anim;
+    protected Animator anim;
+    private PowerUpRange powerUpRange;
 
     [SerializeField] private Shader defaultShader;
     [SerializeField] private Shader outlineShader;
 
-    /* The bool return value represents whether the powerup used on them was applicable to them.
-     * This is used to determine the automatic powerup use case. */
-    public virtual bool HandlePowerUp(PowerUp.Type powerUp) {
-      if(powerUp == powerUpToHandle)
-        {
-            StartCoroutine(HandleStun());
-            return true;
-        }
-        return false;
+    /* This is used to determine the automatic powerup use case. */
+    public bool CanHandlePowerUp(PowerUp.Type powerUpType) {
+      return (powerUpType == powerUpToHandle);
+    }
+
+    // TODO get rid of above copies to just use this one
+    public bool CanHandlePowerUp() {
+      return CanHandlePowerUp(powerUpRange.GetHeldPowerUpType());
+    }
+
+    public virtual void HandlePowerUp() {
+      OutlineOff();
+      if(CanHandlePowerUp())
+      {
+          StartCoroutine(HandleStun());
+      }
     }
 
     public virtual IEnumerator HandleStun() {
@@ -41,6 +49,7 @@ public abstract class Enemy : MonoBehaviour
       spriteRenderer = GetComponent<SpriteRenderer>();
       enemySounds = GameObject.Find("/Unbreakable iPod/Enemy Sounds").GetComponent<EnemySoundController>();
       anim = GetComponent<Animator>();
+      powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
 
       defaultShader = Shader.Find("Sprites/Default");
       outlineShader = Shader.Find("Sprites/Outline");

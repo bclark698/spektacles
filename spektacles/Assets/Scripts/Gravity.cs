@@ -14,12 +14,14 @@ public class Gravity : MonoBehaviour
 
     public AudioSource sirenPullSound;
     public AudioSource sirenBlockedSound;
+    private PowerUpRange powerUpRange;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>(); //grab player RB
         gravityRange = gameObject.GetComponent<CircleCollider2D>();
+        powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
     }
 
     private void FixedUpdate()
@@ -37,8 +39,7 @@ public class Gravity : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) //once u enter the range
     {
         if(collision.CompareTag("Player")) {
-            PowerUp.Type playerHeldPowerUp = collision.GetComponent<Player>().heldPowerUp;
-            if (playerHeldPowerUp == PowerUp.Type.EarPlugs) {
+            if (powerUpRange.GetHeldPowerUpType() == PowerUp.Type.EarPlugs) {
                 sirenBlockedSound.Play();
             } else {
                 inRange = true; //start pulling player

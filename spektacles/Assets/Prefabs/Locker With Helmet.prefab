@@ -11,9 +11,10 @@ GameObject:
   - component: {fileID: 6776625471692499732}
   - component: {fileID: 6776625471692499731}
   - component: {fileID: 6776625471692499730}
-  - component: {fileID: 4387814314183957761}
   - component: {fileID: 3329160196546012983}
   - component: {fileID: 2651188127018728243}
+  - component: {fileID: 2160825980570323626}
+  - component: {fileID: 8401518364855041387}
   m_Layer: 0
   m_Name: Locker With Helmet
   m_TagString: Locker
@@ -99,32 +100,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d48ea828bc641147ba3fdcce20f1f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 2
   powerUpPrefab: {fileID: 5595786756347005103, guid: 94bbd66d73bb5ed4083a954e2182e322,
     type: 3}
---- !u!114 &4387814314183957761
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6776625471692499729}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e03cb7fbd081348af6569fcc7070ed, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 8305514885145977493}
-  desktopIcons:
-  - {fileID: 21300000, guid: a638a94f97f18a340b235cd67adae79c, type: 3}
-  - {fileID: 21300000, guid: 0f2ee4e2dc4f84ab499d0b833ff9e7cb, type: 3}
-  - {fileID: 21300000, guid: 9ebe1294670ca489087505690ec77118, type: 3}
-  - {fileID: 21300000, guid: e54e46ac0a3c64211ba8d7a96183b79e, type: 3}
-  xboxIcons:
-  - {fileID: 21300000, guid: f8b3358d47ae11949809359aea272a23, type: 3}
-  - {fileID: 21300000, guid: 53b87673ca856481b80d9cd8eee0118b, type: 3}
-  - {fileID: 21300000, guid: 88ca7b35e307c43faaa7481a25e5d3f6, type: 3}
-  - {fileID: 21300000, guid: bc18801db95a949f0b3a58a947d9e4a2, type: 3}
 --- !u!95 &3329160196546012983
 Animator:
   serializedVersion: 3
@@ -170,6 +147,44 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6193295, y: 1.490449}
   m_EdgeRadius: 0
+--- !u!114 &2160825980570323626
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6776625471692499729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b7fb507f46f7bb48b90201a0c583ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Player
+  icon: 1
+  showIndicatorOverPlayer: 0
+--- !u!114 &8401518364855041387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6776625471692499729}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f41b1cae6c60434ab86d6e13409d273, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteRenderer: {fileID: 8305514885145977493}
+  desktopIcons:
+  - {fileID: 21300000, guid: a638a94f97f18a340b235cd67adae79c, type: 3}
+  - {fileID: 21300000, guid: 00fc7e2c06773fe49b1526c1bf7fdf44, type: 3}
+  - {fileID: 21300000, guid: 13e35688425fe8b48bccd54665709e60, type: 3}
+  - {fileID: 21300000, guid: ebb216c2af338b141ac3b77b71333bf6, type: 3}
+  xboxIcons:
+  - {fileID: 21300000, guid: 713c08cc9b66f804dbf048294417a575, type: 3}
+  - {fileID: 21300000, guid: 1dcfa167ee6d06a418584a303ca22c3c, type: 3}
+  - {fileID: 21300000, guid: b5ee4a49185dfce499f1258f321bb3a9, type: 3}
+  - {fileID: 21300000, guid: 2052216147ad83e4b850b623630489d1, type: 3}
 --- !u!1001 &2052538105091616338
 PrefabInstance:
   m_ObjectHideFlags: 0

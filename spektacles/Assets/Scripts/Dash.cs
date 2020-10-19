@@ -11,9 +11,11 @@ public class Dash : MonoBehaviour
     [SerializeField] private float startDashTime = 0;
     [SerializeField] private float dashTime = 0;
     private Player player;
+    private PowerUpRange powerUpRange;
 
     void Start() {
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
         dashTime = startDashTime;
     }
 
@@ -29,7 +31,8 @@ public class Dash : MonoBehaviour
         if(numUses == 0)
         {
             Destroy(gameObject);
-            player.heldPowerUp = PowerUp.Type.None;
+            // clear player powerup
+            Destroy(powerUpRange.powerUpObj);
         }
     }
 

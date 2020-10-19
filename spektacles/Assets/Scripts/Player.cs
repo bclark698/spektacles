@@ -23,15 +23,11 @@ public class Player : MonoBehaviour
     private musicController musicSounds;
     private bool isWalking;
 
-
-    // powerUp variables
-    [SerializeField] public PowerUp.Type heldPowerUp = PowerUp.Type.None;
-
     public PlayerControls controls;
     private bool reachedEnd;
     private bool inCutscene;
     private Petrify petrify;
-    private PowerUp powerUp;
+    private PowerUpRange powerUpRange;
 
 
     [SerializeField] bool showMovementIndicator = false; // should set to true in inspector for melita in the first home scene
@@ -69,7 +65,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Follow>();
         petrify = GameObject.FindGameObjectWithTag("Petrify Range").GetComponent<Petrify>();
-        powerUp = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUp>();
+        powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
@@ -184,7 +180,7 @@ public class Player : MonoBehaviour
         /* petrify range is a childed object of the player object with it's own collider
          * and kinematic rigidbody to allow separate trigger detection, but the triggers of
          * the parent and child object will trigger the other, so this check ignores it. */
-        if(other.CompareTag("Petrify Range")) {
+        if(other.CompareTag("Petrify Range") || other.CompareTag("PowerUp Range")) {
             return;
         }
         if (other.CompareTag("Enemy"))
@@ -197,22 +193,25 @@ public class Player : MonoBehaviour
             {
                 // Automatically use a powerup if applicable to enemy
                 // Note: the HandlePowerUp function returns true if the powerup used on them is applicable to them
-                if (heldPowerUp != PowerUp.Type.None)
-                {
-                    if(enemy.HandlePowerUp(heldPowerUp))
+                // if (heldPowerUp != PowerUp.Type.None)
+                // PowerUpObject powerUpObj = powerUp.powerUpObj;
+                // if(powerUpObj != null)
+                // {
+                    // if(enemy.HandlePowerUp(heldPowerUp))
+                    if(enemy.CanHandlePowerUp())
                     {
-                        // also affects all other applicable enemies in range
-                        powerUp.UsePowerUp();
+                        // affects all other applicable enemies in range
+                        powerUpRange.UsePowerUp();
                     } else
                     {
                         HandleHit();
                     }
-                }
-                else
-                {
-                    // possible death if not enough lives
-                    HandleHit();
-                }
+                // }
+                // else
+                // {
+                //     // possible death if not enough lives
+                //     HandleHit();
+                // }
             }
 
         }
