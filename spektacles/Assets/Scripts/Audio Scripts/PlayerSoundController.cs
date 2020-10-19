@@ -9,6 +9,7 @@ public class PlayerSoundController : MonoBehaviour
     public AudioSource aquire;
     public AudioSource stoneBlast;
     public AudioSource footstepLoop;
+    public AudioSource glassesRecharged;
 
     /*
     public AudioSource bugSpray;
@@ -46,5 +47,11 @@ public class PlayerSoundController : MonoBehaviour
 
     public void FootstepLoopStop(){
       footstepLoop.Stop();
+    }
+
+    public IEnumerator RechargedSound(){
+      yield return new WaitForSeconds(3f);
+      glassesRecharged.Play();
+    //  return null;
     }
 }

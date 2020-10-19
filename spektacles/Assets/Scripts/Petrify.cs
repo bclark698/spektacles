@@ -5,7 +5,7 @@ using UnityEngine.UI;
 
 public class Petrify : Ability
 {
-    
+
     [SerializeField] private float cooldownTime = 3f;
 
     private Image stoneIcon; // should be the grayscale version of the icon
@@ -65,7 +65,7 @@ public class Petrify : Ability
             }
             for (int i = 0; i < enemiesInRange.Length; i++)
             {
-                enemiesInRange[i].GetComponent<Enemy>().OutlineOff(); //??? todo how to determine 
+                enemiesInRange[i].GetComponent<Enemy>().OutlineOff(); //??? todo how to determine
             }
         }*/
     }
@@ -81,6 +81,7 @@ public class Petrify : Ability
 
             Camera mainCamera = Camera.main; //TODO move this elsewhere?
             StartCoroutine(mainCamera.GetComponent<CameraInteract>().BeginBlur(cooldownTime));
+            StartCoroutine(playerSounds.RechargedSound());
 
             // get all the enemies within our PowerUpRange
             Collider2D[] enemiesInRange = GetEnemiesInRange();

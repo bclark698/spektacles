@@ -213,7 +213,7 @@ public class Player : MonoBehaviour
             anim.SetBool("blind", false);
             lives = 2;
         }
-        playerSounds.AcquireSound();
+        //playerSounds.AcquireSound();
         irving.isTrigger = true;
     }
 
