@@ -5,17 +5,16 @@ using UnityEngine.InputSystem;
 
 public class Locker : MonoBehaviour
 {
-    [SerializeField]
-    public PowerUp.PowerUpType item = PowerUp.PowerUpType.None; // powerup that can always be retrieved from this locker
+    public PowerUp.Type item = PowerUp.Type.None; // powerup that can always be retrieved from this locker
     private bool playerInRange;
 
     // Reference to the powerUp Prefab. Drag a Prefab into this field in the Inspector.
-    [SerializeField]
-    public GameObject powerUpPrefab;
-
-    private PowerupSoundController powerupSounds;
+    // [SerializeField]
+    // public GameObject powerUpPrefab;
 
     public PlayerControls controls;
+
+    private PowerUp powerUp;
 
     void Awake()
     {
@@ -35,7 +34,7 @@ public class Locker : MonoBehaviour
     }
 
     private void Start(){
-        powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
+        powerUp = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUp>();
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -57,17 +56,19 @@ public class Locker : MonoBehaviour
     // This script will simply instantiate the Prefab whenever the locker is opened.
     public void Open()
     {
-        if(playerInRange && powerUpPrefab != null)
+        // if(playerInRange && powerUpPrefab != null)
+        if(playerInRange && item != PowerUp.Type.None)
         {
             // play an open animation on the locker?? to reveal the powerup inside?
             // TODO possibly
 
-            GameObject newPowerUp = Instantiate(powerUpPrefab);
+            // GameObject newPowerUp = Instantiate(powerUpPrefab);
 
-            newPowerUp.GetComponent<PowerUp>().PickUp();
-            Debug.Log("Player picked up " + powerUpPrefab.GetComponent<PowerUp>().powerUpName + " from a locker");
+            // newPowerUp.GetComponent<PowerUp>().PickUp();
+            // Debug.Log("Player picked up " + powerUpPrefab.GetComponent<PowerUp>().powerUpName + " from a locker");
 
-            powerupSounds.pickUpSound();
+            powerUp.PickUp(item);
+            Debug.Log("Player picked up " + item.ToString() + " from a locker");
 
             // play a closing animation on the locker??
         }

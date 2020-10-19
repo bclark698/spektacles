@@ -31,22 +31,20 @@ public class Gravity : MonoBehaviour
 
             // adds force to the player to pull them towards siren
             playerRB.AddForce(directionOfPlayer * gravitationalForce);
-
-
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //once u enter the range
     {
-        if (collision.CompareTag("Player") && collision.GetComponent<Player>().powerUp != PowerUp.PowerUpType.EarPlugs)
-        {
-            inRange = true; //start pulling player
-            sirenPullSound.Play();
+        if(collision.CompareTag("Player")) {
+            PowerUp.Type playerHeldPowerUp = collision.GetComponent<Player>().heldPowerUp;
+            if (playerHeldPowerUp == PowerUp.Type.EarPlugs) {
+                sirenBlockedSound.Play();
+            } else {
+                inRange = true; //start pulling player
+                sirenPullSound.Play();
+            }
         }
-        else if ( collision.CompareTag("Player") && collision.GetComponent<Player>().powerUp == PowerUp.PowerUpType.EarPlugs){
-            sirenBlockedSound.Play();
-        }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision) //once u leave the range
@@ -54,7 +52,6 @@ public class Gravity : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             inRange = false; //stop pulling player
-
             sirenBlockedSound.Stop();
             sirenPullSound.Stop();
         }

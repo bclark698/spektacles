@@ -4,18 +4,10 @@ using UnityEngine;
 
 public class Sirens : Enemy
 {
-    private PowerUp.PowerUpType sirenPowerUp = PowerUp.PowerUpType.EarPlugs;
     public Gravity pull;
 
-    public override bool HandlePowerUp(PowerUp.PowerUpType powerUp)
-    {
-        Debug.Log("siren handling powerup " + powerUp+ ", and does nothing");
-        if (powerUp == sirenPowerUp)
-        {
-            StartCoroutine(HandleStun());
-            return true;
-        }
-        return false;
+    void Start() {
+        powerUpToHandle = PowerUp.Type.EarPlugs;
     }
 
     public override IEnumerator HandleStun()
@@ -25,7 +17,7 @@ public class Sirens : Enemy
         pull.gravityRange.enabled = false; //turn off range
 
         // wait for 5 seconds - long enough to get across range
-        yield return new WaitForSeconds(1.5f);
+        yield return new WaitForSeconds(stunDuration);
 
         pull.gravityRange.enabled = true; //turn on range
         isStunned = false; //no longer stunned
