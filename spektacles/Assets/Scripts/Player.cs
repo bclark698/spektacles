@@ -28,9 +28,6 @@ public class Player : MonoBehaviour
     private Petrify petrify;
     private PowerUpRange powerUpRange;
 
-
-    [SerializeField] bool showMovementIndicator = false; // should set to true in inspector for melita in the first home scene
-
     // called before Start
     void Awake()
     {
@@ -65,16 +62,13 @@ public class Player : MonoBehaviour
         cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Follow>();
         petrify = GameObject.FindGameObjectWithTag("Petrify Range").GetComponent<Petrify>();
         powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
+        irving = GameObject.FindGameObjectWithTag("End").GetComponent<BoxCollider2D>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
 
         transform.GetChild(0).gameObject.SetActive(false);
 
-        // if home scene
-        // if(showMovementIndicator) {
-        //     StartCoroutine(GetComponent<ControlsIndicator>().ShowForDuration(ControlsIndicator.Icon.Movement, 2f));
-        // }
         inCutscene = false;
     }
 
@@ -138,7 +132,8 @@ public class Player : MonoBehaviour
             lives = 2;
         }
         //playerSounds.AcquireSound();
-        irving.isTrigger = true;
+        if(irving)
+            irving.isTrigger = true;
     }
 
     public void LoseGlasses()
@@ -149,7 +144,8 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("blind", true);
         }
-        irving.isTrigger = false; //turn irving off
+        if(irving)
+            irving.isTrigger = false; //turn irving off
     }
 
 
