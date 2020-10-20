@@ -14,7 +14,6 @@ public class DoorSoundController : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D collider){
-      Debug.Log(collider.tag);
       if (collider.tag == "Player"){
       doorSound.Play();
       }
