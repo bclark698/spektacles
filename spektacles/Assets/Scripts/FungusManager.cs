@@ -69,7 +69,7 @@ public class FungusManager : MonoBehaviour
         pd.Play();
     }
 
-    public void TogglePlayer(Boolean on)
+    public void TogglePlayer(bool on)
     {
         Petrify petrify = player.GetComponentInChildren<Petrify>();
         if (on)
