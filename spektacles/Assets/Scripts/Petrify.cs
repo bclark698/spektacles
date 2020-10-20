@@ -17,7 +17,12 @@ public class Petrify : Ability
         controls.Gameplay.Petrify.started += _ => ButtonHeld();
         controls.Gameplay.Petrify.canceled += _ => ButtonRelease();
 
-        stoneIcon = GameObject.FindGameObjectWithTag("Petrify Icon").GetComponent<Image>();
+        // fix error in home scene where there is no petrify UI
+        GameObject temp = GameObject.FindGameObjectWithTag("Petrify Icon");
+        if(temp != null) {
+            stoneIcon = temp.GetComponent<Image>();
+        }
+        
         mainCamera = Camera.main.GetComponent<CameraInteract>();
     }
 
@@ -34,7 +39,7 @@ public class Petrify : Ability
             if(Time.time >= finishCooldownTime) {
                 coolingDown = false;
                 player.PickUpGlasses();
-            } else {
+            } else if(stoneIcon) {
                 stoneIcon.fillAmount -= 1 / cooldownTime * Time.deltaTime;
             }
         }
@@ -59,7 +64,9 @@ public class Petrify : Ability
                 enemiesInRange[i].GetComponent<Enemy>().TurnIntoStone();
             }
 
-            stoneIcon.fillAmount = 1;
+            if(stoneIcon) {
+                stoneIcon.fillAmount = 1;
+            }
         }
     }
 
