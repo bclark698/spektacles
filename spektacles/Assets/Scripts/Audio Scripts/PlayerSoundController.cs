@@ -10,6 +10,7 @@ public class PlayerSoundController : MonoBehaviour
     public AudioSource stoneBlast;
     public AudioSource footstepLoop;
     public AudioSource glassesRecharged;
+    public AudioSource enterDoor;
 
     /*
     public AudioSource bugSpray;
@@ -53,5 +54,9 @@ public class PlayerSoundController : MonoBehaviour
       yield return new WaitForSeconds(3f);
       glassesRecharged.Play();
     //  return null;
+    }
+
+    public void DoorSound(){
+      enterDoor.Play();
     }
 }
