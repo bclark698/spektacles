@@ -217,7 +217,7 @@ public class Pixie : Enemy
         moveSpeed = 0;
         rotationSpeed = 0;
         state = State.Stunned;
-        nextActionTime = Time.time + period;
+        nextActionTime += stunDuration;
 
         // wait for 1.5 seconds
         yield return new WaitForSeconds(stunDuration);

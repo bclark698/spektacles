@@ -72,9 +72,9 @@ public class Player : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
 
         // if home scene
-        if(showMovementIndicator) {
-            StartCoroutine(GetComponent<ControlsIndicator>().ShowForDuration(ControlsIndicator.Icon.Movement, 2f));
-        }
+        // if(showMovementIndicator) {
+        //     StartCoroutine(GetComponent<ControlsIndicator>().ShowForDuration(ControlsIndicator.Icon.Movement, 2f));
+        // }
         inCutscene = false;
     }
 
