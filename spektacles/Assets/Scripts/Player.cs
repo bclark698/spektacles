@@ -85,9 +85,13 @@ public class Player : MonoBehaviour
             anim.SetFloat("Vertical", moveInput.y);
             anim.SetFloat("Magnitude", moveInput.magnitude);
             anim.SetBool("Moving", true);
+            if (!isWalking){
             playerSounds.FootstepLoopPlay();
+            isWalking = true;
+          }
         } else {
             anim.SetBool("Moving", false);
+            isWalking = false;
             playerSounds.FootstepLoopStop();
         }
     }

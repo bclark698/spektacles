@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class musicController : MonoBehaviour
 {
   private static musicController controllerInstance;
+  public AudioSource startMusic;
   public AudioSource currentMusic;
   public AudioSource homeMusic;
   public AudioSource homeCutMusic;
@@ -75,14 +76,14 @@ public class musicController : MonoBehaviour
       case "Bus":
       currentMusic.clip = busMusic.clip;
       break;
-      case "School Hall 1":
+      case "School Level 1":
       currentMusic.clip = lvl1Music.clip;
       break;
       case "Full School Scene":
       currentMusic.clip = lvl1Music.clip;
       break;
       case "Sohee TEST - Start Screen":
-      currentMusic.clip = busMusic.clip;
+      currentMusic.clip = startMusic.clip;
       break;
 
     }
@@ -102,7 +103,7 @@ public class musicController : MonoBehaviour
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(busCutMusic, 2, 4));
       break;
-      case "School Hall 1":
+      case "School level 1":
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
