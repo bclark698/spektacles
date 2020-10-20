@@ -235,8 +235,6 @@ GameObject:
   - component: {fileID: 2702425795038805960}
   - component: {fileID: 2702425795038805967}
   - component: {fileID: 2702425795038805961}
-  - component: {fileID: 2702425795038805962}
-  - component: {fileID: 2702425795038805972}
   - component: {fileID: 2702425795038805963}
   - component: {fileID: 7186612074388539526}
   - component: {fileID: 258865068147013476}
@@ -326,7 +324,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
-  anim: {fileID: 0}
+  powerUpToHandle: 0
+  stunDuration: 1.5
+  defaultShader: {fileID: 0}
+  outlineShader: {fileID: 0}
   state: 0
   rotationSpeed: 20
   moveSpeed: 25
@@ -337,38 +338,6 @@ MonoBehaviour:
   fov: 90
   viewDistance: 30
   period: 2.5
---- !u!58 &2702425795038805962
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2702425795038805966}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.11175251, y: -0.073467255}
-  serializedVersion: 2
-  m_Radius: 2.4979954
---- !u!58 &2702425795038805972
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2702425795038805966}
-  m_Enabled: 0
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  serializedVersion: 2
-  m_Radius: 2.8632622
 --- !u!95 &2702425795038805963
 Animator:
   serializedVersion: 3

@@ -13,7 +13,9 @@ GameObject:
   - component: {fileID: 2802592644616707495}
   - component: {fileID: 5954042181416502166}
   - component: {fileID: 6541919824385431669}
-  - component: {fileID: 3352329326355729821}
+  - component: {fileID: 8810965148537349333}
+  - component: {fileID: 5895409283679762112}
+  - component: {fileID: -4427687747465394898}
   m_Layer: 0
   m_Name: Locker With Ear Plugs
   m_TagString: Locker
@@ -118,7 +120,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7d48ea828bc641147ba3fdcce20f1f0d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  item: 3
   powerUpPrefab: {fileID: 4565497628813750586, guid: 42544081833de2344893227f547d809d,
     type: 3}
 --- !u!61 &6541919824385431669
@@ -147,7 +148,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.6193295, y: 1.490449}
   m_EdgeRadius: 0
---- !u!114 &3352329326355729821
+--- !u!114 &8810965148537349333
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -156,20 +157,61 @@ MonoBehaviour:
   m_GameObject: {fileID: 5954042181416502165}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b9e03cb7fbd081348af6569fcc7070ed, type: 3}
+  m_Script: {fileID: 11500000, guid: 5b7fb507f46f7bb48b90201a0c583ead, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Player
+  icon: 1
+  showIndicatorOverPlayer: 0
+--- !u!114 &5895409283679762112
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5954042181416502165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f41b1cae6c60434ab86d6e13409d273, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   spriteRenderer: {fileID: 7692214874049400766}
   desktopIcons:
   - {fileID: 21300000, guid: a638a94f97f18a340b235cd67adae79c, type: 3}
-  - {fileID: 21300000, guid: 0f2ee4e2dc4f84ab499d0b833ff9e7cb, type: 3}
-  - {fileID: 21300000, guid: 9ebe1294670ca489087505690ec77118, type: 3}
-  - {fileID: 21300000, guid: e54e46ac0a3c64211ba8d7a96183b79e, type: 3}
+  - {fileID: 21300000, guid: 00fc7e2c06773fe49b1526c1bf7fdf44, type: 3}
+  - {fileID: 21300000, guid: 13e35688425fe8b48bccd54665709e60, type: 3}
+  - {fileID: 21300000, guid: ebb216c2af338b141ac3b77b71333bf6, type: 3}
   xboxIcons:
-  - {fileID: 21300000, guid: f8b3358d47ae11949809359aea272a23, type: 3}
-  - {fileID: 21300000, guid: 53b87673ca856481b80d9cd8eee0118b, type: 3}
-  - {fileID: 21300000, guid: 88ca7b35e307c43faaa7481a25e5d3f6, type: 3}
-  - {fileID: 21300000, guid: bc18801db95a949f0b3a58a947d9e4a2, type: 3}
+  - {fileID: 21300000, guid: 713c08cc9b66f804dbf048294417a575, type: 3}
+  - {fileID: 21300000, guid: 1dcfa167ee6d06a418584a303ca22c3c, type: 3}
+  - {fileID: 21300000, guid: b5ee4a49185dfce499f1258f321bb3a9, type: 3}
+  - {fileID: 21300000, guid: 2052216147ad83e4b850b623630489d1, type: 3}
+--- !u!61 &-4427687747465394898
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5954042181416502165}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.003042221, y: -4.7}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.7405038, y: 10.05}
+    newSize: {x: 10, y: 10}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 2.798626, y: 2.428424}
+  m_EdgeRadius: 0
 --- !u!1001 &432123379321455481
 PrefabInstance:
   m_ObjectHideFlags: 0

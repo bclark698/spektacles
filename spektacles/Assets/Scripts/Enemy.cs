@@ -10,8 +10,9 @@ public abstract class Enemy : MonoBehaviour
     private EnemySoundController enemySounds;
     [SerializeField] protected PowerUp.Type powerUpToHandle;
     [SerializeField] protected float stunDuration = 1.5f;
+    [SerializeField] protected float petrifyDuration = 1.5f;
 
-    protected Animator anim;
+    [SerializeField] protected Animator anim; //TODO delete serial
     private PowerUpRange powerUpRange;
 
     [SerializeField] private Shader defaultShader;
@@ -40,7 +41,9 @@ public abstract class Enemy : MonoBehaviour
       isStunned = false;
     }
 
-    void Start(){
+    /* IMPORTANT: child classes of Enemy should not override this function by having
+     * their own Awake() function, or they should call base.Awake() in their's */
+    void Awake() {
       spriteRenderer = GetComponent<SpriteRenderer>();
       enemySounds = GameObject.Find("/Unbreakable iPod/Enemy Sounds").GetComponent<EnemySoundController>();
       anim = GetComponent<Animator>();
@@ -66,7 +69,7 @@ public abstract class Enemy : MonoBehaviour
 
       StartCoroutine(HandleStun());
 
-      // play grayscale stone animation
+      // play stone animation
       StartCoroutine(stoneAnimation());
 
     }
@@ -76,9 +79,8 @@ public abstract class Enemy : MonoBehaviour
       enemySounds.playStoneCrackSound();
       anim.SetBool("stoned", true);
 
-      yield return new WaitForSeconds(1.5f);
+      yield return new WaitForSeconds(petrifyDuration);
 
-      spriteRenderer.color = Color.white;
       anim.SetBool("stoned", false);
     }
 

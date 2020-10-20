@@ -17,7 +17,7 @@ public class Jocks : Enemy
 	public bool rand = false;
 	public bool go = true;
 
-    void Awake() {
+    void Start() {
         powerUpToHandle = PowerUp.Type.Helmet;
     }
 

@@ -33,16 +33,10 @@ public class Pixie : Enemy
     private float nextActionTime = 0.0f;
     [SerializeField] private float period = 2.5f;
 
-    // Awake is called before Start
-    private void Awake()
-    {
-        state = State.Waiting; // pixie's begin roaming upon level start
-        //this.spriteRenderer = this.GetComponent<SpriteRenderer>(); // get spriteRenderer component
-    }
-
     // Start is called before the first frame update
     void Start()
     {
+        state = State.Waiting; // pixie's begin roaming upon level start
         powerUpToHandle = PowerUp.Type.BugSpray;
         Physics2D.queriesStartInColliders = false; // stops ray from detecting pixies own collider
         startingPos = transform.position; // gets pixie's starting position
@@ -223,6 +217,7 @@ public class Pixie : Enemy
         moveSpeed = 0;
         rotationSpeed = 0;
         state = State.Stunned;
+        nextActionTime = Time.time + period;
 
         // wait for 1.5 seconds
         yield return new WaitForSeconds(stunDuration);
