@@ -1,7 +1,7 @@
 ﻿ using System.Collections;
  using System.Collections.Generic;
  using UnityEngine;
- 
+
  [RequireComponent(typeof(Collider2D))]
 public class TeleportTrigger : MonoBehaviour
 {
@@ -16,6 +16,15 @@ public class TeleportTrigger : MonoBehaviour
     [Tooltip("Trigger Event to Teleport")]
     [SerializeField] TriggerType type;
 
+    private AudioSource doorSound;
+    private BoxCollider2D boxCollider;
+
+    void Start()
+    {
+        doorSound = gameObject.GetComponent<AudioSource>();
+    }
+
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (type != TriggerType.Enter)
@@ -23,6 +32,10 @@ public class TeleportTrigger : MonoBehaviour
 
         if (filterTag == string.Empty || other.CompareTag(filterTag))
             other.transform.position = teleportTo.position;
+
+            if (other.tag == "Player"){
+            doorSound.Play();
+            }
     }
 
     void OnTriggerExit2D(Collider2D other)

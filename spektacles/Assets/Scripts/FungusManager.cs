@@ -11,6 +11,7 @@ public class FungusManager : MonoBehaviour
     private Player player;
     private GameObject mainCamera;
     private PlayerSoundController playerSounds;
+    private Animator playerAnimator;
 
     //private FungusManager managerInstance;
 
@@ -33,13 +34,17 @@ public class FungusManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
+        playerAnimator = gameObject.GetComponent<Animator>();
     }
 
     // TODO use player's functions for losing and gaining glasses instead
     public void LoseGlasses()
     {
+      player.LoseGlasses();
+
         mainCamera.GetComponent<BoxBlur>().enabled = true;
-        player.GetComponent<Animator>().SetBool("blind", true);
+        playerAnimator.SetBool("blind", true);
+        
     }
 
     public void GainGlasses()

@@ -11,9 +11,11 @@ GameObject:
   - component: {fileID: 5387167895076370668}
   - component: {fileID: 5387167895076370666}
   - component: {fileID: 7606447219585961494}
-  - component: {fileID: 3009499590599102528}
   - component: {fileID: 5710499516997943573}
   - component: {fileID: 7747327449013353804}
+  - component: {fileID: 5052937155047006225}
+  - component: {fileID: 8781345639161483342}
+  - component: {fileID: 1909386635512339470}
   m_Layer: 0
   m_Name: Irving
   m_TagString: End
@@ -85,7 +87,7 @@ SpriteRenderer:
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
+  m_SpriteSortPoint: 1
 --- !u!114 &7606447219585961494
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -123,32 +125,6 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
---- !u!61 &3009499590599102528
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5387167895076370669}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.35279846, y: -3.3753738}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 10.971429, y: 14.257143}
-    newSize: {x: 1, y: 1}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 5.6290894, y: 4.6851807}
-  m_EdgeRadius: 0
 --- !u!114 &5710499516997943573
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -187,6 +163,53 @@ MonoBehaviour:
   targetTag: Player
   icon: 1
   showIndicatorOverPlayer: 0
+--- !u!70 &5052937155047006225
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387167895076370669}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.4970932, y: -2.7116165}
+  m_Size: {x: 2.9184723, y: 6.149582}
+  m_Direction: 0
+--- !u!70 &8781345639161483342
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387167895076370669}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0.34796906, y: -2.2021108}
+  m_Size: {x: 7.790024, y: 11.821364}
+  m_Direction: 0
+--- !u!114 &1909386635512339470
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387167895076370669}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fa4cc259baec7604c87bd66bbf1521e2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  blockRef:
+    block: {fileID: 0}
+  targetTag: Player
 --- !u!1001 &8361032267299776217
 PrefabInstance:
   m_ObjectHideFlags: 0
