@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
     public float moveSpeed = 20f;
     private Animator anim;
     private int lives = 2; //one for w/ glasses, one for without
+    private int newLives; // made a new variable to make sure I didn't break anything else?? lmao
     private Follow cameraF;
     public BoxCollider2D irving;
 
@@ -70,6 +71,8 @@ public class Player : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
 
         inCutscene = false;
+
+        newLives = 2;
     }
 
     // Update is called once per frame
@@ -115,9 +118,15 @@ public class Player : MonoBehaviour
     {
         playerSounds.HitSound();
         // game over on one hit
-        playerSounds.ReloadSound();
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        lives = 0;
+
+        newLives--;
+        if (newLives == 0)
+        {
+            playerSounds.ReloadSound();
+            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            lives = 0;
+        }
+        
         //TODO allow for glasses with buff?
 
         /*
