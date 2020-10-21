@@ -43,7 +43,7 @@ public class Follow : MonoBehaviour
         target.SetActive(true); //turn target back on
         enabled = true; //follow target again
         target.transform.position = new Vector2(targetX + offsetX, targetY + offsetY); //move target a certain distance away from collider
-        Debug.Log("moved player");
+        //Debug.Log("moved player");
 
         cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -3f), Time.deltaTime * followSpeed); //move camera
     }
