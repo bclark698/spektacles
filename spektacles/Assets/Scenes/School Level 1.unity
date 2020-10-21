@@ -7130,6 +7130,18 @@ Transform:
   m_Father: {fileID: 40327975}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1607271729 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2360338480708160598, guid: db27a44b68722456cacc5598eb3429aa,
+    type: 3}
+  m_PrefabInstance: {fileID: 734615355}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1635406607
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -9347,7 +9359,7 @@ Transform:
   m_GameObject: {fileID: 2079689055}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -54.6, y: 21.82, z: 0}
-  m_LocalScale: {x: 12.068833, y: 11.959849, z: 5.506881}
+  m_LocalScale: {x: 5.407752, y: 5.3589187, z: 2.4675}
   m_Children: []
   m_Father: {fileID: 660347529}
   m_RootOrder: 4
@@ -9969,6 +9981,7 @@ MonoBehaviour:
   eventHandler: {fileID: 2105026355}
   commandList:
   - {fileID: 2105026354}
+  - {fileID: 2105026359}
   - {fileID: 2105026353}
   - {fileID: 2105026352}
   - {fileID: 2105026323}
@@ -9977,6 +9990,7 @@ MonoBehaviour:
   - {fileID: 2105026320}
   - {fileID: 2105026319}
   - {fileID: 2105026318}
+  - {fileID: 2105026358}
   - {fileID: 2105026316}
   suppressAllAutoSelections: 0
 --- !u!114 &2105026318
@@ -10175,7 +10189,7 @@ MonoBehaviour:
   indentLevel: 0
   storyText: I have to talk to a teacher before class, so I'll see you around!
   description: 
-  character: {fileID: 0}
+  character: {fileID: 1607271729}
   portrait: {fileID: 21300000, guid: f2ef3e6d5ff4d4f8cb7eb6598285a7e4, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
@@ -11119,6 +11133,96 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &2105026358
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105026315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 57
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1373154383}
+  targetComponentAssemblyName: FungusManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: FungusManager
+  targetMethod: TogglePlayer
+  targetMethodText: 'TogglePlayer (Boolean): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 1
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &2105026359
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105026315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 56
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1373154383}
+  targetComponentAssemblyName: FungusManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: FungusManager
+  targetMethod: TogglePlayer
+  targetMethodText: 'TogglePlayer (Boolean): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!61 &2105026360 stripped
 BoxCollider2D:
   m_CorrespondingSourceObject: {fileID: 3009499590599102528, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
