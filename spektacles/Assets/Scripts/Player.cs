@@ -17,6 +17,7 @@ public class Player : MonoBehaviour
     private int newLives; // made a new variable to make sure I didn't break anything else?? lmao
     private Follow cameraF;
     public BoxCollider2D irving;
+    private GameObject life2Image;
 
     //audio
     private PlayerSoundController playerSounds;
@@ -70,6 +71,8 @@ public class Player : MonoBehaviour
 
         transform.GetChild(0).gameObject.SetActive(false);
 
+        life2Image = GameObject.Find("Life 2");
+
         inCutscene = false;
 
         newLives = 2;
@@ -120,13 +123,17 @@ public class Player : MonoBehaviour
         // game over on one hit
 
         newLives--;
+        if (newLives == 1)
+        {
+          life2Image.SetActive(false);
+        }
         if (newLives == 0)
         {
             playerSounds.ReloadSound();
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             lives = 0;
         }
-        
+
         //TODO allow for glasses with buff?
 
         /*

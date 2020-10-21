@@ -12,6 +12,8 @@ public class FungusInteract : MonoBehaviour
     [SerializeField] private string targetTag = "Player";
     private bool targetInRange;
 
+    private musicController musicSounds;
+
     void Awake()
     {
         controls = new PlayerControls();
@@ -19,13 +21,16 @@ public class FungusInteract : MonoBehaviour
         {
             controls.Gameplay.EquipOrInteract.performed += _ => ExecuteBlock();
         }
-
+        musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
     }
 
     void ExecuteBlock() {
+        musicSounds.loadCustceneMusic();
+        Debug.Log("Block executing");
         if(targetInRange) {
             blockRef.Execute();
         }
+
     }
 
     // Called when the Player object is enabled

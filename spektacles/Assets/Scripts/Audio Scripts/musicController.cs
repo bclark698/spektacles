@@ -92,7 +92,7 @@ public class musicController : MonoBehaviour
   }
 
   public void loadCustceneMusic(){
-    //Debug.Log("should be switching");
+    Debug.Log("should be switching");
     switch (currentLevel){
 
       case "Floor1 NEW":
@@ -103,7 +103,7 @@ public class musicController : MonoBehaviour
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(busCutMusic, 2, 4));
       break;
-      case "School level 1":
+      case "School Level 1":
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
