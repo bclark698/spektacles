@@ -6825,7 +6825,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 749919637}
+  selectedFlowchart: {fileID: 1825551093}
 --- !u!4 &818092679
 Transform:
   m_ObjectHideFlags: 1
@@ -11642,9 +11642,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 173
+    x: 172
     y: 86
-    width: 87
+    width: 127
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11707,7 +11707,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 125
     y: 271
-    width: 98
+    width: 138
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11806,7 +11806,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 356
     y: 215
-    width: 101
+    width: 141
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11936,15 +11936,15 @@ MonoBehaviour:
 
       Melita: Bike?
 
-      Irving
-      nowait: Yeah! I ride a Pegasus Andro Limited. I''m usually redlining down the
-      highway and topping out at 160mph. The 6 cylinder engine really hits---
+      Irving:
+      Yeah! I ride a Pegasus Andro Limited. I''m usually redlining down the highway
+      and topping out at 160mph. The 6 cylinder engine really hits---
 
-      Irving
-      wait: ...
+      Irving:
+      ...
 
-      Irving: Sorry about that, I can get a little excited when
-      I start to talk about her.
+      Irving: Sorry about that, I can get a little excited when I start
+      to talk about her.
 
 '
   clearPrevious:
@@ -11974,8 +11974,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 351
-    y: 323
-    width: 129
+    y: 322
+    width: 169
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12112,23 +12112,18 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Irving:
+    stringVal: 'Irving: Anyways, what''d you do this weekend? I heard there was a
+      big bonfire out by the lake and a few of the players got a little {i} too {/i}
+      rowdy
 
-      Melita:
+      Melita nervous: Oh no, I don''t really hang out with them. I didn''t
+      really do anything interesting, but it sounds like a wild time.
 
-
-      Irving: Anyways, what''d you do this
-      weekend? I heard there was a big bonfire out by the lake and a few of the players
-      got a little {i} too {/i} rowdy
-
-      Melita nervous: Oh no, I don''t really
-      hang out with them. I didn''t really do anything interesting, but it sounds
-      like a wild time.
-
-      Irving nowait: From what I''ve heard, Steven and Trevor
-      had a massive fight by the beach and one of them pushed the other into the
-      interdimentionalportal Kyle set up to let the girls from HellU in. So, Kyle
-      went in after him with some of the other guys and by the time they got back... '
+      Irving:
+      From what I''ve heard, Steven and Trevor had a massive fight by the beach and
+      one of them pushed the other into the interdimentionalportal Kyle set up to
+      let the girls from HellU in. So, Kyle went in after him with some of the other
+      guys and by the time they got back... '
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -12205,15 +12200,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Irving:
-
-      Melita:
-
-
-      Irving: So as I was saying, the engine
-      hits you really smooth with lots of low end torque and then stabilizes at higher
-      speeds - one of the smoothest rides out there. One time, I was on Interstate
-      666 and spotted the most beautiful Odyssey 250 and couldn''t believe it...
+    stringVal: 'Irving: So as I was saying, the engine hits you really smooth with
+      lots of low end torque and then stabilizes at higher speeds - one of the smoothest
+      rides out there. One time, I was on Interstate 666 and spotted the most beautiful
+      Odyssey 250 and couldn''t believe it...
 
 
 '
@@ -12222,7 +12212,7 @@ MonoBehaviour:
     booleanVal: 1
   waitForInput:
     booleanRef: {fileID: 0}
-    booleanVal: 0
+    booleanVal: 1
   waitForSeconds:
     floatRef: {fileID: 0}
     floatVal: 2
@@ -12259,6 +12249,18 @@ MonoBehaviour:
   targetAlpha:
     floatRef: {fileID: 0}
     floatVal: 0
+--- !u!114 &1825551093 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1825551065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825551067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1833076918
 PrefabInstance:
   m_ObjectHideFlags: 0
