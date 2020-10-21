@@ -3300,11 +3300,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6037292176980373616, guid: b6309c1aefd074ce58b11715221a3bea,
-        type: 3}
-      propertyPath: m_UiScaleMode
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6037292176980373618, guid: b6309c1aefd074ce58b11715221a3bea,
         type: 3}
       propertyPath: m_Name
@@ -6206,7 +6201,7 @@ Transform:
   m_GameObject: {fileID: 704171462}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: -726.29626, y: -42.289253, z: -928.0912}
-  m_LocalScale: {x: 12.06883, y: 11.959849, z: 5.50688}
+  m_LocalScale: {x: 13.807947, y: 13.683263, z: 6.3004208}
   m_Children: []
   m_Father: {fileID: 1367930902}
   m_RootOrder: 8
@@ -6250,7 +6245,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 1f1fdb3ee2490a046b8093cff0fad387, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5cad0244806962d4c9bb0c4cdf5741de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -6603,7 +6598,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 167
     y: 183
-    width: 106
+    width: 66
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -6643,8 +6638,10 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 749919636}
+  selectedCommands:
+  - {fileID: 749919635}
   variables: []
   description: 
   stepPause: 0
@@ -6825,7 +6822,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1825551093}
+  selectedFlowchart: {fileID: 2143676526}
 --- !u!4 &818092679
 Transform:
   m_ObjectHideFlags: 1
@@ -12249,18 +12246,6 @@ MonoBehaviour:
   targetAlpha:
     floatRef: {fileID: 0}
     floatVal: 0
---- !u!114 &1825551093 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1825551065}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825551067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &1833076918
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -25802,7 +25787,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 185
     y: 218
-    width: 86
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
