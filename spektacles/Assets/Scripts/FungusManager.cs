@@ -34,24 +34,20 @@ public class FungusManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
-        playerAnimator = gameObject.GetComponent<Animator>();
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
-    // TODO use player's functions for losing and gaining glasses instead
-    public void LoseGlasses()
+    // the reason this doesn't use the player function is bc it doesn't need to petrify
+    public void ToggleBlur(bool on)
     {
-      player.LoseGlasses();
+        BoxBlur blur = mainCamera.GetComponent<BoxBlur>();
 
-        mainCamera.GetComponent<BoxBlur>().enabled = true;
-        playerAnimator.SetBool("blind", true);
-        
-    }
+        blur.enabled = on;
+        //TODO: add the animations
+        //playerAnimator.SetBool("blind", on);
+        if (!on)
+            playerSounds.AcquireSound();
 
-    public void GainGlasses()
-    {
-        mainCamera.GetComponent<BoxBlur>().enabled = false;
-        player.GetComponent<Animator>().SetBool("blind", false);
-        playerSounds.AcquireSound();
     }
 
     public void NextScene()
@@ -64,11 +60,6 @@ public class FungusManager : MonoBehaviour
         SceneManager.LoadScene(0);
     }
 
-    public void TeleportPlayer(Vector2 newPos)
-    {
-        player.transform.position = newPos;
-    }
-
     public void PlayCutscene(PlayableDirector pd)
     {
         pd.Play();
@@ -77,16 +68,8 @@ public class FungusManager : MonoBehaviour
     public void TogglePlayer(bool on)
     {
         Petrify petrify = player.GetComponentInChildren<Petrify>();
-        if (on)
-        {
-            player.enabled = true;
-            petrify.enabled = true;
-        }
-        else
-        {
-            player.enabled = false;
-            petrify.enabled = false;
-        }
+        player.enabled = on;
+        petrify.enabled = on;
     }
 
     public void Quit()
