@@ -15,8 +15,6 @@ public class Player : MonoBehaviour
     private Animator anim;
     private int lives = 2; //one for w/ glasses, one for without
     private int newLives; // made a new variable to make sure I didn't break anything else?? lmao
-    private Follow cameraF;
-    public BoxCollider2D irving;
     private GameObject life2Image;
 
     //audio
@@ -61,10 +59,8 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
-        cameraF = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<Follow>();
         petrify = GameObject.FindGameObjectWithTag("Petrify Range").GetComponent<Petrify>();
         powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
-        irving = GameObject.FindGameObjectWithTag("End").GetComponent<BoxCollider2D>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
@@ -92,18 +88,18 @@ public class Player : MonoBehaviour
             anim.SetFloat("Magnitude", moveInput.magnitude);
             anim.SetBool("Moving", true);
             if (!isWalking){
-              if (playerSounds != null){
-            playerSounds.FootstepLoopPlay();
-            isWalking = true;
-          }
-          }
+                if (playerSounds != null){
+                    playerSounds.FootstepLoopPlay();
+                    isWalking = true;
+                }
+            }
         } else {
 
             anim.SetBool("Moving", false);
             if (playerSounds != null){
-            isWalking = false;
-            playerSounds.FootstepLoopStop();
-          }
+                isWalking = false;
+                playerSounds.FootstepLoopStop();
+            }
         }
     }
 
@@ -156,9 +152,7 @@ public class Player : MonoBehaviour
             anim.SetBool("blind", false);
             lives = 2;
         }
-        //playerSounds.AcquireSound();
-        if(irving)
-            irving.isTrigger = true;
+        playerSounds.AcquireSound();
     }
 
     public void LoseGlasses()
@@ -169,20 +163,14 @@ public class Player : MonoBehaviour
         {
             anim.SetBool("blind", true);
         }
-        if(irving)
-            irving.isTrigger = false; //turn irving off
     }
 
 
     // add other player-specific things if needed
     private void Interact() {
         if(reachedEnd) {
-            //turn everything off so the player cant lose when they talk to irving
-            //important!!!! must turn off the WHOLE OBJECT bc pixies will not stop otherwise
-            //irving is not able to handle 'complex' collisions so thats on the player
-            /* don't turn off the player when turning off camera follow because it will
-             * say the player is no longer in range */
-            cameraF.stopFollow(false);
+            /*the camera being turned off is now managed by fungus so we don't
+            have to worry about it accidentally knocking melita out of range*/
             musicSounds.loadCustceneMusic();
             inCutscene = true;
         }
