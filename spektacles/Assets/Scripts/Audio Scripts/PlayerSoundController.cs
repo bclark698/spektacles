@@ -8,6 +8,9 @@ public class PlayerSoundController : MonoBehaviour
     public AudioSource reloadLvl;
     public AudioSource aquire;
     public AudioSource stoneBlast;
+    public AudioSource footstepLoop;
+    public AudioSource glassesRecharged;
+    public AudioSource enterDoor;
 
     /*
     public AudioSource bugSpray;
@@ -16,10 +19,11 @@ public class PlayerSoundController : MonoBehaviour
     public AudioSource earbudsProtect;
     */
 
+
     // Start is called before the first frame update
     void Start()
     {
-
+      footstepLoop.time = .5f;
     }
 
     public void HitSound(){
@@ -36,5 +40,23 @@ public class PlayerSoundController : MonoBehaviour
 
     public void StoneBlastSound(){
       stoneBlast.Play();
+    }
+
+    public void FootstepLoopPlay(){
+      footstepLoop.Play();
+    }
+
+    public void FootstepLoopStop(){
+      footstepLoop.Stop();
+    }
+
+    public IEnumerator RechargedSound(){
+      yield return new WaitForSeconds(3f);
+      glassesRecharged.Play();
+    //  return null;
+    }
+
+    public void DoorSound(){
+      enterDoor.Play();
     }
 }

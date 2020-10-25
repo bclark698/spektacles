@@ -33,7 +33,7 @@ public class Follow : MonoBehaviour
 
         if (cam.transform.position != target.transform.position)
         {
-            cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(targetX, targetY, -3f), Time.deltaTime * followSpeed);
+            cam.transform.position = Vector3.Lerp(cam.transform.position , new Vector3(targetX, targetY + 5, -3f), Time.deltaTime * followSpeed);
         }
     }
 
@@ -43,8 +43,6 @@ public class Follow : MonoBehaviour
         target.SetActive(true); //turn target back on
         enabled = true; //follow target again
         target.transform.position = new Vector2(targetX + offsetX, targetY + offsetY); //move target a certain distance away from collider
-        Debug.Log("moved player");
-
         cam.transform.position = Vector3.Lerp(cam.transform.position, new Vector3(target.transform.position.x, target.transform.position.y, -3f), Time.deltaTime * followSpeed); //move camera
     }
 

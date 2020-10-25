@@ -1,39 +1,34 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.InputSystem;
 using UnityEngine.UI;
 
-public class Petrify : MonoBehaviour
+public class Petrify : Ability
 {
-    public PlayerControls controls;
-
-    [SerializeField] private Transform petrifyRangePos;
-    [SerializeField] private LayerMask whatIsEnemies;
-    [SerializeField] private float petrifyRange = 10;
     [SerializeField] private float cooldownTime = 3f;
 
     private Image stoneIcon; // should be the grayscale version of the icon
-    public bool coolingDown;
+    private bool coolingDown;
     private float finishCooldownTime;
-
-    private PlayerSoundController playerSounds;
-
-    // Start is called before the first frame update
-    private void Awake()
-    {
-        controls = new PlayerControls();
-        controls.Gameplay.Petrify.performed += _ => GetComponent<Player>().LoseGlasses();
-    }
+    private CameraInteract mainCamera;
 
     void Start()
     {
-        // TODO delete later when implement outline enemies
-        // changes power up range indicator to be proper size
-        petrifyRangePos.localScale = new Vector3(2 * petrifyRange, 2 * petrifyRange, 0);
-        stoneIcon = GameObject.FindGameObjectWithTag("Petrify Icon").GetComponent<Image>();
+        controls.Gameplay.Petrify.started += _ => ButtonHeld();
+        controls.Gameplay.Petrify.canceled += _ => ButtonRelease();
 
-        playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
+        // fix error in home scene where there is no petrify UI
+        GameObject temp = GameObject.FindGameObjectWithTag("Petrify Icon");
+        if(temp != null) {
+            stoneIcon = temp.GetComponent<Image>();
+        }
+        
+        mainCamera = Camera.main.GetComponent<CameraInteract>();
+    }
+
+    void ButtonRelease() {
+        buttonHeld = false;
+        player.LoseGlasses();
     }
 
     // Update is called once per frame
@@ -43,37 +38,25 @@ public class Petrify : MonoBehaviour
         {
             if(Time.time >= finishCooldownTime) {
                 coolingDown = false;
-                GetComponent<Player>().PickUpGlasses();
-            } else {
+                player.PickUpGlasses();
+            } else if(stoneIcon) {
                 stoneIcon.fillAmount -= 1 / cooldownTime * Time.deltaTime;
             }
-
         }
-    }
-
-    private void OnEnable()
-    {
-        controls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        controls.Disable();
     }
 
     public void PetrifyEnemy()
     {
         if(!coolingDown) {
             playerSounds.StoneBlastSound();
-            Debug.Log("petrify");
             coolingDown = true; //set timer to start cooling down
             finishCooldownTime = Time.time + cooldownTime;
-            print("cooling down now");
 
-            Camera mainCamera = Camera.main;
-            StartCoroutine(mainCamera.GetComponent<CameraInteract>().BeginBlur(cooldownTime));
+            // Camera mainCamera = Camera.main; //TODO move this elsewhere?
+            // StartCoroutine(mainCamera.GetComponent<CameraInteract>().BeginBlur(cooldownTime));
+            StartCoroutine(mainCamera.BeginBlur(cooldownTime));
+            StartCoroutine(playerSounds.RechargedSound());
 
-            // get all the enemies within our PowerUpRange
             Collider2D[] enemiesInRange = GetEnemiesInRange();
 
             for (int i = 0; i < enemiesInRange.Length; i++)
@@ -81,13 +64,17 @@ public class Petrify : MonoBehaviour
                 enemiesInRange[i].GetComponent<Enemy>().TurnIntoStone();
             }
 
-            stoneIcon.fillAmount = 1;
+            if(stoneIcon) {
+                stoneIcon.fillAmount = 1;
+            }
         }
     }
 
-    Collider2D[] GetEnemiesInRange()
+    /* For testing purposes, this draws red line around the player's power up range.
+     * This has no effect during gameplay, so we can leave this in. */
+    void OnDrawGizmosSelected()
     {
-        // get all the enemies within our PowerUpRange
-        return Physics2D.OverlapCircleAll(petrifyRangePos.position, petrifyRange, whatIsEnemies);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireSphere(transform.position, range);
     }
 }

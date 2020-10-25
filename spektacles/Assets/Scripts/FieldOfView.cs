@@ -4,7 +4,9 @@ using UnityEngine;
 
 public class FieldOfView : MonoBehaviour
 {
-    [SerializeField] private LayerMask layerMask;
+    /* default value should be replaced in the inspector! should mask Default, Enemy, and Safe Zone */
+    [SerializeField] private LayerMask layerMask = 0;
+    
     private Mesh mesh;
     private float fov;
     private float viewDistance;

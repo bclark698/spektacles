@@ -5,19 +5,12 @@ using UnityEngine.InputSystem;
 
 public class Locker : MonoBehaviour
 {
-    [SerializeField]
-    public PowerUp.PowerUpType item = PowerUp.PowerUpType.None; // powerup that can always be retrieved from this locker
     private bool playerInRange;
 
     // Reference to the powerUp Prefab. Drag a Prefab into this field in the Inspector.
-    [SerializeField]
-    public GameObject powerUpPrefab;
-
-    private PowerupSoundController powerupSounds;
+    [SerializeField] private GameObject powerUpPrefab = null;
 
     public PlayerControls controls;
-
-    private ShowInteractIndicator interactIndicator;
 
     void Awake()
     {
@@ -36,17 +29,11 @@ public class Locker : MonoBehaviour
         controls.Disable();
     }
 
-    private void Start(){
-        powerupSounds = GameObject.Find("/Unbreakable iPod/Powerup Sounds").GetComponent<PowerupSoundController>();
-        interactIndicator = GetComponent<ShowInteractIndicator>();
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             playerInRange = true;
-            interactIndicator.Show(ShowInteractIndicator.Icon.Interact);
         }
     }
 
@@ -55,7 +42,6 @@ public class Locker : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerInRange = false;
-            interactIndicator.Hide();
         }
     }
 
@@ -68,11 +54,7 @@ public class Locker : MonoBehaviour
             // TODO possibly
 
             GameObject newPowerUp = Instantiate(powerUpPrefab);
-
             newPowerUp.GetComponent<PowerUp>().PickUp();
-            Debug.Log("Player picked up " + powerUpPrefab.GetComponent<PowerUp>().powerUpName + " from a locker");
-
-            powerupSounds.pickUpSound();
 
             // play a closing animation on the locker??
         }

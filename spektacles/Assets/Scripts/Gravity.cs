@@ -14,12 +14,14 @@ public class Gravity : MonoBehaviour
 
     public AudioSource sirenPullSound;
     public AudioSource sirenBlockedSound;
+    private PowerUpRange powerUpRange;
 
     // Start is called before the first frame update
     void Start()
     {
         playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>(); //grab player RB
         gravityRange = gameObject.GetComponent<CircleCollider2D>();
+        powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
     }
 
     private void FixedUpdate()
@@ -31,22 +33,19 @@ public class Gravity : MonoBehaviour
 
             // adds force to the player to pull them towards siren
             playerRB.AddForce(directionOfPlayer * gravitationalForce);
-
-
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision) //once u enter the range
     {
-        if (collision.CompareTag("Player") && collision.GetComponent<Player>().powerUp != PowerUp.PowerUpType.EarPlugs)
-        {
-            inRange = true; //start pulling player
-            sirenPullSound.Play();
+        if(collision.CompareTag("Player")) {
+            if (powerUpRange.GetHeldPowerUpType() == PowerUp.Type.EarPlugs) {
+                sirenBlockedSound.Play();
+            } else {
+                inRange = true; //start pulling player
+                sirenPullSound.Play();
+            }
         }
-        else if ( collision.CompareTag("Player") && collision.GetComponent<Player>().powerUp == PowerUp.PowerUpType.EarPlugs){
-            sirenBlockedSound.Play();
-        }
-
     }
 
     private void OnTriggerExit2D(Collider2D collision) //once u leave the range
@@ -54,7 +53,6 @@ public class Gravity : MonoBehaviour
         if (collision.CompareTag("Player"))
         {
             inRange = false; //stop pulling player
-
             sirenBlockedSound.Stop();
             sirenPullSound.Stop();
         }

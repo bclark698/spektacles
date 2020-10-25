@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.Playables;
+using System;
 
 public class FungusManager : MonoBehaviour
 {
@@ -9,6 +11,7 @@ public class FungusManager : MonoBehaviour
     private Player player;
     private GameObject mainCamera;
     private PlayerSoundController playerSounds;
+    private Animator playerAnimator;
 
     //private FungusManager managerInstance;
 
@@ -31,20 +34,20 @@ public class FungusManager : MonoBehaviour
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
         mainCamera = GameObject.FindGameObjectWithTag("MainCamera");
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
+        playerAnimator = GameObject.FindGameObjectWithTag("Player").GetComponent<Animator>();
     }
 
-    // TODO use player's functions for losing and gaining glasses instead
-    public void LoseGlasses()
+    // the reason this doesn't use the player function is bc it doesn't need to petrify
+    public void ToggleBlur(bool on)
     {
-        mainCamera.GetComponent<BoxBlur>().enabled = true;
-        player.GetComponent<Animator>().SetBool("blind", true);
-    }
+        BoxBlur blur = mainCamera.GetComponent<BoxBlur>();
 
-    public void GainGlasses()
-    {
-        mainCamera.GetComponent<BoxBlur>().enabled = false;
-        player.GetComponent<Animator>().SetBool("blind", false);
-        playerSounds.AcquireSound();
+        blur.enabled = on;
+        //TODO: add the animations
+        //playerAnimator.SetBool("blind", on);
+        if (!on)
+            playerSounds.AcquireSound();
+
     }
 
     public void NextScene()
@@ -52,13 +55,21 @@ public class FungusManager : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
-    public void RestartGame(){
+    public void RestartGame()
+    {
         SceneManager.LoadScene(0);
     }
 
-    public void TeleportPlayer(Vector2 newPos)
+    public void PlayCutscene(PlayableDirector pd)
     {
-        player.transform.position = newPos;
+        pd.Play();
+    }
+
+    public void TogglePlayer(bool on)
+    {
+        Petrify petrify = player.GetComponentInChildren<Petrify>();
+        player.enabled = on;
+        petrify.enabled = on;
     }
 
     public void Quit()
@@ -66,16 +77,5 @@ public class FungusManager : MonoBehaviour
         Application.Quit();
     }
 
-    public void WakeUp()
-    {
-        StartCoroutine(WakeUpAnim());
-    }
 
-    IEnumerator WakeUpAnim()
-    {
-        Debug.Log("u got a coroutine");
-        //TODO: figure out how to actually trigger a 2d cutscene in unity lmfao
-
-        yield return null;
-    }
 }

@@ -32,7 +32,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""b4fd3d91-1bc4-4fa8-b5fe-35b1395682b3"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold(duration=30)""
                 },
                 {
                     ""name"": ""Move"",
@@ -72,7 +72,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""id"": ""82a345cf-c0c3-4081-a0a0-65eb9662d9ab"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
-                    ""interactions"": """"
+                    ""interactions"": ""Hold(duration=30)""
                 },
                 {
                     ""name"": ""temp"",
