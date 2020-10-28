@@ -26,8 +26,8 @@ public class Petrify : Ability
         mainCamera = Camera.main.GetComponent<CameraInteract>();
     }
 
-    void ButtonRelease() {
-        buttonHeld = false;
+    protected override void ButtonRelease() {
+        base.ButtonRelease();
         player.LoseGlasses();
     }
 

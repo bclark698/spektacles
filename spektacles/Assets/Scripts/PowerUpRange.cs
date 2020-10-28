@@ -19,8 +19,8 @@ public class PowerUpRange : Ability
         }
     }
 
-    void ButtonRelease() {
-        buttonHeld = false;
+    protected override void ButtonRelease() {
+        base.ButtonRelease();
         UsePowerUp();
     }
 

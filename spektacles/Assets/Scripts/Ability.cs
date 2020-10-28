@@ -32,6 +32,18 @@ public class Ability : MonoBehaviour
         }
     }
 
+    protected virtual void ButtonRelease() {
+        buttonHeld = false;
+
+        // fix bug where enemies already in range at moment of button release are not un-outlined
+        Collider2D[] enemiesInRange = GetEnemiesInRange();
+
+        for (int i = 0; i < enemiesInRange.Length; i++)
+        {
+            enemiesInRange[i].GetComponent<Enemy>().OutlineOff();
+        }
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
     	if(other.CompareTag("Player")) {
     		return;
