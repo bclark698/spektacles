@@ -10,6 +10,7 @@ public class NPCMovement : MonoBehaviour
 
     public float minDist;
     public float timeToSpot;
+    public float speed;
     private float yVelo = 0.0f;
     private float xVelo = 0.0f;
 
@@ -19,7 +20,7 @@ public class NPCMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
@@ -40,6 +41,7 @@ public class NPCMovement : MonoBehaviour
                     if (num + 1 == waypoints.Length)
                     {
                         num = 0;
+                        gameObject.transform.position = waypoints[num].transform.position;
                     }
                     else
                     {
@@ -56,9 +58,18 @@ public class NPCMovement : MonoBehaviour
 
     public void Move()
     {
+        /*
         float newPosX = Mathf.SmoothDamp(transform.position.x, waypoints[num].transform.position.x, ref xVelo, timeToSpot);
         float newPosY = Mathf.SmoothDamp(transform.position.y, waypoints[num].transform.position.y, ref yVelo, timeToSpot);
         transform.position = new Vector2(newPosX, newPosY);
+        */
+        gameObject.transform.LookAt(waypoints[num].transform.position);
+              gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
+
+              Vector3 dir = waypoints[num].transform.position;
+              float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
+              gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
+      		gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
     }
 
 
