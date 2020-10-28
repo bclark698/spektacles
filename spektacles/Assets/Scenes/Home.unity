@@ -3890,6 +3890,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5052937155047006225, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370666, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_Enabled
@@ -3966,6 +3971,11 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7747327449013353804, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8781345639161483342, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_Enabled
       value: 0
@@ -5747,7 +5757,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 69824120}
+  selectedFlowchart: {fileID: 2053604413}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -46305,7 +46315,7 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 1.0775113, y: 0}
+  m_Offset: {x: 1.0775113, y: 0.39}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -46374,7 +46384,7 @@ MonoBehaviour:
   selectedBlocks:
   - {fileID: 2053604412}
   selectedCommands:
-  - {fileID: 2053604414}
+  - {fileID: 2053604416}
   variables: []
   description: 
   stepPause: 0
@@ -46448,8 +46458,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  soundClip: {fileID: 8300000, guid: 51867143f29244ef78e12feca606d9a5, type: 3}
-  volume: 0.21
+  soundClip: {fileID: 8300000, guid: f6d2d1a6ff6584915bee2003f7b0215f, type: 3}
+  volume: 0.577
   waitUntilFinished: 0
 --- !u!1 &2083710404
 GameObject:
@@ -46532,6 +46542,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2053604407}
     m_Modifications:
+    - target: {fileID: 6585752319934043791, guid: d13c77d3b84ab4d1c983f4c0926a1f79,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -14.09
+      objectReference: {fileID: 0}
+    - target: {fileID: 6585752319934043791, guid: d13c77d3b84ab4d1c983f4c0926a1f79,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 6605249948450995457, guid: d13c77d3b84ab4d1c983f4c0926a1f79,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7428865440681967586, guid: d13c77d3b84ab4d1c983f4c0926a1f79,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -46591,6 +46616,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Door Horizontal
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124734894862085009, guid: d13c77d3b84ab4d1c983f4c0926a1f79,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -22.18
+      objectReference: {fileID: 0}
+    - target: {fileID: 8124734894862085009, guid: d13c77d3b84ab4d1c983f4c0926a1f79,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 9.09
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d13c77d3b84ab4d1c983f4c0926a1f79, type: 3}
