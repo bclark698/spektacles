@@ -28,6 +28,9 @@ public class Player : MonoBehaviour
     private Petrify petrify;
     private PowerUpRange powerUpRange;
 
+    [SerializeField]
+    private GameObject restart;
+
     // called before Start
     void Awake()
     {
@@ -113,7 +116,7 @@ public class Player : MonoBehaviour
         return (lives >= 2);
     }
 
-    void HandleHit()
+    void HandleHit() //TODO: reorganize this :)
     {
         playerSounds.HitSound();
         // game over on one hit
@@ -121,12 +124,13 @@ public class Player : MonoBehaviour
         newLives--;
         if (newLives == 1)
         {
-          life2Image.SetActive(false);
+            life2Image.SetActive(false);
+
         }
         if (newLives == 0)
         {
             playerSounds.ReloadSound();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            RestartLevel();
             lives = 0;
         }
 
@@ -145,6 +149,19 @@ public class Player : MonoBehaviour
         lives--;*/
     }
 
+    void RestartLevel()
+    {
+        newLives = 2;
+        lives = 2;
+        life2Image.SetActive(true);
+        if (anim.GetBool("blind"))
+        {
+            anim.SetBool("blind", false);
+            StopAllCoroutines();
+        }
+        transform.position = restart.transform.position;
+    }
+
     public void PickUpGlasses()
     {
         if (anim.GetBool("blind"))
@@ -152,7 +169,7 @@ public class Player : MonoBehaviour
             anim.SetBool("blind", false);
             lives = 2;
         }
-        //playerSounds.AcquireSound();
+        playerSounds.AcquireSound();
     }
 
     public void LoseGlasses()
