@@ -448,6 +448,8 @@ GameObject:
   - component: {fileID: 69824138}
   - component: {fileID: 69824127}
   - component: {fileID: 69824153}
+  - component: {fileID: 69824117}
+  - component: {fileID: 69824154}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -589,8 +591,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 624.0221
-    y: 431.75598
-    width: 150.99612
+    y: 430.69553
+    width: 116.04487
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -643,7 +645,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 140.938
-    width: 101.2093
+    width: 61.961983
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -655,6 +657,31 @@ MonoBehaviour:
   - {fileID: 69824113}
   - {fileID: 69824130}
   suppressAllAutoSelections: 0
+--- !u!114 &69824117
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee63e642958494f1ebed8116ae4b1103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 100
+  indentLevel: 0
+  _animator:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 1640667236}
+  _parameterName:
+    stringRef: {fileID: 0}
+    stringVal: blind
+  value:
+    booleanRef: {fileID: 69824153}
+    booleanVal: 0
+  animatorOLD: {fileID: 0}
+  parameterNameOLD: 
 --- !u!114 &69824118
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -671,7 +698,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 156.3208
     y: 409.31873
-    width: 119.701546
+    width: 82.11051
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -716,19 +743,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -108.385765, y: -219.43114}
+  scrollPos: {x: 334.07648, y: -154.80394}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
-  zoom: 0.7029973
+  zoom: 0.9429971
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 69824140}
+  selectedCommands:
+  - {fileID: 69824154}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -802,7 +831,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 435.82037
     y: 552.0602
-    width: 122.54651
+    width: 85.291855
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -906,7 +935,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 440.42554
     y: 435.09317
-    width: 152.4186
+    width: 116.04487
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2447,7 +2476,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 632.5393
     y: 333.44843
-    width: 74.89341
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2462,6 +2491,7 @@ MonoBehaviour:
   - {fileID: 69824167}
   - {fileID: 69824163}
   - {fileID: 69824137}
+  - {fileID: 69824154}
   suppressAllAutoSelections: 0
 --- !u!114 &69824141
 MonoBehaviour:
@@ -2849,9 +2879,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 446.9033
+    x: 447.96375
     y: 299.0587
-    width: 126.10271
+    width: 88.4732
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2868,6 +2898,7 @@ MonoBehaviour:
   - {fileID: 69824146}
   - {fileID: 69824165}
   - {fileID: 69824145}
+  - {fileID: 69824117}
   - {fileID: 69824144}
   - {fileID: 69824143}
   - {fileID: 69824142}
@@ -2936,6 +2967,31 @@ MonoBehaviour:
   scope: 1
   key: Retrieved
   value: 0
+--- !u!114 &69824154
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee63e642958494f1ebed8116ae4b1103, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 101
+  indentLevel: 0
+  _animator:
+    animatorRef: {fileID: 0}
+    animatorVal: {fileID: 1640667236}
+  _parameterName:
+    stringRef: {fileID: 0}
+    stringVal: blind
+  value:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  animatorOLD: {fileID: 0}
+  parameterNameOLD: 
 --- !u!114 &69824156
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -37780,7 +37836,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 94.80561
     y: 217.92847
-    width: 129.42706
+    width: 92.413055
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
