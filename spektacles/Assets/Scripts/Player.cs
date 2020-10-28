@@ -70,7 +70,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector2 moveInput = new Vector2(0,0);
-        if(!inCutscene) {
+        if(!inCutscene && !PauseMenu.gameIsPaused) {
             moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
         }
         movementVelocity = moveInput.normalized * moveSpeed;
