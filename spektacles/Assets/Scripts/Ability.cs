@@ -21,26 +21,30 @@ public class Ability : MonoBehaviour
 	}
 
 	protected virtual void ButtonHeld() {
-        buttonHeld = true;
+        if(!PauseMenu.gameIsPaused) {
+            buttonHeld = true;
 
-        // fix bug where enemies already in range when beginning button hold are not outlined
-        Collider2D[] enemiesInRange = GetEnemiesInRange();
+            // fix bug where enemies already in range when beginning button hold are not outlined
+            Collider2D[] enemiesInRange = GetEnemiesInRange();
 
-        for (int i = 0; i < enemiesInRange.Length; i++)
-        {
-            enemiesInRange[i].GetComponent<Enemy>().OutlineOn();
+            for (int i = 0; i < enemiesInRange.Length; i++)
+            {
+                enemiesInRange[i].GetComponent<Enemy>().OutlineOn();
+            }
         }
     }
 
     protected virtual void ButtonRelease() {
-        buttonHeld = false;
+        if(!PauseMenu.gameIsPaused) {
+            buttonHeld = false;
 
-        // fix bug where enemies already in range at moment of button release are not un-outlined
-        Collider2D[] enemiesInRange = GetEnemiesInRange();
+            // fix bug where enemies already in range at moment of button release are not un-outlined
+            Collider2D[] enemiesInRange = GetEnemiesInRange();
 
-        for (int i = 0; i < enemiesInRange.Length; i++)
-        {
-            enemiesInRange[i].GetComponent<Enemy>().OutlineOff();
+            for (int i = 0; i < enemiesInRange.Length; i++)
+            {
+                enemiesInRange[i].GetComponent<Enemy>().OutlineOff();
+            }
         }
     }
 

@@ -27,8 +27,10 @@ public class Petrify : Ability
     }
 
     protected override void ButtonRelease() {
-        base.ButtonRelease();
-        player.LoseGlasses();
+        if(!PauseMenu.gameIsPaused) {
+            base.ButtonRelease();
+            player.LoseGlasses();
+        }
     }
 
     // Update is called once per frame
