@@ -14,7 +14,6 @@ public class Player : MonoBehaviour
     public float moveSpeed = 20f;
     private Animator anim;
     private int lives = 2; //one for w/ glasses, one for without
-    private int newLives; // made a new variable to make sure I didn't break anything else?? lmao
     private GameObject life2Image;
 
     //audio
@@ -73,8 +72,6 @@ public class Player : MonoBehaviour
         life2Image = GameObject.Find("Life 2");
 
         inCutscene = false;
-
-        newLives = 2;
     }
 
     // Update is called once per frame
@@ -116,49 +113,34 @@ public class Player : MonoBehaviour
         return (lives >= 2);
     }
 
-    void HandleHit() //TODO: reorganize this :)
+    void HandleHit() 
     {
         playerSounds.HitSound();
-        // game over on one hit
-
-        newLives--;
-        if (newLives == 1)
+        lives--;
+        Debug.Log("lives:" + lives);
+        if (lives == 1)
         {
             life2Image.SetActive(false);
-
         }
-        if (newLives == 0)
+        else if (lives <= 0)
         {
-            playerSounds.ReloadSound();
             RestartLevel();
-            lives = 0;
         }
-
-        //TODO allow for glasses with buff?
-
-        /*
-        if (lives == 2) //has glasses but no buff
-        {
-            LoseGlasses();
-        } else if (lives == 1) //no glasses and no buff
-        {
-            //game over :) just reloads the scene rn
-            playerSounds.ReloadSound();
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        }
-        lives--;*/
     }
 
     void RestartLevel()
     {
-        newLives = 2;
+        playerSounds.ReloadSound();
         lives = 2;
         life2Image.SetActive(true);
         if (anim.GetBool("blind"))
         {
             anim.SetBool("blind", false);
+            var blurBox = Camera.main.GetComponent<BoxBlur>();
+            blurBox.enabled = false;
             StopAllCoroutines();
         }
+        Debug.Log("Restart. lives:" + lives);
         transform.position = restart.transform.position;
     }
 
@@ -173,7 +155,6 @@ public class Player : MonoBehaviour
 
     public void LoseGlasses()
     {
-        lives = 1;
         petrify.PetrifyEnemy();
         if (anim.GetBool("blind") == false)
         {
@@ -221,11 +202,11 @@ public class Player : MonoBehaviour
             }
 
         }
-        else if (other.CompareTag("Glasses") || other.CompareTag("LostNFound"))
+        else if (other.CompareTag("Glasses")) //TODO: do we need this?
         {
             PickUpGlasses();
         }
-        else if (other.CompareTag("GlassesBuff"))
+        else if (other.CompareTag("GlassesBuff")) 
         {
             lives++;
             Destroy(other.gameObject);
@@ -236,12 +217,6 @@ public class Player : MonoBehaviour
         else if(other.CompareTag("End") && HasGlasses())
         {
             reachedEnd = true;
-        }
-        else if(other.CompareTag("StartNextScene"))
-        {
-            reachedEnd = false;
-            SceneManager.LoadScene(1);
-        //  musicSounds.loadCustceneMusic();
         }
 
     }
