@@ -31,10 +31,12 @@ public class Follow : MonoBehaviour
         targetX = target.transform.position.x;
         targetY = target.transform.position.y;
 
-        if (cam.transform.position != target.transform.position)
-        {
-            cam.transform.position = Vector3.Lerp(cam.transform.position , new Vector3(targetX, targetY + 5, -3f), Time.deltaTime * followSpeed);
-        }
+        //if (cam.transform.position != target.transform.position)
+        //{
+        //    cam.transform.position = Vector3.Lerp(cam.transform.position , new Vector3(targetX, targetY + 5, -3f), Time.deltaTime * followSpeed);
+        //}
+
+        cam.transform.position = new Vector3(targetX, targetY, -3f);
     }
 
     public void returnToPlayer(float offsetX, float offsetY)
