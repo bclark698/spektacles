@@ -25,9 +25,10 @@ public class FungusInteract : MonoBehaviour
     }
 
     void ExecuteBlock() {
-        musicSounds.loadCustceneMusic();
-        Debug.Log("Block executing");
+
+      //  Debug.Log("Block executing");
         if(targetInRange) {
+          musicSounds.loadCustceneMusic();
             blockRef.Execute();
         }
 
