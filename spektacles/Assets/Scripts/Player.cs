@@ -34,15 +34,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         controls = new PlayerControls();
-        controls.Gameplay.Pause.performed += _ => Pause();
         controls.Gameplay.EquipOrInteract.performed += _ => Interact();
-        //controls.Gameplay.Move.performed += context => Move(context.ReadValue<Vector2>());
-    }
-
-    // TODO make a separate script for pause
-    void Pause()
-    {
-        Debug.Log("pause button pressed");
     }
 
     // Called when the Player object is enabled
