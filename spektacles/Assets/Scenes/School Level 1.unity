@@ -4248,7 +4248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1869266030}
+  selectedFlowchart: {fileID: 2105026364}
 --- !u!4 &727472271
 Transform:
   m_ObjectHideFlags: 1
@@ -16998,7 +16998,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 0
+      boolValue: 1
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -17687,7 +17687,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 176.76884
-    y: -16.45942
+    y: -17.45942
     width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -17876,8 +17876,8 @@ MonoBehaviour:
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: FungusManager
-  targetMethod: RestartGame
-  targetMethodText: 'RestartGame (): Void'
+  targetMethod: NextScene
+  targetMethodText: 'NextScene (): Void'
   methodParameters: []
   saveReturnValue: 0
   returnValueVariableKey: 
@@ -18327,6 +18327,18 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &2105026364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105026314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105026315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2105026365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18347,9 +18359,26 @@ MonoBehaviour:
     PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
   targetComponentText: FungusManager
-  targetMethod: ResetBlur
-  targetMethodText: 'ResetBlur (): Void'
-  methodParameters: []
+  targetMethod: ToggleBlur
+  targetMethodText: 'ToggleBlur (Boolean): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
   saveReturnValue: 0
   returnValueVariableKey: 
   returnValueType: System.Void
