@@ -169,7 +169,6 @@ public class Player : MonoBehaviour
             anim.SetBool("blind", false);
             lives = 2;
         }
-        playerSounds.AcquireSound();
     }
 
     public void LoseGlasses()

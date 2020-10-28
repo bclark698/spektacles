@@ -14,6 +14,8 @@ public class musicController : MonoBehaviour
   public AudioSource busCutMusic;
   public AudioSource lvl1Music;
   public AudioSource cut1Music;
+  public AudioSource lvl3Music;
+  public AudioSource cut3Music;
 
 
   //float fadeTime;
@@ -85,6 +87,10 @@ public class musicController : MonoBehaviour
       case "Sohee TEST - Start Screen":
       currentMusic.clip = startMusic.clip;
       break;
+      case "Firedrill Test":
+      currentMusic.clip = lvl3Music.clip;
+      break;
+
 
     }
     //Debug.Log("you're now listening to the sweet tunes of... ");
@@ -110,6 +116,9 @@ public class musicController : MonoBehaviour
       case "Full School Scene":
       Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
+      break;
+      case "Firedrill Test":
+      StartCoroutine(MusicSwitch(cut3Music, 2, 4));
       break;
 
 
