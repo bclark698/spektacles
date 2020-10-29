@@ -4138,7 +4138,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1869266030}
+  selectedFlowchart: {fileID: 2105026370}
 --- !u!4 &727472271
 Transform:
   m_ObjectHideFlags: 1
@@ -12774,7 +12774,12 @@ PrefabInstance:
     - target: {fileID: 3855448565421988039, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
         type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -1.3999023
+      value: -1.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3855448565421988039, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -1.5
       objectReference: {fileID: 0}
     - target: {fileID: 4068454653191535867, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
         type: 3}
@@ -16576,7 +16581,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 156.00002
     y: -180
-    width: 136
+    width: 96
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -16951,7 +16956,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 439.99756
     y: -65
-    width: 83
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -16984,7 +16989,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 428.88586
     y: 35.942917
-    width: 101
+    width: 61
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17206,7 +17211,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 542
     y: -11.942917
-    width: 114
+    width: 74
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17436,7 +17441,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 316.23926
     y: -12.383331
-    width: 103
+    width: 63
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -17523,7 +17528,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 176.76884
     y: -17.45942
-    width: 120
+    width: 80
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -18207,6 +18212,18 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &2105026370 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105026314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105026315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2107214575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7491168192712010144, guid: a5376f2b747d7d24bbbf6170c3c2a7b2,
