@@ -112,6 +112,7 @@ MonoBehaviour:
   num: 1
   minDist: 4.31
   timeToSpot: 1
+  speed: 0
   rand: 0
   go: 1
 --- !u!1 &3488429657859515852
@@ -181,6 +182,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3396880330048562939, guid: 20148aafd0d69406493f651a315c523d,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: 0.36
+      objectReference: {fileID: 0}
+    - target: {fileID: 3396880330048562939, guid: 20148aafd0d69406493f651a315c523d,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.63
+      objectReference: {fileID: 0}
     - target: {fileID: 4931897281957354914, guid: 20148aafd0d69406493f651a315c523d,
         type: 3}
       propertyPath: m_Enabled

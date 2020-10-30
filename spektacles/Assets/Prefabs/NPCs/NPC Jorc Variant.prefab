@@ -21,6 +21,7 @@ MonoBehaviour:
   num: 1
   minDist: 4.31
   timeToSpot: 1
+  speed: 0
   rand: 0
   go: 1
 --- !u!1001 &8611928116236252710
@@ -114,6 +115,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571160498264159348, guid: f2ea8be8b8f3a4e89b32924352beea4f,
+        type: 3}
+      propertyPath: m_Offset.x
+      value: -1.01
+      objectReference: {fileID: 0}
+    - target: {fileID: 7571160498264159348, guid: f2ea8be8b8f3a4e89b32924352beea4f,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: 2.68
       objectReference: {fileID: 0}
     m_RemovedComponents:
     - {fileID: 6213095808929261615, guid: f2ea8be8b8f3a4e89b32924352beea4f, type: 3}
