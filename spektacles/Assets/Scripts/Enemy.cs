@@ -18,6 +18,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] private Shader defaultShader;
     [SerializeField] private Shader outlineShader;
 
+    [SerializeField] public Collider2D physicalCollider;
+
     /* This is used to determine the automatic powerup use case. */
     public bool CanHandlePowerUp() {
       return (powerUpRange.GetHeldPowerUpType() == powerUpToHandle);
@@ -39,6 +41,7 @@ public abstract class Enemy : MonoBehaviour
       yield return new WaitForSeconds(stunDuration);
 
       isStunned = false;
+
     }
 
     /* IMPORTANT: child classes of Enemy should not override this function by having
@@ -78,10 +81,15 @@ public abstract class Enemy : MonoBehaviour
       enemySounds.playTurnStoneSound();
       enemySounds.playStoneCrackSound();
       anim.SetBool("stoned", true);
+      Debug.Log("collider off");
+      physicalCollider.enabled = false;
+
 
       yield return new WaitForSeconds(petrifyDuration);
 
       anim.SetBool("stoned", false);
+      Debug.Log("collider on");
+      physicalCollider.enabled = true;
     }
 
     public void OutlineOn() {

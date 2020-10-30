@@ -405,9 +405,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStunned: 0
+  powerUpToHandle: 0
+  stunDuration: 1.5
+  petrifyDuration: 1.5
   anim: {fileID: 0}
   defaultShader: {fileID: 0}
   outlineShader: {fileID: 0}
+  physicalCollider: {fileID: 2647505907632659085}
   pull: {fileID: 747573177}
 --- !u!70 &3782626392733659442
 CapsuleCollider2D:
@@ -559,7 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inRange: 0
   gravityRange: {fileID: 0}
-  gravitationalForce: 90
+  gravitationalForce: 500
   sirenPullSound: {fileID: 5966529636156336293}
   sirenBlockedSound: {fileID: 1974671795986578816}
 --- !u!95 &6114564565231809295
