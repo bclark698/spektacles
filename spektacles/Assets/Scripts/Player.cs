@@ -27,6 +27,10 @@ public class Player : MonoBehaviour
     private Petrify petrify;
     private PowerUpRange powerUpRange;
 
+    private DamageCooldown damageCooldown;
+    [HideInInspector] public bool invincible;
+    
+
     [SerializeField]
     private GameObject restart;
 
@@ -55,6 +59,7 @@ public class Player : MonoBehaviour
         anim = GetComponent<Animator>();
         petrify = GameObject.FindGameObjectWithTag("Petrify Range").GetComponent<Petrify>();
         powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
+        damageCooldown = GetComponent<DamageCooldown>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
@@ -110,13 +115,22 @@ public class Player : MonoBehaviour
         playerSounds.HitSound();
         lives--;
         Debug.Log("lives:" + lives);
-        if (lives == 1)
+        if (!invincible)
         {
-            life2Image.SetActive(false);
+            if (lives == 1)
+            {
+                life2Image.SetActive(false);
+                damageCooldown.StartTimer();
+            }
+            else if (lives <= 0)
+            {
+                RestartLevel();
+            }
         }
-        else if (lives <= 0)
+
+        else if(invincible)
         {
-            RestartLevel();
+            Debug.Log("invincible, no hit");
         }
     }
 
