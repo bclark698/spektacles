@@ -11,8 +11,10 @@ public class FungusInteract : MonoBehaviour
     [SerializeField] private BlockReference blockRef; // block in flowchart to execute on interact
     [SerializeField] private string targetTag = "Player";
     private bool targetInRange;
+    private Player player;
 
     private musicController musicSounds;
+    private PlayerSoundController playerSounds;
 
     void Awake()
     {
@@ -22,6 +24,7 @@ public class FungusInteract : MonoBehaviour
             controls.Gameplay.EquipOrInteract.performed += _ => ExecuteBlock();
         }
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
+        playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
     }
 
     void ExecuteBlock() {
@@ -29,6 +32,7 @@ public class FungusInteract : MonoBehaviour
       //  Debug.Log("Block executing");
         if(targetInRange) {
           musicSounds.loadCustceneMusic();
+          playerSounds.FootstepLoopStop();
             blockRef.Execute();
         }
 
