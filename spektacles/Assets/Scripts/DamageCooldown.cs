@@ -11,7 +11,7 @@ public class DamageCooldown : MonoBehaviour
         StartCoroutine(Timer());
     }
 
-    private IEnumerator Timer()
+    private IEnumerator Timer() //TODO: add this to the player script?
     {
         Debug.Log("starting damage cooldown");
         var player = GetComponent<Player>();
