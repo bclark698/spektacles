@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class DamageCooldown : MonoBehaviour
 {
-    [SerializeField] private float totalCooldownTime = 2f;
-    private float currentCooldownTime = 0;
+    [SerializeField] private float cooldownTime = 2f;
 
     public void StartTimer()
     {
@@ -17,15 +16,11 @@ public class DamageCooldown : MonoBehaviour
         Debug.Log("starting damage cooldown");
         var player = GetComponent<Player>();
         player.invincible = true;
-        while(currentCooldownTime < totalCooldownTime)
-        {
-            yield return new WaitForSeconds(1);
-            currentCooldownTime += 1;
-        }
-        currentCooldownTime = 0; //reset
+
+        yield return new WaitForSeconds(cooldownTime);
+
         player.invincible = false;
         Debug.Log("end of damage cooldown");
         yield return null;
-
     }
 }

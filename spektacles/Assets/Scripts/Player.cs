@@ -112,11 +112,11 @@ public class Player : MonoBehaviour
 
     void HandleHit() 
     {
-        playerSounds.HitSound();
-        lives--;
-        Debug.Log("lives:" + lives);
-        if (!invincible)
+        if (!invincible) //TODO: move this check to onTriggerEnter?
         {
+            playerSounds.HitSound();
+            lives--;
+            Debug.Log("lives:" + lives);
             if (lives == 1)
             {
                 life2Image.SetActive(false);
