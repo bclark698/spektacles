@@ -8,14 +8,17 @@ public class Jocks : Enemy
    // private State state = State.Patroling;
     public GameObject[] waypoints;
 	public int num = 0;
+    public float timer = 0.5f;
 
-	public float minDist;
+    public float minDist;
 	public float timeToSpot;
     private float yVelo = 0.0f;
     private float xVelo = 0.0f;
 
 	public bool rand = false;
 	public bool go = true;
+
+    
 
     void Start() {
         powerUpToHandle = PowerUp.Type.Helmet;
@@ -34,7 +37,14 @@ public class Jocks : Enemy
             }
             else
             {
-                if(!rand)
+                if (timer > 0)
+                {
+                    timer -= Time.deltaTime;
+                    return;
+                }
+                timer = 0.5f;
+
+                if (!rand)
                 {
                     if(num + 1 == waypoints.Length)
                     {
@@ -58,6 +68,11 @@ public class Jocks : Enemy
         float newPosX = Mathf.SmoothDamp(transform.position.x, waypoints[num].transform.position.x, ref xVelo, timeToSpot);
         float newPosY = Mathf.SmoothDamp(transform.position.y, waypoints[num].transform.position.y, ref yVelo, timeToSpot);
         transform.position = new Vector2(newPosX, newPosY);
+    }
+
+    public void Wait()
+    {
+
     }
 
     public override IEnumerator HandleStun()
