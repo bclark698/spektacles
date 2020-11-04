@@ -24,7 +24,7 @@ public class Player : MonoBehaviour
 
     public PlayerControls controls;
     private bool reachedEnd;
-    private bool inCutscene;
+    public static bool inCutscene;
     private Petrify petrify;
     private PowerUpRange powerUpRange;
 
@@ -35,6 +35,7 @@ public class Player : MonoBehaviour
     [SerializeField]
     private GameObject restart;
     public static bool allowMovement = true;
+    public static bool allowInteract = true;
 
     // called before Start
     void Awake()
@@ -81,13 +82,14 @@ public class Player : MonoBehaviour
             life3Image.SetActive(false);
 
         inCutscene = false;
+        PauseMenu.allowPause = true;
     }
 
     // Update is called once per frame
     void Update()
     {
         Vector2 moveInput = new Vector2(0,0);
-        if(allowMovement && !inCutscene && !PauseMenu.gameIsPaused) {
+        if(allowMovement && !inCutscene) {
             moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
         }
         movementVelocity = moveInput.normalized * moveSpeed;
@@ -189,11 +191,12 @@ public class Player : MonoBehaviour
 
     // add other player-specific things if needed
     private void Interact() {
-        if(reachedEnd) {
+        if(allowInteract && reachedEnd) {
             /*the camera being turned off is now managed by fungus so we don't
             have to worry about it accidentally knocking melita out of range*/
             musicSounds.loadCustceneMusic();
             inCutscene = true;
+            PauseMenu.allowPause = false;
         }
     }
 

@@ -22,7 +22,7 @@ public class Ability : MonoBehaviour
 	}
 
 	protected virtual void ButtonHeld() {
-        if(allowAbility && !PauseMenu.gameIsPaused) {
+        if(allowAbility) {
             buttonHeld = true;
 
             // fix bug where enemies already in range when beginning button hold are not outlined
@@ -36,7 +36,7 @@ public class Ability : MonoBehaviour
     }
 
     protected virtual void ButtonRelease() {
-        if(allowAbility && !PauseMenu.gameIsPaused) {
+        if(allowAbility) {
             buttonHeld = false;
 
             // fix bug where enemies already in range at moment of button release are not un-outlined

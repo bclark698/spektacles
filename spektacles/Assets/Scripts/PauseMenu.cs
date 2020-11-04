@@ -30,9 +30,9 @@ public class PauseMenu : MonoBehaviour
         objectiveText = GameObject.FindGameObjectWithTag("Objective Text").GetComponent<TextMeshProUGUI>();
 	}
 
-    void PauseOrResume()
+    public void PauseOrResume()
     {
-        if(allowPause) { // TODO do we need to put this check in the other functions too?
+        if(allowPause && !Player.inCutscene) { // TODO do we need to put this check in the other functions too?
             Debug.Log("pause button pressed");
             if(gameIsPaused) {
                 Resume();
@@ -51,6 +51,7 @@ public class PauseMenu : MonoBehaviour
         Petrify.allowAbility = false;
         PowerUpRange.allowAbility = false;
         Player.allowMovement = false;
+        Player.allowInteract = false;
         objectiveText.enabled = true;
     }
 
@@ -63,6 +64,7 @@ public class PauseMenu : MonoBehaviour
         Petrify.allowAbility = true;
         PowerUpRange.allowAbility = true;
         Player.allowMovement = true;
+        Player.allowInteract = true;
         objectiveText.enabled = false;
     }
 

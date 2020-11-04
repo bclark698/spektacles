@@ -30,7 +30,7 @@ public class FungusInteract : MonoBehaviour
     void ExecuteBlock() {
 
       //  Debug.Log("Block executing");
-        if(targetInRange) {
+        if(Player.allowInteract && targetInRange) {
           musicSounds.loadCustceneMusic();
           playerSounds.FootstepLoopStop();
             blockRef.Execute();
