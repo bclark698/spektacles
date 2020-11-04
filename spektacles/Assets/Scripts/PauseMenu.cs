@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class PauseMenu : MonoBehaviour
@@ -18,12 +19,13 @@ public class PauseMenu : MonoBehaviour
 	void Awake() {
 		controls = new PlayerControls();
 		controls.Gameplay.Pause.performed += _ => PauseOrResume();
+    controls.Gameplay.Reset.performed += _ => ResetLevel();
         if(instance != null)
             GameObject.Destroy(instance);
         else
             instance = this;
-         
-        DontDestroyOnLoad(this);
+
+        //DontDestroyOnLoad(this);
 
         objectiveText = GameObject.FindGameObjectWithTag("Objective Text").GetComponent<TextMeshProUGUI>();
 	}
@@ -76,6 +78,10 @@ public class PauseMenu : MonoBehaviour
         #else
         Application.Quit();
         #endif
+    }
+
+    public void ResetLevel(){
+       SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
     private void OnEnable()

@@ -89,6 +89,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Reset"",
+                    ""type"": ""Button"",
+                    ""id"": ""1e0ca38a-fbea-4942-9df9-a9983dc06ec7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -784,6 +792,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Start"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1b298300-6610-45cf-b6c4-7f09fe83e1b9"",
+                    ""path"": ""<Keyboard>/r"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Reset"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -1423,6 +1442,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_UsePowerUp = m_Gameplay.FindAction("UsePowerUp", throwIfNotFound: true);
         m_Gameplay_temp = m_Gameplay.FindAction("temp", throwIfNotFound: true);
         m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
+        m_Gameplay_Reset = m_Gameplay.FindAction("Reset", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1493,6 +1513,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_UsePowerUp;
     private readonly InputAction m_Gameplay_temp;
     private readonly InputAction m_Gameplay_Start;
+    private readonly InputAction m_Gameplay_Reset;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -1506,6 +1527,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @UsePowerUp => m_Wrapper.m_Gameplay_UsePowerUp;
         public InputAction @temp => m_Wrapper.m_Gameplay_temp;
         public InputAction @Start => m_Wrapper.m_Gameplay_Start;
+        public InputAction @Reset => m_Wrapper.m_Gameplay_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1542,6 +1564,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Start.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
+                @Reset.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
+                @Reset.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
+                @Reset.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1573,6 +1598,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
+                @Reset.started += instance.OnReset;
+                @Reset.performed += instance.OnReset;
+                @Reset.canceled += instance.OnReset;
             }
         }
     }
@@ -1711,6 +1739,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnUsePowerUp(InputAction.CallbackContext context);
         void OnTemp(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
+        void OnReset(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
