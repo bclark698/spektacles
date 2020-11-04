@@ -148,6 +148,7 @@ public class Player : MonoBehaviour
         playerSounds.ReloadSound();
         lives = 2;
         life2Image.SetActive(true);
+        life3Image.SetActive(false);
         if (anim.GetBool("blind"))
         {
             anim.SetBool("blind", false);
