@@ -59,8 +59,14 @@ public class Player : MonoBehaviour
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
 
-        petrify = GameObject.FindGameObjectWithTag("Petrify Range").GetComponent<Petrify>();
-        powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
+        GameObject petrifyObject = GameObject.FindGameObjectWithTag("Petrify Range");
+        if(petrifyObject) {
+            petrify = petrifyObject.GetComponent<Petrify>();
+        }
+        GameObject powerUpObject = GameObject.FindGameObjectWithTag("PowerUp Range");
+        if(powerUpObject) {
+            powerUpRange = powerUpObject.GetComponent<PowerUpRange>();
+        }
         damageCooldown = GetComponent<DamageCooldown>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
@@ -70,7 +76,8 @@ public class Player : MonoBehaviour
 
         life2Image = GameObject.Find("Life 2");
         life3Image = GameObject.Find("Life 3");
-        life3Image.SetActive(false);
+        if(life3Image != null)
+            life3Image.SetActive(false);
 
         inCutscene = false;
     }
