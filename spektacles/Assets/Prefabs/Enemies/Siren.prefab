@@ -26,7 +26,7 @@ Transform:
   m_GameObject: {fileID: 2200099529696946931}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.099991, y: 1.1, z: 0}
-  m_LocalScale: {x: 48.475765, y: 48.289337, z: 0.011748176}
+  m_LocalScale: {x: 35, y: 35, z: 0.011748176}
   m_Children: []
   m_Father: {fileID: 5331540507851166396}
   m_RootOrder: 1
@@ -478,7 +478,7 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: 6.36}
+  m_Offset: {x: 0.09, y: 2.73}
   m_Size: {x: 8.72, y: 5.43}
   m_Direction: 1
 --- !u!70 &2647505907632659085
@@ -494,7 +494,7 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.09, y: 6}
+  m_Offset: {x: 0.09, y: 2.78}
   m_Size: {x: 6.93, y: 3.95}
   m_Direction: 1
 --- !u!95 &1129599530830832728
@@ -564,9 +564,9 @@ CircleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.33204502, y: 0.10205438}
+  m_Offset: {x: 0, y: 1.2}
   serializedVersion: 2
-  m_Radius: 24.773277
+  m_Radius: 17.83
 --- !u!114 &747573177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -581,6 +581,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inRange: 0
   gravityRange: {fileID: 0}
-  gravitationalForce: 500
+  gravitationalForce: 1000
   sirenPullSound: {fileID: 5966529636156336293}
   sirenBlockedSound: {fileID: 1974671795986578816}

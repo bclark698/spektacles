@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Ability : MonoBehaviour
 {
+    public static bool allowAbility = true;
 	protected PlayerSoundController playerSounds;
 	public PlayerControls controls;
     private LayerMask enemyLayerMask;
@@ -21,7 +22,7 @@ public class Ability : MonoBehaviour
 	}
 
 	protected virtual void ButtonHeld() {
-        if(!PauseMenu.gameIsPaused) {
+        if(allowAbility && !PauseMenu.gameIsPaused) {
             buttonHeld = true;
 
             // fix bug where enemies already in range when beginning button hold are not outlined
@@ -35,7 +36,7 @@ public class Ability : MonoBehaviour
     }
 
     protected virtual void ButtonRelease() {
-        if(!PauseMenu.gameIsPaused) {
+        if(allowAbility && !PauseMenu.gameIsPaused) {
             buttonHeld = false;
 
             // fix bug where enemies already in range at moment of button release are not un-outlined

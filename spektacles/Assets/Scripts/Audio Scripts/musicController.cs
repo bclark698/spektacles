@@ -14,6 +14,8 @@ public class musicController : MonoBehaviour
   public AudioSource busCutMusic;
   public AudioSource lvl1Music;
   public AudioSource cut1Music;
+  public AudioSource lvl2Music;
+  public AudioSource cut2Music;
   public AudioSource lvl3Music;
   public AudioSource cut3Music;
 
@@ -81,6 +83,12 @@ public class musicController : MonoBehaviour
       case "School Level 1":
       currentMusic.clip = lvl1Music.clip;
       break;
+      case "School Level 2":
+      currentMusic.clip = lvl2Music.clip;
+      break;
+      case "School Level 3":
+      currentMusic.clip = lvl3Music.clip;
+      break;
       case "Full School Scene":
       currentMusic.clip = lvl1Music.clip;
       break;
@@ -102,19 +110,27 @@ public class musicController : MonoBehaviour
     switch (currentLevel){
 
       case "Floor1 NEW":
-      Debug.Log("switching to cut1Music");
+      //Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
       case "Bus":
-      Debug.Log("switching to cut1Music");
+      //Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(busCutMusic, 2, 4));
       break;
       case "School Level 1":
-      Debug.Log("switching to cut1Music");
+      //Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
+      case "School Level 2":
+      //Debug.Log("switching to cut2Music");
+      StartCoroutine(MusicSwitch(cut2Music, 2, 4));
+      break;
+      case "School Level 3":
+      //Debug.Log("switching to cut3Music");
+      StartCoroutine(MusicSwitch(cut3Music, 2, 4));
+      break;
       case "Full School Scene":
-      Debug.Log("switching to cut1Music");
+      //Debug.Log("switching to cut1Music");
       StartCoroutine(MusicSwitch(cut1Music, 2, 4));
       break;
       case "Firedrill Test":

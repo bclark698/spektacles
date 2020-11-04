@@ -14,13 +14,13 @@ public class PowerUpRange : Ability
 
     protected override void ButtonHeld() {
         // prevent outlining when no powerup is held
-        if(!PauseMenu.gameIsPaused && powerUpObj != null) {
+        if(allowAbility && !PauseMenu.gameIsPaused && powerUpObj != null) {
             base.ButtonHeld();
         }
     }
 
     protected override void ButtonRelease() {
-        if(!PauseMenu.gameIsPaused) {
+        if(allowAbility && !PauseMenu.gameIsPaused) {
             base.ButtonRelease();
             UsePowerUp();
         }
