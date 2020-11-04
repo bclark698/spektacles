@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
+using UnityEngine.EventSystems;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -19,7 +20,7 @@ public class PauseMenu : MonoBehaviour
 	void Awake() {
 		controls = new PlayerControls();
 		controls.Gameplay.Pause.performed += _ => PauseOrResume();
-    controls.Gameplay.Reset.performed += _ => ResetLevel();
+        controls.Gameplay.Reset.performed += _ => ResetLevel();
         if(instance != null)
             GameObject.Destroy(instance);
         else
@@ -40,6 +41,7 @@ public class PauseMenu : MonoBehaviour
                 Pause();
             }
         }
+        EventSystem.current.SetSelectedGameObject(null);
     }
 
     public void Pause() {
