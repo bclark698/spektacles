@@ -30,6 +30,7 @@ public class Follow : MonoBehaviour
     {
         targetX = target.transform.position.x;
         targetY = target.transform.position.y;
+        Debug.Log(targetX);
 
         //if (cam.transform.position != target.transform.position)
         //{

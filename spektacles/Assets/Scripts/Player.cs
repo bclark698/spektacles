@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     private Animator anim;
     private int lives = 2; //one for w/ glasses, one for without
     private GameObject life2Image;
+    private GameObject life3Image;
 
     //audio
     private PlayerSoundController playerSounds;
@@ -29,7 +30,7 @@ public class Player : MonoBehaviour
 
     private DamageCooldown damageCooldown;
     [HideInInspector] public bool invincible;
-    
+
 
     [SerializeField]
     private GameObject restart;
@@ -57,6 +58,7 @@ public class Player : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+
         petrify = GameObject.FindGameObjectWithTag("Petrify Range").GetComponent<Petrify>();
         powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
         damageCooldown = GetComponent<DamageCooldown>();
@@ -67,6 +69,8 @@ public class Player : MonoBehaviour
         transform.GetChild(0).gameObject.SetActive(false);
 
         life2Image = GameObject.Find("Life 2");
+        life3Image = GameObject.Find("Life 3");
+        life3Image.SetActive(false);
 
         inCutscene = false;
     }
@@ -110,13 +114,18 @@ public class Player : MonoBehaviour
         return (lives >= 2);
     }
 
-    void HandleHit() 
+    void HandleHit()
     {
         if (!invincible) //TODO: move this check to onTriggerEnter?
         {
             playerSounds.HitSound();
             lives--;
             Debug.Log("lives:" + lives);
+            if (lives == 2)
+            {
+                life3Image.SetActive(false);
+                damageCooldown.StartTimer();
+            }
             if (lives == 1)
             {
                 life2Image.SetActive(false);
@@ -212,9 +221,11 @@ public class Player : MonoBehaviour
         {
             PickUpGlasses();
         }
-        else if (other.CompareTag("GlassesBuff")) 
+        else if (other.CompareTag("GlassesBuff"))
         {
-            lives++;
+            lives = 3;
+            life2Image.SetActive(true);
+            life3Image.SetActive(true);
             Destroy(other.gameObject);
             Debug.Log("add lives. current lives " + lives);
             playerSounds.AcquireSound();
