@@ -27,7 +27,7 @@ public class Petrify : Ability
     }
 
     protected override void ButtonRelease() {
-        if(!PauseMenu.gameIsPaused) {
+        if(allowAbility && !PauseMenu.gameIsPaused) {
             base.ButtonRelease();
             player.LoseGlasses();
         }

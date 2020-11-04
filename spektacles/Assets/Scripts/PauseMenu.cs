@@ -8,10 +8,11 @@ public class PauseMenu : MonoBehaviour
 {
     public static PauseMenu instance;
 	public static bool gameIsPaused = false;
+    public static bool allowPause = true;
 
 	public PlayerControls controls;
-	[SerializeField] private GameObject pauseMenu;
-	[SerializeField] private GameObject pauseButton;
+	[SerializeField] private GameObject pauseMenu = null;
+	[SerializeField] private GameObject pauseButton = null;
     TextMeshProUGUI objectiveText;
 
 	void Awake() {
@@ -29,11 +30,13 @@ public class PauseMenu : MonoBehaviour
 
     void PauseOrResume()
     {
-        Debug.Log("pause button pressed");
-        if(gameIsPaused) {
-        	Resume();
-        } else {
-        	Pause();
+        if(allowPause) { // TODO do we need to put this check in the other functions too?
+            Debug.Log("pause button pressed");
+            if(gameIsPaused) {
+                Resume();
+            } else {
+                Pause();
+            }
         }
     }
 
@@ -43,6 +46,9 @@ public class PauseMenu : MonoBehaviour
     	pauseButton.SetActive(false);
     	Time.timeScale = 0f;
     	gameIsPaused = true;
+        Petrify.allowAbility = false;
+        PowerUpRange.allowAbility = false;
+        Player.allowMovement = false;
         objectiveText.enabled = true;
     }
 
@@ -52,6 +58,9 @@ public class PauseMenu : MonoBehaviour
     	pauseButton.SetActive(true);
     	Time.timeScale = 1f;
     	gameIsPaused = false;
+        Petrify.allowAbility = true;
+        PowerUpRange.allowAbility = true;
+        Player.allowMovement = true;
         objectiveText.enabled = false;
     }
 

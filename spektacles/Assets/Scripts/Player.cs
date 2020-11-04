@@ -34,6 +34,7 @@ public class Player : MonoBehaviour
 
     [SerializeField]
     private GameObject restart;
+    public static bool allowMovement = true;
 
     // called before Start
     void Awake()
@@ -86,7 +87,7 @@ public class Player : MonoBehaviour
     void Update()
     {
         Vector2 moveInput = new Vector2(0,0);
-        if(!inCutscene && !PauseMenu.gameIsPaused) {
+        if(allowMovement && !inCutscene && !PauseMenu.gameIsPaused) {
             moveInput = controls.Gameplay.Move.ReadValue<Vector2>();
         }
         movementVelocity = moveInput.normalized * moveSpeed;
