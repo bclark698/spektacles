@@ -3735,6 +3735,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3a0bbe22c246e4c78ad8e9816cbae9d5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &503635882 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6772146400240351423, guid: dff976165ae8446e8961c04c1d313e4c,
+    type: 3}
+  m_PrefabInstance: {fileID: 521299023}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &506127921 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6772146399084097882, guid: dff976165ae8446e8961c04c1d313e4c,
@@ -3791,12 +3797,12 @@ PrefabInstance:
     - target: {fileID: 6772146400240351420, guid: dff976165ae8446e8961c04c1d313e4c,
         type: 3}
       propertyPath: timeToSpot
-      value: 0.15
+      value: 0.37
       objectReference: {fileID: 0}
     - target: {fileID: 6772146400240351420, guid: dff976165ae8446e8961c04c1d313e4c,
         type: 3}
       propertyPath: minDist
-      value: 3.4
+      value: 3.2
       objectReference: {fileID: 0}
     - target: {fileID: 6772146400240351420, guid: dff976165ae8446e8961c04c1d313e4c,
         type: 3}
@@ -3863,6 +3869,21 @@ PrefabInstance:
       propertyPath: waypoints.Array.data[15]
       value: 
       objectReference: {fileID: 1426540693}
+    - target: {fileID: 6772146400240351420, guid: dff976165ae8446e8961c04c1d313e4c,
+        type: 3}
+      propertyPath: waitTime
+      value: 0.15
+      objectReference: {fileID: 0}
+    - target: {fileID: 6772146400240351420, guid: dff976165ae8446e8961c04c1d313e4c,
+        type: 3}
+      propertyPath: anim
+      value: 
+      objectReference: {fileID: 503635882}
+    - target: {fileID: 6772146400240351420, guid: dff976165ae8446e8961c04c1d313e4c,
+        type: 3}
+      propertyPath: num
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 6772146400240351421, guid: dff976165ae8446e8961c04c1d313e4c,
         type: 3}
       propertyPath: m_LocalPosition.z
@@ -5272,7 +5293,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 2105026364}
 --- !u!4 &727472271
 Transform:
   m_ObjectHideFlags: 1
@@ -15886,11 +15907,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
-      propertyPath: m_LocalScale.x
-      value: -1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
-        type: 3}
       propertyPath: m_LocalScale.y
       value: 1
       objectReference: {fileID: 0}
@@ -15912,7 +15928,7 @@ PrefabInstance:
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: selectedBlocks.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
@@ -17610,6 +17626,18 @@ MonoBehaviour:
   vector3Data:
     vector3Ref: {fileID: 0}
     vector3Val: {x: 0, y: 0, z: 0}
+--- !u!114 &2105026364 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105026314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105026315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &2105026365
 MonoBehaviour:
   m_ObjectHideFlags: 2
