@@ -8,7 +8,8 @@ public class Jocks : Enemy
    // private State state = State.Patroling;
     public GameObject[] waypoints;
 	public int num = 0;
-    public float timer = 0.5f;
+    public float waitTime;
+    private float timer;
 
     public float minDist;
 	public float timeToSpot;
@@ -18,10 +19,12 @@ public class Jocks : Enemy
 	public bool rand = false;
 	public bool go = true;
 
-    
+
 
     void Start() {
         powerUpToHandle = PowerUp.Type.Helmet;
+
+        timer = waitTime;
     }
 
 
@@ -42,7 +45,7 @@ public class Jocks : Enemy
                     timer -= Time.deltaTime;
                     return;
                 }
-                timer = 0.5f;
+                timer = waitTime;
 
                 if (!rand)
                 {
