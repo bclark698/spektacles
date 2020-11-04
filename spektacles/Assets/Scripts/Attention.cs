@@ -2,15 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using UnityEngine.Events;
 
 public class Attention : MonoBehaviour
 {
-	[SerializeField] private Sprite attentionSprite;
-	[SerializeField] private Sprite interactSprite;
+	[SerializeField] private Sprite attentionSprite = null;
+	[SerializeField] private Sprite interactSprite = null;
 	private SpriteRenderer indicator;
 	public PlayerControls controls;
 	[SerializeField] bool targetInRange = false; // TODO delete serial
 	[SerializeField] bool showOnStart = true;
+	public UnityEvent attentionCleared;
 
 	void Awake() {
 		controls = new PlayerControls();
@@ -18,6 +20,9 @@ public class Attention : MonoBehaviour
 		indicator = GetComponent<SpriteRenderer>();
 		if(showOnStart) {
 			indicator.sprite = attentionSprite;
+		}
+		if(attentionCleared == null) {
+			attentionCleared = new UnityEvent();
 		}
 	}
 
@@ -51,6 +56,7 @@ public class Attention : MonoBehaviour
 
     void TurnOff() {
     	indicator.sprite = null;
+    	attentionCleared.Invoke();
     }
 
     void OnEnable()

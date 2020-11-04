@@ -2,17 +2,29 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
+using TMPro;
 
 public class PauseMenu : MonoBehaviour
 {
+    public static PauseMenu instance;
 	public static bool gameIsPaused = false;
+
 	public PlayerControls controls;
 	[SerializeField] private GameObject pauseMenu;
 	[SerializeField] private GameObject pauseButton;
+    TextMeshProUGUI objectiveText;
 
 	void Awake() {
 		controls = new PlayerControls();
 		controls.Gameplay.Pause.performed += _ => PauseOrResume();
+        if(instance != null)
+            GameObject.Destroy(instance);
+        else
+            instance = this;
+         
+        DontDestroyOnLoad(this);
+
+        objectiveText = GameObject.FindGameObjectWithTag("Objective Text").GetComponent<TextMeshProUGUI>();
 	}
 
     void PauseOrResume()
@@ -31,6 +43,7 @@ public class PauseMenu : MonoBehaviour
     	pauseButton.SetActive(false);
     	Time.timeScale = 0f;
     	gameIsPaused = true;
+        objectiveText.enabled = true;
     }
 
     public void Resume() {
@@ -39,6 +52,7 @@ public class PauseMenu : MonoBehaviour
     	pauseButton.SetActive(true);
     	Time.timeScale = 1f;
     	gameIsPaused = false;
+        objectiveText.enabled = false;
     }
 
     public void HowToPlay() {
