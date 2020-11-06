@@ -7,44 +7,58 @@ using UnityEngine.UI;
 
 public class TutorialPopup : MonoBehaviour
 {
-	[SerializeField] private Sprite[] tipSprites;
-	[SerializeField] private string[] tipTexts;
-	[SerializeField] private Sprite previewImage = null;
-	[SerializeField] private string text = null; // TODO make this text be able to be variable based on platform
+	// each tip should have an image and some text, so these should be equal length arrays
+	[SerializeField] private Sprite[] tipSprites = null;
+	[SerializeField] private string[] tipTexts = null;
+
 	private GameObject popupBackground;
 	private Image imagePreview;
-	private TextMeshProUGUI textObject;
+	private TextMeshProUGUI tipText;
+	private TextMeshProUGUI pageNumText;
+	private Image rightButton;
+	private Image leftButton;
+
 	private bool shownOnce = false;
 	public PlayerControls controls;
-
-
+	private int tipNum = 0;
 
 	void Awake() {
 		controls = new PlayerControls();
 		controls.UI.Submit.performed += _ => Hide();
+		controls.UI.Navigate.performed += context => DeterminePrevOrNext(context);
 
 		popupBackground = GameObject.FindGameObjectWithTag("Tutorial Popup");
-        // imagePreview = popupBackground.GetComponentInChildren<Image>(); // this doesn't work because this gets the image component in the parent first
-        Image[] images = popupBackground.GetComponentsInChildren<Image>();       
-        foreach(Image i in images) {
-            if(i.gameObject.transform.parent != null) {
-               imagePreview = i; //this gameObject is a child, because its transform.parent is not null
-            }
-        }
+        imagePreview = popupBackground.transform.Find("Image Preview").GetComponent<Image>();
+        tipText = popupBackground.transform.Find("Tip Text").GetComponent<TextMeshProUGUI>();
+        pageNumText = popupBackground.transform.Find("Page Num").GetComponent<TextMeshProUGUI>();
+        rightButton = popupBackground.transform.Find("Right Button").GetComponent<Image>();
+        leftButton = popupBackground.transform.Find("Left Button").GetComponent<Image>();
+        leftButton.sprite = GameAssets.instance.arrowPrev;
 
-        textObject = popupBackground.GetComponentInChildren<TextMeshProUGUI>();
         ReplaceFields();
 	}
 
+	void DeterminePrevOrNext(InputAction.CallbackContext context) {
+		if(IsShowing()) {
+			float x = context.ReadValue<Vector2>().x;
+			if(x > 0) {
+				NextTip();
+			} else if(x < 0) {
+				PrevTip();
+			}
+		}
+	}
+
     // Start is called before the first frame update
-    void Start()
-    {
+    void Start() {
     	Hide();
     }
 
     void UpdateFields() {
-    	imagePreview.sprite = previewImage;
-    	textObject.text = text;
+    	imagePreview.sprite = tipSprites[tipNum];
+    	tipText.text = tipTexts[tipNum];
+    	UpdateButtons();
+    	UpdatePageNum();
     }
 
     void Show() {
@@ -63,6 +77,10 @@ public class TutorialPopup : MonoBehaviour
         PauseMenu.allowPause = true;
     }
 
+    bool IsShowing() {
+    	return popupBackground.activeSelf;
+    }
+
     void OnTriggerEnter2D(Collider2D other) {
     	if(other.CompareTag("Player") && !shownOnce) {
     		UpdateFields();
@@ -72,7 +90,58 @@ public class TutorialPopup : MonoBehaviour
     }
 
     void ReplaceFields() {
-    	text = text.Replace("<PETRIFY>", PlatformSpecific.instance.petrifyString);
+    	for(int i = 0; i < tipTexts.Length; i++) {
+    		tipTexts[i] = tipTexts[i].Replace("<PETRIFY>", GameAssets.instance.petrifyString);
+    	}
+    }
+
+    int NumTips() {
+    	return tipSprites.Length;
+    }
+
+    void NextTip() {
+    	if(tipNum < NumTips()-1) {
+    		tipNum++;
+    		UpdateFields();
+    	}
+    }
+
+    void PrevTip() {
+    	if(tipNum > 0) {
+    		tipNum--;
+    		UpdateFields();
+    	}
+    }
+
+    void UpdateButtons() {
+    	Image leftBtnImg = leftButton.GetComponent<Image>();
+        var tempColor = leftBtnImg.color;
+    	if(NumTips() > 1) {
+    		if(tipNum == 0) { //first page
+    			tempColor.a = 0f;
+	    	} else {
+	    		tempColor.a = 1f;
+	    	}
+	    	
+	    	if(tipNum == NumTips()-1) {
+	    		rightButton.sprite = GameAssets.instance.tipExit;
+	    	} else {
+	    		rightButton.sprite = GameAssets.instance.arrowNext;
+	    	}
+    	} else {
+    		tempColor.a = 0f;
+    		rightButton.sprite = GameAssets.instance.tipExit;
+    	}
+    	leftBtnImg.color = tempColor;
+    }
+
+    void UpdatePageNum() {
+    	if(NumTips() > 1) {
+    		pageNumText.text = (tipNum+1)+"/"+NumTips();
+		} else {
+			pageNumText.text = "";
+		}
+    	
     }
 
     void OnEnable() {
