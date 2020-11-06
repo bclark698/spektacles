@@ -137,7 +137,7 @@ Shader "Custom/BlurFieldOfView"
             				color = color / sum;
             			//	return color;
 
-            color *= float4(.4, .6, .3, 1);
+            color *= float4(.05, .25, .05, 1);
 
 
             //lerp between the mask and the original texture, to add the masking
