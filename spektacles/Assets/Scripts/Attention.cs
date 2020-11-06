@@ -24,6 +24,7 @@ public class Attention : MonoBehaviour
 		if(attentionCleared == null) {
 			attentionCleared = new UnityEvent();
 		}
+		interactSprite = PlatformSpecific.instance.speechInteract;
 	}
 
     void HideOnEnter() {

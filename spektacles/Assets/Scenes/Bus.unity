@@ -12015,9 +12015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bcc55377ff5e54f9db791b1cb73443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipSprites: []
+  tipTexts: []
   previewImage: {fileID: 21300000, guid: 123a3e90d473063488d3d2517d03e3de, type: 3}
-  text: Press space to take off your glasses and petrify enemies around you. However,
-    this will impair your vision for a few seconds.
+  text: Press <PETRIFY> to take off your glasses and petrify enemies around you.
+    However, this will impair your vision for a few seconds.
 --- !u!4 &1574730725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6213095808929261614, guid: 70010dc8446922440bb61ee515ec8aba,
@@ -12641,8 +12643,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bcc55377ff5e54f9db791b1cb73443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipSprites: []
+  tipTexts: []
   previewImage: {fileID: 21300000, guid: cd34ba88667cb964488f8e2202899393, type: 3}
-  text: Hold space to see an outline around all the enemies in your range
+  text: Hold <PETRIFY> to see an outline around all the enemies in your range
 --- !u!61 &1798835714
 BoxCollider2D:
   m_ObjectHideFlags: 0
