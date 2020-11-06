@@ -6426,7 +6426,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -9465,7 +9465,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -1
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -9985,6 +9985,8 @@ GameObject:
   - component: {fileID: 6209689596376156422}
   - component: {fileID: 3663768037309422281}
   - component: {fileID: 2196844009717448061}
+  - component: {fileID: 7099282043728794774}
+  - component: {fileID: 1890170629625370008}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -26548,6 +26550,34 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!19719996 &7099282043728794774
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669863378592235282}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
+--- !u!114 &1890170629625370008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3669863378592235282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62856c805f033834d9fc4143ceab511a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!61 &6628829419883647557
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -27201,6 +27231,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5108427069871499127}
   - component: {fileID: 5145510383018188986}
+  - component: {fileID: 3289624688449405519}
   m_Layer: 0
   m_Name: School- Full Outside Mid
   m_TagString: Untagged
@@ -27245,6 +27276,44 @@ Grid:
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0
+--- !u!1839735485 &3289624688449405519
+Tilemap:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5451702670936110485}
+  m_Enabled: 1
+  m_Tiles: {}
+  m_AnimatedTiles: {}
+  m_TileAssetArray: []
+  m_TileSpriteArray: []
+  m_TileMatrixArray: []
+  m_TileColorArray: []
+  m_TileObjectToInstantiateArray: []
+  m_AnimationFrameRate: 1
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Origin: {x: 0, y: 0, z: 0}
+  m_Size: {x: 0, y: 0, z: 1}
+  m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
+  m_TileOrientation: 0
+  m_TileOrientationMatrix:
+    e00: 1
+    e01: 0
+    e02: 0
+    e03: 0
+    e10: 0
+    e11: 1
+    e12: 0
+    e13: 0
+    e20: 0
+    e21: 0
+    e22: 1
+    e23: 0
+    e30: 0
+    e31: 0
+    e32: 0
+    e33: 1
 --- !u!1 &5530301300065335885
 GameObject:
   m_ObjectHideFlags: 0
@@ -34958,7 +35027,7 @@ TilemapRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 2
   m_ChunkSize: {x: 32, y: 32, z: 32}
-  m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
+  m_ChunkCullingBounds: {x: 0, y: 0.5, z: 0}
   m_MaxChunkCount: 16
   m_MaxFrameAge: 16
   m_SortOrder: 0
@@ -36704,15 +36773,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 55de381f6bc1f402596bb89a642e18f2, type: 3}
---- !u!4 &2587787011592191039 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 6323109063108777943, guid: 55de381f6bc1f402596bb89a642e18f2,
-    type: 3}
-  m_PrefabInstance: {fileID: 8370389206193974248}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &7645050535145459929 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2175577640574253873, guid: 55de381f6bc1f402596bb89a642e18f2,
+    type: 3}
+  m_PrefabInstance: {fileID: 8370389206193974248}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &2587787011592191039 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6323109063108777943, guid: 55de381f6bc1f402596bb89a642e18f2,
     type: 3}
   m_PrefabInstance: {fileID: 8370389206193974248}
   m_PrefabAsset: {fileID: 0}

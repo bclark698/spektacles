@@ -50,19 +50,19 @@ public class Ability : MonoBehaviour
     }
 
     void OnTriggerEnter2D(Collider2D other) {
-    	if(other.CompareTag("Player")) {
+    	if(!other.CompareTag("Enemy")) { // avoid triggering on parent object and other obstacles other than Enemies
     		return;
     	}
-        if(buttonHeld && other.CompareTag("Enemy")) {
+        if(buttonHeld) {
             other.gameObject.GetComponent<Enemy>().OutlineOn();
         }
     }
 
     void OnTriggerExit2D(Collider2D other) {
-    	if(other.CompareTag("Player")) {
+    	if(!other.CompareTag("Enemy")) { // avoid triggering on parent object and other obstacles other than Enemies
     		return;
     	}
-        if(buttonHeld && other.CompareTag("Enemy")) {
+        if(buttonHeld) {
             other.gameObject.GetComponent<Enemy>().OutlineOff();
         }
     }

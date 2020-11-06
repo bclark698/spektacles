@@ -6991,7 +6991,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 1825551097}
 --- !u!4 &818092679
 Transform:
   m_ObjectHideFlags: 1
@@ -12015,9 +12015,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bcc55377ff5e54f9db791b1cb73443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipSprites: []
+  tipTexts: []
   previewImage: {fileID: 21300000, guid: 123a3e90d473063488d3d2517d03e3de, type: 3}
-  text: Press space to take off your glasses and petrify enemies around you. However,
-    this will impair your vision for a few seconds.
+  text: Press <PETRIFY> to take off your glasses and petrify enemies around you.
+    However, this will impair your vision for a few seconds.
 --- !u!4 &1574730725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6213095808929261614, guid: 70010dc8446922440bb61ee515ec8aba,
@@ -12641,8 +12643,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 75bcc55377ff5e54f9db791b1cb73443, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  tipSprites: []
+  tipTexts: []
   previewImage: {fileID: 21300000, guid: cd34ba88667cb964488f8e2202899393, type: 3}
-  text: Hold space to see an outline around all the enemies in your range
+  text: Hold <PETRIFY> to see an outline around all the enemies in your range
 --- !u!61 &1798835714
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -12704,6 +12708,26 @@ PrefabInstance:
     - target: {fileID: 1755550019957881398, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557685019525762520, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_Offset.y
+      value: -1.42
+      objectReference: {fileID: 0}
+    - target: {fileID: 3557685019525762520, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_Size.y
+      value: 2.24
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922115086241146562, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 4922115086241146562, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_WasSpriteAssigned
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 5052937155047006225, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
@@ -12796,6 +12820,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Irving
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984061795012001081, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984061795012001081, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 11.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984061795012001081, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 5
+      objectReference: {fileID: 0}
+    - target: {fileID: 5984061795012001081, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 5
       objectReference: {fileID: 0}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
@@ -13916,6 +13960,18 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &1825551097 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1825551065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825551067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &1833076918
 PrefabInstance:
   m_ObjectHideFlags: 0
