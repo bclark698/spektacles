@@ -129,8 +129,6 @@ GameObject:
   - component: {fileID: 5387167895076370668}
   - component: {fileID: 5387167895076370666}
   - component: {fileID: 7606447219585961494}
-  - component: {fileID: 5710499516997943573}
-  - component: {fileID: 7747327449013353804}
   - component: {fileID: 8781345639161483342}
   - component: {fileID: 5052937155047006225}
   - component: {fileID: 1909386635512339470}
@@ -243,44 +241,6 @@ MonoBehaviour:
   hideCommands: []
   luaEnvironment: {fileID: 0}
   luaBindingName: flowchart
---- !u!114 &5710499516997943573
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5387167895076370669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f41b1cae6c60434ab86d6e13409d273, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 0}
-  desktopIcons:
-  - {fileID: 21300000, guid: a638a94f97f18a340b235cd67adae79c, type: 3}
-  - {fileID: 21300000, guid: 00fc7e2c06773fe49b1526c1bf7fdf44, type: 3}
-  - {fileID: 21300000, guid: 13e35688425fe8b48bccd54665709e60, type: 3}
-  - {fileID: 21300000, guid: ebb216c2af338b141ac3b77b71333bf6, type: 3}
-  xboxIcons:
-  - {fileID: 21300000, guid: 713c08cc9b66f804dbf048294417a575, type: 3}
-  - {fileID: 21300000, guid: 1dcfa167ee6d06a418584a303ca22c3c, type: 3}
-  - {fileID: 21300000, guid: b5ee4a49185dfce499f1258f321bb3a9, type: 3}
-  - {fileID: 21300000, guid: 2052216147ad83e4b850b623630489d1, type: 3}
---- !u!114 &7747327449013353804
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5387167895076370669}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b7fb507f46f7bb48b90201a0c583ead, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: Player
-  icon: 1
-  showIndicatorOverPlayer: 0
 --- !u!70 &8781345639161483342
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
