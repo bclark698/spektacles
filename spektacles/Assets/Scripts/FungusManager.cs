@@ -68,7 +68,7 @@ public class FungusManager : MonoBehaviour
     public void TogglePlayer(bool on)
     {
         Petrify petrify = player.GetComponentInChildren<Petrify>();
-        player.enabled = on;
+        // player.enabled = on;
         petrify.enabled = on;
     }
 

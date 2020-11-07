@@ -10,14 +10,9 @@ public class JournalIntroduction : MonoBehaviour
     void Start() {
     	UnityEvent attentionCleared = GetComponent<Attention>().attentionCleared;
     	attentionCleared.AddListener(IntroduceJournal);
-
-    	// set first initial objective in home
-    	TextMeshProUGUI objectiveText = GameObject.FindGameObjectWithTag("Objective Text").GetComponent<TextMeshProUGUI>();
-		objectiveText.text = "Check out what's downstairs";
     }
 
     void IntroduceJournal() {
     	PauseMenu.instance.Pause();
-    	Debug.Log("INTRODUCE JOURNAL");
     }
 }

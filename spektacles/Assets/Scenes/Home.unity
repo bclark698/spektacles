@@ -450,7 +450,6 @@ GameObject:
   - component: {fileID: 69824154}
   - component: {fileID: 69824155}
   - component: {fileID: 69824166}
-  - component: {fileID: 69824168}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -592,7 +591,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 624.0221
     y: 430.69553
-    width: 152.38907
+    width: 157.14285
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -646,7 +645,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 140.938
-    width: 99.48805
+    width: 103.57143
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -699,7 +698,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 154.20216
     y: 411.43738
-    width: 119.96586
+    width: 121.428566
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -744,19 +743,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 309.57364, y: -185.17447}
+  scrollPos: {x: -26.749996, y: 186.86351}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
-  zoom: 0.5860001
+  zoom: 0.28000003
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 69824150}
+  selectedCommands:
+  - {fileID: 69824160}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -830,7 +831,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 435.82037
     y: 552.0602
-    width: 121.67235
+    width: 124.99999
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -934,7 +935,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 438.71906
     y: 432.97452
-    width: 152.38907
+    width: 160.71426
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -946,7 +947,6 @@ MonoBehaviour:
   - {fileID: 69824127}
   - {fileID: 69824128}
   - {fileID: 69824176}
-  - {fileID: 69824168}
   suppressAllAutoSelections: 0
 --- !u!114 &69824127
 MonoBehaviour:
@@ -2476,7 +2476,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 632.5393
     y: 334.27106
-    width: 73.89078
+    width: 75
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2880,8 +2880,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 447.96375
-    y: 300.76517
-    width: 126.7918
+    y: 297.19373
+    width: 128.57141
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3171,7 +3171,7 @@ MonoBehaviour:
         PublicKeyToken=b77a5c561934e089
       typeFullname: System.Boolean
       intValue: 0
-      boolValue: 1
+      boolValue: 0
       floatValue: 0
       stringValue: 
       colorValue: {r: 0, g: 0, b: 0, a: 0}
@@ -3341,34 +3341,6 @@ MonoBehaviour:
       vector2Value: {x: 0, y: 0}
       vector3Value: {x: 0, y: 0, z: 0}
     variableKey: 
-  saveReturnValue: 0
-  returnValueVariableKey: 
-  returnValueType: System.Void
-  showInherited: 0
-  callMode: 0
---- !u!114 &69824168
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 69824109}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 103
-  indentLevel: 1
-  description: 
-  targetObject: {fileID: 170470993}
-  targetComponentAssemblyName: Attention, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
-    PublicKeyToken=null
-  targetComponentFullname: UnityEngine.Component[]
-  targetComponentText: Attention
-  targetMethod: TurnOn
-  targetMethodText: 'TurnOn (): Void'
-  methodParameters: []
   saveReturnValue: 0
   returnValueVariableKey: 
   returnValueType: System.Void
@@ -4332,7 +4304,7 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &441828681
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4850,7 +4822,7 @@ PrefabInstance:
     - target: {fileID: 5161291368328296937, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7479928421931626928, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
@@ -46824,6 +46796,10 @@ PrefabInstance:
     - target: {fileID: 1423623171, guid: 362a54c7a5394e64192fdb1b9d9e0c7a, type: 3}
       propertyPath: m_Enabled
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1423623171, guid: 362a54c7a5394e64192fdb1b9d9e0c7a, type: 3}
+      propertyPath: m_text
+      value: Check out what's downstairs
       objectReference: {fileID: 0}
     - target: {fileID: 851484205091190886, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
         type: 3}
