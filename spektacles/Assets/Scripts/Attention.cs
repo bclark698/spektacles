@@ -10,7 +10,7 @@ public class Attention : MonoBehaviour
 	[SerializeField] private Sprite interactSprite = null;
 	private SpriteRenderer indicator;
 	public PlayerControls controls;
-	[SerializeField] bool targetInRange = false; // TODO delete serial
+	bool targetInRange = false;
 	[SerializeField] bool showOnStart = true;
 	public UnityEvent attentionCleared;
 
@@ -18,13 +18,15 @@ public class Attention : MonoBehaviour
 		controls = new PlayerControls();
 		controls.Gameplay.EquipOrInteract.performed += _ => HideOnEnter();
 		indicator = GetComponent<SpriteRenderer>();
+        attentionSprite = GameAssets.instance.attention;
+        interactSprite = GameAssets.instance.speechInteract;
+        
 		if(showOnStart) {
 			indicator.sprite = attentionSprite;
 		}
 		if(attentionCleared == null) {
 			attentionCleared = new UnityEvent();
 		}
-		interactSprite = GameAssets.instance.speechInteract;
 	}
 
     void HideOnEnter() {

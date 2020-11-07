@@ -11,8 +11,6 @@ public class NPCMovement : MonoBehaviour
     public float minDist;
     public float timeToSpot;
     public float speed;
-    private float yVelo = 0.0f;
-    private float xVelo = 0.0f;
 
     public bool rand = false;
     public bool go = true;

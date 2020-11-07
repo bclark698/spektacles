@@ -33,7 +33,7 @@ public class Player : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject restart;
+    private GameObject restart = null;
     public static bool allowMovement = true;
     public static bool allowInteract = true;
 

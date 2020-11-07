@@ -8,13 +8,13 @@ public class TeleportTrigger : MonoBehaviour
     public enum TriggerType { Enter, Exit };
 
     [Tooltip("The Transform to teleport to")]
-    [SerializeField] Transform teleportTo;
+    [SerializeField] Transform teleportTo = null;
 
     [Tooltip("The filter Tag")]
     [SerializeField] string filterTag = "Player";
 
     [Tooltip("Trigger Event to Teleport")]
-    [SerializeField] TriggerType type;
+    [SerializeField] TriggerType type = TriggerType.Enter; // random default value
 
     private AudioSource doorSound;
     private BoxCollider2D boxCollider;

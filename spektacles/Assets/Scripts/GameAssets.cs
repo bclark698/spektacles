@@ -34,7 +34,7 @@ public class GameAssets : MonoBehaviour
             return _instance;
         }
     }
-    
+
     private enum Platform { Windows, Mac, Xbox };
     private Platform platform;
 
@@ -45,6 +45,7 @@ public class GameAssets : MonoBehaviour
     public Sprite iconPowerUp;
 
     /* Attention Assets */
+    public Sprite attention;
     // platform dependent
     public Sprite speechInteract;
 
@@ -92,6 +93,8 @@ public class GameAssets : MonoBehaviour
     // assets that do not change based on platform
     void InitUniversalVariables() {
         string platform = "Universal/";
+
+        attention = Resources.Load<Sprite>(platform+"Attention");
         string category = "Tip/";
         arrowNext = Resources.Load<Sprite>(platform+category+"tip arrow next");
         arrowPrev = Resources.Load<Sprite>(platform+category+"tip arrow prev");

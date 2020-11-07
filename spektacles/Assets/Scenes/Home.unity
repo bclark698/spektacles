@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 69824154}
   - component: {fileID: 69824155}
   - component: {fileID: 69824166}
+  - component: {fileID: 69824168}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -591,7 +592,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 624.0221
     y: 430.69553
-    width: 155.26318
+    width: 152.38907
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -645,7 +646,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 140.938
-    width: 104.51129
+    width: 99.48805
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -696,9 +697,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 156.3208
-    y: 409.31873
-    width: 123.30829
+    x: 154.20216
+    y: 411.43738
+    width: 119.96586
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -743,19 +744,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 293.50644, y: -220.22176}
+  scrollPos: {x: 309.57364, y: -185.17447}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
-  zoom: 0.5319999
+  zoom: 0.5860001
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 69824114}
+  selectedBlocks: []
   selectedCommands: []
   variables:
   - {fileID: 69824125}
@@ -830,7 +830,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 435.82037
     y: 552.0602
-    width: 127.06769
+    width: 121.67235
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -932,9 +932,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 440.42554
-    y: 435.09317
-    width: 157.14288
+    x: 438.71906
+    y: 432.97452
+    width: 152.38907
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -946,6 +946,7 @@ MonoBehaviour:
   - {fileID: 69824127}
   - {fileID: 69824128}
   - {fileID: 69824176}
+  - {fileID: 69824168}
   suppressAllAutoSelections: 0
 --- !u!114 &69824127
 MonoBehaviour:
@@ -1378,7 +1379,7 @@ MonoBehaviour:
   itemId: 96
   indentLevel: 0
   description: 
-  targetObject: {fileID: 1640667235}
+  targetObject: {fileID: 637309977}
   targetComponentAssemblyName: ControlsIndicator, Assembly-CSharp, Version=0.0.0.0,
     Culture=neutral, PublicKeyToken=null
   targetComponentFullname: UnityEngine.Component[]
@@ -2474,8 +2475,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 632.5393
-    y: 333.44843
-    width: 76.315796
+    y: 334.27106
+    width: 73.89078
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2879,8 +2880,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 447.96375
-    y: 299.0587
-    width: 130.82709
+    y: 300.76517
+    width: 126.7918
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3345,6 +3346,34 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &69824168
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 103
+  indentLevel: 1
+  description: 
+  targetObject: {fileID: 170470993}
+  targetComponentAssemblyName: Attention, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: Attention
+  targetMethod: TurnOn
+  targetMethodText: 'TurnOn (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!114 &69824172
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3715,8 +3744,8 @@ GameObject:
   m_Component:
   - component: {fileID: 170470994}
   - component: {fileID: 170470997}
-  - component: {fileID: 170470996}
   - component: {fileID: 170470995}
+  - component: {fileID: 170470996}
   m_Layer: 0
   m_Name: Attention Indicator
   m_TagString: Untagged
@@ -3766,9 +3795,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035bc821b1ec9034c9a744ff78edc7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attentionSprite: {fileID: 21300000, guid: b407f4d146390ca42908249d3609b15e, type: 3}
-  interactSprite: {fileID: 21300000, guid: 9ce31ff8665287644b6b8466af253cf4, type: 3}
-  targetInRange: 0
+  attentionSprite: {fileID: 0}
+  interactSprite: {fileID: 0}
   showOnStart: 1
   attentionCleared:
     m_PersistentCalls:
@@ -5031,6 +5059,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
+--- !u!1 &637309977 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8334783193588277443, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+    type: 3}
+  m_PrefabInstance: {fileID: 576042641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &653571516 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7620900067891387553, guid: 652dbf7065698466191fb663fa59932b,
@@ -5692,7 +5726,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 0}
+  selectedFlowchart: {fileID: 69824120}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -37723,7 +37757,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attentionSprite: {fileID: 21300000, guid: b407f4d146390ca42908249d3609b15e, type: 3}
   interactSprite: {fileID: 21300000, guid: 9ce31ff8665287644b6b8466af253cf4, type: 3}
-  targetInRange: 0
   showOnStart: 1
   attentionCleared:
     m_PersistentCalls:
@@ -37915,7 +37948,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 94.80561
     y: 217.92847
-    width: 132.41306
+    width: 126.899956
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -37939,11 +37972,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 105.21253, y: 0.8408085}
+  scrollPos: {x: 115.94557, y: 6.351672}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 400
-  zoom: 0.837246
+  zoom: 0.81924623
   scrollViewRect:
     serializedVersion: 2
     x: 0
