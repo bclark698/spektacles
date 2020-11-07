@@ -15,7 +15,7 @@ public class PauseMenu : MonoBehaviour
 	public PlayerControls controls;
 	[SerializeField] private GameObject pauseMenu = null;
 	[SerializeField] private GameObject pauseButton = null;
-    TextMeshProUGUI objectiveText;
+    // TextMeshProUGUI objectiveText;
 
 	void Awake() {
 		controls = new PlayerControls();
@@ -28,7 +28,7 @@ public class PauseMenu : MonoBehaviour
 
         //DontDestroyOnLoad(this);
 
-        objectiveText = GameObject.FindGameObjectWithTag("Objective Text").GetComponent<TextMeshProUGUI>();
+        // objectiveText = GameObject.FindGameObjectWithTag("Objective Text").GetComponent<TextMeshProUGUI>();
 	}
 
     public void PauseOrResume()
@@ -54,7 +54,7 @@ public class PauseMenu : MonoBehaviour
         PowerUpRange.allowAbility = false;
         Player.allowMovement = false;
         Player.allowInteract = false;
-        objectiveText.enabled = true;
+        // objectiveText.enabled = true;
     }
 
     public void Resume() {
@@ -67,7 +67,7 @@ public class PauseMenu : MonoBehaviour
         PowerUpRange.allowAbility = true;
         Player.allowMovement = true;
         Player.allowInteract = true;
-        objectiveText.enabled = false;
+        // objectiveText.enabled = false;
     }
 
     public void HowToPlay() {

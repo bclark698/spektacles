@@ -15,40 +15,36 @@ public class NPCMovement : MonoBehaviour
     public bool rand = false;
     public bool go = true;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-
-    }
-
     // Update is called once per frame
     void Update()
     {
-        float dist = Vector3.Distance(gameObject.transform.position, waypoints[num].transform.position);
+        if(waypoints.Length > 0) {
+            float dist = Vector3.Distance(gameObject.transform.position, waypoints[num].transform.position);
 
-        if (go)
-        {
-            if (dist > minDist)
+            if (go)
             {
-                Move();
-            }
-            else
-            {
-                if (!rand)
+                if (dist > minDist)
                 {
-                    if (num + 1 == waypoints.Length)
-                    {
-                        num = 0;
-                        gameObject.transform.position = waypoints[num].transform.position;
-                    }
-                    else
-                    {
-                        num++;
-                    }
+                    Move();
                 }
                 else
                 {
-                    num = Random.Range(0, waypoints.Length);
+                    if (!rand)
+                    {
+                        if (num + 1 == waypoints.Length)
+                        {
+                            num = 0;
+                            gameObject.transform.position = waypoints[num].transform.position;
+                        }
+                        else
+                        {
+                            num++;
+                        }
+                    }
+                    else
+                    {
+                        num = Random.Range(0, waypoints.Length);
+                    }
                 }
             }
         }
