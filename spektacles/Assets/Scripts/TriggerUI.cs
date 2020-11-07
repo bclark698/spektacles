@@ -10,13 +10,13 @@ public class TriggerUI : MonoBehaviour
 	private ControlsIndicator indicator;
 
 	void Start() {
-		if(GetComponent<SpriteRenderer>() == null) {
+		if(transform.Find("Controls Indicator") == null) {
 			showIndicatorOverPlayer = true;
 		}
 		if(showIndicatorOverPlayer) {
-			indicator = GameObject.FindGameObjectWithTag(targetTag).GetComponent<ControlsIndicator>();
+			indicator = GameObject.FindGameObjectWithTag(targetTag).transform.Find("Controls Indicator").GetComponent<ControlsIndicator>();
 		} else {
-			indicator = GetComponent<ControlsIndicator>();
+			indicator = transform.Find("Controls Indicator").GetComponent<ControlsIndicator>();
 		}
 	}
 

@@ -15,7 +15,6 @@ GameObject:
   - component: {fileID: 1135156641809806182}
   - component: {fileID: 1135156641809806183}
   - component: {fileID: 1135156641809806180}
-  - component: {fileID: 9081285737376169049}
   - component: {fileID: 5648156188090359181}
   m_Layer: 0
   m_Name: Player
@@ -174,29 +173,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1135156641809806178}
   m_Enabled: 0
---- !u!114 &9081285737376169049
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1135156641809806178}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2f41b1cae6c60434ab86d6e13409d273, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  spriteRenderer: {fileID: 787248825849249608}
-  desktopIcons:
-  - {fileID: 21300000, guid: a638a94f97f18a340b235cd67adae79c, type: 3}
-  - {fileID: 21300000, guid: 00fc7e2c06773fe49b1526c1bf7fdf44, type: 3}
-  - {fileID: 21300000, guid: 13e35688425fe8b48bccd54665709e60, type: 3}
-  - {fileID: 21300000, guid: ebb216c2af338b141ac3b77b71333bf6, type: 3}
-  xboxIcons:
-  - {fileID: 21300000, guid: 713c08cc9b66f804dbf048294417a575, type: 3}
-  - {fileID: 21300000, guid: 1dcfa167ee6d06a418584a303ca22c3c, type: 3}
-  - {fileID: 21300000, guid: b5ee4a49185dfce499f1258f321bb3a9, type: 3}
-  - {fileID: 21300000, guid: 2052216147ad83e4b850b623630489d1, type: 3}
 --- !u!114 &5648156188090359181
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -209,7 +185,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e0962966393894260beffffe32d9fe33, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  totalCooldownTime: 2
+  cooldownTime: 2
 --- !u!1 &1135156643022093587
 GameObject:
   m_ObjectHideFlags: 0
@@ -1071,12 +1047,6 @@ PrefabInstance:
 --- !u!4 &7973536890833534951 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 825397246280633448, guid: 6719b9903fd717e4a85f0ffbe327db1f,
-    type: 3}
-  m_PrefabInstance: {fileID: 7337445585235899279}
-  m_PrefabAsset: {fileID: 0}
---- !u!212 &787248825849249608 stripped
-SpriteRenderer:
-  m_CorrespondingSourceObject: {fileID: 8016136035247852743, guid: 6719b9903fd717e4a85f0ffbe327db1f,
     type: 3}
   m_PrefabInstance: {fileID: 7337445585235899279}
   m_PrefabAsset: {fileID: 0}

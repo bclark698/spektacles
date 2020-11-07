@@ -11961,7 +11961,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   targetTag: Player
-  icon: 3
+  icon: 2
   showIndicatorOverPlayer: 1
 --- !u!61 &1548018199
 BoxCollider2D:
@@ -12017,9 +12017,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tipSprites:
   - {fileID: 21300000, guid: 123a3e90d473063488d3d2517d03e3de, type: 3}
+  - {fileID: 21300000, guid: 2176137f54e4602468202f2520cbbaab, type: 3}
   tipTexts:
   - Press <PETRIFY> to take off your glasses and petrify enemies around you. However,
     this will impair your vision for a few seconds.
+  - In the bottom right corner, you can see when your petrify ability becomes available
+    to use again.
 --- !u!4 &1574730725 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6213095808929261614, guid: 70010dc8446922440bb61ee515ec8aba,
