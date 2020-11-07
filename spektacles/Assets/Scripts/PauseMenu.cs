@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PauseMenu : MonoBehaviour
 	public PlayerControls controls;
 	[SerializeField] private GameObject pauseMenu = null;
 	[SerializeField] private GameObject pauseButton = null;
-    // TextMeshProUGUI objectiveText;
+    Image melitaIndicator;
 
 	void Awake() {
 		controls = new PlayerControls();
@@ -28,7 +29,8 @@ public class PauseMenu : MonoBehaviour
 
         //DontDestroyOnLoad(this);
 
-        // objectiveText = GameObject.FindGameObjectWithTag("Objective Text").GetComponent<TextMeshProUGUI>();
+        melitaIndicator = GameObject.FindGameObjectWithTag("Melita Indicator").GetComponent<Image>();
+        melitaIndicator.enabled = false; // should be default off
 	}
 
     public void PauseOrResume()
@@ -54,7 +56,7 @@ public class PauseMenu : MonoBehaviour
         PowerUpRange.allowAbility = false;
         Player.allowMovement = false;
         Player.allowInteract = false;
-        // objectiveText.enabled = true;
+        melitaIndicator.enabled = true;
     }
 
     public void Resume() {
@@ -67,7 +69,7 @@ public class PauseMenu : MonoBehaviour
         PowerUpRange.allowAbility = true;
         Player.allowMovement = true;
         Player.allowInteract = true;
-        // objectiveText.enabled = false;
+        melitaIndicator.enabled = false;
     }
 
     public void HowToPlay() {
