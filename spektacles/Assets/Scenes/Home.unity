@@ -374,7 +374,7 @@ MonoBehaviour:
     type: 3}
   m_PrefabInstance: {fileID: 65819727}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1556161862}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
@@ -450,6 +450,9 @@ GameObject:
   - component: {fileID: 69824154}
   - component: {fileID: 69824155}
   - component: {fileID: 69824166}
+  - component: {fileID: 69824168}
+  - component: {fileID: 69824169}
+  - component: {fileID: 69824170}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -591,7 +594,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 624.0221
     y: 430.69553
-    width: 157.14285
+    width: 151.40564
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -645,7 +648,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 140.938
-    width: 103.57143
+    width: 101.204834
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -698,7 +701,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 154.20216
     y: 411.43738
-    width: 121.428566
+    width: 120.28114
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -743,11 +746,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -26.749996, y: 186.86351}
+  scrollPos: {x: -403.18097, y: -234.0963}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
-  zoom: 0.28000003
+  zoom: 0.99599975
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -755,9 +758,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 69824150}
+  - {fileID: 69824140}
   selectedCommands:
-  - {fileID: 69824160}
+  - {fileID: 69824170}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -831,7 +834,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 435.82037
     y: 552.0602
-    width: 124.99999
+    width: 122.28918
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -935,7 +938,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 438.71906
     y: 432.97452
-    width: 160.71426
+    width: 152.40967
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2475,8 +2478,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 632.5393
-    y: 334.27106
-    width: 75
+    y: 333.27106
+    width: 75.10041
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2488,9 +2491,12 @@ MonoBehaviour:
   - {fileID: 69824164}
   - {fileID: 69824173}
   - {fileID: 69824172}
-  - {fileID: 69824167}
   - {fileID: 69824163}
   - {fileID: 69824137}
+  - {fileID: 69824169}
+  - {fileID: 69824168}
+  - {fileID: 69824170}
+  - {fileID: 69824167}
   - {fileID: 69824154}
   suppressAllAutoSelections: 0
 --- !u!114 &69824141
@@ -2881,7 +2887,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 447.96375
     y: 297.19373
-    width: 128.57141
+    width: 127.30926
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3346,6 +3352,114 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &69824168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 103
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 653571516}
+  targetComponentAssemblyName: FungusManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: FungusManager
+  targetMethod: PlayCutscene
+  targetMethodText: 'PlayCutscene (PlayableDirector): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: UnityEngine.Playables.PlayableDirector, UnityEngine.DirectorModule,
+        Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+      typeFullname: UnityEngine.Playables.PlayableDirector
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 112507773}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &69824169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 104
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 653571516}
+  targetComponentAssemblyName: FungusManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: FungusManager
+  targetMethod: TogglePlayer
+  targetMethodText: 'TogglePlayer (Boolean): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &69824170
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3315ad2ebb85443909a1203d56d9344e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 105
+  indentLevel: 0
+  _duration:
+    floatRef: {fileID: 0}
+    floatVal: 1.15
+  durationOLD: 0
 --- !u!114 &69824172
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3424,6 +3538,82 @@ MonoBehaviour:
   blockRef:
     block: {fileID: 69824118}
   targetTag: Player
+--- !u!1 &112507771
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 112507774}
+  - component: {fileID: 112507773}
+  - component: {fileID: 112507772}
+  m_Layer: 0
+  m_Name: Convo Timeline
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!95 &112507772
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112507771}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!320 &112507773
+PlayableDirector:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112507771}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_PlayableAsset: {fileID: 11400000, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
+  m_InitialState: 0
+  m_WrapMode: 2
+  m_DirectorUpdateMode: 1
+  m_InitialTime: 0
+  m_SceneBindings:
+  - key: {fileID: -3527411981133367830, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
+    value: {fileID: 112507772}
+  - key: {fileID: 7182810346590118981, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
+    value: {fileID: 1640667236}
+  - key: {fileID: -6003926983664719027, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
+    value: {fileID: 117501701}
+  - key: {fileID: 4193955885342254165, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
+    value: {fileID: 441828682}
+  m_ExposedReferences:
+    m_References: []
+--- !u!4 &112507774
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112507771}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -3.5, y: -65.75979, z: -2787.2576}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 12
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &117501691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3438,9 +3628,9 @@ GameObject:
   - component: {fileID: 117501697}
   - component: {fileID: 117501696}
   - component: {fileID: 117501695}
-  - component: {fileID: 117501694}
   - component: {fileID: 117501693}
   - component: {fileID: 117501700}
+  - component: {fileID: 117501701}
   m_Layer: 0
   m_Name: Cerebrus
   m_TagString: Untagged
@@ -3455,7 +3645,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 117501691}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.21, y: -64.61, z: 0}
   m_LocalScale: {x: 10, y: 10, z: 0.29328713}
   m_Children: []
@@ -3489,24 +3679,6 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
---- !u!114 &117501694
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 117501691}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 78c1a9f24ac376a47838385391f83acc, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  parentBlock: {fileID: 117501695}
-  suppressBlockAutoSelect: 0
-  tagFilter:
-  - Player
-  FireOn: 1
-  colliderVar: {fileID: 0}
 --- !u!114 &117501695
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3530,7 +3702,7 @@ MonoBehaviour:
   itemId: 0
   blockName: doggo bork
   description: 
-  eventHandler: {fileID: 117501694}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 117501700}
   - {fileID: 117501693}
@@ -3559,7 +3731,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 117501695}
   selectedCommands: []
   variables: []
   description: 
@@ -3645,7 +3818,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7546b12958776421a80cec361c9bf91d, type: 3}
   m_Color: {r: 0.9716981, g: 0.9716981, b: 0.9716981, a: 1}
-  m_FlipX: 0
+  m_FlipX: 1
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.2, y: 0.2}
@@ -3681,6 +3854,25 @@ MonoBehaviour:
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
+--- !u!95 &117501701
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117501691}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &131980618 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1998834498754919335, guid: d41489107e5694509a675cc69ba0c9dc,
@@ -4206,13 +4398,14 @@ GameObject:
   - component: {fileID: 441828683}
   - component: {fileID: 441828679}
   - component: {fileID: 441828681}
+  - component: {fileID: 441828682}
   m_Layer: 0
   m_Name: Tutorial Glasses
   m_TagString: Glasses
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &441828678
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4237,8 +4430,7 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 441828680}
+  selectedBlocks: []
   selectedCommands: []
   variables: []
   description: 
@@ -4288,7 +4480,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 199
     y: 161
-    width: 135.63531
+    width: 136.32591
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -4330,6 +4522,25 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!95 &441828682
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 441828677}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!114 &441828683
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -4693,12 +4904,12 @@ PrefabInstance:
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -11.6
+      value: -7
       objectReference: {fileID: 0}
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -13.2
+      value: -66.9
       objectReference: {fileID: 0}
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
@@ -5698,7 +5909,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 69824120}
+  selectedFlowchart: {fileID: 441828678}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -45124,6 +45335,31 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.2626525, y: 0.43712872}
   m_EdgeRadius: 0
+--- !u!1 &1556161862 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6555018472714768489, guid: 81b450948e1c7444a92a7824dd1026ab,
+    type: 3}
+  m_PrefabInstance: {fileID: 65819727}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1556161863
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1556161862}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 0}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &1579483732
 GameObject:
   m_ObjectHideFlags: 0
@@ -46426,7 +46662,7 @@ GameObject:
   - component: {fileID: 2038204120}
   - component: {fileID: 2038204119}
   m_Layer: 0
-  m_Name: Timeline
+  m_Name: Opening Timeline
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
