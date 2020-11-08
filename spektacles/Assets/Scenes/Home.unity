@@ -3599,6 +3599,10 @@ PlayableDirector:
     value: {fileID: 441828682}
   - key: {fileID: -8057318628089757803, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
     value: {fileID: 1640667236}
+  - key: {fileID: -7218170273011414814, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
+    value: {fileID: 115636607}
+  - key: {fileID: 6487749389040762695, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
+    value: {fileID: 0}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &112507774
@@ -3615,6 +3619,12 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &115636607 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 1349574037414642320, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1009789124}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &117501691
 GameObject:
   m_ObjectHideFlags: 0
@@ -3639,7 +3649,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &117501692
 Transform:
   m_ObjectHideFlags: 0
@@ -3684,7 +3694,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 1661045078}
 --- !u!114 &117501694
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3850,7 +3860,7 @@ SpriteRenderer:
   m_SpriteSortPoint: 1
 --- !u!114 &117501700
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
