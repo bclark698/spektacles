@@ -23,7 +23,9 @@ public class Attention : MonoBehaviour
         
 		if(showOnStart) {
 			indicator.sprite = attentionSprite;
-		}
+		} else {
+            indicator.sprite = null;
+        }
 		if(attentionCleared == null) {
 			attentionCleared = new UnityEvent();
 		}

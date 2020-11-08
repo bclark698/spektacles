@@ -27,7 +27,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1834942750914884961}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 6.8, z: 0}
+  m_LocalPosition: {x: 0, y: 11.74, z: 0}
   m_LocalScale: {x: 6, y: 6, z: 1}
   m_Children: []
   m_Father: {fileID: 5387167895076370668}
@@ -72,7 +72,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: b407f4d146390ca42908249d3609b15e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -80,7 +80,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 1
 --- !u!114 &2646053564906999529
@@ -97,7 +97,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   attentionSprite: {fileID: 21300000, guid: b407f4d146390ca42908249d3609b15e, type: 3}
   interactSprite: {fileID: 21300000, guid: 9ce31ff8665287644b6b8466af253cf4, type: 3}
-  targetInRange: 0
   showOnStart: 1
   attentionCleared:
     m_PersistentCalls:
@@ -115,8 +114,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0, y: -1.42}
-  m_Size: {x: 1.33, y: 2.04}
+  m_Offset: {x: 0, y: -1.38}
+  m_Size: {x: 1.3300002, y: 2.0709445}
   m_Direction: 0
 --- !u!1 &5387167895076370669
 GameObject:
@@ -193,9 +192,10 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2bfd06fa01d6b9b42b855ce8ab2c29a2, type: 3}
+  m_Sprite: {fileID: 3441284192224993626, guid: 0daa76b096ed14bda8706d3fef93f894,
+    type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 1, y: 1}
@@ -254,8 +254,8 @@ CapsuleCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.1, y: -2.2021108}
-  m_Size: {x: 7.790024, y: 11.821364}
+  m_Offset: {x: 0.013792992, y: 3.4494438}
+  m_Size: {x: 8.017611, y: 12.5041275}
   m_Direction: 0
 --- !u!70 &5052937155047006225
 CapsuleCollider2D:
@@ -270,8 +270,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: -0.24, y: -2.7116165}
-  m_Size: {x: 2.9184723, y: 6.149582}
+  m_Offset: {x: 0.1504811, y: 2.6047616}
+  m_Size: {x: 3.6994345, y: 5.7591047}
   m_Direction: 0
 --- !u!114 &1909386635512339470
 MonoBehaviour:
