@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class Module : MonoBehaviour
 {
-	[SerializeField] private Transform miniMapLocation = null; // drag into inspector
+	private Transform miniMapLocation = null;
 	private GameObject melitaIndicator;
+	private string prefix = "School- ";
 
 	void Start() {
 		melitaIndicator = GameObject.FindGameObjectWithTag("Melita Indicator");
+		string parentName = transform.parent.name;
+		string pointerName = "Pointer "+parentName.Substring(prefix.Length);
+		Debug.Log(parentName +" "+pointerName);
+		miniMapLocation = GameObject.Find(pointerName).GetComponent<Transform>();
 	}
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -28,7 +33,6 @@ public class Module : MonoBehaviour
     }
 
     void UpdateMiniMap() {
-    	// Debug.Log("mini loc pos "+miniMapLocation.position);
     	melitaIndicator.transform.position = miniMapLocation.position;
     }
 }

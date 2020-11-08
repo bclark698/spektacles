@@ -33,7 +33,6 @@ RectTransform:
   - {fileID: 1423623170}
   - {fileID: 5423814550490492685}
   - {fileID: 4965556799246465982}
-  - {fileID: 6537070548831635253}
   m_Father: {fileID: 946927438}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -802,7 +801,7 @@ RectTransform:
   - {fileID: 4317651877230039837}
   - {fileID: 6442044149120259876}
   m_Father: {fileID: 4068454653191535871}
-  m_RootOrder: 8
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.23752767, y: 0.068333335}
   m_AnchorMax: {x: 0.7616213, y: 0.93000007}
@@ -1283,7 +1282,7 @@ GameObject:
   - component: {fileID: 1396753375556137756}
   m_Layer: 5
   m_Name: School Map
-  m_TagString: Untagged
+  m_TagString: Minimap
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1295,7 +1294,7 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5038034088420907989}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -1305,12 +1304,12 @@ RectTransform:
   - {fileID: 1583510551313457768}
   - {fileID: 7241765641826938606}
   - {fileID: 7157397595703769332}
-  m_Father: {fileID: 66409887}
-  m_RootOrder: 4
+  m_Father: {fileID: 4068454653191535871}
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108, y: 33}
+  m_AnchoredPosition: {x: 108.00005, y: 33.000027}
   m_SizeDelta: {x: 231.53961, y: 204.55698}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7370620045440562302
@@ -1589,11 +1588,11 @@ RectTransform:
   m_LocalScale: {x: 0.44, y: 0.44, z: 1}
   m_Children: []
   m_Father: {fileID: 4068454653191535871}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 135.80003, y: 88.70004}
+  m_AnchoredPosition: {x: 84.6, y: -70.2}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5455324522755472188
@@ -1611,7 +1610,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5932769960836385904}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
   m_Name: 
