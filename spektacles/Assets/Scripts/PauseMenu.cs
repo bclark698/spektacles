@@ -17,6 +17,8 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private GameObject pauseMenu = null;
 	[SerializeField] private GameObject pauseButton = null;
     Image melitaIndicator;
+    // GameObject map;
+    Image[] mapModules;
 
 	void Awake() {
 		controls = new PlayerControls();
@@ -31,6 +33,9 @@ public class PauseMenu : MonoBehaviour
 
         melitaIndicator = GameObject.FindGameObjectWithTag("Melita Indicator").GetComponent<Image>();
         melitaIndicator.enabled = false; // should be default off
+
+        mapModules = GameObject.FindGameObjectWithTag("Minimap").GetComponentsInChildren<Image>();
+        ChangeMapVisibility(false); // should be default not visible
 	}
 
     public void PauseOrResume()
@@ -57,6 +62,7 @@ public class PauseMenu : MonoBehaviour
         Player.allowMovement = false;
         Player.allowInteract = false;
         melitaIndicator.enabled = true;
+        ChangeMapVisibility(true);
     }
 
     public void Resume() {
@@ -70,6 +76,7 @@ public class PauseMenu : MonoBehaviour
         Player.allowMovement = true;
         Player.allowInteract = true;
         melitaIndicator.enabled = false;
+        ChangeMapVisibility(false);
     }
 
     public void HowToPlay() {
@@ -88,6 +95,15 @@ public class PauseMenu : MonoBehaviour
 
     public void ResetLevel(){
        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    private void ChangeMapVisibility(bool visibility) {
+        // foreach(Transform child in map.transform) {
+        //     child.gameObject.GetComponent<>
+        // }
+        foreach(Image i in mapModules) {
+            i.enabled = visibility;
+        }
     }
 
     private void OnEnable()
