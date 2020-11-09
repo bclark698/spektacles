@@ -49,7 +49,8 @@ public class TutorialPopup : MonoBehaviour
 		}
 	}
 
-    // Start is called before the first frame update
+    /* The tutorial popup gameobject should be enabled in the UI by default in order 
+    to properly retrieve the variables, and will be hidden on start */
     void Start() {
     	Hide();
     }
