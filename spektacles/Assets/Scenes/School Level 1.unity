@@ -18906,12 +18906,12 @@ PrefabInstance:
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 413.4
+      value: -232
       objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -40.08
+      value: 273
       objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
@@ -19117,10 +19117,10 @@ MonoBehaviour:
   description: split w/ irving, and go to class
   eventHandler: {fileID: 2105026355}
   commandList:
+  - {fileID: 2105026352}
   - {fileID: 2105026354}
   - {fileID: 2105026359}
   - {fileID: 2105026353}
-  - {fileID: 2105026352}
   - {fileID: 2105026322}
   - {fileID: 2105026321}
   - {fileID: 2105026323}
@@ -19891,14 +19891,14 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105026315}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 207aecf668a0345388087ccf522f9957, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   itemId: 26
   indentLevel: 0
-  duration: 1
+  duration: 0.5
   targetAlpha: 1
   waitUntilFinished: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
@@ -20002,7 +20002,7 @@ MonoBehaviour:
   itemId: 4
   indentLevel: 0
   targetObjects:
-  - {fileID: 0}
+  - {fileID: 1686555880}
   tweenType: 2
   waitUntilFinished:
     booleanRef: {fileID: 0}
@@ -20130,9 +20130,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 48
   indentLevel: 0
-  duration: 0.5
+  duration: 0.8
   targetAlpha: 0
-  waitUntilFinished: 1
+  waitUntilFinished: 0
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeTexture: {fileID: 0}
   fadeTweenType: 4
