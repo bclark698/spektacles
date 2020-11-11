@@ -4,8 +4,7 @@ using UnityEngine;
 
 public class NPCMovement : MonoBehaviour
 {
-
-    private Transform[] waypoints;
+    [SerializeField] private GameObject[] waypoints;    
     public int num = 0;
 
     public float minDist;
@@ -15,15 +14,11 @@ public class NPCMovement : MonoBehaviour
     public bool rand = false;
     public bool go = true;
 
-    void Start() {
-        waypoints = GetComponentsInChildren<Transform>(); // also includes parent's Transform
-    }
-
     // Update is called once per frame
     void Update()
     {
         if(waypoints.Length > 1) { // > 1 because waypoints includes the parent
-            float dist = Vector3.Distance(gameObject.transform.position, waypoints[num].position);
+            float dist = Vector3.Distance(gameObject.transform.position, waypoints[num].transform.position);
 
             if (go)
             {
@@ -38,7 +33,7 @@ public class NPCMovement : MonoBehaviour
                         if (num + 1 == waypoints.Length)
                         {
                             num = 0;
-                            gameObject.transform.position = waypoints[num].position;
+                            gameObject.transform.position = waypoints[num].transform.position;
                         }
                         else
                         {
@@ -61,10 +56,10 @@ public class NPCMovement : MonoBehaviour
         float newPosY = Mathf.SmoothDamp(transform.position.y, waypoints[num].transform.position.y, ref yVelo, timeToSpot);
         transform.position = new Vector2(newPosX, newPosY);
         */
-        gameObject.transform.LookAt(waypoints[num].position);
+        gameObject.transform.LookAt(waypoints[num].transform.position);
               gameObject.transform.position += gameObject.transform.forward * speed * Time.deltaTime;
 
-              Vector3 dir = waypoints[num].position;
+              Vector3 dir = waypoints[num].transform.position;
               float angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg;
               gameObject.transform.rotation = Quaternion.AngleAxis(angle, Vector3.forward);
       		gameObject.transform.rotation = Quaternion.Euler(0, 0, 0);
