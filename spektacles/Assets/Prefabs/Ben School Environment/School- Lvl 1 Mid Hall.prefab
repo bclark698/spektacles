@@ -7821,7 +7821,8 @@ GameObject:
   - component: {fileID: 4878045381568248784}
   - component: {fileID: 6974252503165879011}
   - component: {fileID: 2833709840078782615}
-  - component: {fileID: 1889359466411801644}
+  - component: {fileID: 1455228043260349521}
+  - component: {fileID: 7656934325772891169}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -19986,7 +19987,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 62856c805f033834d9fc4143ceab511a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!19719996 &1889359466411801644
+--- !u!19719996 &1455228043260349521
 TilemapCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -20002,6 +20003,18 @@ TilemapCollider2D:
   m_Offset: {x: 0, y: 0}
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0.00001
+--- !u!114 &7656934325772891169
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5957743835209561133}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62856c805f033834d9fc4143ceab511a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6781556131889717654
 GameObject:
   m_ObjectHideFlags: 0
@@ -24573,15 +24586,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d13c77d3b84ab4d1c983f4c0926a1f79, type: 3}
---- !u!4 &6438887132546638016 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7428865440681967586, guid: d13c77d3b84ab4d1c983f4c0926a1f79,
-    type: 3}
-  m_PrefabInstance: {fileID: 4486469757247201058}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &5818151116443536494 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7997581378393232204, guid: d13c77d3b84ab4d1c983f4c0926a1f79,
+    type: 3}
+  m_PrefabInstance: {fileID: 4486469757247201058}
+  m_PrefabAsset: {fileID: 0}
+--- !u!4 &6438887132546638016 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7428865440681967586, guid: d13c77d3b84ab4d1c983f4c0926a1f79,
     type: 3}
   m_PrefabInstance: {fileID: 4486469757247201058}
   m_PrefabAsset: {fileID: 0}
