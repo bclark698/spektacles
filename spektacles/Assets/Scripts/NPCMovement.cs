@@ -17,7 +17,7 @@ public class NPCMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(waypoints.Length > 1) { // > 1 because waypoints includes the parent
+        if(waypoints.Length > 0) {
             float dist = Vector3.Distance(gameObject.transform.position, waypoints[num].transform.position);
 
             if (go)
