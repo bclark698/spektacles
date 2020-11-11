@@ -1986,6 +1986,8 @@ GameObject:
   - component: {fileID: 32377375150800512}
   - component: {fileID: 32377375150800514}
   - component: {fileID: 32377375150800513}
+  - component: {fileID: 1660688330904427602}
+  - component: {fileID: 8368504485762928869}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -10029,6 +10031,34 @@ TilemapRenderer:
   m_Mode: 0
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!114 &1660688330904427602
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32377375150800519}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62856c805f033834d9fc4143ceab511a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!19719996 &8368504485762928869
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 32377375150800519}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1 &32377375180784340
 GameObject:
   m_ObjectHideFlags: 0
@@ -17968,7 +17998,7 @@ GameObject:
   - component: {fileID: 32377375937981836}
   - component: {fileID: 32377375937981837}
   m_Layer: 0
-  m_Name: School- Lvl 1 Bottom Left (1)
+  m_Name: School- Bottom Left
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
