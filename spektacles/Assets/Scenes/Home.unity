@@ -577,7 +577,7 @@ MonoBehaviour:
   waitForClick: 1
   stopVoiceover: 1
   waitForVO: 0
-  setSayDialog: {fileID: 0}
+  setSayDialog: {fileID: 1380814969}
 --- !u!114 &69824114
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -594,7 +594,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 624.0221
     y: 430.69553
-    width: 150.86139
+    width: 148.06851
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -648,7 +648,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 140.938
-    width: 100.430695
+    width: 99.77719
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -701,7 +701,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 154.20216
     y: 411.43738
-    width: 119.49596
+    width: 118.35078
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -746,11 +746,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -305.9434, y: -265.53946}
+  scrollPos: {x: 89.82411, y: 16.750319}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 404
-  zoom: 0.8129969
+  zoom: 0.67299896
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -758,8 +758,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 69824126}
-  selectedCommands: []
+  - {fileID: 69824116}
+  selectedCommands:
+  - {fileID: 69824113}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -833,7 +834,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 435.82037
     y: 552.0602
-    width: 121.34098
+    width: 119.83666
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -937,7 +938,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 438.71906
     y: 434.01837
-    width: 152.0914
+    width: 148.81145
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2478,7 +2479,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 631.4955
     y: 332.14493
-    width: 75.21535
+    width: 74.51713
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2886,7 +2887,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 447.96375
     y: 297.19373
-    width: 126.87606
+    width: 125.780205
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -5985,7 +5986,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 2053604413}
+  selectedFlowchart: {fileID: 69824120}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -45696,7 +45697,7 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
-  m_UseSpriteMesh: 0
+  m_UseSpriteMesh: 1
   m_PixelsPerUnitMultiplier: 1
 --- !u!222 &1632151792
 CanvasRenderer:
@@ -47100,8 +47101,7 @@ MonoBehaviour:
     height: 859
   selectedBlocks:
   - {fileID: 2053604412}
-  selectedCommands:
-  - {fileID: 2053604415}
+  selectedCommands: []
   variables: []
   description: 
   stepPause: 0
@@ -47781,12 +47781,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2128354433}
     m_Modifications:
-    - target: {fileID: 990661841174679893, guid: ddc3e36175ceb4c94bd77b50d8eef4ce,
-        type: 3}
-      propertyPath: m_Sprite
-      value: 
-      objectReference: {fileID: 21300000, guid: 7e51a2f36a098514f8b13100f4e91c45,
-        type: 3}
     - target: {fileID: 990661841662584835, guid: ddc3e36175ceb4c94bd77b50d8eef4ce,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -48013,11 +48007,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SD Cerebrus
-      objectReference: {fileID: 0}
-    - target: {fileID: 7420657021026635798, guid: f8161c764443744cabe68011680ea508,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7420657021026636000, guid: f8161c764443744cabe68011680ea508,
         type: 3}
@@ -48311,11 +48300,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SD Melita
-      objectReference: {fileID: 0}
-    - target: {fileID: 8315133813148789565, guid: 93fadc828165f4e318a7104d486ba564,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 93fadc828165f4e318a7104d486ba564, type: 3}
