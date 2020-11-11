@@ -18803,12 +18803,12 @@ PrefabInstance:
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -232
+      value: -271
       objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 273
+      value: 268
       objectReference: {fileID: 0}
     - target: {fileID: 5387167895076370668, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
@@ -18908,13 +18908,13 @@ PrefabInstance:
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: blockViewHeight
-      value: 435
+      value: 642
       objectReference: {fileID: 0}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: selectedCommands.Array.data[0]
       value: 
-      objectReference: {fileID: 2105026322}
+      objectReference: {fileID: 2105026369}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: variables.Array.data[0]
@@ -18983,8 +18983,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 157.00002
-    y: -180
+    x: 156.00002
+    y: -179
     width: 96
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -19001,6 +19001,7 @@ MonoBehaviour:
   - {fileID: 2105026322}
   - {fileID: 2105026321}
   - {fileID: 2105026323}
+  - {fileID: 2105026374}
   - {fileID: 2105026366}
   - {fileID: 2105026367}
   - {fileID: 2105026320}
@@ -19213,7 +19214,7 @@ MonoBehaviour:
   showCount: 1
   extendPrevious: 0
   fadeWhenDone: 1
-  waitForClick: 1
+  waitForClick: 0
   stopVoiceover: 1
   waitForVO: 0
   setSayDialog: {fileID: 0}
@@ -20722,6 +20723,34 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!114 &2105026374
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105026315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 64
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1817831209}
+  targetComponentAssemblyName: UnityEngine.Playables.PlayableDirector, UnityEngine.DirectorModule,
+    Version=0.0.0.0, Culture=neutral, PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: PlayableDirector
+  targetMethod: Stop
+  targetMethodText: 'Stop (): Void'
+  methodParameters: []
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
 --- !u!4 &2107214575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7491168192712010144, guid: a5376f2b747d7d24bbbf6170c3c2a7b2,
