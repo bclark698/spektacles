@@ -81,7 +81,8 @@ public class musicController : MonoBehaviour
       currentMusic.clip = busMusic.clip;
       break;
       case "School Level 1":
-      currentMusic.clip = lvl1Music.clip;
+      //currentMusic.clip = lvl1Music.clip;
+      StartCoroutine(MusicSwitch(lvl1Music, 1, 2, .1f));
       break;
       case "School Level 2":
       currentMusic.clip = lvl2Music.clip;
@@ -111,30 +112,30 @@ public class musicController : MonoBehaviour
 
       case "Floor1 NEW":
       //Debug.Log("switching to cut1Music");
-      StartCoroutine(MusicSwitch(cut1Music, 2, 4));
+      StartCoroutine(MusicSwitch(cut1Music, 2, 4, .4f));
       break;
       case "Bus":
       //Debug.Log("switching to cut1Music");
-      StartCoroutine(MusicSwitch(busCutMusic, 2, 4));
+      StartCoroutine(MusicSwitch(busCutMusic, 2, 4, .4f));
       break;
       case "School Level 1":
       //Debug.Log("switching to cut1Music");
-      StartCoroutine(MusicSwitch(cut1Music, 2, 4));
+      StartCoroutine(MusicSwitch(cut1Music, 2, 4, .4f));
       break;
       case "School Level 2":
       //Debug.Log("switching to cut2Music");
-      StartCoroutine(MusicSwitch(cut2Music, 2, 4));
+      StartCoroutine(MusicSwitch(cut2Music, 2, 4, .4f));
       break;
       case "School Level 3":
       //Debug.Log("switching to cut3Music");
-      StartCoroutine(MusicSwitch(cut3Music, 2, 4));
+      StartCoroutine(MusicSwitch(cut3Music, 2, 4, .4f));
       break;
       case "Full School Scene":
       //Debug.Log("switching to cut1Music");
-      StartCoroutine(MusicSwitch(cut1Music, 2, 4));
+      StartCoroutine(MusicSwitch(cut1Music, 2, 4, .4f));
       break;
       case "Firedrill Test":
-      StartCoroutine(MusicSwitch(cut3Music, 2, 4));
+      StartCoroutine(MusicSwitch(cut3Music, 2, 4, .4f));
       break;
 
 
@@ -143,8 +144,9 @@ public class musicController : MonoBehaviour
     //Then trigger MusicSwitch() w/ the right values.
   }
 
-  public IEnumerator MusicSwitch(AudioSource nextMusic, float transistionTimeDown, float transistionTimeUp){
+  public IEnumerator MusicSwitch(AudioSource nextMusic, float transistionTimeDown, float transistionTimeUp, float vol){
     Debug.Log("starting switch");
+    musicVol = vol;
   currentVol = musicVol;
    while (currentVol > 0){
       currentVol -= Time.deltaTime / transistionTimeDown;
