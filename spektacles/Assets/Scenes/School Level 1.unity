@@ -16542,6 +16542,40 @@ Transform:
   m_Father: {fileID: 487364142}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1833555801 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4415015487422890025, guid: 79c6dc9ad1b214b0fa22f19936d6713e,
+    type: 3}
+  m_PrefabInstance: {fileID: 766294137}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1833555802
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833555801}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62856c805f033834d9fc4143ceab511a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!19719996 &1833555803
+TilemapCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1833555801}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_MaximumTileChangeCount: 1000
+  m_ExtrusionFactor: 0.00001
 --- !u!1001 &1835924633
 PrefabInstance:
   m_ObjectHideFlags: 0
