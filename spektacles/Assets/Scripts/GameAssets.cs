@@ -37,6 +37,7 @@ public class GameAssets : MonoBehaviour
 
     private enum Platform { Windows, Mac, Xbox };
     private Platform platform;
+    private string platformPath;
 
     /* Controls Indicator Assets */
     public Sprite iconMovement;
@@ -47,7 +48,7 @@ public class GameAssets : MonoBehaviour
     /* Attention Assets */
     public Sprite attention;
     // platform dependent
-    public Sprite speechInteract;
+    public Sprite attentionInteract;
 
     /* Tip Assets */
     public Sprite arrowNext;
@@ -59,14 +60,14 @@ public class GameAssets : MonoBehaviour
     void Awake()
     {
         DeterminePlatform();
-        // StartCoroutine(LoadImages());
+
         InitUniversalVariables();
         if(platform == Platform.Windows || platform == Platform.Mac) {
             InitDesktopVariables();
         } else if(platform == Platform.Xbox) {
             InitXboxVariables();
         }
-        
+        InitCommonPlatformVariables();
     }
 
     void DeterminePlatform() {
@@ -92,29 +93,27 @@ public class GameAssets : MonoBehaviour
 
     // assets that do not change based on platform
     void InitUniversalVariables() {
-        string platform = "Universal/";
+        string folderPath = "Universal/";
 
-        attention = Resources.Load<Sprite>(platform+"Attention");
+        attention = Resources.Load<Sprite>(folderPath+"Attention");
         string category = "Tip/";
-        arrowNext = Resources.Load<Sprite>(platform+category+"tip arrow next");
-        arrowPrev = Resources.Load<Sprite>(platform+category+"tip arrow prev");
+        arrowNext = Resources.Load<Sprite>(folderPath+category+"tip arrow next");
+        arrowPrev = Resources.Load<Sprite>(folderPath+category+"tip arrow prev");
+    }
+
+    void InitCommonPlatformVariables() {
+        ControlsIndicatorAssets(platformPath);
+        attentionInteract = Resources.Load<Sprite>(platformPath+"Attention Interact"); // TODO actually put an image in xbox folder
+        tipExit = Resources.Load<Sprite>(platformPath+"Tip/tip enter"); // TODO actually put an image in xbox folder
     }
 
     void InitDesktopVariables() {
-        string platform = "Desktop/";
-        ControlsIndicatorAssets(platform);
-
-        speechInteract = Resources.Load<Sprite>(platform+"speechInteract");
-        tipExit = Resources.Load<Sprite>(platform+"Tip/tip enter");
+        platformPath = "Desktop/";
         petrifyString = "spacebar";
     }
 
     void InitXboxVariables() {
-        string platform = "Xbox/";
-        ControlsIndicatorAssets(platform);
-
-        speechInteract = Resources.Load<Sprite>(platform+"speechInteract"); // TODO actually put an image in this folder
-        tipExit = Resources.Load<Sprite>(platform+"Tip/tip enter"); // TODO actually put an image in this folder
+        platformPath = "Xbox/";
         petrifyString = "B";
     }
 

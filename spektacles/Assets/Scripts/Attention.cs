@@ -19,7 +19,7 @@ public class Attention : MonoBehaviour
 		controls.Gameplay.EquipOrInteract.performed += _ => HideOnEnter();
 		indicator = GetComponent<SpriteRenderer>();
         attentionSprite = GameAssets.instance.attention;
-        interactSprite = GameAssets.instance.speechInteract;
+        interactSprite = GameAssets.instance.attentionInteract;
         
 		if(showOnStart) {
 			indicator.sprite = attentionSprite;
