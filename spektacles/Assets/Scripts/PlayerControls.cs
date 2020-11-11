@@ -717,7 +717,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""77248716-4b07-4c55-93bd-7c6a6d757ac5"",
-                    ""path"": ""<Gamepad>/buttonEast"",
+                    ""path"": ""<Gamepad>/buttonSouth"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
@@ -727,8 +727,19 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""a818aeae-f227-4019-80a6-a8a868325da1"",
-                    ""path"": ""<HID::Unknown Wireless Controller>/button3"",
+                    ""id"": ""376ead23-1d5d-4f26-8e96-a1b53562ffaa"",
+                    ""path"": ""<HID::Unknown Wireless Controller>/button2"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""EquipOrInteract"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""322b8743-a46f-4bbb-9d6b-cb830785dab1"",
+                    ""path"": ""<HID::Unknown Wireless Controller>/button2"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
