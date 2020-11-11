@@ -453,6 +453,7 @@ GameObject:
   - component: {fileID: 69824168}
   - component: {fileID: 69824170}
   - component: {fileID: 69824171}
+  - component: {fileID: 69824169}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -594,7 +595,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 624.0221
     y: 430.69553
-    width: 148.06851
+    width: 109.82511
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -647,8 +648,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 283.94952
-    y: 140.938
-    width: 99.77719
+    y: 139.45212
+    width: 60.788216
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -657,6 +658,7 @@ MonoBehaviour:
   description: somethin's cookin
   eventHandler: {fileID: 69824115}
   commandList:
+  - {fileID: 69824169}
   - {fileID: 69824113}
   - {fileID: 69824130}
   suppressAllAutoSelections: 0
@@ -701,7 +703,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 154.20216
     y: 411.43738
-    width: 118.35078
+    width: 81.80403
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -746,21 +748,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 89.82411, y: 16.750319}
+  scrollPos: {x: 277.36298, y: -71.51482}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
-  blockViewHeight: 404
-  zoom: 0.67299896
+  blockViewHeight: 412
+  zoom: 0.5709986
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks:
-  - {fileID: 69824116}
-  selectedCommands:
-  - {fileID: 69824113}
+  selectedBlocks: []
+  selectedCommands: []
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -834,7 +834,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 435.82037
     y: 552.0602
-    width: 119.83666
+    width: 83.55534
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -938,7 +938,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 438.71906
     y: 434.01837
-    width: 148.81145
+    width: 109.82511
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2479,7 +2479,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 631.4955
     y: 332.14493
-    width: 74.51713
+    width: 60
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2887,7 +2887,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 447.96375
     y: 297.19373
-    width: 125.780205
+    width: 88.809296
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3397,6 +3397,51 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &69824169
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 107
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 1119107009}
+  targetComponentAssemblyName: Petrify, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: Petrify
+  targetMethod: SetAbilitiesAllow
+  targetMethodText: 'SetAbilitiesAllow (Boolean): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 1
+  callMode: 0
 --- !u!114 &69824170
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3417,7 +3462,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &69824171
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -4036,8 +4081,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035bc821b1ec9034c9a744ff78edc7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attentionSprite: {fileID: 0}
-  interactSprite: {fileID: 0}
   showOnStart: 1
   attentionCleared:
     m_PersistentCalls:
@@ -38015,8 +38058,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 035bc821b1ec9034c9a744ff78edc7af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attentionSprite: {fileID: 21300000, guid: b407f4d146390ca42908249d3609b15e, type: 3}
-  interactSprite: {fileID: 21300000, guid: 9ce31ff8665287644b6b8466af253cf4, type: 3}
   showOnStart: 1
   attentionCleared:
     m_PersistentCalls:
@@ -38332,6 +38373,12 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1119107009 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5161291368328296937, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+    type: 3}
+  m_PrefabInstance: {fileID: 576042641}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1214384210
 GameObject:
   m_ObjectHideFlags: 0
@@ -47264,10 +47311,6 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1423623171, guid: 362a54c7a5394e64192fdb1b9d9e0c7a, type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 1423623171, guid: 362a54c7a5394e64192fdb1b9d9e0c7a, type: 3}
       propertyPath: m_text
       value: Check out what's downstairs
       objectReference: {fileID: 0}
@@ -47421,7 +47464,17 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.x
       value: -0.875
       objectReference: {fileID: 0}
+    - target: {fileID: 5932769960836385904, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6684627948362520551, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 9111667900027612601, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
         type: 3}
       propertyPath: m_IsActive
       value: 0

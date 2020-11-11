@@ -5,7 +5,7 @@ using UnityEngine.InputSystem;
 
 public class Ability : MonoBehaviour
 {
-    public static bool allowAbility = true;
+    public static bool allowAbility = true; // TODO change to just disabling the script? and remove SetAbilitiesAllow function
 	protected PlayerSoundController playerSounds;
 	public PlayerControls controls;
     private LayerMask enemyLayerMask;
@@ -71,6 +71,10 @@ public class Ability : MonoBehaviour
     {
         // get all the enemies within our PowerUpRange
         return Physics2D.OverlapCircleAll(transform.position, range, enemyLayerMask);
+    }
+
+    public void SetAbilitiesAllow(bool status) {
+        allowAbility = status;
     }
 
     private void OnEnable()

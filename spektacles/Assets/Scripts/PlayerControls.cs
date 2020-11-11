@@ -43,22 +43,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""AdvanceDialogue"",
-                    ""type"": ""Button"",
-                    ""id"": ""6133a874-5c3c-4d18-8e0f-48be90c29635"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
-                    ""name"": ""SelectDialogue"",
-                    ""type"": ""Button"",
-                    ""id"": ""07c80b74-0d31-45c1-a172-dfc13b693417"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
-                },
-                {
                     ""name"": ""Pause"",
                     ""type"": ""Button"",
                     ""id"": ""3ecea117-8e85-4d0a-90f7-f335708bdd81"",
@@ -73,14 +57,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": ""Hold(duration=30)""
-                },
-                {
-                    ""name"": ""temp"",
-                    ""type"": ""Button"",
-                    ""id"": ""60931fe5-7f99-4acf-bc78-ccf474cb13b0"",
-                    ""expectedControlType"": ""Button"",
-                    ""processors"": """",
-                    ""interactions"": """"
                 },
                 {
                     ""name"": ""Start"",
@@ -443,39 +419,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 },
                 {
                     ""name"": """",
-                    ""id"": ""94a78e79-fce1-433b-9492-1285926cea78"",
-                    ""path"": ""<Gamepad>/buttonEast"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""AdvanceDialogue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""215c14e4-a536-4a0b-8b1e-e6d6e9b45694"",
-                    ""path"": ""<HID::Unknown Wireless Controller>/button3"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""AdvanceDialogue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""dd45f042-38e8-469c-b236-8a850d68498d"",
-                    ""path"": ""<Keyboard>/enter"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""AdvanceDialogue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
                     ""id"": ""d755b315-f0e5-426f-ba40-021e40a6c4b2"",
                     ""path"": ""<Keyboard>/escape"",
                     ""interactions"": """",
@@ -506,72 +449,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""Pause"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""Left Joystick Vertical"",
-                    ""id"": ""ccf81a8c-864c-44e6-b4ca-5b79567d4dd1"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SelectDialogue"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""5fba8874-a7fc-43b1-a7c4-7e25e60ac701"",
-                    ""path"": ""<Joystick>/stick/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""SelectDialogue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""65311f82-3b5d-447a-8693-b8808ab24d5a"",
-                    ""path"": ""<Joystick>/stick/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""SelectDialogue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""WASD Vertical Only"",
-                    ""id"": ""1070dea5-b42d-49cd-9a9e-a47c32e0e943"",
-                    ""path"": ""1DAxis"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""SelectDialogue"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""negative"",
-                    ""id"": ""b95994a5-4e2a-42ff-bbfb-45e35deda928"",
-                    ""path"": ""<Keyboard>/s"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""SelectDialogue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""positive"",
-                    ""id"": ""123196fc-4ba0-45fb-b56a-10bb13ff2b0c"",
-                    ""path"": ""<Keyboard>/w"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""SelectDialogue"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -605,171 +482,6 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""action"": ""UsePowerUp"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""ArrowKeys"",
-                    ""id"": ""cf6c5e59-ffa6-46ff-be7d-640eb59bcdf9"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""temp"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""bcf928e2-f321-45bd-ade2-9f6377cf9aac"",
-                    ""path"": ""<Keyboard>/upArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""21dea2f4-15fc-4e95-bdec-fc006ad08132"",
-                    ""path"": ""<Keyboard>/downArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""6f1ba0aa-d539-49aa-ba73-1f57e0b3af3e"",
-                    ""path"": ""<Keyboard>/leftArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""10cffb98-e395-4249-8115-580be17c41d5"",
-                    ""path"": ""<Keyboard>/rightArrow"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""DPad"",
-                    ""id"": ""31f24966-3ce3-4f89-9fc9-99b81a0edc52"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""temp"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""47cc8dcd-94fe-4928-aa28-d99770a76662"",
-                    ""path"": ""<Gamepad>/dpad/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""3d579b96-ce0c-4a5e-9a92-f0db8a872ea5"",
-                    ""path"": ""<Gamepad>/dpad/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""509ea671-c204-447e-a1c7-8b1b030bcefa"",
-                    ""path"": ""<Gamepad>/dpad/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""ac9b320a-2005-4f66-b868-88a080f34cce"",
-                    ""path"": ""<Gamepad>/dpad/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""DPad (\""HatSwitch\"")"",
-                    ""id"": ""88a91419-981d-4d99-8c4f-32e36ac45137"",
-                    ""path"": ""2DVector"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": """",
-                    ""action"": ""temp"",
-                    ""isComposite"": true,
-                    ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": ""up"",
-                    ""id"": ""0ae86157-f56c-4a70-b4df-4cdd40024738"",
-                    ""path"": ""<HID::Unknown Wireless Controller>/hat/up"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""down"",
-                    ""id"": ""dd7501c7-bfae-408a-b88f-128607c49495"",
-                    ""path"": ""<HID::Unknown Wireless Controller>/hat/down"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""left"",
-                    ""id"": ""a14acc3c-d11f-4b71-a77c-6c9d43b343da"",
-                    ""path"": ""<HID::Unknown Wireless Controller>/hat/right"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
-                },
-                {
-                    ""name"": ""right"",
-                    ""id"": ""54b615d0-8559-405b-86ac-41263b5594f3"",
-                    ""path"": ""<HID::Unknown Wireless Controller>/hat/left"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Gamepad"",
-                    ""action"": ""temp"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": true
                 },
                 {
                     ""name"": """",
@@ -1028,6 +740,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""name"": """",
                     ""id"": ""3a0bef30-56b4-4f04-9c16-f660a8b132ab"",
                     ""path"": ""<Keyboard>/enter"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Submit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7698ab54-87d4-445b-a058-47c73921be4e"",
+                    ""path"": ""<Keyboard>/space"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
@@ -1436,11 +1159,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_EquipOrInteract = m_Gameplay.FindAction("EquipOrInteract", throwIfNotFound: true);
         m_Gameplay_Petrify = m_Gameplay.FindAction("Petrify", throwIfNotFound: true);
         m_Gameplay_Move = m_Gameplay.FindAction("Move", throwIfNotFound: true);
-        m_Gameplay_AdvanceDialogue = m_Gameplay.FindAction("AdvanceDialogue", throwIfNotFound: true);
-        m_Gameplay_SelectDialogue = m_Gameplay.FindAction("SelectDialogue", throwIfNotFound: true);
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_UsePowerUp = m_Gameplay.FindAction("UsePowerUp", throwIfNotFound: true);
-        m_Gameplay_temp = m_Gameplay.FindAction("temp", throwIfNotFound: true);
         m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
         m_Gameplay_Reset = m_Gameplay.FindAction("Reset", throwIfNotFound: true);
         // UI
@@ -1507,11 +1227,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_EquipOrInteract;
     private readonly InputAction m_Gameplay_Petrify;
     private readonly InputAction m_Gameplay_Move;
-    private readonly InputAction m_Gameplay_AdvanceDialogue;
-    private readonly InputAction m_Gameplay_SelectDialogue;
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_UsePowerUp;
-    private readonly InputAction m_Gameplay_temp;
     private readonly InputAction m_Gameplay_Start;
     private readonly InputAction m_Gameplay_Reset;
     public struct GameplayActions
@@ -1521,11 +1238,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @EquipOrInteract => m_Wrapper.m_Gameplay_EquipOrInteract;
         public InputAction @Petrify => m_Wrapper.m_Gameplay_Petrify;
         public InputAction @Move => m_Wrapper.m_Gameplay_Move;
-        public InputAction @AdvanceDialogue => m_Wrapper.m_Gameplay_AdvanceDialogue;
-        public InputAction @SelectDialogue => m_Wrapper.m_Gameplay_SelectDialogue;
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @UsePowerUp => m_Wrapper.m_Gameplay_UsePowerUp;
-        public InputAction @temp => m_Wrapper.m_Gameplay_temp;
         public InputAction @Start => m_Wrapper.m_Gameplay_Start;
         public InputAction @Reset => m_Wrapper.m_Gameplay_Reset;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
@@ -1546,21 +1260,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 @Move.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
                 @Move.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnMove;
-                @AdvanceDialogue.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAdvanceDialogue;
-                @AdvanceDialogue.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAdvanceDialogue;
-                @AdvanceDialogue.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnAdvanceDialogue;
-                @SelectDialogue.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectDialogue;
-                @SelectDialogue.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectDialogue;
-                @SelectDialogue.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnSelectDialogue;
                 @Pause.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @Pause.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnPause;
                 @UsePowerUp.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePowerUp;
                 @UsePowerUp.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePowerUp;
                 @UsePowerUp.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnUsePowerUp;
-                @temp.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTemp;
-                @temp.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTemp;
-                @temp.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnTemp;
                 @Start.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
@@ -1580,21 +1285,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Move.started += instance.OnMove;
                 @Move.performed += instance.OnMove;
                 @Move.canceled += instance.OnMove;
-                @AdvanceDialogue.started += instance.OnAdvanceDialogue;
-                @AdvanceDialogue.performed += instance.OnAdvanceDialogue;
-                @AdvanceDialogue.canceled += instance.OnAdvanceDialogue;
-                @SelectDialogue.started += instance.OnSelectDialogue;
-                @SelectDialogue.performed += instance.OnSelectDialogue;
-                @SelectDialogue.canceled += instance.OnSelectDialogue;
                 @Pause.started += instance.OnPause;
                 @Pause.performed += instance.OnPause;
                 @Pause.canceled += instance.OnPause;
                 @UsePowerUp.started += instance.OnUsePowerUp;
                 @UsePowerUp.performed += instance.OnUsePowerUp;
                 @UsePowerUp.canceled += instance.OnUsePowerUp;
-                @temp.started += instance.OnTemp;
-                @temp.performed += instance.OnTemp;
-                @temp.canceled += instance.OnTemp;
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
@@ -1733,11 +1429,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnEquipOrInteract(InputAction.CallbackContext context);
         void OnPetrify(InputAction.CallbackContext context);
         void OnMove(InputAction.CallbackContext context);
-        void OnAdvanceDialogue(InputAction.CallbackContext context);
-        void OnSelectDialogue(InputAction.CallbackContext context);
         void OnPause(InputAction.CallbackContext context);
         void OnUsePowerUp(InputAction.CallbackContext context);
-        void OnTemp(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
         void OnReset(InputAction.CallbackContext context);
     }
