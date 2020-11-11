@@ -6,8 +6,8 @@ using UnityEngine.Events;
 
 public class Attention : MonoBehaviour
 {
-	[SerializeField] private Sprite attentionSprite = null;
-	[SerializeField] private Sprite interactSprite = null;
+    private Sprite attentionSprite = null;
+	private Sprite interactSprite = null;
 	private SpriteRenderer indicator;
 	public PlayerControls controls;
 	bool targetInRange = false;
