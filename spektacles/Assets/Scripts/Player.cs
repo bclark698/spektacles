@@ -16,6 +16,10 @@ public class Player : MonoBehaviour
     private int lives = 2; //one for w/ glasses, one for without
     private GameObject life2Image;
     private GameObject life3Image;
+    private Sprite lifeSpritePink;
+    private Sprite lifeSpriteGrey;
+    private Sprite lifeSpriteGold;
+    private Color gold = new Color(1f, .84f, 0f);
 
     //audio
     private PlayerSoundController playerSounds;
@@ -78,8 +82,14 @@ public class Player : MonoBehaviour
 
         life2Image = GameObject.Find("Life 2");
         life3Image = GameObject.Find("Life 3");
-        if(life3Image != null)
+        if(life3Image != null){
             life3Image.SetActive(false);
+          }
+        if(GameObject.Find("Life Indication Sprites") != null){
+        lifeSpritePink = GameObject.Find("Pink Heart").GetComponent<Image>().sprite;
+        lifeSpriteGrey = GameObject.Find("Grey Heart").GetComponent<Image>().sprite;
+        lifeSpriteGold = GameObject.Find("Gold Heart").GetComponent<Image>().sprite;
+        }
 
         inCutscene = false;
         PauseMenu.allowPause = true;
@@ -129,16 +139,19 @@ public class Player : MonoBehaviour
         if (!invincible) //TODO: move this check to onTriggerEnter?
         {
             playerSounds.HitSound();
+            Debug.Log("lives before minus:" + lives);
             lives--;
-            Debug.Log("lives:" + lives);
+            Debug.Log("lives after minus:" + lives);
             if (lives == 2)
             {
-                life3Image.SetActive(false);
+              //  life3Image.SetActive(false);
+              life3Image.GetComponent<Image>().sprite = lifeSpriteGrey;
                 damageCooldown.StartTimer();
             }
             if (lives == 1)
             {
-                life2Image.SetActive(false);
+              //  life2Image.SetActive(false);
+              life2Image.GetComponent<Image>().sprite = lifeSpriteGrey;
                 damageCooldown.StartTimer();
             }
             else if (lives <= 0)
@@ -157,7 +170,8 @@ public class Player : MonoBehaviour
     {
         playerSounds.ReloadSound();
         lives = 2;
-        life2Image.SetActive(true);
+        life2Image.GetComponent<Image>().sprite = lifeSpritePink;
+        life3Image.GetComponent<Image>().sprite = lifeSpriteGold;
         life3Image.SetActive(false);
         if (anim.GetBool("blind"))
         {
@@ -175,7 +189,7 @@ public class Player : MonoBehaviour
         if (anim.GetBool("blind"))
         {
             anim.SetBool("blind", false);
-            lives = 2;
+            //lives = 2; //Turned this off cause it was causing a bug w/ the buff
         }
     }
 
@@ -236,8 +250,11 @@ public class Player : MonoBehaviour
         else if (other.CompareTag("GlassesBuff"))
         {
             lives = 3;
-            life2Image.SetActive(true);
+            life2Image.GetComponent<Image>().sprite = lifeSpritePink;
             life3Image.SetActive(true);
+            life3Image.GetComponent<Image>().sprite = lifeSpriteGold;
+
+
             Destroy(other.gameObject);
             Debug.Log("add lives. current lives " + lives);
             playerSounds.AcquireSound();

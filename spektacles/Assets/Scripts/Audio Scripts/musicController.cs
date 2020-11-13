@@ -78,17 +78,20 @@ public class musicController : MonoBehaviour
       currentMusic.clip = homeMusic.clip;
       break;
       case "Bus":
-      currentMusic.clip = busMusic.clip;
+    //  currentMusic.clip = busMusic.clip;
+      StartCoroutine(MusicSwitch(busMusic, 1, 2, .15f));
       break;
       case "School Level 1":
       //currentMusic.clip = lvl1Music.clip;
-      StartCoroutine(MusicSwitch(lvl1Music, 1, 2, .1f));
+      StartCoroutine(MusicSwitch(lvl1Music, 1, 2, .15f));
       break;
       case "School Level 2":
-      currentMusic.clip = lvl2Music.clip;
+    //  currentMusic.clip = lvl2Music.clip;
+      StartCoroutine(MusicSwitch(lvl2Music, 1, 2, .15f));
       break;
       case "School Level 3":
-      currentMusic.clip = lvl3Music.clip;
+    //  currentMusic.clip = lvl3Music.clip;
+      StartCoroutine(MusicSwitch(lvl3Music, 1, 2, .15f));
       break;
       case "Full School Scene":
       currentMusic.clip = lvl1Music.clip;
