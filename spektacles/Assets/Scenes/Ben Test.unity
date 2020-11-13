@@ -491,26 +491,6 @@ PrefabInstance:
       propertyPath: m_LocalScale.y
       value: 35
       objectReference: {fileID: 0}
-    - target: {fileID: 7816983296299532074, guid: 27785f03853ad45ed913a6aa7b41f7d5,
-        type: 3}
-      propertyPath: m_SpriteSortPoint
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816983296299532074, guid: 27785f03853ad45ed913a6aa7b41f7d5,
-        type: 3}
-      propertyPath: m_Color.r
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816983296299532074, guid: 27785f03853ad45ed913a6aa7b41f7d5,
-        type: 3}
-      propertyPath: m_Color.g
-      value: 0.15150453
-      objectReference: {fileID: 0}
-    - target: {fileID: 7816983296299532074, guid: 27785f03853ad45ed913a6aa7b41f7d5,
-        type: 3}
-      propertyPath: m_Color.b
-      value: 0
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 27785f03853ad45ed913a6aa7b41f7d5, type: 3}
 --- !u!1 &271155892 stripped
@@ -553,7 +533,7 @@ Animator:
   m_Controller: {fileID: 9100000, guid: 2d8d34072e6824049be7c464c0ae36e8, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
-  m_ApplyRootMotion: 0
+  m_ApplyRootMotion: 1
   m_LinearVelocityBlending: 0
   m_WarningMessage: 
   m_HasTransformHierarchy: 1
