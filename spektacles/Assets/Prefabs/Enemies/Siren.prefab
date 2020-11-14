@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7580900265054249604}
   - component: {fileID: 7816983296299532074}
+  - component: {fileID: 1430180164052577015}
   m_Layer: 8
   m_Name: Pull in view
   m_TagString: Untagged
@@ -81,6 +82,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1430180164052577015
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2200099529696946931}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e4dd88802322d401cbd9f62ddab41215, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &3697780805727853241
 GameObject:
   m_ObjectHideFlags: 0
@@ -527,6 +547,8 @@ GameObject:
   - component: {fileID: 5331540507851166396}
   - component: {fileID: 5331540507851166393}
   - component: {fileID: 747573177}
+  - component: {fileID: 7034655805919566510}
+  - component: {fileID: 6568848871723545202}
   m_Layer: 0
   m_Name: Siren
   m_TagString: Untagged
@@ -584,3 +606,37 @@ MonoBehaviour:
   gravitationalForce: 2000
   sirenPullSound: {fileID: 5966529636156336293}
   sirenBlockedSound: {fileID: 1974671795986578816}
+--- !u!111 &7034655805919566510
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331540507851166375}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: 577337ccb77f7439d913ddde6fc87356, type: 2}
+  m_Animations: []
+  m_WrapMode: 0
+  m_PlayAutomatically: 1
+  m_AnimatePhysics: 0
+  m_CullingType: 0
+--- !u!95 &6568848871723545202
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5331540507851166375}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 2d8d34072e6824049be7c464c0ae36e8, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 1
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
