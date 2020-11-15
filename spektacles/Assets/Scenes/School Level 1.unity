@@ -22517,7 +22517,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 439.99756
+    x: 438.99756
     y: -65
     width: 83
     height: 40
@@ -22531,9 +22531,7 @@ MonoBehaviour:
   - {fileID: 2105026362}
   - {fileID: 2105026334}
   - {fileID: 2105026332}
-  - {fileID: 2105026333}
   - {fileID: 2105026335}
-  - {fileID: 2105026336}
   - {fileID: 2105026338}
   suppressAllAutoSelections: 0
 --- !u!114 &2105026329
@@ -22564,7 +22562,7 @@ MonoBehaviour:
   - {fileID: 2105026363}
   - {fileID: 2105026339}
   - {fileID: 2105026340}
-  - {fileID: 2105026341}
+  - {fileID: 2105026333}
   - {fileID: 2105026342}
   suppressAllAutoSelections: 0
 --- !u!114 &2105026330
@@ -22581,7 +22579,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 13
   indentLevel: 0
-  text: Oh... yeah.
+  text: I'd like that
   description: 
   targetBlock: {fileID: 2105026328}
   hideIfVisited: 0
@@ -22606,7 +22604,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 14
   indentLevel: 0
-  text: Oh... not really.
+  text: I'd rather walk alone.
   description: 
   targetBlock: {fileID: 2105026329}
   hideIfVisited: 0
@@ -22649,31 +22647,37 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &2105026333
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105026315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 28
+  itemId: 69
   indentLevel: 0
-  storyText: We should compare schedules at lunch, see if we have any classes together.
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Irving iconfused: That's okay, I just thought it might be nice to
+      talk before class. \nMelita: Sorry..\nIrving ihappy: You're fine, don't worry
+      about it. \nIrving iconfused: I wonder if we have any other classes together...
+      \nTeacher: Alright students, phones away. Time for class. \nIrving ihappy:
+      We can compare schedules at lunch later, if you want. "
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
 --- !u!114 &2105026334
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -22706,58 +22710,37 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &2105026335
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2105026315}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 18
+  itemId: 68
   indentLevel: 0
-  storyText: Sure, I'll see you then?
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
---- !u!114 &2105026336
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105026315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 19
-  indentLevel: 0
-  storyText: Can't wait.
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Irving ihappy: Great! I can wait for you outside the school before
+      class and we can walk together. \nIrving: What do your other classes look like
+      this year?\nMelita: Let me look real quick...\nTeacher: Alright students, phones
+      away. Time for class. \nIrving: We can compare schedules at lunch okay?\nMelita:
+      It's a deal."
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
 --- !u!114 &2105026337
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -22772,7 +22755,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 542
+    x: 541
     y: -10.942917
     width: 114
     height: 40
@@ -22783,7 +22766,6 @@ MonoBehaviour:
   description: 
   eventHandler: {fileID: 0}
   commandList:
-  - {fileID: 2105026344}
   - {fileID: 2105026343}
   - {fileID: 2105026371}
   - {fileID: 2105026368}
@@ -22871,34 +22853,6 @@ MonoBehaviour:
   move: 0
   shiftIntoPlace: 0
   waitUntilFinished: 0
---- !u!114 &2105026341
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105026315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 24
-  indentLevel: 0
-  storyText: Then why are you here...? Class'll start soon so you should get to your
-    actual first period class...
-  description: 
-  character: {fileID: 0}
-  portrait: {fileID: 0}
-  voiceOverClip: {fileID: 0}
-  showAlways: 1
-  showCount: 1
-  extendPrevious: 0
-  fadeWhenDone: 1
-  waitForClick: 1
-  stopVoiceover: 1
-  waitForVO: 0
-  setSayDialog: {fileID: 0}
 --- !u!114 &2105026342
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -22940,36 +22894,6 @@ MonoBehaviour:
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
   fadeTexture: {fileID: 0}
   fadeTweenType: 4
---- !u!114 &2105026344
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105026315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 27
-  indentLevel: 0
-  display: 1
-  stage: {fileID: 0}
-  character: {fileID: 1607271729}
-  replacedCharacter: {fileID: 0}
-  portrait: {fileID: 0}
-  offset: 0
-  fromPosition: {fileID: 0}
-  toPosition: {fileID: 0}
-  facing: 0
-  useDefaultSettings: 1
-  fadeDuration: 0.5
-  moveDuration: 1
-  shiftOffset: {x: 0, y: 0}
-  move: 1
-  shiftIntoPlace: 0
-  waitUntilFinished: 0
 --- !u!114 &2105026345
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -23006,7 +22930,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 316.23926
-    y: -12.383331
+    y: -13.383331
     width: 103
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -23138,8 +23062,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 7
   indentLevel: 0
-  storyText: Oh! Melita right? It's good to see you again, is your first class with
-    Twain?
+  storyText: I didn't know you had Twain first period! We could've walked together,
+    maybe next time?
   description: 
   character: {fileID: 1607271729}
   portrait: {fileID: 0}
