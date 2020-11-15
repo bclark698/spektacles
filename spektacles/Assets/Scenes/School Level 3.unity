@@ -10267,7 +10267,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: they remain good friends
+    stringVal: "Melita: I'm sure you're a good driver and all, motorcycles are a
+      little scary to me. \nIrving ihappy: You're fine, they can see that way if
+      you're not used to them. \nIrving: Do you want me to stick around while you
+      wait? \nMelita: Don't you need to get home? \nIrving: My dad can wait a little
+      longer - it'll be fine. Plus, I want to talk with you.\nMelita: O-Okay. I'd
+      like that. \nIrving: Great. "
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10294,9 +10299,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 937.4224
-    y: 132.75491
-    width: 154.42072
+    x: 935.17004
+    y: 133.75491
+    width: 154.62784
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10310,6 +10315,13 @@ MonoBehaviour:
   - {fileID: 1355831088}
   - {fileID: 1355830977}
   - {fileID: 1355830976}
+  - {fileID: 1355831119}
+  - {fileID: 1355831118}
+  - {fileID: 1355831117}
+  - {fileID: 1355831116}
+  - {fileID: 1355831115}
+  - {fileID: 1355831114}
+  - {fileID: 1355831113}
   - {fileID: 1355831044}
   suppressAllAutoSelections: 0
 --- !u!114 &1355830979
@@ -10344,7 +10356,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: they ride into the sunset
+    stringVal: "Irving: Great! My bike's on the other side of the lot if you want
+      to follow me. \nMelita: Alright. Let's go. \n\n"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10372,8 +10385,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 930.4744
-    y: 197.91086
-    width: 158.90503
+    y: 194.91086
+    width: 158.65198
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10386,6 +10399,11 @@ MonoBehaviour:
   - {fileID: 1355831087}
   - {fileID: 1355831076}
   - {fileID: 1355830980}
+  - {fileID: 1355831124}
+  - {fileID: 1355831123}
+  - {fileID: 1355831122}
+  - {fileID: 1355831121}
+  - {fileID: 1355831120}
   - {fileID: 1355830979}
   - {fileID: 1355831043}
   suppressAllAutoSelections: 0
@@ -10403,7 +10421,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 92
   indentLevel: 0
-  text: home w/ irving
+  text: 'I''d like that. '
   description: 
   targetBlock: {fileID: 1355830981}
   hideIfVisited: 0
@@ -10428,7 +10446,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 91
   indentLevel: 0
-  text: home on bus
+  text: 'Thank you, but I think I''ll take the bus. '
   description: 
   targetBlock: {fileID: 1355830978}
   hideIfVisited: 0
@@ -10455,7 +10473,30 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: good ending start
+    stringVal: "Irving ihappy: Ah, yeah../ My dad dropped my bike off earlier. Apparently
+      the shop finished up early. \nIrving: They said they called our parents and
+      knowing my dad, he's probably worried sick back at home.\nHHD: IRVING??? HAS
+      ANYONE SEEN MY SON????\nIrving iconfused: Oh no. \nHHD: Irving, my boy! There
+      you are!\nHHD: Are you alright? I came as soon as I heard. Do you have all
+      your stuff? \nIrving: Dad....\nHHD: Ah, it's probably trapped inside until
+      all this blows over. That's alright, we can come back later and pick it up
+      then. \nIrving: Dad.\nHHD:  Your sisters are waiting for us back at the house
+      - they came home this morning did I tell you? It'll be nice to have all my
+      little pumpkins under one roof again.  Irving what are you standing there for
+      we need - \nIrving: Dad! \nHHD: ... Yes?\nIrving: Dad... Thanks for dropping
+      by but you brought my bike by earlier today, remember? I can make my way home
+      by myself. \nIrving: Beside... I'm kinda in the middle of something right now.
+      \nHHD: Oh?\nHHD: ...\nHHD: Oh!\nHHD: I'm sorry, I didn't see you there.\nHHD:
+      Well, I'll leave you and your little friend alone. Get home soon and drive
+      safe. Love you. \nIrving: Love you too dad. \nHHD: *leaves* (this will be a
+      movement of the portrait i just dont have a portrait yet)\nIrving: .... I'm
+      so sorry you had to see that. \nMelita laughing: You're alright. My mom is
+      pretty similar. I'm sure she's breaking every law known to monster to get home
+      before I do. \nIrving ihappy: So I didn't scare you off?\nMelita: Not at all.
+      \nIrving: Well... Since both of us need to get home pretty quickly, why don't
+      I take you? \nIrving: It'll be a little while before the busses get here, and
+      can get you back faster than any bus can.\nMelita nervous: T-Take me home?\nIrving:
+      Yeah! Only if you want to though, I don't mind. \n"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -10483,8 +10524,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 715.76855
-    y: 141.89453
-    width: 130.07724
+    y: 140.64218
+    width: 130.48294
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10522,7 +10563,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1355830987
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10563,7 +10604,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 721.4025
     y: 34.98697
-    width: 142.88959
+    width: 142.55539
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10600,7 +10641,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1355830990
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -10648,8 +10689,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 717.6838
-    y: -38.01303
-    width: 141.60837
+    y: -36.916542
+    width: 141.54935
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10706,9 +10747,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 913.3731
+    x: 913.4696
     y: 3.986969
-    width: 115.343025
+    width: 115.392395
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10797,7 +10838,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 298.8713
     y: -37.053295
-    width: 96.12449
+    width: 96.277695
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -10863,7 +10904,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 323.87643
     y: 408.6113
-    width: 131.35846
+    width: 131.48898
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11247,7 +11288,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 525.7687
     y: 84.856186
-    width: 114.06179
+    width: 114.38636
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11335,7 +11376,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 286.64478
     y: -144.87906
-    width: 91.64017
+    width: 91.24751
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11433,7 +11474,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 286.039
     y: -202.84581
-    width: 79.46842
+    width: 80.18111
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -11522,7 +11563,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 163.00357
     y: 218.56294
-    width: 98.04634
+    width: 98.289764
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12273,7 +12314,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 162.59448
     y: 13.3502865
-    width: 97.40572
+    width: 97.28374
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12433,7 +12474,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 158.28386
     y: -170.8615
-    width: 96.12449
+    width: 96.277695
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12566,7 +12607,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -55.439304
     y: 7.0465946
-    width: 123.67106
+    width: 123.44069
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12613,7 +12654,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -230.08284
     y: -282.20438
-    width: 152.49887
+    width: 152.61575
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12663,7 +12704,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -225.6287
     y: 14.034581
-    width: 123.67106
+    width: 124.44673
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12738,7 +12779,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1337.4272
     y: 481.22113
-    width: 124.311676
+    width: 125.45277
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12817,7 +12858,7 @@ MonoBehaviour:
   rotTweenType: 4
 --- !u!114 &1355831049
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -13267,7 +13308,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 324.09888
     y: 511.60513
-    width: 131.35846
+    width: 131.48898
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -15963,7 +16004,7 @@ MonoBehaviour:
     floatVal: 0.5
 --- !u!114 &1355831108
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -15993,7 +16034,7 @@ MonoBehaviour:
   waitUntilFinished: 0
 --- !u!114 &1355831109
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -16020,7 +16061,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1355831110
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -16047,7 +16088,7 @@ MonoBehaviour:
   setSayDialog: {fileID: 0}
 --- !u!114 &1355831111
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -16081,7 +16122,7 @@ MonoBehaviour:
     booleanVal: 1
 --- !u!114 &1355831112
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -16110,6 +16151,354 @@ MonoBehaviour:
   fadeWhenDone:
     booleanRef: {fileID: 0}
     booleanVal: 1
+--- !u!114 &1355831113
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 185
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Melita nervous: Looks like the bus is here. \nIrving iconfused: Yeah...
+      \nIrving: So um, if you're up for it, maybe we could meet up this weekend?
+      Chat some more? \nIrving: I could show you a little bit more about my bike
+      so next time you aren't so nervous. \nMelita: M-meet up?\nIrving: Only if you're
+      okay with it I mean I wouldn't -\nMelita laughing: It's a date!\nIrving ihappy:
+      Great! I mean...\nIrving: Are you free Saturday?\nMelita: I should be... \nIrving:
+      I'll pick you up at 6?\nMelita: Deal. I'll see you then. \nMelita offscreen
+      left: \n"
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1355831114
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 184
+  indentLevel: 0
+  soundClip: {fileID: 8300000, guid: 2185db9ea2b9d48a9b4809ac562f3c1f, type: 3}
+  volume: 0.23
+  waitUntilFinished: 0
+--- !u!114 &1355831115
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 183
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Melita laughing: Yeah, just like you and your bike. \nIrving: I like
+      seeing you so passionate about something. It's cute. \n"
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1355831116
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 182
+  indentLevel: 0
+  storyText: .
+  description: 
+  character: {fileID: 2105892842}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 1
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1355831117
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 181
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 1355831106}
+    stringVal: neutral ending conversation
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1355831118
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 180
+  indentLevel: 0
+  storyText: 'You really seem to love '
+  description: 
+  character: {fileID: 2105892842}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1355831119
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 179
+  indentLevel: 0
+  storyText: A few minutes later...
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1355831120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 190
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Melita laughing: You could say that.\nMelita: It's always been something
+      I enjoy, kinda like you and your bike. \nIrving:  It's cute. I like seeing
+      you all passionate about something. \nMelita nervous: W-What? Cute?\nIrving:
+      You heard me. \nMelita: .... \nIrving: Alright we're here. Give me a moment
+      to grab something for you. \nIrving >>>: Now where did I put it...\nIrving:
+      Ah! \nIrving <<<: Here, put this on. \nMelita: What about your helmet?\nIrving:
+      I'll be fine, my head has some fun physics that'll keep my safe. \nMelita:
+      Like...? \nIrving: Like this. \nIrving: See? (okay just imagine him putting
+      his head on his neck) \nMelita laughing: I see. \nIrving: Ready to go? \nMelita:
+      Yup! \nIrving: Wait a tick..\nIrving: Before we get going, I want to ask you
+      one more thing. \nMelita: Yes?\nIrving: Are you free to hang Saturday? The
+      more time I spend with you the more I want to know about you. \nMelita nervous:
+      ....\nIrving: Only if you're down for it, I don't want you to feel pressured
+      or anything, I just....\nIrving iconfused: ...want to spend more time with
+      you.\nMelita: I-I'd like that. \nIrving ihappy: Great! I'll pick you up at
+      6?\nMelita laughing: It's a date!\nIrving: Alright! Let's get you home.\nMelita:
+      Okay!"
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1355831121
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 189
+  indentLevel: 0
+  storyText: .
+  description: 
+  character: {fileID: 2105892842}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 1
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1355831122
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 188
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 1355831106}
+    stringVal: neutral ending conversation
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 0
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+--- !u!114 &1355831123
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 187
+  indentLevel: 0
+  storyText: 'You really seem to love '
+  description: 
+  character: {fileID: 2105892842}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 0
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
+--- !u!114 &1355831124
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 186
+  indentLevel: 0
+  storyText: A few minutes later...
+  description: 
+  character: {fileID: 0}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!1001 &1412939000
 PrefabInstance:
   m_ObjectHideFlags: 0
