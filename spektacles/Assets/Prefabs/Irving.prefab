@@ -129,6 +129,7 @@ GameObject:
   - component: {fileID: 8781345639161483342}
   - component: {fileID: 5052937155047006225}
   - component: {fileID: 1909386635512339470}
+  - component: {fileID: 5702843511246056530}
   m_Layer: 0
   m_Name: Irving
   m_TagString: End
@@ -190,7 +191,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 3441284192224993626, guid: 0daa76b096ed14bda8706d3fef93f894,
+  m_Sprite: {fileID: 6770570079806845986, guid: ed1fcd629ab3f45e9bd54558b65db3e6,
     type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -286,3 +287,22 @@ MonoBehaviour:
   blockRef:
     block: {fileID: 0}
   targetTag: Player
+--- !u!95 &5702843511246056530
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5387167895076370669}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e94e40096b85549eebae7a4c53f2bbee, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
