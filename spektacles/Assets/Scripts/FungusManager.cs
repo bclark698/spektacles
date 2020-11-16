@@ -43,8 +43,8 @@ public class FungusManager : MonoBehaviour
         BoxBlur blur = mainCamera.GetComponent<BoxBlur>();
 
         blur.enabled = on;
-        //TODO: add the animations
-        //playerAnimator.SetBool("blind", on);
+    //TODO: add the animations
+        playerAnimator.SetBool("blind", on);
         if (!on)
             playerSounds.AcquireSound();
 
