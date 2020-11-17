@@ -20,6 +20,7 @@ public class Player : MonoBehaviour
     private Sprite lifeSpriteGrey;
     private Sprite lifeSpriteGold;
     private Color gold = new Color(1f, .84f, 0f);
+    Vector2 moveDirection;
 
     //audio
     private PlayerSoundController playerSounds;
@@ -238,7 +239,10 @@ public class Player : MonoBehaviour
                     powerUpRange.UsePowerUp();
                 } else
                 {
+                    
                     HandleHit();
+                    moveDirection = rb.transform.position - other.transform.position;
+                    rb.AddForce(moveDirection.normalized * 25000f);
                 }
             }
 
