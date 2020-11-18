@@ -11,6 +11,7 @@ public class PlayerSoundController : MonoBehaviour
     public AudioSource footstepLoop;
     public AudioSource glassesRecharged;
     public AudioSource enterDoor;
+    public AudioSource hurtBlink;
 
     /*
     public AudioSource bugSpray;
@@ -58,5 +59,9 @@ public class PlayerSoundController : MonoBehaviour
 
     public void DoorSound(){
       enterDoor.Play();
+    }
+
+    public void BlinkSound(){
+      hurtBlink.Play();
     }
 }

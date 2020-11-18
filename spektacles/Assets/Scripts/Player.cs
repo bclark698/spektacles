@@ -150,16 +150,19 @@ public class Player : MonoBehaviour
         playerSounds.HitSound();
         if (!invincible) //TODO: move this check to onTriggerEnter?
         {
+
             lives--;
             if (lives == 2)
             {
               life3Image.GetComponent<Image>().sprite = lifeSpriteGrey;
               StartCoroutine(DamageCooldown());
+              playerSounds.BlinkSound();
             }
             if (lives == 1)
             {
               life2Image.GetComponent<Image>().sprite = lifeSpriteGrey;
               StartCoroutine(DamageCooldown());
+              playerSounds.BlinkSound();
             }
             else if (lives <= 0)
             {
