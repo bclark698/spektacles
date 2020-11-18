@@ -139,9 +139,10 @@ public class Player : MonoBehaviour
 
     void HandleHit()
     {
+        playerSounds.HitSound();
         if (!invincible) //TODO: move this check to onTriggerEnter?
         {
-            playerSounds.HitSound();
+
             Debug.Log("lives before minus:" + lives);
             lives--;
             Debug.Log("lives after minus:" + lives);
@@ -242,8 +243,9 @@ public class Player : MonoBehaviour
                     powerUpRange.UsePowerUp();
                 } else
                 {
-                    
+
                     HandleHit();
+
                     moveDirection = rb.transform.position - other.transform.position;
                     rb.AddForce(moveDirection.normalized * 25000f);
                 }
