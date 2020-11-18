@@ -2674,12 +2674,12 @@ PrefabInstance:
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 102.8
+      value: -56
       objectReference: {fileID: 0}
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 139
+      value: -300
       objectReference: {fileID: 0}
     - target: {fileID: 1135156641809806170, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
@@ -5712,15 +5712,30 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 928530509}
     m_Modifications:
+    - target: {fileID: 124272231571808660, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 1675864068286071751, guid: 7ac82505f3c5e41dc8bfe2509009828f,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 3046813376456411630, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4022677938627280480, guid: 7ac82505f3c5e41dc8bfe2509009828f,
         type: 3}
       propertyPath: m_Name
       value: 'School- Cafeteria '
+      objectReference: {fileID: 0}
+    - target: {fileID: 4040262413109264322, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4072802121090157034, guid: 7ac82505f3c5e41dc8bfe2509009828f,
         type: 3}
@@ -5787,15 +5802,70 @@ PrefabInstance:
       propertyPath: m_ChunkCullingBounds.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 5570836666564819011, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961516001792003689, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 25.85
+      objectReference: {fileID: 0}
+    - target: {fileID: 5961516001792003689, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 7228377404032308940, guid: 7ac82505f3c5e41dc8bfe2509009828f,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 7715768535362539583, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715768535362539583, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: m_Volume
+      value: 0.095
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715768535362539583, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].inSlope
+      value: -0.048385702
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715768535362539583, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outSlope
+      value: -0.048385702
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715768535362539583, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].outWeight
+      value: 0.9214031
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715768535362539583, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.64128983
+      objectReference: {fileID: 0}
+    - target: {fileID: 7715768535362539583, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.027160645
+      objectReference: {fileID: 0}
     - target: {fileID: 8427889660232332664, guid: 7ac82505f3c5e41dc8bfe2509009828f,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
       value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 8739933575954114067, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8897525644811660976, guid: 7ac82505f3c5e41dc8bfe2509009828f,
         type: 3}
