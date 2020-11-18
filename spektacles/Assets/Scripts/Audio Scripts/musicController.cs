@@ -79,19 +79,19 @@ public class musicController : MonoBehaviour
       break;
       case "Bus":
     //  currentMusic.clip = busMusic.clip;
-      StartCoroutine(MusicSwitch(busMusic, 1, 2, .15f));
+      StartCoroutine(MusicSwitch(busMusic, 1, 2, .2f));
       break;
       case "School Level 1":
       //currentMusic.clip = lvl1Music.clip;
-      StartCoroutine(MusicSwitch(lvl1Music, 1, 2, .15f));
+      StartCoroutine(MusicSwitch(lvl1Music, 1, 2, .2f));
       break;
       case "School Level 2":
     //  currentMusic.clip = lvl2Music.clip;
-      StartCoroutine(MusicSwitch(lvl2Music, 1, 2, .15f));
+      StartCoroutine(MusicSwitch(lvl2Music, 1, 2, .2f));
       break;
       case "School Level 3":
     //  currentMusic.clip = lvl3Music.clip;
-      StartCoroutine(MusicSwitch(lvl3Music, 1, 2, .15f));
+      StartCoroutine(MusicSwitch(lvl3Music, 1, 2, .25f));
       break;
       case "Full School Scene":
       currentMusic.clip = lvl1Music.clip;
@@ -149,8 +149,9 @@ public class musicController : MonoBehaviour
 
   public IEnumerator MusicSwitch(AudioSource nextMusic, float transistionTimeDown, float transistionTimeUp, float vol){
     Debug.Log("starting switch");
+    currentVol = musicVol;
     musicVol = vol;
-  currentVol = musicVol;
+
    while (currentVol > 0){
       currentVol -= Time.deltaTime / transistionTimeDown;
       Debug.Log("switching");
