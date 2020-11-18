@@ -6037,7 +6037,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 2024538002}
+  selectedFlowchart: {fileID: 1825551066}
 --- !u!4 &818092679
 Transform:
   m_ObjectHideFlags: 1
@@ -12066,6 +12066,18 @@ PrefabInstance:
       objectReference: {fileID: 1825551079}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 912c4182eb4e64bd7a4ab3a581afe8f7, type: 3}
+--- !u!114 &1825551066 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1825551065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825551067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1825551067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5387167895076370669, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
@@ -12301,7 +12313,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 356
+    x: 355
     y: 215
     width: 141
     height: 40
@@ -12438,34 +12450,34 @@ MonoBehaviour:
       Plath together last year.
 
       Melita: {i}I sat behind him for most of the
-      year, he always had this laid back aura to him... {/i}
+      year, he always had this cool laid back aura to him... {/i}
 
-      Irving ihappy:
+      Irving:
       Right! I remember, you''re... Melinda right?
 
       Melita laughing: Melita.
 
-      Irving:
-      My bad. I''m not the best with names. I''m Irving - do you normally take the
-      bus?
+      Irving
+      ihappy: My bad. I''m not the best with names. I''m Irving - do you normally
+      take the bus?
 
-      Melita: Yeah, my mom works on the other side of town so...
+      Melita happy: Yeah, my mom works on the other side of
+      town so...
 
-      Irving:
-      I don''t usually ride the bus, but my bike''s in the shop for a few days and
-      I really didn''t want my dad taking me to school.
+      Irving ihappy: I don''t usually ride the bus, but my bike''s
+      in the shop for a few days and I really didn''t want my dad taking me to school.
 
-      Melita: Bike?
+      Melita
+      inquisitive: Bike?
 
-      Irving:
-      Yeah! I ride a Pegasus Andro Limited. I''m usually redlining down the highway
-      and topping out at 160mph. The 6 cylinder engine really hits---
+      Irving ilaughing: Yeah! I ride a Pegasus Andro Limited.
+      I''m usually redlining down the highway and topping out at 160mph. The 6 cylinder
+      engine really hits---
 
-      Irving:
-      ...
+      Irving iflustered: ...
 
-      Irving: Sorry about that, I can get a little excited when I start
-      to talk about her.
+      Irving inervous:
+      Sorry about that, I can get a little excited when I start to talk about her.
 
 '
   clearPrevious:
@@ -12608,7 +12620,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 8708856215645199305}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: f2ef3e6d5ff4d4f8cb7eb6598285a7e4, type: 3}
+  portrait: {fileID: 21300000, guid: 57e5f40271c8b46db989561abd8e2a7b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 126757810}
@@ -12636,12 +12648,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Irving: Anyways, what''d you do this weekend? I heard there was a
-      big bonfire out by the lake and a few of the players got a little {i} too {/i}
-      rowdy
+    stringVal: 'Irving ihappy: Anyways, what''d you do this weekend? I heard there
+      was a big bonfire out by the lake and a few of the players got a little {i}
+      too {/i} rowdy
 
-      Melita nervous: Oh no, I don''t really hang out with them. I didn''t
-      really do anything interesting, but it sounds like a wild time.
+      Melita inquisitive: Oh no, I don''t really hang out with
+      them. I didn''t really do anything interesting, but it sounds like a wild time.
 
       Irving:
       From what I''ve heard, Steven and Trevor had a massive fight by the beach and
@@ -12718,10 +12730,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Irving: So as I was saying, the engine hits you really smooth with
-      lots of low end torque and then stabilizes at higher speeds - one of the smoothest
-      rides out there. One time, I was on Interstate 666 and spotted the most beautiful
-      Odyssey 250 and couldn''t believe it...
+    stringVal: 'Irving ihappy: So as I was saying, the engine hits you really smooth
+      with lots of low end torque and then stabilizes at higher speeds - one of the
+      smoothest rides out there. One time, I was on Interstate 666 and spotted the
+      most beautiful Odyssey 250 and couldn''t believe it...
 
 
 '
