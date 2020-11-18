@@ -10,6 +10,7 @@ using UnityEngine.EventSystems;
 public class Player : MonoBehaviour
 {
     private Rigidbody2D rb;
+    private SpriteRenderer spriteRenderer;
     private Vector2 movementVelocity;
     public float moveSpeed = 20f;
     private Animator anim;
@@ -35,7 +36,7 @@ public class Player : MonoBehaviour
     private Petrify petrify;
     private PowerUpRange powerUpRange;
 
-    private DamageCooldown damageCooldown;
+    [SerializeField] private float cooldownTime = 2f;
     [HideInInspector] public bool invincible;
 
 
@@ -43,6 +44,10 @@ public class Player : MonoBehaviour
     private GameObject restart = null;
     public static bool allowMovement = true;
     public static bool allowInteract = true;
+
+    [SerializeField] private float flickerSpeed = 0.1f; // how fast to alternate opacity on and off
+    private float nextFlickerTime;
+    private bool flickerState;
 
     // called before Start
     void Awake()
@@ -76,7 +81,6 @@ public class Player : MonoBehaviour
         if(powerUpObject) {
             powerUpRange = powerUpObject.GetComponent<PowerUpRange>();
         }
-        damageCooldown = GetComponent<DamageCooldown>();
 
         musicSounds = GameObject.Find("/Unbreakable iPod").GetComponent<musicController>();
         playerSounds = GameObject.Find("/Unbreakable iPod/Player Sounds").GetComponent<PlayerSoundController>();
@@ -89,10 +93,12 @@ public class Player : MonoBehaviour
             life3Image.SetActive(false);
           }
         if(GameObject.Find("Life Indication Sprites") != null){
-        lifeSpritePink = GameObject.Find("Pink Heart").GetComponent<Image>().sprite;
-        lifeSpriteGrey = GameObject.Find("Grey Heart").GetComponent<Image>().sprite;
-        lifeSpriteGold = GameObject.Find("Gold Heart").GetComponent<Image>().sprite;
+            lifeSpritePink = GameObject.Find("Pink Heart").GetComponent<Image>().sprite;
+            lifeSpriteGrey = GameObject.Find("Grey Heart").GetComponent<Image>().sprite;
+            lifeSpriteGold = GameObject.Find("Gold Heart").GetComponent<Image>().sprite;
         }
+
+        spriteRenderer = GetComponent<SpriteRenderer>();
 
         inCutscene = false;
         PauseMenu.allowPause = true;
@@ -125,6 +131,8 @@ public class Player : MonoBehaviour
                 playerSounds.FootstepLoopStop();
             }
         }
+
+        FlickerWhileInvincible();
     }
 
     private void FixedUpdate() //all physics adjusting code goes here
@@ -142,21 +150,16 @@ public class Player : MonoBehaviour
         playerSounds.HitSound();
         if (!invincible) //TODO: move this check to onTriggerEnter?
         {
-
-            Debug.Log("lives before minus:" + lives);
             lives--;
-            Debug.Log("lives after minus:" + lives);
             if (lives == 2)
             {
-              //  life3Image.SetActive(false);
               life3Image.GetComponent<Image>().sprite = lifeSpriteGrey;
-                damageCooldown.StartTimer();
+              StartCoroutine(DamageCooldown());
             }
             if (lives == 1)
             {
-              //  life2Image.SetActive(false);
               life2Image.GetComponent<Image>().sprite = lifeSpriteGrey;
-                damageCooldown.StartTimer();
+              StartCoroutine(DamageCooldown());
             }
             else if (lives <= 0)
             {
@@ -217,6 +220,29 @@ public class Player : MonoBehaviour
             inCutscene = true;
             PauseMenu.allowPause = false;
         }
+    }
+
+    private void FlickerWhileInvincible() {
+        if(invincible && Time.time > nextFlickerTime) {
+            flickerState = !flickerState;
+            spriteRenderer.enabled = flickerState;
+            nextFlickerTime = Time.time + flickerSpeed;
+        }
+    }
+
+    private IEnumerator DamageCooldown()
+    {
+        Debug.Log("starting damage cooldown");
+        invincible = true;
+        // spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 1f);
+
+        yield return new WaitForSeconds(cooldownTime);
+
+        invincible = false;
+        Debug.Log("end of damage cooldown");
+        // spriteRenderer.color = Color.white;
+        spriteRenderer.enabled = true;
+        yield return null;
     }
 
 

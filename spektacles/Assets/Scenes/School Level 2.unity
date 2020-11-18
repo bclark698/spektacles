@@ -8823,6 +8823,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -56.749832
       objectReference: {fileID: 0}
+    - target: {fileID: 3335920742268443925, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: m_Room
+      value: -212
+      objectReference: {fileID: 0}
+    - target: {fileID: 3335920742268443925, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: m_Reverb
+      value: -2006
+      objectReference: {fileID: 0}
     - target: {fileID: 3459448528104334850, guid: 7ac82505f3c5e41dc8bfe2509009828f,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -14507,6 +14517,16 @@ PrefabInstance:
       propertyPath: m_LocalPosition.x
       value: -42.429832
       objectReference: {fileID: 0}
+    - target: {fileID: 9062765475962151584, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: m_Room
+      value: -212
+      objectReference: {fileID: 0}
+    - target: {fileID: 9062765475962151584, guid: 7ac82505f3c5e41dc8bfe2509009828f,
+        type: 3}
+      propertyPath: m_Reverb
+      value: -2006
+      objectReference: {fileID: 0}
     - target: {fileID: 9085411916341878238, guid: 7ac82505f3c5e41dc8bfe2509009828f,
         type: 3}
       propertyPath: m_IsActive
@@ -16720,6 +16740,31 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalPosition.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239758432203595213, guid: ad7aeec5383ee464c89c103f81736f55,
+        type: 3}
+      propertyPath: m_Volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239758432203595213, guid: ad7aeec5383ee464c89c103f81736f55,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[0].value
+      value: 0.099090576
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239758432203595213, guid: ad7aeec5383ee464c89c103f81736f55,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.06480408
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239758432203595213, guid: ad7aeec5383ee464c89c103f81736f55,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].time
+      value: 0.7366193
+      objectReference: {fileID: 0}
+    - target: {fileID: 8239758432203595213, guid: ad7aeec5383ee464c89c103f81736f55,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[2].value
+      value: 0.060699463
       objectReference: {fileID: 0}
     - target: {fileID: 8852726579192333716, guid: ad7aeec5383ee464c89c103f81736f55,
         type: 3}
@@ -34995,6 +35040,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2333896793688382308, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 4068454653191535867, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
         type: 3}
       propertyPath: m_Name
@@ -35108,7 +35158,7 @@ PrefabInstance:
     - target: {fileID: 4317651877230039837, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
         type: 3}
       propertyPath: m_SizeDelta.y
-      value: 0
+      value: 83
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 362a54c7a5394e64192fdb1b9d9e0c7a, type: 3}
@@ -39028,7 +39078,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 156.00002
     y: -178.50075
-    width: 135.85873
+    width: 137.8448
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -39389,7 +39439,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 445.36584
     y: -65
-    width: 102.39908
+    width: 103.11546
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -39420,7 +39470,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 450.06354
     y: 25.163345
-    width: 89.14148
+    width: 89.83659
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -39590,7 +39640,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 564.7905
     y: -18.84697
-    width: 142.80319
+    width: 144.99496
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -39643,7 +39693,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1050.1338
     y: 132.93382
-    width: 114.39405
+    width: 115.37288
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -39674,7 +39724,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 752.7527
     y: 34.59973
-    width: 91.03542
+    width: 91.8795
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -40013,7 +40063,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 314.2178
     y: -12.383331
-    width: 102.39908
+    width: 104.13692
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -40100,7 +40150,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 160.89577
     y: -6.3482857
-    width: 130.80823
+    width: 133.759
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -40949,7 +40999,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 753.87976
     y: -82.70143
-    width: 79.04045
+    width: 79.622086
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -41376,7 +41426,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 457.00378
     y: 124.748
-    width: 92.29805
+    width: 92.900955
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0

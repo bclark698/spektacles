@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &7593205928740479470
+--- !u!1 &6304113205885608923
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -8,52 +8,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 7593205928740479465}
-  - component: {fileID: 7593205928740479464}
+  - component: {fileID: 2795072083104662777}
+  - component: {fileID: 8487060540383193860}
   m_Layer: 0
-  m_Name: Ambiant Soure (Classroom)
+  m_Name: Ambiant Cafeteria
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &7593205928740479465
+--- !u!4 &2795072083104662777
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7593205928740479470}
+  m_GameObject: {fileID: 6304113205885608923}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 4.8, y: -53.3, z: 0}
+  m_LocalPosition: {x: -17.4, y: 16.8, z: 2048.3474}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!82 &7593205928740479464
+--- !u!82 &8487060540383193860
 AudioSource:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7593205928740479470}
+  m_GameObject: {fileID: 6304113205885608923}
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: cfbea5e93746e495ab49f99844e54b72, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 1
+  m_Volume: 0.055
   m_Pitch: 1
   Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 0
+  DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 70.24877
-  Pan2D: -1
+  MaxDistance: 30.7
+  Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
   BypassListenerEffects: 0
@@ -62,37 +62,28 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
-      value: 0.099090576
-      inSlope: -0.06264924
-      outSlope: -0.06264924
-      tangentMode: 0
-      weightedMode: 0
-      inWeight: 0
-      outWeight: 0.7857495
-    - serializedVersion: 3
-      time: 0.34212556
-      value: 0.082473755
-      inSlope: -0.09105238
-      outSlope: -0.09105238
+      time: 0.31763893
+      value: 0.05432129
+      inSlope: -0.47988147
+      outSlope: -0.47988147
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.63452274
-      value: 0.06951904
-      inSlope: -0.022763096
-      outSlope: -0.022763096
+      time: 0.52117264
+      value: 0.035995483
+      inSlope: -0.11997037
+      outSlope: -0.11997037
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 1
+      time: 0.9970093
       value: 0
-      inSlope: -0.010733865
-      outSlope: -0.010733865
+      inSlope: -0.03258623
+      outSlope: -0.03258623
       tangentMode: 0
       weightedMode: 0
       inWeight: 0
@@ -120,7 +111,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0.58055556
+      value: 0
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -134,8 +125,8 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0.39928055
-      value: 0.9946861
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
