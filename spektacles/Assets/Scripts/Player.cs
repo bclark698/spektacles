@@ -20,7 +20,9 @@ public class Player : MonoBehaviour
     private Sprite lifeSpriteGrey;
     private Sprite lifeSpriteGold;
     private Color gold = new Color(1f, .84f, 0f);
+
     Vector2 moveDirection;
+    Collider2D goldHeart;
 
     //audio
     private PlayerSoundController playerSounds;
@@ -158,6 +160,7 @@ public class Player : MonoBehaviour
             else if (lives <= 0)
             {
                 RestartLevel();
+                goldHeart.gameObject.SetActive(true);
             }
         }
 
@@ -259,7 +262,9 @@ public class Player : MonoBehaviour
             life3Image.GetComponent<Image>().sprite = lifeSpriteGold;
 
 
-            Destroy(other.gameObject);
+            //Destroy(other.gameObject);
+            goldHeart = other;
+            other.gameObject.SetActive(false);
             Debug.Log("add lives. current lives " + lives);
             playerSounds.AcquireSound();
             //add any ui code here!
