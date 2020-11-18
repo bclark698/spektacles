@@ -3900,6 +3900,61 @@ TilemapRenderer:
   m_Mode: 1
   m_DetectChunkCullingBounds: 0
   m_MaskInteraction: 0
+--- !u!1 &1165552730679791507
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4694930815437368111}
+  - component: {fileID: 6698667811250402744}
+  m_Layer: 0
+  m_Name: Ambient Audio
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4694930815437368111
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165552730679791507}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 5.9, y: -87.27, z: -85.58252}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5260096628060115238}
+  m_RootOrder: 8
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!167 &6698667811250402744
+AudioReverbZone:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1165552730679791507}
+  m_Enabled: 1
+  m_MinDistance: 0.25500488
+  m_MaxDistance: 61.466522
+  m_ReverbPreset: 27
+  m_Room: -3922
+  m_RoomHF: -4663
+  m_DecayTime: 0.4
+  m_DecayHFRatio: 0.83
+  m_Reflections: -9551
+  m_ReflectionsDelay: 0.002
+  m_Reverb: -8302
+  m_ReverbDelay: 0.003
+  m_HFReference: 10938
+  m_Diffusion: 2
+  m_Density: 58.1
+  m_LFReference: 250
+  m_RoomLF: 0
 --- !u!1 &4249320581332994338
 GameObject:
   m_ObjectHideFlags: 0
@@ -3936,6 +3991,7 @@ Transform:
   - {fileID: 2816600469923844876}
   - {fileID: 3472913518169539175}
   - {fileID: 7292596412756323622}
+  - {fileID: 4694930815437368111}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
