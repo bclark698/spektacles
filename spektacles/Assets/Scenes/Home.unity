@@ -454,6 +454,7 @@ GameObject:
   - component: {fileID: 69824170}
   - component: {fileID: 69824171}
   - component: {fileID: 69824169}
+  - component: {fileID: 69824174}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -565,8 +566,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 3
   indentLevel: 0
-  storyText: '{i} Something smells really good, I should go downstairs and check
-    it out. {/i}'
+  storyText: '{i}Something smells really good, I should go downstairs and check it
+    out. {/i}'
   description: 
   character: {fileID: 0}
   portrait: {fileID: 0}
@@ -595,7 +596,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 624.0221
     y: 430.69553
-    width: 150.70078
+    width: 153.30562
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -611,6 +612,7 @@ MonoBehaviour:
   - {fileID: 69824158}
   - {fileID: 69824136}
   - {fileID: 69824152}
+  - {fileID: 69824174}
   - {fileID: 69824151}
   - {fileID: 69824162}
   - {fileID: 69824124}
@@ -649,7 +651,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 139.45212
-    width: 100.788216
+    width: 101.65281
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -703,7 +705,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 154.20216
     y: 411.43738
-    width: 119.17705
+    width: 120.76435
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -748,19 +750,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: 277.36298, y: -71.51482}
+  scrollPos: {x: -102.32646, y: -210.28975}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 412
-  zoom: 0.5709986
+  zoom: 0.96800154
   scrollViewRect:
     serializedVersion: 2
     x: 0
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
-  selectedCommands: []
+  selectedBlocks:
+  - {fileID: 69824114}
+  selectedCommands:
+  - {fileID: 69824155}
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -808,7 +812,7 @@ MonoBehaviour:
     going. '
   description: 
   character: {fileID: 1254616243}
-  portrait: {fileID: 21300000, guid: 7e51a2f36a098514f8b13100f4e91c45, type: 3}
+  portrait: {fileID: 21300000, guid: 91535961398a74042821dfa597ccce9d, type: 3}
   voiceOverClip: {fileID: 0}
   showAlways: 1
   showCount: 1
@@ -834,7 +838,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 435.82037
     y: 552.0602
-    width: 120.92837
+    width: 123.34699
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -938,7 +942,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 438.71906
     y: 434.01837
-    width: 151.57643
+    width: 154.33868
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2479,7 +2483,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 631.4955
     y: 332.14493
-    width: 75.394104
+    width: 75.309875
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2796,9 +2800,9 @@ MonoBehaviour:
   conversationText:
     stringRef: {fileID: 0}
     stringVal: "Melita: Good morning....\nMomdusa: Happy first day of school sweetie!
-      Are you excited? \nMelita: {i} I think you might be more excited than I am.
-      {/i}\nMelita: Yeah! I have some really cool classes this year.\nCerebrus doggo
-      middle: {b} BORK {/b}"
+      Are you excited? \nMelita inquisitve: {i}I think you might be more excited
+      than I am. {/i}\nMelita laughing: Yeah! I have some really cool classes this
+      year.\nCerebrus doggo middle: {b} BORK {/b}"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -2829,7 +2833,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 1254616243}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 7e51a2f36a098514f8b13100f4e91c45, type: 3}
+  portrait: {fileID: 21300000, guid: d6c1c655eca335946beb58af6dd4a16b, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 1632151790}
@@ -2887,7 +2891,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 447.96375
     y: 297.19373
-    width: 126.18232
+    width: 127.47922
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2926,9 +2930,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Momdusa: Oh, looks like the bus is here already. Here, \nMomdusa
-      middle: Take your lunch and have a fantastic first day of school! Kisses!\nMelita:
-      Moommmmmmmm\n\nMelita hide:\nMomdusa hide:"
+    stringVal: "Melita nowait:\nMomdusa: Oh, looks like the bus is here already.
+      Here, \nMomdusa middle: Take your lunch and have a fantastic first day of school!
+      Kisses!\nMelita wait: Moommmmmmmm\n\nMelita hide:\nMomdusa hide:"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -3092,7 +3096,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 1254616243}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 7e51a2f36a098514f8b13100f4e91c45, type: 3}
+  portrait: {fileID: 21300000, guid: 91535961398a74042821dfa597ccce9d, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 1632151790}
@@ -3547,6 +3551,36 @@ MonoBehaviour:
     booleanRef: {fileID: 0}
     booleanVal: 1
   targetGameObjectOLD: {fileID: 0}
+--- !u!114 &69824174
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 108
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 1254616243}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: d6c1c655eca335946beb58af6dd4a16b, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 1632151790}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &69824176
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -6029,7 +6063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 2053604413}
+  selectedFlowchart: {fileID: 69824120}
 --- !u!4 &872137135
 Transform:
   m_ObjectHideFlags: 1
@@ -45714,7 +45748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 487.3, y: -1000}
+  m_AnchoredPosition: {x: 372, y: -1000}
   m_SizeDelta: {x: 825.77905, y: 878.9634}
   m_Pivot: {x: 0.5, y: 0}
 --- !u!114 &1632151791
