@@ -20,8 +20,10 @@ public class Pixie : Enemy
 
     public float rotationSpeed; // speed at which pixies spin
     public float moveSpeed;     // movement speed of pixies
-    public AudioSource giggle1; //agro sound
-    public AudioSource giggle2; //dissapointed sound
+    public AudioSource agroSound; //agro sound
+    public AudioSource sadSound; //dissapointed sound
+    public AudioSource pleasedSound; //pleased sound
+    private bool sadSoundPlayed;
 
     private FieldOfView fieldOfView = null;
     [SerializeField] private Transform pfFieldOfView = null; // a prefab of our field of view. drag this into the pixie's inspector
@@ -88,7 +90,8 @@ public class Pixie : Enemy
                 if (PlayerInSight())
                 {
                     state = State.ChaseTarget;
-                    giggle1.Play();
+                    agroSound.Play();
+                    sadSoundPlayed = false;
                 }
                 break;
 
@@ -103,7 +106,10 @@ public class Pixie : Enemy
             case State.ReturnToStart:
                 StartCoroutine(ReturnHome());
                 //ReturnHome();
-                giggle2.Play();
+                if (!sadSoundPlayed){
+                sadSound.Play();
+                sadSoundPlayed = true;
+                }
                 break;
 
 
@@ -185,7 +191,7 @@ public class Pixie : Enemy
     {
         if (collision.tag == "Player")
         {
-            giggle2.Play();
+            pleasedSound.Play();
         }
     }
 

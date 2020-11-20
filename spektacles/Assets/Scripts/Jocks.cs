@@ -19,12 +19,15 @@ public class Jocks : Enemy
 	public bool rand = false;
 	public bool go = true;
 
-
+    private JorcSoundController jorcSounds;
 
     void Start() {
         powerUpToHandle = PowerUp.Type.Helmet;
 
         timer = waitTime;
+
+        jorcSounds = gameObject.GetComponent<JorcSoundController>();
+        jorcSounds.footstepLoopPlay();
     }
 
 
