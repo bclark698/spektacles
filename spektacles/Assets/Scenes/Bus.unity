@@ -6898,7 +6898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 1825551066}
+  selectedFlowchart: {fileID: 1692766860}
 --- !u!4 &818092679
 Transform:
   m_ObjectHideFlags: 1
@@ -8045,8 +8045,9 @@ MonoBehaviour:
     width: 0
     height: 0
   selectedBlocks:
-  - {fileID: 976602271}
-  selectedCommands: []
+  - {fileID: 976602274}
+  selectedCommands:
+  - {fileID: 976602273}
   variables: []
   description: 
   stepPause: 0
@@ -9591,6 +9592,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4e0e3e19e21854a7aa4fcbc732a5c1a7, type: 3}
+--- !u!82 &1113448973 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 2863769501876898718, guid: 02e8de52ef148453182db810c549e722,
+    type: 3}
+  m_PrefabInstance: {fileID: 4051652748354611070}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1122102947
 GameObject:
   m_ObjectHideFlags: 0
@@ -12503,7 +12510,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 436.24097
     y: 273
-    width: 67
+    width: 107
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -12581,7 +12588,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 273.24097
     y: 156
-    width: 60
+    width: 76
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13097,18 +13104,6 @@ PrefabInstance:
       objectReference: {fileID: 1825551079}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 912c4182eb4e64bd7a4ab3a581afe8f7, type: 3}
---- !u!114 &1825551066 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
-    type: 3}
-  m_PrefabInstance: {fileID: 1825551065}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1825551067}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1825551067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5387167895076370669, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
@@ -27771,6 +27766,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 976602267}
     m_Modifications:
+    - target: {fileID: 4625720527287509585, guid: 02e8de52ef148453182db810c549e722,
+        type: 3}
+      propertyPath: targetAudioSource
+      value: 
+      objectReference: {fileID: 1113448973}
     - target: {fileID: 4966563509088480088, guid: 02e8de52ef148453182db810c549e722,
         type: 3}
       propertyPath: m_LocalPosition.x
