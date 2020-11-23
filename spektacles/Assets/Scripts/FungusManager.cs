@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using UnityEngine.Playables;
 using System;
+using Fungus;
 
 public class FungusManager : MonoBehaviour
 {
@@ -75,6 +76,12 @@ public class FungusManager : MonoBehaviour
     public void Quit()
     {
         Application.Quit();
+    }
+
+    public void ToggleFlavorText(GameObject other, bool on)
+    {
+        Flowchart flow = other.GetComponent<Flowchart>();
+        flow.enabled = on;
     }
 
 
