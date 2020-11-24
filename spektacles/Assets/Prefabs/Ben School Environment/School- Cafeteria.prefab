@@ -14712,9 +14712,9 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: cfbea5e93746e495ab49f99844e54b72, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 57192e82f060c4107b86e4116f7a8d4d, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.072
+  m_Volume: 1
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -14723,12 +14723,12 @@ AudioSource:
   Priority: 128
   DopplerLevel: 0
   MinDistance: 1
-  MaxDistance: 100.07535
+  MaxDistance: 113.379
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
+  BypassListenerEffects: 1
+  BypassReverbZones: 1
   rolloffCustomCurve:
     serializedVersion: 2
     m_Curve:
@@ -14742,14 +14742,14 @@ AudioSource:
       inWeight: 0
       outWeight: 0.9214031
     - serializedVersion: 3
-      time: 0.64128983
-      value: 0.027160645
-      inSlope: -0.11997037
-      outSlope: -0.11997037
+      time: 0.8957759
+      value: 0.031555176
+      inSlope: -0.10895509
+      outSlope: -0.10895509
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
-      outWeight: 0
+      inWeight: 0.2519829
+      outWeight: 1
     - serializedVersion: 3
       time: 1
       value: 0
@@ -14782,7 +14782,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.46666667
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -14797,7 +14797,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -28182,11 +28182,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_IsActive
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 8487060540383193860, guid: ab1029c0a69104b959614913dc9d9381,
-        type: 3}
-      propertyPath: DopplerLevel
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ab1029c0a69104b959614913dc9d9381, type: 3}
