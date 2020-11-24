@@ -14,6 +14,7 @@ public class Gravity : MonoBehaviour
 
     public AudioSource sirenPullSound;
     public AudioSource sirenBlockedSound;
+    public AudioSource sirenSingSound;
     private PowerUpRange powerUpRange;
 
     // Start is called before the first frame update
@@ -22,6 +23,9 @@ public class Gravity : MonoBehaviour
         playerRB = GameObject.FindGameObjectWithTag("Player").GetComponent<Rigidbody2D>(); //grab player RB
         gravityRange = gameObject.GetComponent<CircleCollider2D>();
         powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
+
+        sirenSingSound.time = 7.7f;
+        sirenSingSound.Play();
     }
 
     private void FixedUpdate()
