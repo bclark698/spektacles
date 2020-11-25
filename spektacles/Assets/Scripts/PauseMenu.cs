@@ -26,7 +26,17 @@ public class PauseMenu : MonoBehaviour
             GameObject.Destroy(instance);
         else
             instance = this;
+
+        pauseMenu.SetActive(true);
 	}
+
+    void Start() {
+        if(pauseMenu != null) {
+            pauseMenu.SetActive(false);
+        } else {
+            Debug.Log("pause menu is null! In PauseMenu.cs Start()");
+        }
+    }
 
     public void PauseOrResume() {
         if(allowPause && !Player.inCutscene) { // TODO do we need to put this check in the other functions too?

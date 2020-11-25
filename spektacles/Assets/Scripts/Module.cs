@@ -8,7 +8,7 @@ public class Module : MonoBehaviour
 	private GameObject melitaIndicator;
 	private string prefix = "School- ";
 
-	void Start() {
+	void Awake() {
 		melitaIndicator = GameObject.FindGameObjectWithTag("Melita Indicator");
 		string parentName = transform.parent.name;
 		string pointerName = "Pointer "+parentName.Substring(prefix.Length);

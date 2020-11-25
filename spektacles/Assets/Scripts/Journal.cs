@@ -19,20 +19,9 @@ public class Journal : MonoBehaviour
     [SerializeField] private string pageNumDecoration = ""; // goes on the left and right side of the page number
     private string pageNumDecorationReversed = "";
 
-
-    Image melitaIndicator;
-    Image[] mapModules;
-
 	void Awake() {
 		controls = new PlayerControls();
 		controls.UI.Navigate.performed += context => NavigateJournal(context);
-
-		// GameObject temp = GameObject.FindGameObjectWithTag("Melita Indicator");
-  //       if(temp)
-  //           melitaIndicator = temp.GetComponent<Image>();
-
-  //       mapModules = GameObject.FindGameObjectWithTag("Minimap").GetComponentsInChildren<Image>();
-  //       ChangeMapVisibility(false); // should be default not visible
 
         journalAppearance = GetComponent<Image>();
 
@@ -79,9 +68,6 @@ public class Journal : MonoBehaviour
 
     void NextPage() {
         if(pageNum < NumPages() - 2) {
-        	// pages[tabNum][pageNum].SetActive(false);
-         //    pageNum++;
-         //    pages[tabNum][pageNum].SetActive(true);
         	SetCurPairPagesVisibility(false);
             pageNum += 2;
             SetCurPairPagesVisibility(true);
@@ -90,9 +76,6 @@ public class Journal : MonoBehaviour
 
     void PrevPage() {
         if(pageNum > 0) {
-        	// pages[tabNum][pageNum].SetActive(false);
-         //    pageNum--;
-         //    pages[tabNum][pageNum].SetActive(true);
         	SetCurPairPagesVisibility(false);
         	pageNum -= 2;
         	SetCurPairPagesVisibility(true);
@@ -146,7 +129,6 @@ public class Journal : MonoBehaviour
     }
 
     void UpdateJournalView() {
-        // tipText.text = tipTexts[pageNum];
         UpdatePageAppearance();
         UpdateControlsView();
         UpdatePageNum();
@@ -170,17 +152,6 @@ public class Journal : MonoBehaviour
         // if(NumPages() < 2)
     }
 
-    private void ChangeMapVisibility(bool visibility) { //TODO is this needed?
-        if(mapModules != null) {
-            foreach(Image i in mapModules) {
-                i.enabled = visibility;
-            }
-        }
-
-        if(melitaIndicator)
-            melitaIndicator.enabled = visibility;
-    }
-
     public void QuitGame() {
     	Debug.Log("quitting game");
     	#if UNITY_EDITOR
@@ -201,9 +172,5 @@ public class Journal : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable();
-        // TODO is this needed for the map to remain enabled?
-        SetFirstTabVisible();
-        SetFirstPagePairVisible();
-        UpdateJournalView();
     }
 }
