@@ -152,12 +152,6 @@ public class Player : MonoBehaviour
         {
 
             lives--;
-
-            //Please HELP HERE!!! -Jordan!
-            if(anim.GetBool("blind")== false)
-                anim.SetBool("blind", true);
-            //Please HELP HERE!!! -Jordan!
-
             if (lives == 2)
             {
               life3Image.GetComponent<Image>().sprite = lifeSpriteGrey;
@@ -243,11 +237,13 @@ public class Player : MonoBehaviour
     {
         Debug.Log("starting damage cooldown");
         invincible = true;
+        anim.SetBool("blind", true);
         // spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 1f);
 
         yield return new WaitForSeconds(cooldownTime);
 
         invincible = false;
+        anim.SetBool("blind", false);
         Debug.Log("end of damage cooldown");
         // spriteRenderer.color = Color.white;
         spriteRenderer.enabled = true;
