@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Journal : MonoBehaviour
 {
@@ -13,6 +14,11 @@ public class Journal : MonoBehaviour
     private int tabNum = 0;
     private int pageNum = 0;
     private Image journalAppearance;
+    private Text pageNumLeft;
+    private Text pageNumRight;
+    [SerializeField] private string pageNumDecoration = ""; // goes on the left and right side of the page number
+    private string pageNumDecorationReversed = "";
+
 
     Image melitaIndicator;
     Image[] mapModules;
@@ -36,6 +42,11 @@ public class Journal : MonoBehaviour
         foreach(GameObject go in tabs) {
         	pages.Add(go.GetChildren());
         }
+
+        pageNumLeft = GameObject.Find("Page Num Left").GetComponent<Text>();
+        pageNumRight = GameObject.Find("Page Num Right").GetComponent<Text>();
+
+        pageNumDecorationReversed = new string(pageNumDecoration.Reverse().ToArray());
 	}
 
 	void NavigateJournal(InputAction.CallbackContext context) {
@@ -146,11 +157,17 @@ public class Journal : MonoBehaviour
     }
 
     void UpdatePageNum() {
-        //
+        pageNumLeft.text = pageNumDecoration + (pageNum + 1) + pageNumDecorationReversed;
+        if(pageNum+1 < NumPages()) {
+        	pageNumRight.text = pageNumDecoration + (pageNum + 2).ToString() + pageNumDecorationReversed;
+    	} else {
+    		pageNumRight.text = "";
+    	}
+        
     }
 
     void UpdateControlsView() {
-        //
+        // if(NumPages() < 2)
     }
 
     private void ChangeMapVisibility(bool visibility) { //TODO is this needed?
@@ -184,5 +201,9 @@ public class Journal : MonoBehaviour
     private void OnDisable()
     {
         controls.Disable();
+        // TODO is this needed for the map to remain enabled?
+        SetFirstTabVisible();
+        SetFirstPagePairVisible();
+        UpdateJournalView();
     }
 }
