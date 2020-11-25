@@ -15,8 +15,8 @@ public abstract class Enemy : MonoBehaviour
     [SerializeField] protected Animator anim; //TODO delete serial
     private PowerUpRange powerUpRange;
 
-    [SerializeField] private Shader defaultShader;
-    [SerializeField] private Shader outlineShader;
+    [SerializeField] protected Shader defaultShader;
+    [SerializeField] protected Shader outlineShader;
 
     [SerializeField] public Collider2D physicalCollider;
 
@@ -94,11 +94,11 @@ public abstract class Enemy : MonoBehaviour
       physicalCollider.enabled = true;
     }
 
-    public void OutlineOn() {
+    public virtual void OutlineOn() {
       spriteRenderer.material.shader = outlineShader;
     }
 
-    public void OutlineOff() {
+    public virtual void OutlineOff() {
       spriteRenderer.material.shader = defaultShader;
     }
 }

@@ -11,11 +11,8 @@ public class Vampire : Enemy
     public float waitTime;
     private float timer;
 
-    public float stunDuration;
     public bool rand = false;
     public bool go = true;
-
-
 
     void Start() {
         //powerUpToHandle = PowerUp.Type.Garlic;
@@ -30,7 +27,6 @@ public class Vampire : Enemy
 
     private void Update()
     {
-
         if (timer > 0)
         {
             timer -= Time.deltaTime;
@@ -40,16 +36,8 @@ public class Vampire : Enemy
 
         if (!rand)
         {
-            if (num + 1 == vamps.Length)
-            {
-                prevNum = num;
-                num = 0;
-            }
-            else
-            {
-                prevNum = num;
-                num++;
-            }
+            prevNum = num;
+            num = (num + 1 == vamps.Length) ? 0 : num+1;
         }
         else
         {
@@ -59,32 +47,18 @@ public class Vampire : Enemy
 
         vamps[prevNum].gameObject.SetActive(false);
         vamps[num].gameObject.SetActive(true);
-
-        HandleStun();
-
     }
 
+    public override void OutlineOn() {
+        foreach(GameObject vamp in vamps) {
+            vamp.GetComponent<SpriteRenderer>().material.shader = outlineShader;
+        }
+    }
 
-    public  IEnumerator HandleStun()
-    {
-        yield return new WaitForSeconds(stunDuration);
+    public override void OutlineOff() {
+        foreach(GameObject vamp in vamps) {
+            vamp.GetComponent<SpriteRenderer>().material.shader = defaultShader;
+        }
     }
 
 }
-
-
-
-
-    /*
-    public override IEnumerator HandleStun()
-    {
-        // mark as stunned for a few seconds
-        isStunned = true;
-
-        //might be good to add a specific animation for the vampires to play
-
-        // wait for 1.5 seconds
-        yield return new WaitForSeconds(stunDuration);
-
-        isStunned = false;
-    }*/
