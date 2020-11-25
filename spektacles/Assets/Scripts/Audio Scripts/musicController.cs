@@ -157,13 +157,19 @@ public class musicController : MonoBehaviour
       currentVol += Time.deltaTime / transistionTimeUp;
       yield return currentVol;
     }
+    //StartCoroutine(LoopMusic(loopMusic));
+
+    yield return null;
+  }
+
+
+
+  public IEnumerator LoopMusic(AudioSource loopMusic){
     while (currentMusic.isPlaying){
       yield return currentVol;
     }
     yield return currentMusic.clip = loopMusic.clip;
     currentMusic.Play();
     currentMusic.loop = true;
-
-    yield return null;
   }
 }

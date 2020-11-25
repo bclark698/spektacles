@@ -47,7 +47,16 @@ public abstract class Enemy : MonoBehaviour
     /* IMPORTANT: child classes of Enemy should not override this function by having
      * their own Awake() function, or they should call base.Awake() in their's */
     void Awake() {
-      spriteRenderer = GetComponent<SpriteRenderer>();
+      if (gameObject.GetComponent<SpriteRenderer>() != null){
+        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
+      }
+      else if(gameObject.GetComponentInParent<SpriteRenderer>() != null){
+        spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
+      }
+      else {
+        spriteRenderer = gameObject.GetComponentInChildren<SpriteRenderer>();
+      }
+
       enemySounds = GameObject.Find("/Unbreakable iPod/Enemy Sounds").GetComponent<EnemySoundController>();
       anim = GetComponent<Animator>();
       powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
@@ -60,14 +69,7 @@ public abstract class Enemy : MonoBehaviour
     public virtual void TurnIntoStone()
     {
       OutlineOff();
-      if (gameObject.GetComponent<SpriteRenderer>() != null){
-        spriteRenderer = gameObject.GetComponent<SpriteRenderer>();
-      }
-      else{
-        spriteRenderer = gameObject.GetComponentInParent<SpriteRenderer>();
-      }
-      enemySounds = GameObject.Find("/Unbreakable iPod/Enemy Sounds").GetComponent<EnemySoundController>();
-
+    
       Debug.Log("turned into stone");
 
       StartCoroutine(HandleStun());

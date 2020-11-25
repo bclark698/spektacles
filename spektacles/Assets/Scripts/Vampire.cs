@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Vampire : MonoBehaviour
+public class Vampire : Enemy
 {
     public GameObject[] vamps;
     public int num = 0;
@@ -88,4 +88,3 @@ public class Vampire : MonoBehaviour
 
         isStunned = false;
     }*/
-
