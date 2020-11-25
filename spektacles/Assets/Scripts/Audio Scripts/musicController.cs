@@ -9,15 +9,17 @@ public class musicController : MonoBehaviour
   public AudioSource startMusic;
   public AudioSource currentMusic;
   public AudioSource homeMusic;
-  public AudioSource homeCutMusic;
+  public AudioSource homeLoop;
   public AudioSource busMusic;
-  public AudioSource busCutMusic;
+  public AudioSource busLoop;
   public AudioSource lvl1Music;
-  public AudioSource cut1Music;
+  public AudioSource lvl1Loop;
   public AudioSource lvl2Music;
-  public AudioSource cut2Music;
+  public AudioSource lvl2Loop;
   public AudioSource lvl3Music;
-  public AudioSource cut3Music;
+  public AudioSource lvl3Loop;
+  public AudioSource cutMusic;
+  public AudioSource cutLoop;
 
 
   //float fadeTime;
@@ -35,8 +37,6 @@ public class musicController : MonoBehaviour
   void OnSceneLoaded(Scene scene, LoadSceneMode mode)
      {
        currentLevel = SceneManager.GetActiveScene().name;
-       Debug.Log("current level is ");
-       Debug.Log(currentLevel);
        LoadMusic();
        currentMusic.Play();
      }
@@ -79,28 +79,22 @@ public class musicController : MonoBehaviour
       break;
       case "Bus":
     //  currentMusic.clip = busMusic.clip;
-      StartCoroutine(MusicSwitch(busMusic, 1, 2, .2f));
+      StartCoroutine(MusicSwitch(busMusic, busLoop, 1, 2, .2f));
       break;
       case "School Level 1":
       //currentMusic.clip = lvl1Music.clip;
-      StartCoroutine(MusicSwitch(lvl1Music, 1, 2, .2f));
+      StartCoroutine(MusicSwitch(lvl1Music, lvl1Loop, 1, 2, .2f));
       break;
       case "School Level 2":
     //  currentMusic.clip = lvl2Music.clip;
-      StartCoroutine(MusicSwitch(lvl2Music, 1, 2, .2f));
+      StartCoroutine(MusicSwitch(lvl2Music, lvl2Loop, 1, 2, .2f));
       break;
       case "School Level 3":
     //  currentMusic.clip = lvl3Music.clip;
-      StartCoroutine(MusicSwitch(lvl3Music, 1, 2, .25f));
-      break;
-      case "Full School Scene":
-      currentMusic.clip = lvl1Music.clip;
+      StartCoroutine(MusicSwitch(lvl3Music, lvl3Loop, 1, 2, .25f));
       break;
       case "Sohee TEST - Start Screen":
       currentMusic.clip = startMusic.clip;
-      break;
-      case "Firedrill Test":
-      currentMusic.clip = lvl3Music.clip;
       break;
 
 
@@ -115,30 +109,30 @@ public class musicController : MonoBehaviour
 
       case "Floor1 NEW":
       //Debug.Log("switching to cut1Music");
-      StartCoroutine(MusicSwitch(cut1Music, 2, 4, .4f));
+      StartCoroutine(MusicSwitch(cutMusic, cutLoop, 2, 4, .4f));
       break;
       case "Bus":
       //Debug.Log("switching to cut1Music");
-      StartCoroutine(MusicSwitch(busCutMusic, 2, 4, .4f));
+      StartCoroutine(MusicSwitch(cutMusic, cutLoop, 2, 4, .4f));
       break;
       case "School Level 1":
       //Debug.Log("switching to cut1Music");
-      StartCoroutine(MusicSwitch(cut1Music, 2, 4, .4f));
+      StartCoroutine(MusicSwitch(cutMusic, cutLoop, 2, 4, .4f));
       break;
       case "School Level 2":
       //Debug.Log("switching to cut2Music");
-      StartCoroutine(MusicSwitch(cut2Music, 2, 4, .4f));
+      StartCoroutine(MusicSwitch(cutMusic, cutLoop, 2, 4, .4f));
       break;
       case "School Level 3":
       //Debug.Log("switching to cut3Music");
-      StartCoroutine(MusicSwitch(cut3Music, 2, 4, .4f));
+      StartCoroutine(MusicSwitch(cutMusic, cutLoop, 2, 4, .4f));
       break;
       case "Full School Scene":
       //Debug.Log("switching to cut1Music");
-      StartCoroutine(MusicSwitch(cut1Music, 2, 4, .4f));
+      StartCoroutine(MusicSwitch(cutMusic, cutLoop, 2, 4, .4f));
       break;
       case "Firedrill Test":
-      StartCoroutine(MusicSwitch(cut3Music, 2, 4, .4f));
+      StartCoroutine(MusicSwitch(cutMusic, cutLoop, 2, 4, .4f));
       break;
 
 
@@ -147,14 +141,13 @@ public class musicController : MonoBehaviour
     //Then trigger MusicSwitch() w/ the right values.
   }
 
-  public IEnumerator MusicSwitch(AudioSource nextMusic, float transistionTimeDown, float transistionTimeUp, float vol){
-    Debug.Log("starting switch");
+  public IEnumerator MusicSwitch(AudioSource nextMusic, AudioSource loopMusic, float transistionTimeDown, float transistionTimeUp, float vol){
     currentVol = musicVol;
     musicVol = vol;
+    currentMusic.loop = false;
 
    while (currentVol > 0){
       currentVol -= Time.deltaTime / transistionTimeDown;
-      Debug.Log("switching");
       yield return currentVol;
     }
 
@@ -164,6 +157,12 @@ public class musicController : MonoBehaviour
       currentVol += Time.deltaTime / transistionTimeUp;
       yield return currentVol;
     }
+    while (currentMusic.isPlaying){
+      yield return currentVol;
+    }
+    yield return currentMusic.clip = loopMusic.clip;
+    currentMusic.Play();
+    currentMusic.loop = true;
 
     yield return null;
   }

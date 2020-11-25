@@ -152,6 +152,12 @@ public class Player : MonoBehaviour
         {
 
             lives--;
+
+            //Please HELP HERE!!! -Jordan!
+            if(anim.GetBool("blind")== false)
+                anim.SetBool("blind", true);
+            //Please HELP HERE!!! -Jordan!
+
             if (lives == 2)
             {
               life3Image.GetComponent<Image>().sprite = lifeSpriteGrey;

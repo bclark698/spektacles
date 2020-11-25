@@ -455,6 +455,10 @@ GameObject:
   - component: {fileID: 69824171}
   - component: {fileID: 69824169}
   - component: {fileID: 69824174}
+  - component: {fileID: 69824175}
+  - component: {fileID: 69824177}
+  - component: {fileID: 69824179}
+  - component: {fileID: 69824178}
   m_Layer: 0
   m_Name: MomDusa
   m_TagString: Untagged
@@ -594,9 +598,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 624.0221
+    x: 625.0552
     y: 430.69553
-    width: 153.30562
+    width: 151.28995
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -611,6 +615,8 @@ MonoBehaviour:
   - {fileID: 69824157}
   - {fileID: 69824158}
   - {fileID: 69824136}
+  - {fileID: 69824177}
+  - {fileID: 69824175}
   - {fileID: 69824152}
   - {fileID: 69824174}
   - {fileID: 69824151}
@@ -651,7 +657,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 283.94952
     y: 139.45212
-    width: 101.65281
+    width: 101.61271
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -705,7 +711,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 154.20216
     y: 411.43738
-    width: 120.76435
+    width: 120.967476
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -750,11 +756,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   version: 1
-  scrollPos: {x: -102.32646, y: -210.28975}
+  scrollPos: {x: -82.42984, y: -231.28098}
   variablesScrollPos: {x: 0, y: 0}
   variablesExpanded: 1
   blockViewHeight: 412
-  zoom: 0.96800154
+  zoom: 0.7750029
   scrollViewRect:
     serializedVersion: 2
     x: 0
@@ -763,8 +769,7 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 69824114}
-  selectedCommands:
-  - {fileID: 69824155}
+  selectedCommands: []
   variables:
   - {fileID: 69824125}
   - {fileID: 69824121}
@@ -838,7 +843,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 435.82037
     y: 552.0602
-    width: 123.34699
+    width: 122.902954
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -942,7 +947,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 438.71906
     y: 434.01837
-    width: 154.33868
+    width: 152.58026
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2127,8 +2132,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 20
   indentLevel: 0
-  storyText: Glad you got your glasses back, but be more careful next time. They're
-    your only pair, so keep a close eye on them.
+  storyText: 'Glad you got your glasses back, but be more careful next time. Your
+    glasses are to help protect you from accidentally petrifying someone. '
   description: 
   character: {fileID: 1254616243}
   portrait: {fileID: 0}
@@ -2483,7 +2488,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 631.4955
     y: 332.14493
-    width: 75.309875
+    width: 75.161194
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2495,6 +2500,7 @@ MonoBehaviour:
   - {fileID: 69824164}
   - {fileID: 69824173}
   - {fileID: 69824172}
+  - {fileID: 69824179}
   - {fileID: 69824163}
   - {fileID: 69824137}
   - {fileID: 69824171}
@@ -2502,6 +2508,7 @@ MonoBehaviour:
   - {fileID: 69824170}
   - {fileID: 69824167}
   - {fileID: 69824154}
+  - {fileID: 69824178}
   suppressAllAutoSelections: 0
 --- !u!114 &69824141
 MonoBehaviour:
@@ -2800,7 +2807,7 @@ MonoBehaviour:
   conversationText:
     stringRef: {fileID: 0}
     stringVal: "Melita: Good morning....\nMomdusa: Happy first day of school sweetie!
-      Are you excited? \nMelita inquisitve: {i}I think you might be more excited
+      Are you excited? \nMelita inquisitive: {i}I think you might be more excited
       than I am. {/i}\nMelita laughing: Yeah! I have some really cool classes this
       year.\nCerebrus doggo middle: {b} BORK {/b}"
   clearPrevious:
@@ -2889,9 +2896,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 447.96375
+    x: 449.20908
     y: 297.19373
-    width: 127.47922
+    width: 128.06422
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -2932,7 +2939,7 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: "Melita nowait:\nMomdusa: Oh, looks like the bus is here already.
       Here, \nMomdusa middle: Take your lunch and have a fantastic first day of school!
-      Kisses!\nMelita wait: Moommmmmmmm\n\nMelita hide:\nMomdusa hide:"
+      Kisses!\nMelita laughing wait: Moommmmmmmm\n\nMelita hide:\nMomdusa hide:"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -2959,9 +2966,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 55
   indentLevel: 0
-  soundClip: {fileID: 8300000, guid: 2185db9ea2b9d48a9b4809ac562f3c1f, type: 3}
-  volume: 0.084
-  waitUntilFinished: 0
+  soundClip: {fileID: 8300000, guid: 97d92dafe43974c988525d5943f2fd8e, type: 3}
+  volume: 0.429
+  waitUntilFinished: 1
 --- !u!114 &69824153
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3553,7 +3560,7 @@ MonoBehaviour:
   targetGameObjectOLD: {fileID: 0}
 --- !u!114 &69824174
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -3581,6 +3588,33 @@ MonoBehaviour:
   move: 0
   shiftIntoPlace: 0
   waitUntilFinished: 0
+--- !u!114 &69824175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec422cd568a9c4a31ad7c36d0572b9da, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 109
+  indentLevel: 0
+  storyText: I know mom...
+  description: 
+  character: {fileID: 65819729}
+  portrait: {fileID: 0}
+  voiceOverClip: {fileID: 0}
+  showAlways: 1
+  showCount: 1
+  extendPrevious: 0
+  fadeWhenDone: 1
+  waitForClick: 1
+  stopVoiceover: 1
+  waitForVO: 0
+  setSayDialog: {fileID: 0}
 --- !u!114 &69824176
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -3601,6 +3635,160 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: 
   startIndex: 0
+  callMode: 0
+--- !u!114 &69824177
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 110
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 65819729}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 21300000, guid: 7fbbbde7cd62c440989aeee90137b0aa, type: 3}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 2025350944}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 0
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
+--- !u!114 &69824178
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 112
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 653571516}
+  targetComponentAssemblyName: FungusManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: FungusManager
+  targetMethod: ToggleFlavorText
+  targetMethodText: 'ToggleFlavorText (GameObject, Boolean): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      typeFullname: UnityEngine.GameObject
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 117501691}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 1
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
+  callMode: 0
+--- !u!114 &69824179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 69824109}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 688e35811870d403f9e2b1ab2a699d98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 111
+  indentLevel: 0
+  description: 
+  targetObject: {fileID: 653571516}
+  targetComponentAssemblyName: FungusManager, Assembly-CSharp, Version=0.0.0.0, Culture=neutral,
+    PublicKeyToken=null
+  targetComponentFullname: UnityEngine.Component[]
+  targetComponentText: FungusManager
+  targetMethod: ToggleFlavorText
+  targetMethodText: 'ToggleFlavorText (GameObject, Boolean): Void'
+  methodParameters:
+  - objValue:
+      typeAssemblyname: UnityEngine.GameObject, UnityEngine.CoreModule, Version=0.0.0.0,
+        Culture=neutral, PublicKeyToken=null
+      typeFullname: UnityEngine.GameObject
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 117501691}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  - objValue:
+      typeAssemblyname: System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral,
+        PublicKeyToken=b77a5c561934e089
+      typeFullname: System.Boolean
+      intValue: 0
+      boolValue: 0
+      floatValue: 0
+      stringValue: 
+      colorValue: {r: 0, g: 0, b: 0, a: 0}
+      gameObjectValue: {fileID: 0}
+      materialValue: {fileID: 0}
+      objectValue: {fileID: 0}
+      spriteValue: {fileID: 0}
+      textureValue: {fileID: 0}
+      vector2Value: {x: 0, y: 0}
+      vector3Value: {x: 0, y: 0, z: 0}
+    variableKey: 
+  saveReturnValue: 0
+  returnValueVariableKey: 
+  returnValueType: System.Void
+  showInherited: 0
   callMode: 0
 --- !u!114 &69824180
 MonoBehaviour:
@@ -3628,6 +3816,7 @@ GameObject:
   - component: {fileID: 112507774}
   - component: {fileID: 112507773}
   - component: {fileID: 112507772}
+  - component: {fileID: 112507775}
   m_Layer: 0
   m_Name: Convo Timeline
   m_TagString: Untagged
@@ -3681,8 +3870,8 @@ PlayableDirector:
     value: {fileID: 1640667236}
   - key: {fileID: -7218170273011414814, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
     value: {fileID: 115636607}
-  - key: {fileID: 6487749389040762695, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
-    value: {fileID: 0}
+  - key: {fileID: -832953062766395734, guid: 03456593499ae43c49f1e1b50cfaeeb4, type: 2}
+    value: {fileID: 112507775}
   m_ExposedReferences:
     m_References: []
 --- !u!4 &112507774
@@ -3693,12 +3882,108 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 112507771}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -3.5, y: -65.75979, z: -2787.2576}
+  m_LocalPosition: {x: -5.72, y: -66.52, z: -2787.2576}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &112507775
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 112507771}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0.345
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!82 &115636607 stripped
 AudioSource:
   m_CorrespondingSourceObject: {fileID: 1349574037414642320, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
@@ -38283,7 +38568,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 94.80561
     y: 217.92847
-    width: 126.899956
+    width: 128.12059
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -47081,7 +47366,7 @@ Transform:
   m_Children:
   - {fileID: 2115167772}
   m_Father: {fileID: 2128354433}
-  m_RootOrder: 12
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2053604410
 MonoBehaviour:
@@ -47237,7 +47522,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 4
   indentLevel: 0
-  duration: 1
+  duration: 2
   targetAlpha: 1
   waitUntilFinished: 1
   fadeColor: {r: 0, g: 0, b: 0, a: 1}
@@ -47669,8 +47954,8 @@ Transform:
   - {fileID: 781385803}
   - {fileID: 1860077392}
   - {fileID: 117501692}
-  - {fileID: 175750629}
   - {fileID: 2053604407}
+  - {fileID: 175750629}
   - {fileID: 653571519}
   m_Father: {fileID: 0}
   m_RootOrder: 8
@@ -48072,7 +48357,7 @@ PrefabInstance:
     - target: {fileID: 3818088325626533124, guid: 907cc96242c5c4df8aa19bcf33f719bb,
         type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 12
       objectReference: {fileID: 0}
     - target: {fileID: 3818088325626533124, guid: 907cc96242c5c4df8aa19bcf33f719bb,
         type: 3}
@@ -48289,7 +48574,7 @@ PrefabInstance:
     - target: {fileID: 7620900067891387555, guid: 652dbf7065698466191fb663fa59932b,
         type: 3}
       propertyPath: m_RootOrder
-      value: 13
+      value: 14
       objectReference: {fileID: 0}
     - target: {fileID: 7620900067891387555, guid: 652dbf7065698466191fb663fa59932b,
         type: 3}

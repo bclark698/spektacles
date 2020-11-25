@@ -1,10 +1,9 @@
-﻿using System.Collections;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
-using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -15,30 +14,21 @@ public class PauseMenu : MonoBehaviour
 	public PlayerControls controls;
 	[SerializeField] private GameObject pauseMenu = null;
 	[SerializeField] private GameObject pauseButton = null;
-    Image melitaIndicator;
-    Image[] mapModules;
+    
     bool[] states;
 
 	void Awake() {
 		controls = new PlayerControls();
 		controls.Gameplay.Pause.performed += _ => PauseOrResume();
         controls.Gameplay.Reset.performed += _ => ResetLevel();
+
         if(instance != null)
             GameObject.Destroy(instance);
         else
             instance = this;
-
-        //DontDestroyOnLoad(this);
-        GameObject temp = GameObject.FindGameObjectWithTag("Melita Indicator");
-        if(temp)
-            melitaIndicator = temp.GetComponent<Image>();
-
-        mapModules = GameObject.FindGameObjectWithTag("Minimap").GetComponentsInChildren<Image>();
-        ChangeMapVisibility(false); // should be default not visible
 	}
 
-    public void PauseOrResume()
-    {
+    public void PauseOrResume() {
         if(allowPause && !Player.inCutscene) { // TODO do we need to put this check in the other functions too?
             Debug.Log("pause button pressed");
             if(gameIsPaused) {
@@ -62,7 +52,7 @@ public class PauseMenu : MonoBehaviour
         PowerUpRange.allowAbility = false;
         Player.allowMovement = false;
         Player.allowInteract = false;
-        ChangeMapVisibility(true);
+        // ChangeMapVisibility(true); TODO change
     }
 
     public void Resume() {
@@ -72,37 +62,13 @@ public class PauseMenu : MonoBehaviour
     	Time.timeScale = 1f;
     	gameIsPaused = false;
         RestoreStates();
-        ChangeMapVisibility(false);
-    }
-
-    public void HowToPlay() {
-    	Debug.Log("how to play button pressed");
-    	//TODO actually do something here
-    }
-
-    public void QuitGame() {
-    	Debug.Log("quitting game");
-    	#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #else
-        Application.Quit();
-        #endif
+        // ChangeMapVisibility(false); TODO change
     }
 
     public void ResetLevel(){
        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
-    private void ChangeMapVisibility(bool visibility) {
-        if(mapModules != null) {
-            foreach(Image i in mapModules) {
-                i.enabled = visibility;
-            }
-        }
-
-        if(melitaIndicator)
-            melitaIndicator.enabled = visibility;
-    }
 
     private void SaveStates() {
         states = new bool[4];

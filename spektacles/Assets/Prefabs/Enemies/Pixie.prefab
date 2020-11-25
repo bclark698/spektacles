@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2702425794842673145}
   - component: {fileID: 2702425794842673147}
   - component: {fileID: 2702425794842673146}
+  - component: {fileID: 4645991504846238957}
   m_Layer: 8
   m_Name: Sounds
   m_TagString: Untagged
@@ -41,17 +42,18 @@ AudioSource:
   m_GameObject: {fileID: 2702425794842673144}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: b51eb3c6f51d642a3a0304d978e25456, type: 3}
+  OutputAudioMixerGroup: {fileID: 1573778392173851051, guid: c54c3ac6358754fad8b9c4063b3c9182,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: c223ab6706a87445b91353f015d0d6d7, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.266
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -88,7 +90,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -137,17 +139,18 @@ AudioSource:
   m_GameObject: {fileID: 2702425794842673144}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 6dacd2fbd9d8a4bfaacbb997c090dabb, type: 3}
+  OutputAudioMixerGroup: {fileID: 1573778392173851051, guid: c54c3ac6358754fad8b9c4063b3c9182,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 4069f9d976735488eb8106eb647b371c, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.25
+  m_Volume: 1
   m_Pitch: 1
   Loop: 0
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
+  DopplerLevel: 0
   MinDistance: 1
   MaxDistance: 500
   Pan2D: 0
@@ -184,7 +187,104 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
       value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+--- !u!82 &4645991504846238957
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2702425794842673144}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 1573778392173851051, guid: c54c3ac6358754fad8b9c4063b3c9182,
+    type: 2}
+  m_audioClip: {fileID: 8300000, guid: 0f641ef2bb8af4b859243fad702d3d6e, type: 3}
+  m_PlayOnAwake: 0
+  m_Volume: 0.761
+  m_Pitch: 1
+  Loop: 0
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -334,8 +434,9 @@ MonoBehaviour:
   state: 0
   rotationSpeed: 20
   moveSpeed: 25
-  giggle1: {fileID: 2702425794842673147}
-  giggle2: {fileID: 2702425794842673146}
+  agroSound: {fileID: 2702425794842673146}
+  sadSound: {fileID: 4645991504846238957}
+  pleasedSound: {fileID: 2702425794842673147}
   pfFieldOfView: {fileID: 4397119209587593998, guid: 40ff7bf37a4c0fb4db1d9598a37d3180,
     type: 3}
   fov: 90
