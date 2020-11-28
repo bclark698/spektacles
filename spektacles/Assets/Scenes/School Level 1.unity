@@ -5503,12 +5503,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b91c4ccefb13843958b341c24cf60622, type: 3}
---- !u!224 &444637385 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 1162583768437332051, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1686555879}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &451081460
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -7598,7 +7592,7 @@ PrefabInstance:
         type: 3}
       propertyPath: miniMapLocation
       value: 
-      objectReference: {fileID: 444637385}
+      objectReference: {fileID: 0}
     - target: {fileID: 2139851317680395743, guid: ad7aeec5383ee464c89c103f81736f55,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
@@ -12482,12 +12476,6 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 909315088174161584, guid: 8c9c53db63ad04135a553b8de1f1d6f9,
     type: 3}
   m_PrefabInstance: {fileID: 1034637881}
-  m_PrefabAsset: {fileID: 0}
---- !u!224 &1037905242 stripped
-RectTransform:
-  m_CorrespondingSourceObject: {fileID: 8507418532578463783, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1686555879}
   m_PrefabAsset: {fileID: 0}
 --- !u!1 &1038378098
 GameObject:
@@ -17600,7 +17588,7 @@ PrefabInstance:
         type: 3}
       propertyPath: miniMapLocation
       value: 
-      objectReference: {fileID: 1037905242}
+      objectReference: {fileID: 0}
     - target: {fileID: 6154514134959450887, guid: 90bde3ba08e924fa4a958720bf5b7cee,
         type: 3}
       propertyPath: m_ChunkCullingBounds.y
@@ -17767,6 +17755,37 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1442682002}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1450592865
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1450592866}
+  m_Layer: 0
+  m_Name: Checkpoints
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1450592866
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1450592865}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 343.86765, y: -36.629414, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 1781217877}
+  m_Father: {fileID: 0}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1451291160 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7491168192712010144, guid: a5376f2b747d7d24bbbf6170c3c2a7b2,
@@ -21850,6 +21869,76 @@ Transform:
   m_Father: {fileID: 1192821020}
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1781217876
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1781217877}
+  - component: {fileID: 1781217878}
+  - component: {fileID: 1781217879}
+  m_Layer: 2
+  m_Name: Checkpoint Test
+  m_TagString: Checkpoint
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1781217877
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781217876}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -86, y: -1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1450592866}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1781217878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781217876}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1252340666206544782a4561b08cce63, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!61 &1781217879
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1781217876}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -2.8413467, y: 0.37065125}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 15.08345, y: 43.743546}
+  m_EdgeRadius: 0
 --- !u!1001 &1782581608
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -27805,7 +27894,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 155.00002
     y: -179
-    width: 96
+    width: 136
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28100,7 +28189,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 1607271729}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: f2ef3e6d5ff4d4f8cb7eb6598285a7e4, type: 3}
+  portrait: {fileID: 21300000, guid: f49c0e3a09fb0be4281cc691635ea948, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 1262660363}
@@ -28183,7 +28272,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 438.99756
     y: -65
-    width: 60
+    width: 83
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28214,7 +28303,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 426.88586
     y: 36.942917
-    width: 61
+    width: 101
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28360,7 +28449,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 1607271729}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: f2ef3e6d5ff4d4f8cb7eb6598285a7e4, type: 3}
+  portrait: {fileID: 21300000, guid: f49c0e3a09fb0be4281cc691635ea948, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 0}
@@ -28433,7 +28522,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 538
     y: -11.942917
-    width: 74
+    width: 114
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28670,7 +28759,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 316.23926
     y: -13.383331
-    width: 63
+    width: 103
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28756,9 +28845,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 176.76884
-    y: -15.459419
-    width: 80
+    x: 175.76884
+    y: -16.45942
+    width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0

@@ -4,21 +4,61 @@ using UnityEngine;
 
 public class Vampire : Enemy
 {
+    public GameObject[] vamps;
+    public int num = 0;
+    private int prevNum;
+
+    public float waitTime;
+    private float timer;
+
+    public bool rand = false;
+    public bool go = true;
+
     void Start() {
-        powerUpToHandle = PowerUp.Type.Garlic;
+        //powerUpToHandle = PowerUp.Type.Garlic;
+
+        timer = waitTime;
+
+        for(int i = 0; i < vamps.Length; i++)
+        {
+            vamps[i].gameObject.SetActive(false);
+        }
     }
 
-    /*
-    public override IEnumerator HandleStun()
+    private void Update()
     {
-        // mark as stunned for a few seconds
-        isStunned = true;
+        if (timer > 0)
+        {
+            timer -= Time.deltaTime;
+            return;
+        }
+        timer = waitTime;
 
-        //might be good to add a specific animation for the vampires to play
+        if (!rand)
+        {
+            prevNum = num;
+            num = (num + 1 == vamps.Length) ? 0 : num+1;
+        }
+        else
+        {
+            prevNum = num;
+            num = Random.Range(0, vamps.Length);
+        }
 
-        // wait for 1.5 seconds
-        yield return new WaitForSeconds(stunDuration);
+        vamps[prevNum].gameObject.SetActive(false);
+        vamps[num].gameObject.SetActive(true);
+    }
 
-        isStunned = false;
-    }*/
+    public override void OutlineOn() {
+        foreach(GameObject vamp in vamps) {
+            vamp.GetComponent<SpriteRenderer>().material.shader = outlineShader;
+        }
+    }
+
+    public override void OutlineOff() {
+        foreach(GameObject vamp in vamps) {
+            vamp.GetComponent<SpriteRenderer>().material.shader = defaultShader;
+        }
+    }
+
 }

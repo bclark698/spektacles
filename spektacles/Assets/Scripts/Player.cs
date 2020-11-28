@@ -49,6 +49,8 @@ public class Player : MonoBehaviour
     private float nextFlickerTime;
     private bool flickerState;
 
+    private Enemy enemy;
+
     // called before Start
     void Awake()
     {
@@ -152,12 +154,6 @@ public class Player : MonoBehaviour
         {
 
             lives--;
-
-            //Please HELP HERE!!! -Jordan!
-            if(anim.GetBool("blind")== false)
-                anim.SetBool("blind", true);
-            //Please HELP HERE!!! -Jordan!
-
             if (lives == 2)
             {
               life3Image.GetComponent<Image>().sprite = lifeSpriteGrey;
@@ -243,11 +239,13 @@ public class Player : MonoBehaviour
     {
         Debug.Log("starting damage cooldown");
         invincible = true;
+        anim.SetBool("blind", true);
         // spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 1f);
 
         yield return new WaitForSeconds(cooldownTime);
 
         invincible = false;
+        anim.SetBool("blind", false);
         Debug.Log("end of damage cooldown");
         // spriteRenderer.color = Color.white;
         spriteRenderer.enabled = true;
@@ -268,22 +266,29 @@ public class Player : MonoBehaviour
             /* If the enemy is stunned, they have no effect on Melita.
              * Otherwise, automatically use a held powerup if it is applicable to the enemy
              * that Melita is touching. */
-            Enemy enemy = other.gameObject.GetComponent<Enemy>();
+             if (other.gameObject.GetComponent<Enemy>() != null){
+            enemy = other.gameObject.GetComponent<Enemy>();
+
+          }
+            else  {
+              enemy = other.gameObject.GetComponentInParent<Enemy>();
+
+            }
             if (!enemy.isStunned)
-            {
+            {/*
                 // Automatically use a powerup if applicable to enemy
                 if(enemy.CanHandlePowerUp())
                 {
                     // affects all other applicable enemies in range
                     powerUpRange.UsePowerUp();
                 } else
-                {
+                {*/
 
                     HandleHit();
 
                     moveDirection = rb.transform.position - other.transform.position;
                     rb.AddForce(moveDirection.normalized * 25000f);
-                }
+          //      }
             }
 
         }

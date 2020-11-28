@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.UI;
+using System.Linq;
 
 public class Journal : MonoBehaviour
 {
@@ -13,20 +14,14 @@ public class Journal : MonoBehaviour
     private int tabNum = 0;
     private int pageNum = 0;
     private Image journalAppearance;
-
-    Image melitaIndicator;
-    Image[] mapModules;
+    private Text pageNumLeft;
+    private Text pageNumRight;
+    [SerializeField] private string pageNumDecoration = ""; // goes on the left and right side of the page number
+    private string pageNumDecorationReversed = "";
 
 	void Awake() {
 		controls = new PlayerControls();
 		controls.UI.Navigate.performed += context => NavigateJournal(context);
-
-		// GameObject temp = GameObject.FindGameObjectWithTag("Melita Indicator");
-  //       if(temp)
-  //           melitaIndicator = temp.GetComponent<Image>();
-
-  //       mapModules = GameObject.FindGameObjectWithTag("Minimap").GetComponentsInChildren<Image>();
-  //       ChangeMapVisibility(false); // should be default not visible
 
         journalAppearance = GetComponent<Image>();
 
@@ -36,6 +31,11 @@ public class Journal : MonoBehaviour
         foreach(GameObject go in tabs) {
         	pages.Add(go.GetChildren());
         }
+
+        pageNumLeft = GameObject.Find("Page Num Left").GetComponent<Text>();
+        pageNumRight = GameObject.Find("Page Num Right").GetComponent<Text>();
+
+        pageNumDecorationReversed = new string(pageNumDecoration.Reverse().ToArray());
 	}
 
 	void NavigateJournal(InputAction.CallbackContext context) {
@@ -68,9 +68,6 @@ public class Journal : MonoBehaviour
 
     void NextPage() {
         if(pageNum < NumPages() - 2) {
-        	// pages[tabNum][pageNum].SetActive(false);
-         //    pageNum++;
-         //    pages[tabNum][pageNum].SetActive(true);
         	SetCurPairPagesVisibility(false);
             pageNum += 2;
             SetCurPairPagesVisibility(true);
@@ -79,9 +76,6 @@ public class Journal : MonoBehaviour
 
     void PrevPage() {
         if(pageNum > 0) {
-        	// pages[tabNum][pageNum].SetActive(false);
-         //    pageNum--;
-         //    pages[tabNum][pageNum].SetActive(true);
         	SetCurPairPagesVisibility(false);
         	pageNum -= 2;
         	SetCurPairPagesVisibility(true);
@@ -135,7 +129,6 @@ public class Journal : MonoBehaviour
     }
 
     void UpdateJournalView() {
-        // tipText.text = tipTexts[pageNum];
         UpdatePageAppearance();
         UpdateControlsView();
         UpdatePageNum();
@@ -146,22 +139,17 @@ public class Journal : MonoBehaviour
     }
 
     void UpdatePageNum() {
-        //
+        pageNumLeft.text = pageNumDecoration + (pageNum + 1) + pageNumDecorationReversed;
+        if(pageNum+1 < NumPages()) {
+        	pageNumRight.text = pageNumDecoration + (pageNum + 2).ToString() + pageNumDecorationReversed;
+    	} else {
+    		pageNumRight.text = "";
+    	}
+        
     }
 
     void UpdateControlsView() {
-        //
-    }
-
-    private void ChangeMapVisibility(bool visibility) { //TODO is this needed?
-        if(mapModules != null) {
-            foreach(Image i in mapModules) {
-                i.enabled = visibility;
-            }
-        }
-
-        if(melitaIndicator)
-            melitaIndicator.enabled = visibility;
+        // if(NumPages() < 2)
     }
 
     public void QuitGame() {

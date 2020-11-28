@@ -54,7 +54,12 @@ public class Ability : MonoBehaviour
     		return;
     	}
         if(buttonHeld) {
+          if (other.gameObject.GetComponent<Enemy>() != null){
             other.gameObject.GetComponent<Enemy>().OutlineOn();
+          }
+          else {
+              other.gameObject.GetComponentInParent<Enemy>().OutlineOn();
+          }
         }
     }
 

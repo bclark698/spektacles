@@ -7111,6 +7111,11 @@ PrefabInstance:
       propertyPath: m_SizeDelta.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5218080008985237647, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.8997803
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 362a54c7a5394e64192fdb1b9d9e0c7a, type: 3}
 --- !u!1 &802726253 stripped
@@ -7148,7 +7153,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 462475586}
+  selectedFlowchart: {fileID: 1825551109}
 --- !u!4 &818092679
 Transform:
   m_ObjectHideFlags: 1
@@ -9249,6 +9254,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 174859406}
     m_Modifications:
+    - target: {fileID: 4272441898842222861, guid: f2ea8be8b8f3a4e89b32924352beea4f,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 4834252314393303696, guid: f2ea8be8b8f3a4e89b32924352beea4f,
         type: 3}
       propertyPath: m_Offset.y
@@ -13343,6 +13353,11 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1909386635512339470, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+        type: 3}
+      propertyPath: blockRef.block
+      value: 
+      objectReference: {fileID: 1825551073}
     - target: {fileID: 5387167895076370667, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: m_Enabled
@@ -13991,7 +14006,7 @@ MonoBehaviour:
   stage: {fileID: 0}
   character: {fileID: 8708856215645199305}
   replacedCharacter: {fileID: 0}
-  portrait: {fileID: 21300000, guid: 57e5f40271c8b46db989561abd8e2a7b, type: 3}
+  portrait: {fileID: 21300000, guid: 7f37e76f88477ca41b8ac64bd9fdd25d, type: 3}
   offset: 0
   fromPosition: {fileID: 0}
   toPosition: {fileID: 126757810}
@@ -14689,7 +14704,7 @@ MonoBehaviour:
   durationOLD: 0
 --- !u!114 &1825551104
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14734,7 +14749,7 @@ MonoBehaviour:
   callMode: 0
 --- !u!114 &1825551105
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
@@ -14777,6 +14792,18 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &1825551109 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1825551065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825551067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &1872629819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1884060173028761406, guid: 616b3c1223a15491e9a91f99bf3b4bba,
@@ -15118,6 +15145,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2014611146}
     m_Modifications:
+    - target: {fileID: 4114441338424746936, guid: dff976165ae8446e8961c04c1d313e4c,
+        type: 3}
+      propertyPath: panLevelCustomCurve.m_Curve.Array.data[0].value
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 6772146399084097881, guid: dff976165ae8446e8961c04c1d313e4c,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -27879,11 +27911,6 @@ PrefabInstance:
     - target: {fileID: 3680198019972581110, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 3680198019972581113, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
-        type: 3}
-      propertyPath: Loop
       value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []

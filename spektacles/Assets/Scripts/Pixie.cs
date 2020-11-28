@@ -201,7 +201,7 @@ public class Pixie : Enemy
         Vector3 direction = startingPos - transform.position;
         float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg;
         transform.rotation = Quaternion.Euler(2, 2, angle);
-        moveSpeed = 10f;
+        moveSpeed = 1f;
 
         float reachedPosDist = 1f;
         while (Vector2.Distance(transform.position, startingPos) > reachedPosDist)
@@ -210,6 +210,8 @@ public class Pixie : Enemy
             yield return null;
         }
         transform.rotation = Quaternion.Euler(1, 0, 0);
+
+        moveSpeed = 10f;
         state = State.Waiting;
     }
 
