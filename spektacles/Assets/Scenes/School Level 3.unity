@@ -529,12 +529,6 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 652196097}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &63409012 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4874196661507079, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1324991745}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &71077403
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -16316,12 +16310,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ce1eaf646dfc745f5b3ebcd6f5781054, type: 3}
---- !u!1 &804695372 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5038034088420907989, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1324991745}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &806656223 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7896838323588441642, guid: 32a889088f29047abb93fe761f84afc5,
@@ -21409,7 +21397,7 @@ PrefabInstance:
         type: 3}
       propertyPath: m_FirstSelected
       value: 
-      objectReference: {fileID: 63409012}
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ca9549867759142d4ba53a3c206ff330, type: 3}
 --- !u!1001 &1280817419
@@ -21922,6 +21910,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 66409887, guid: 362a54c7a5394e64192fdb1b9d9e0c7a, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -0.0031738281
+      objectReference: {fileID: 0}
     - target: {fileID: 1423623171, guid: 362a54c7a5394e64192fdb1b9d9e0c7a, type: 3}
       propertyPath: m_text
       value: Evacuate to the parking lot
@@ -22631,12 +22623,13 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Melita nervous: I'm sure you're a good driver and all, motorcycles
-      are a little scary to me. \nIrving ihappy: You're fine, they can see that way
-      if you're not used to them. \nIrving iconfused: Do you want me to stick around
-      while you wait? \nMelita inquisitive: Don't you need to get home? \nIrving:
-      My dad can wait a little longer - it'll be fine. Plus, I want to talk with
-      you.\nMelita nervous: O-Okay. I'd like that. \nIrving: Great. "
+    stringVal: "Melita nervous: I'm sure you're a good driver and all, it's just
+      that..\nMelita sad: Motorcycles are a little scary to me. \nIrving ihappy:
+      You're fine, they can see that way if you're not used to them. \nIrving iconfused:
+      Do you want me to stick around while you wait? \nMelita inquisitive: Don't
+      you need to get home? \nIrving ihappy: My dad can wait a little longer - it'll
+      be fine. Plus, I want to talk with you.\nMelita nervous: O-Okay. I'd like that.
+      \nIrving: Great. "
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -22665,7 +22658,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 935.17004
     y: 135.01012
-    width: 151.73865
+    width: 154.27167
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22690,20 +22683,44 @@ MonoBehaviour:
   suppressAllAutoSelections: 0
 --- !u!114 &1355830979
 MonoBehaviour:
-  m_ObjectHideFlags: 2
+  m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1355830974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ea6e8f632db87477eb750446b28d73a3, type: 3}
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemId: 95
+  itemId: 202
   indentLevel: 0
-  commenterName: 
-  commentText: add cutscenes
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Irving ihappy: Here, put this on. \nMelita inquisitive: What about
+      your helmet?\nIrving ilaughing: I'll be fine, my head has some fun physics
+      that'll keep my safe. \nMelita: Like...? \nIrving: Like this. \nIrving ihead:
+      See? \nMelita laughing: I see. \nIrving: Ready to go? \nMelita smiling: Yup!
+      \nIrving: Wait a tick..\nIrving: Before we get going, I want to ask you one
+      more thing. \nMelita inquisitive: Yes?\nIrving: Are you free to hang Saturday?
+      The more time I spend with you the more I want to know about you. \nMelita
+      shocked: ....\nIrving: Only if you're down for it, I don't want you to feel
+      pressured or anything, I just....\nIrving: ...want to spend more time with
+      you.\nMelita nervous: I-I'd like that. \nIrving: Great! I'll pick you up at
+      6?\nMelita laughing: It's a date!\nIrving: Alright! Let's get you home.\nMelita
+      smiling: Okay!"
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
 --- !u!114 &1355830980
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -22720,8 +22737,8 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Irving ihappy: Great! My bike's on the other side of the lot if you
-      want to follow me. \nMelita ilaughing: Alright. Let's go. \n\n"
+    stringVal: "Irving ihappy wait: Great! My bike's on the other side of the lot. 
+      \nMelita ilaughing: Alright. Lead the way. \n\n"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -22749,8 +22766,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 930.4744
-    y: 194.91086
-    width: 155.2169
+    y: 193.71611
+    width: 158.04053
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22842,26 +22859,26 @@ MonoBehaviour:
       knowing my dad, he's probably worried sick back at home.\nHHD: IRVING??? HAS
       ANYONE SEEN MY SON????\nIrving iflustered: Oh no. \nHHD: Irving, my boy! There
       you are!\nHHD: Are you alright? I came as soon as I heard. Do you have all
-      your stuff? \nIrving: Dad....\nHHD: Ah, it's probably trapped inside until
-      all this blows over. That's alright, we can come back later and pick it up
-      then. \nIrving iupset: Dad.\nHHD:  Your sisters are waiting for us back at
-      the house - they came home this morning did I tell you? It'll be nice to have
-      all my little pumpkins under one roof again.  Irving what are you standing
-      there for we need - \nIrving: Dad! \nHHD: ... Yes?\nIrving iconfused: Dad...
-      Thanks for dropping by but you brought my bike by earlier today, remember?
-      I can make my way home by myself. \nIrving inervous: Beside... I'm kinda in
-      the middle of something right now. \nHHD: Oh?\nHHD: ...\nHHD: Oh!\nHHD: I'm
-      sorry, I didn't see you there.\nHHD: Well, I'll leave you and your little friend
-      alone. Get home soon and drive safe. Love you. \nIrving ihappy: Love you too
-      dad. \nHHD: *leaves* (this will be a movement of the portrait i just dont have
-      a portrait yet)\nIrving iflustered: .... I'm so sorry you had to see that.
-      \nMelita laughing: You're alright. My mom is pretty similar. I'm sure she's
-      breaking every law known to monster to get home before I do. \nIrving ihappy:
-      So I didn't scare you off?\nMelita smiling: Not at all. \nIrving: Well... Since
-      both of us need to get home pretty quickly, why don't I take you? \nIrving:
-      It'll be a little while before the busses get here, and can get you back faster
-      than any bus can.\nMelita nervous: T-Take me home?\nIrving inervous: Yeah!
-      Only if you want to though, I don't mind. \n"
+      your stuff? \nIrving: Dad....\nHHD: Ah, right, it's probably trapped inside
+      until all this blows over. That's alright, we can come back later and pick
+      it up then. \nIrving iupset: Dad.\nHHD: Your sisters are waiting for us back
+      at the house - they came home this morning, didn't I tell you? Oh it'll be
+      so nice to have all my little pumpkins under one roof again.  Irving what are
+      you standing there for we have to - \nIrving: Dad! \nHHD: ... Yes?\nIrving
+      iconfused: Dad... Thanks for dropping by but ...\nIrving iupset: You brought
+      my bike by earlier today, remember? I can make my way home by myself. \nIrving:
+      Beside...\nIrving inervous: I'm kinda in the middle of something right now.
+      \nHHD: Oh?\nHHD: ...\nHHD: Oh!\nHHD: I'm sorry, I didn't see you there.\nHHD:
+      Well, I'll leave you and your little friend alone. Get home soon and drive
+      safe. Love you. \nIrving ihappy: Love you too dad. \nHHD: {b}*leaves*{/b}\nIrving
+      iflustered: .... I'm so sorry you had to see that. \nMelita laughing: You're
+      totally fine. My mom is the same. I'm sure she's breaking every law known to
+      monster to get home before I do. \nIrving ihappy: So I didn't scare you off?\nMelita
+      smiling: Not at all. \nIrving: Well... Since both of us need to get home pretty
+      quickly, why don't I take you? \nIrving: It'll be a little while before the
+      busses get here, and can get you back faster than any bus can.\nMelita nervous:
+      T-Take me home?\nIrving inervous: Yeah! Only if you want to though, I don't
+      mind. \n"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -22889,8 +22906,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 715.76855
-    y: 140.64218
-    width: 129.99963
+    y: 139.32985
+    width: 129.14597
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -22969,7 +22986,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 721.4025
     y: 34.98697
-    width: 140.43436
+    width: 141.70882
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23022,11 +23039,11 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: "Melita nervous: Just a little... I didn't scare you off did I?\nIrving
       ihappy: Not at all. I like seeing you so passionate.\nIrving iconfused: You're
-      always welcome to talk to me about your interests.\nMelita: Y-You too. \nIrving
-      inervous: ... \nMelita: ...\nIrving: So... \nIrving: Do you want to meet up
-      for lunch again tomorrow?\nIrving: Or whenever school gets back in session...\nMelita
-      smiling: I.. I would like that. \nIrving ihappy: Great! I'll see you then!\nMelita
-      laughing: Can't wait. "
+      always welcome to talk to me about anything you're interested in.\nMelita:
+      Y-You too. \nIrving inervous: ... \nMelita: ...\nIrving: So... \nIrving: Do
+      you want to meet up for lunch again tomorrow?\nIrving: Or whenever school gets
+      back in session...\nMelita smiling: I.. I would like that. \nIrving ihappy:
+      Great! I'll see you then!\nMelita laughing: Can't wait. "
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -23055,7 +23072,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 716.2593
     y: -36.916542
-    width: 139.5648
+    width: 141.08067
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23114,7 +23131,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 912.03485
     y: 2.5522437
-    width: 114.34753
+    width: 114.07054
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23170,11 +23187,11 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Irving: ...\nIrving: ......\nMelita sad: I-I'm sorry. \nIrving: You
-      have nothing to be sorry for. I'm the one that kept bothering you. \nIrving:
-      {b}*sighs*{/b}\nIrving iconfused: Anyways,  this drill has been going on for
-      quite a while, any idea when it'll be over?\nMelita: {b}*shakes head*{/b}\nIrving
-      idisappointed: {b}*sighs*{/b} Seems pretty serious."
+    stringVal: "Irving: ...\nIrving: ......\nMelita sad: I-I'm sorry. \nIrving: {b}*sighs*{/b}\nIrving
+      idisappointed: You have nothing to be sorry for. I'm the one that kept bothering
+      you. \nIrving iconfused: Anyways, this drill has been going on for quite a
+      while, any idea when it'll be over?\nMelita: {b}*shakes head*{/b}\nIrving idisappointed:
+      {b}*sighs*{/b} Seems pretty serious."
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -23201,9 +23218,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 297.2584
+    x: 296.22104
     y: -37.053295
-    width: 95.21718
+    width: 95.85441
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23234,13 +23251,14 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Irving iconfused: No you don't like me being around?\nIrving: Or
-      no I'm not bothering you?\nIrving iupset: You know what? It doesn't matter.
-      I'll leave you be. Sorry I just..\nIrving idisappointed: I  like you,  ya know?
-      I wanted to get to know you a little better and I thought you might want to
-      get to know me too. \nIrving iupset: Guess that's what I get for assuming things.\nIrving
-      >>> : Sorry again. I'm gonna go talk to one of the teachers about what's goin'
-      on. See ya. \nIrving offscreen right nowait: \nMelita sad:  W-Wait..."
+    stringVal: "Irving iconfused: No, you don't like me being around?\nIrving: Or
+      no, I'm not bothering you?\nIrving iupset: You know what?\nIrving: It doesn't
+      matter. I'll leave you be. Sorry I just..\nIrving idisappointed: I like you,
+      ya know? I wanted to get to know you a little better and I thought you might
+      want to get to know me too. \nIrving iupset: Guess that's what I get for assuming
+      things.\nIrving >>> : Sorry again. I'm gonna go talk to one of the teachers
+      about what's goin' on. See ya. \nIrving offscreen right nowait: \nMelita sad: 
+      W-Wait..."
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -23269,7 +23287,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 323.87643
     y: 408.6113
-    width: 129.13007
+    width: 131.0304
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23566,7 +23584,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 73
   indentLevel: 0
-  text: Are you not?
+  text: Are you not...?
   description: 
   targetBlock: {fileID: 1355830988}
   hideIfVisited: 0
@@ -23618,12 +23636,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Teacher: There is a fire at the school. Your parents have been notified,
-      and the busses will be arriving shortly to pick up students.\nTeacher: School
-      is cancelled for the remainder of the day. Please leave the premise as soon
-      as possible.\nTeacher: You may pick up your belongings when school resumes.
-      Thank you.\nIrving ishocked: ...\nMelita shocked: ...\nIrving ilaughing: Well
-      that answers that question. \nMelita laughing: No kidding. \nIrving iconfused:
+    stringVal: "Teacher: There has been a fire at the school. Your parents have been
+      notified, and the busses will be arriving shortly to pick up students.\nTeacher:
+      School is cancelled for the remainder of the day. Please leave the premise
+      as soon as possible.\nTeacher: You may pick up your belongings when school
+      resumes. Thank you.\nIrving ishocked: ...\nMelita shocked: ...\nIrving ilaughing:
+      Well that answers that question. \nMelita laughing: No kidding. \nIrving iconfused:
       Are you headed back on the bus?"
   clearPrevious:
     booleanRef: {fileID: 0}
@@ -23651,9 +23669,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 525.7687
-    y: 84.856186
-    width: 114.34753
+    x: 524.5264
+    y: 86.09842
+    width: 112.814255
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23707,13 +23725,9 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Melita: {b}*silent nod*{/b}
-
-      Irving iflustered: ...
-
-      Irving
-      iconfused: Anyways,  this drill has been going on for quite a while, wonder
-      what''s up?'
+    stringVal: "Melita: Okay. I'll take your word for it. \nIrving iflustered: ...
+      Thanks.... \nIrving iconfused: Anyways,  this drill has been going on for quite
+      a while, wonder what's up?"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -23742,7 +23756,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 286.64478
     y: -144.87906
-    width: 89.99982
+    width: 90.82927
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23840,7 +23854,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 286.039
     y: -202.84581
-    width: 80.43464
+    width: 80.15085
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -23892,10 +23906,10 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Irving iconfused: Uh, yeah....
+    stringVal: 'Irving iconfused: Uh, sure....
 
-      Irving: Anyways, have you ever
-      seen Steinbeck that serious before?
+      Irving: Anyways... have you
+      ever seen Steinbeck that serious before?
 
       Melita inquisitive: Not really,
       I wonder if something big is going on.
@@ -23927,9 +23941,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 163.00357
+    x: 160.87366
     y: 218.56294
-    width: 96.9563
+    width: 97.73883
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24300,14 +24314,16 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: 'Melita nervous: {b}nods head {/b}
+    stringVal: 'Melita nervous: {b}*nods head*{/b}
 
       Irving iupset: Look, I''ll
-      be honest with you: Do you not like me talking to you?
+      be honest with you: Do you not like talking to me?
 
       Irving idisappointed:
       ''Cause I thought we could be friends but you don''t really seem to talk to
-      me and I''m not interested in forcing a friendship.'
+      me and..
+
+      Irving iupset: I''m not interested in forcing a friendship.'
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -24680,7 +24696,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 162.59448
     y: 13.3502865
-    width: 96.08675
+    width: 96.48255
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24802,18 +24818,18 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Irving ihappy: Jorcs?\nMelita nervous: Yeah... that's what I've been
-      calling the football team recently...\nIrving iconfused: Jorcs? Yeah, I can
-      see that. \nIrving: I haven't really had much trouble with them though..\nMelita
-      shocked: Oh no! It's a combination of \"Jock\" and \"Orc\" and they're not
-      mean they're just... huge and don't really care to look down to see where they're
-      going.\nIrving ihappy: I can try to talk with one of my buddies on the team
-      later if you want? Tell 'em to keep an eye out for the little guy and all.\nMelita
-      sad: You don't have to-\nIrving: I know. I want to. \nMelita nervous: What...
-      What do you mean by that?\nIrving iflustered: Well, I meant like...\nIrving
-      ihappy: Ah, it's silly. Don't worry about it. I don't want to see you get hurt
-      on accident. They're good guys, I promise.\nMelita inquisitive: {i}I think
-      he's not telling me something... {/i}"
+    stringVal: "Irving iconfused: Jorcs?\nMelita nervous: Yeah... that's what I've
+      been calling the football team recently...\nIrving iconfused: I haven't really
+      had much trouble with them though..\nMelita shocked: Oh no! It's a combination
+      of \"Jock\" and \"Orc\" and they're not mean they're just... huge and don't
+      really care to look down to see where they're going.\nIrving ilaughing: \"Jorc,\"
+      huh? Sounds fair. \nIrving ihappy: I can try to talk with one of my buddies
+      on the team later if you want? Tell 'em to keep an eye out for the little guy
+      and all.\nMelita sad: You don't have to-\nIrving: I know. I want to. \nMelita
+      nervous: What... What do you mean by that?\nIrving iflustered: Well, I meant
+      like...\nIrving ihappy: Ah, it's silly. Don't worry about it. I don't want
+      to see you get hurt on accident. They're good guys, I promise.\nMelita inquisitive:
+      {i}I think he's not telling me something... {/i}"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -24841,8 +24857,8 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 158.28386
-    y: -170.8615
-    width: 95.21718
+    y: -171.93561
+    width: 95.85441
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -24946,7 +24962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemId: 105
   indentLevel: 0
-  storyText: Sorry we got separated.
+  storyText: Sorry we got separated back there.
   description: 
   character: {fileID: 2105892842}
   portrait: {fileID: 0}
@@ -24973,9 +24989,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: -55.439304
+    x: -54.439304
     y: 7.0465946
-    width: 121.304016
+    width: 122.86454
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25022,7 +25038,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -237.03738
     y: -290.48453
-    width: 150.8691
+    width: 151.13095
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25082,7 +25098,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: -225.6287
     y: 14.034581
-    width: 123.9127
+    width: 123.49268
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25157,7 +25173,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1337.4272
     y: 481.22113
-    width: 125.651825
+    width: 124.74897
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -25686,7 +25702,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 324.09888
     y: 511.60513
-    width: 129.99963
+    width: 131.0304
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -26598,14 +26614,14 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Irving: Look, I'll be honest with you: Do you not like me talking
-      to you?\nIrving: 'Cause I thought we could be friends but you don't really
-      seem to want to talk to me and I'm not interested in forcing a friendship.\nMelita
-      inquisitive: Not particularly no.  I don't know why you would want to be my
-      friend. \nIrving idisappointed: You seem cool, and we have a few classes together.
-      I just wanted to get to know you a little better but I guess that's what I
-      get for assuming things.\nIrving >>>: Sorry for bothering you, I'll see you
-      in class tomorrow. \nIrving offscreen right:"
+    stringVal: "Irving: Look, I'll be honest with you: Do you not like talking to
+      me?\nIrving: 'Cause I thought we could be friends but you don't really seem
+      to want to talk to me and...\nIrving idisappointed: I'm not interested in forcing
+      a friendship.\nMelita inquisitive: Not particularly no. I don't know why you
+      would want to be my friend. \nIrving idisappointed: You seem cool, and we have
+      a few classes together. I just wanted to get to know you a little better \nIrving:
+      But I guess that's what I get for assuming things.\nIrving >>>: Sorry for bothering
+      you, I'll see you in class tomorrow. \nIrving offscreen right:"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -28368,12 +28384,12 @@ MonoBehaviour:
   - {fileID: 1094690749}
   - {fileID: 175005490}
   - {fileID: 1111178295}
-  - {fileID: 1544603349}
+  - {fileID: 0}
   - {fileID: 1728404432}
   - {fileID: 460452749}
   - {fileID: 1968949875}
-  - {fileID: 804695372}
-  - {fileID: 1631523815}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 1052726688}
   tweenType: 2
   waitUntilFinished:
@@ -28489,12 +28505,12 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Irving iconfused: Ah, if they called my dad -- he's probably halfway
-      here already, knowing him. \nMelita laughing: I know what that's like. \nMelita
-      smiling: I'm sure my Mom is breaking every traffic law known to monster to
-      get home before I do.\nIrving ihappy: That sounds familliar. \nIrving: I still
+    stringVal: "Irving iconfused: Ah, if they called my dad - he's probably already
+      halfway here.\nMelita laughing: I know what that's like. \nMelita smiling:
+      I'm sure my Mom is breaking every traffic law known to monster to get home
+      before I do.\nIrving ihappy: That sounds familliar. \nIrving iconfused: I still
       have some time before he gets here, do you want me to wait with you?\nMelita
-      nervous: I would like that.\nIrving: Your wish is my command."
+      nervous: I would like that.\nIrving ihappy: Your wish is my command."
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -28555,13 +28571,14 @@ MonoBehaviour:
   conversationText:
     stringRef: {fileID: 0}
     stringVal: "Melita nervous: Looks like the bus is here. \nIrving inervous: Yeah...
-      \nIrving: So um, if you're up for it, maybe we could meet up this weekend?
+      \nIrving: So um, if you're up for it, maybe we could ... meet up this weekend?
       Chat some more? \nIrving iconfused: I could show you a little bit more about
       my bike so next time you aren't so nervous. \nMelita shocked: M-meet up?\nIrving
       iflustered: Only if you're okay with it I mean I wouldn't -\nMelita smiling:
       It's a date!\nIrving ihappy: Great! I mean...\nIrving iconfused: Are you free
       Saturday?\nMelita: I should be... \nIrving ihappy: I'll pick you up at 6?\nMelita
-      laughing: Deal. I'll see you then. \nMelita offscreen left <<<: \n"
+      laughing: Deal. Now it's a date.\nIrving ilaughing nowait:\nMelita offscreen
+      left <<<: \n"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -28607,7 +28624,7 @@ MonoBehaviour:
   indentLevel: 0
   conversationText:
     stringRef: {fileID: 0}
-    stringVal: "Melita laughing: Yeah, just like you and your bike. \nIrving ilaughing:
+    stringVal: "Melita laughing: Yeah, just like you with your bike. \nIrving ilaughing:
       I like seeing you so passionate about something. It's cute. \n"
   clearPrevious:
     booleanRef: {fileID: 0}
@@ -28748,22 +28765,11 @@ MonoBehaviour:
   conversationText:
     stringRef: {fileID: 0}
     stringVal: "Melita laughing: You could say that.\nMelita smiling: It's always
-      been something I enjoy, kinda like you and your bike. \nIrving ihappy:  It's
+      been something I enjoy, kinda like you with your bike. \nIrving ihappy:  It's
       cute. I like seeing you all passionate about something. \nMelita shocked: W-What?
-      Cute?\nIrving ilaughing: You heard me. \nMelita nervous: .... \nIrving: Alright
-      we're here. Give me a moment to grab something for you. \nIrving iconfused
-      >>>: Now where did I put it...\nIrving ishocked: Ah! \nIrving ihappy <<<: Here,
-      put this on. \nMelita inquisitive: What about your helmet?\nIrving ilaughing:
-      I'll be fine, my head has some fun physics that'll keep my safe. \nMelita:
-      Like...? \nIrving: Like this. \nIrving ihead: See? \nMelita laughing: I see.
-      \nIrving: Ready to go? \nMelita smiling: Yup! \nIrving: Wait a tick..\nIrving:
-      Before we get going, I want to ask you one more thing. \nMelita inquisitive:
-      Yes?\nIrving: Are you free to hang Saturday? The more time I spend with you
-      the more I want to know about you. \nMelita shocked: ....\nIrving: Only if
-      you're down for it, I don't want you to feel pressured or anything, I just....\nIrving:
-      ...want to spend more time with you.\nMelita nervous: I-I'd like that. \nIrving:
-      Great! I'll pick you up at 6?\nMelita laughing: It's a date!\nIrving: Alright!
-      Let's get you home.\nMelita smiling: Okay!"
+      Cute?\nIrving ilaughing: You heard me. \nMelita nervous: .... \nIrving ihappy:
+      Alright we're here. Give me a moment to grab something for you. \nIrving iconfused:
+      Now where did I put it...\nIrving ishocked: Ah!"
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -32865,12 +32871,6 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1544558567}
   m_PrefabAsset: {fileID: 0}
---- !u!1 &1544603349 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8643734918777863126, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1324991745}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1545452427 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6728308202501166499, guid: 32a889088f29047abb93fe761f84afc5,
@@ -33693,12 +33693,6 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 32a889088f29047abb93fe761f84afc5, type: 3}
---- !u!1 &1631523815 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 5932769960836385904, guid: 362a54c7a5394e64192fdb1b9d9e0c7a,
-    type: 3}
-  m_PrefabInstance: {fileID: 1324991745}
-  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1633634330 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 8191859415302403854, guid: 36723e8766391460ba2ccc1e692a8306,
@@ -36244,7 +36238,7 @@ PrefabInstance:
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: selectedCommands.Array.size
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
@@ -36254,18 +36248,18 @@ PrefabInstance:
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: scrollPos.x
-      value: -545.17004
+      value: -459.398
       objectReference: {fileID: 0}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: scrollPos.y
-      value: 81.48988
+      value: 60.33803
       objectReference: {fileID: 0}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: selectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1355830978}
+      objectReference: {fileID: 1355830981}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: blockViewHeight
@@ -36275,7 +36269,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selectedCommands.Array.data[0]
       value: 
-      objectReference: {fileID: 1355831112}
+      objectReference: {fileID: 1355830979}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: variables.Array.data[0]
@@ -36294,7 +36288,7 @@ PrefabInstance:
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: zoom
-      value: 1
+      value: 0.7959976
       objectReference: {fileID: 0}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
