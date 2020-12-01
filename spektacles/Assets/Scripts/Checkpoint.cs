@@ -6,7 +6,8 @@ public class Checkpoint : MonoBehaviour
 {
 	public bool reached;
 	private GameObject checkpointReachedDisplay;
-	[SerializeField] private float displayTime = 0.3f;
+	[SerializeField] private float displayTime = 1f;
+	private bool displayedOnce;
 
 	void Awake() {
 		checkpointReachedDisplay = GameObject.Find("Checkpoint Reached Display");
@@ -20,11 +21,14 @@ public class Checkpoint : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other) {
     	if(other.CompareTag("Player")) {
     		reached = true;
-    		StartCoroutine(DisplayReached());
+    		if(!displayedOnce) {
+    			StartCoroutine(DisplayReached());
+    		}
     	}
     }
 
     IEnumerator DisplayReached() {
+    	displayedOnce = true;
     	if(checkpointReachedDisplay == null) {
 			Debug.Log("no checkpointReachedDisplay!");
 		} else {
