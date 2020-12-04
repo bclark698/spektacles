@@ -1757,6 +1757,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6b19f386446426695c4c01576f3b04, type: 3}
+--- !u!4 &233469694 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7952315665668765972, guid: bd6b19f386446426695c4c01576f3b04,
+    type: 3}
+  m_PrefabInstance: {fileID: 233469693}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &235898017 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1644475064781601620, guid: 8b953509fff7d4f9c8d3fa476e75d201,
@@ -21730,6 +21736,16 @@ PrefabInstance:
       propertyPath: restart
       value: 
       objectReference: {fileID: 1975862530}
+    - target: {fileID: 1135156641809806182, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+        type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 233469694}
+    - target: {fileID: 1135156641809806182, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+        type: 3}
+      propertyPath: restartPoint
+      value: 
+      objectReference: {fileID: 233469694}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d4ff2d6b5b294fbbbfb1853bce10752, type: 3}
 --- !u!95 &1321870173 stripped

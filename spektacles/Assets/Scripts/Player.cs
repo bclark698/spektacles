@@ -41,7 +41,7 @@ public class Player : MonoBehaviour
 
 
     [SerializeField]
-    private GameObject restart = null;
+    public Transform restartPoint = null;
     public static bool allowMovement = true;
     public static bool allowInteract = true;
 
@@ -194,7 +194,7 @@ public class Player : MonoBehaviour
             StopAllCoroutines();
         }
         Debug.Log("Restart. lives:" + lives);
-        transform.position = restart.transform.position;
+        transform.position = restartPoint.position;
     }
 
     public void PickUpGlasses()
@@ -237,17 +237,13 @@ public class Player : MonoBehaviour
 
     private IEnumerator DamageCooldown()
     {
-        Debug.Log("starting damage cooldown");
         invincible = true;
         anim.SetBool("blind", true);
-        // spriteRenderer.color = new Color(0.75f, 0.75f, 0.75f, 1f);
 
         yield return new WaitForSeconds(cooldownTime);
 
         invincible = false;
         anim.SetBool("blind", false);
-        Debug.Log("end of damage cooldown");
-        // spriteRenderer.color = Color.white;
         spriteRenderer.enabled = true;
         yield return null;
     }

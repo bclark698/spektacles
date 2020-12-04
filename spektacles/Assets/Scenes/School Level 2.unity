@@ -3959,6 +3959,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: bd6b19f386446426695c4c01576f3b04, type: 3}
+--- !u!4 &410379670 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 7952315665668765972, guid: bd6b19f386446426695c4c01576f3b04,
+    type: 3}
+  m_PrefabInstance: {fileID: 410379669}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &413042410
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -21005,6 +21011,16 @@ PrefabInstance:
       propertyPath: restart
       value: 
       objectReference: {fileID: 417942623}
+    - target: {fileID: 1135156641809806182, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+        type: 3}
+      propertyPath: respawnPoint
+      value: 
+      objectReference: {fileID: 410379670}
+    - target: {fileID: 1135156641809806182, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
+        type: 3}
+      propertyPath: restartPoint
+      value: 
+      objectReference: {fileID: 410379670}
     - target: {fileID: 1135156641809806183, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
         type: 3}
       propertyPath: m_Offset.y
