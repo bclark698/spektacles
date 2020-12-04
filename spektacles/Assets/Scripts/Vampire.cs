@@ -14,6 +14,9 @@ public class Vampire : Enemy
     public bool rand = false;
     public bool go = true;
 
+    public Animator poofAnimator;
+    public AudioSource poofSound;
+
     void Start() {
         //powerUpToHandle = PowerUp.Type.Garlic;
 
@@ -45,8 +48,7 @@ public class Vampire : Enemy
             num = Random.Range(0, vamps.Length);
         }
 
-        vamps[prevNum].gameObject.SetActive(false);
-        vamps[num].gameObject.SetActive(true);
+        StartCoroutine("vampireChange");
     }
 
     public override void OutlineOn() {
@@ -59,6 +61,16 @@ public class Vampire : Enemy
         foreach(GameObject vamp in vamps) {
             vamp.GetComponent<SpriteRenderer>().material.shader = defaultShader;
         }
+    }
+
+    public IEnumerator vampireChange(){
+      poofAnimator.SetTrigger("quickChange");
+      poofSound.Play();
+      yield return new WaitForSeconds(.25f);
+      vamps[prevNum].gameObject.SetActive(false);
+      vamps[num].gameObject.SetActive(true);
+
+      yield return null;
     }
 
 }
