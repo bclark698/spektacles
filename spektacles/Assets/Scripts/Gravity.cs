@@ -24,7 +24,7 @@ public class Gravity : MonoBehaviour
         gravityRange = gameObject.GetComponent<CircleCollider2D>();
         powerUpRange = GameObject.FindGameObjectWithTag("PowerUp Range").GetComponent<PowerUpRange>();
 
-        sirenSingSound.time = 7.7f;
+        sirenSingSound.time = 7.5f;
         sirenSingSound.Play();
     }
 

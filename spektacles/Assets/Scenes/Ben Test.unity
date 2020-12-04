@@ -441,10 +441,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 747573177, guid: 27785f03853ad45ed913a6aa7b41f7d5, type: 3}
-      propertyPath: sirenSingSound
-      value: 
-      objectReference: {fileID: 921816522}
     - target: {fileID: 248511992054381989, guid: 27785f03853ad45ed913a6aa7b41f7d5,
         type: 3}
       propertyPath: m_LocalScale.x
@@ -2975,12 +2971,6 @@ PrefabInstance:
       objectReference: {fileID: 1792866206}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1d4ff2d6b5b294fbbbfb1853bce10752, type: 3}
---- !u!82 &921816522 stripped
-AudioSource:
-  m_CorrespondingSourceObject: {fileID: 3648439350544603848, guid: 27785f03853ad45ed913a6aa7b41f7d5,
-    type: 3}
-  m_PrefabInstance: {fileID: 271155891}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &928530508
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,6 +4053,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7636343201824870378, guid: 20148aafd0d69406493f651a315c523d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].time
+      value: 0.313645
+      objectReference: {fileID: 0}
+    - target: {fileID: 7636343201824870378, guid: 20148aafd0d69406493f651a315c523d,
+        type: 3}
+      propertyPath: rolloffCustomCurve.m_Curve.Array.data[1].value
+      value: 0.9898834
+      objectReference: {fileID: 0}
     - target: {fileID: 7716433429904561937, guid: 20148aafd0d69406493f651a315c523d,
         type: 3}
       propertyPath: m_Name
