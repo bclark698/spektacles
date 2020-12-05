@@ -181,7 +181,8 @@ public class Player : MonoBehaviour
         }
     }
 
-    void RestartLevel()
+    // doesn't play the beginning timeline cutscenes
+    public void RestartLevel()
     {
         playerSounds.ReloadSound();
         lives = 2;

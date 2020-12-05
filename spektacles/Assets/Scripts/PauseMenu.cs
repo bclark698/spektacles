@@ -16,6 +16,8 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private GameObject pauseButton = null;
     
     bool[] states;
+    private Player player;
+    private GameObject checkpointNoneReachedDisplay;
 
 	void Awake() {
 		controls = new PlayerControls();
@@ -29,6 +31,8 @@ public class PauseMenu : MonoBehaviour
             instance = this;
 
         pauseMenu.SetActive(true); // Set active during awake so during Awake() of Module.cs, they can find the map
+        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        checkpointNoneReachedDisplay = GameObject.Find("Checkpoint None Reached Display");
 	}
 
     // Only the pause button should be active at start
@@ -37,6 +41,12 @@ public class PauseMenu : MonoBehaviour
             pauseMenu.SetActive(false);
         } else {
             Debug.Log("pause menu is null! In PauseMenu.cs Start()");
+        }
+
+        if(checkpointNoneReachedDisplay == null) {
+            Debug.Log("no checkpointNoneReachedDisplay!");
+        } else {
+            checkpointNoneReachedDisplay.SetActive(false);
         }
     }
 
@@ -79,10 +89,22 @@ public class PauseMenu : MonoBehaviour
 
     public void RestartFromBeginning(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        Resume();
     }
 
     public void RestartFromCheckpoint() {
-        //
+        if(player.checkpoint) {
+            player.RestartLevel();
+            Resume();
+        } else {
+            StartCoroutine(DisplayNoCheckpointsReached());
+        }
+    }
+
+    private IEnumerator DisplayNoCheckpointsReached() {
+        checkpointNoneReachedDisplay.SetActive(true);
+        yield return new WaitForSecondsRealtime(1.5f);
+        checkpointNoneReachedDisplay.SetActive(false);
     }
 
     private void SaveStates() {
