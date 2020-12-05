@@ -2732,6 +2732,8 @@ PlayableDirector:
     value: {fileID: 765786055}
   - key: {fileID: -1618047438919048644, guid: 7969e27f555754297929092188548bf7, type: 2}
     value: {fileID: 2105026357}
+  - key: {fileID: -6916716980764414918, guid: 7969e27f555754297929092188548bf7, type: 2}
+    value: {fileID: 765786055}
   m_ExposedReferences:
     m_References: []
 --- !u!95 &213808297
@@ -3067,7 +3069,8 @@ MonoBehaviour:
     y: 0
     width: 0
     height: 0
-  selectedBlocks: []
+  selectedBlocks:
+  - {fileID: 257099088}
   selectedCommands: []
   variables: []
   description: 
@@ -3123,7 +3126,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1336.9182
     y: 181.89673
-    width: 67
+    width: 107
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -3213,7 +3216,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 1202
     y: 123
-    width: 60
+    width: 83
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -9107,7 +9110,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 257099082}
+  selectedFlowchart: {fileID: 2105026377}
 --- !u!4 &727472271
 Transform:
   m_ObjectHideFlags: 1
@@ -28029,7 +28032,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 155.00002
     y: -179
-    width: 96
+    width: 134.78789
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28407,7 +28410,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 438.99756
     y: -65
-    width: 60
+    width: 82.4189
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28438,7 +28441,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 426.88586
     y: 36.942917
-    width: 61
+    width: 99.87523
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28645,7 +28648,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 538
     y: -11.942917
-    width: 74
+    width: 113.59091
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28757,7 +28760,7 @@ MonoBehaviour:
   indentLevel: 0
   _duration:
     floatRef: {fileID: 0}
-    floatVal: 4.15
+    floatVal: 4.5
   durationOLD: 0
 --- !u!114 &2105026342
 MonoBehaviour:
@@ -28882,7 +28885,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 316.23926
     y: -13.383331
-    width: 63
+    width: 101.745544
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -28894,6 +28897,7 @@ MonoBehaviour:
   - {fileID: 2105026364}
   - {fileID: 2105026325}
   - {fileID: 2105026326}
+  - {fileID: 2105026380}
   - {fileID: 2105026351}
   - {fileID: 2105026327}
   - {fileID: 2105026330}
@@ -28970,7 +28974,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 175.76884
     y: -16.45942
-    width: 80
+    width: 119.20188
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29921,6 +29925,43 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &2105026377 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 2105026314}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105026315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2105026380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105026315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 437f9a4e3dbc647f9bdce95308418bff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 76
+  indentLevel: 0
+  duration: 0.01
+  fadeOut: 0
+  targetView: {fileID: 780812534}
+  waitUntilFinished: 1
+  fadeColor: {r: 0, g: 0, b: 0, a: 0}
+  fadeTexture: {fileID: 0}
+  targetCamera: {fileID: 0}
+  fadeTweenType: 4
+  orthoSizeTweenType: 4
+  posTweenType: 4
+  rotTweenType: 4
 --- !u!4 &2107214575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7491168192712010144, guid: a5376f2b747d7d24bbbf6170c3c2a7b2,
