@@ -20,7 +20,8 @@ public class PauseMenu : MonoBehaviour
 	void Awake() {
 		controls = new PlayerControls();
 		controls.Gameplay.Pause.performed += _ => PauseOrResume();
-        controls.Gameplay.Reset.performed += _ => ResetLevel();
+        controls.Gameplay.RestartFromBeginning.performed += _ => RestartFromBeginning();
+        controls.Gameplay.RestartFromCheckpoint.performed += _ => RestartFromCheckpoint();
 
         if(instance != null)
             GameObject.Destroy(instance);
@@ -76,8 +77,12 @@ public class PauseMenu : MonoBehaviour
         // ChangeMapVisibility(false); TODO change
     }
 
-    public void ResetLevel(){
+    public void RestartFromBeginning(){
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+
+    public void RestartFromCheckpoint() {
+        //
     }
 
     private void SaveStates() {

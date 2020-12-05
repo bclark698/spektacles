@@ -10,7 +10,7 @@ public class Checkpoint : MonoBehaviour
 	private float displayTime = 1.5f;
 	private bool displayedOnce;
 	private Player player;
-	[SerializeField] private int orderNum = 1;
+	[SerializeField] private int orderNum = 0;
 
 	void Awake() {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
