@@ -16,7 +16,6 @@ public class PauseMenu : MonoBehaviour
 	[SerializeField] private GameObject pauseButton = null;
     
     bool[] states;
-    GameObject[] checkpoints = null;
 
 	void Awake() {
 		controls = new PlayerControls();
@@ -29,11 +28,6 @@ public class PauseMenu : MonoBehaviour
             instance = this;
 
         pauseMenu.SetActive(true); // Set active during awake so during Awake() of Module.cs, they can find the map
-
-        if(checkpoints == null) {
-            // objects should be placed in order of increasing distance from the original player spawn point
-            checkpoints = GameObject.FindGameObjectsWithTag("Checkpoint"); 
-        }
 	}
 
     // Only the pause button should be active at start
@@ -83,21 +77,8 @@ public class PauseMenu : MonoBehaviour
     }
 
     public void ResetLevel(){
-        GameObject checkpoint = GetFurthestCheckpointReached();
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-        if(checkpoint)
-            GameObject.FindGameObjectWithTag("Player").transform.position = checkpoint.transform.position;
     }
-
-    private GameObject GetFurthestCheckpointReached() {
-        for(int i = checkpoints.Length -1; i >= 0; i--) { // TODO can optimize to O(logN) time
-            if(checkpoints[i].GetComponent<Checkpoint>().reached) {
-                return checkpoints[i];
-            }
-        }
-        return null;
-    }
-
 
     private void SaveStates() {
         states = new bool[4];

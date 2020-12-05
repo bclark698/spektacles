@@ -50,6 +50,7 @@ public class Player : MonoBehaviour
     private bool flickerState;
 
     private Enemy enemy;
+    public Checkpoint checkpoint;
 
     // called before Start
     void Awake()
@@ -169,7 +170,8 @@ public class Player : MonoBehaviour
             else if (lives <= 0)
             {
                 RestartLevel();
-                goldHeart.gameObject.SetActive(true);
+                if(goldHeart)
+                    goldHeart.gameObject.SetActive(true);
             }
         }
 
@@ -194,7 +196,13 @@ public class Player : MonoBehaviour
             StopAllCoroutines();
         }
         Debug.Log("Restart. lives:" + lives);
-        transform.position = restartPoint.position;
+
+        if(checkpoint) {
+            checkpoint.RestartAtCheckpoint();
+        } else {
+            transform.position = restartPoint.position;
+        }
+        
     }
 
     public void PickUpGlasses()
