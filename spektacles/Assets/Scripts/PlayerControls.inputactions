@@ -54,9 +54,17 @@
                     "interactions": ""
                 },
                 {
-                    "name": "Reset",
+                    "name": "RestartFromBeginning",
                     "type": "Button",
                     "id": "1e0ca38a-fbea-4942-9df9-a9983dc06ec7",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                },
+                {
+                    "name": "RestartFromCheckpoint",
+                    "type": "Button",
+                    "id": "51a18a70-361c-40e6-a7ad-4b8789a596d2",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": ""
@@ -495,11 +503,66 @@
                 {
                     "name": "",
                     "id": "1b298300-6610-45cf-b6c4-7f09fe83e1b9",
-                    "path": "<Keyboard>/r",
+                    "path": "<Keyboard>/b",
                     "interactions": "",
                     "processors": "",
                     "groups": "Keyboard and Mouse",
-                    "action": "Reset",
+                    "action": "RestartFromBeginning",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "21c8a3fe-b809-4caa-9ba0-790ccdf5a472",
+                    "path": "<Gamepad>/buttonWest",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "RestartFromBeginning",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ffba747c-25cc-41b8-8131-f6f359a07e9c",
+                    "path": "<HID::Unknown Wireless Controller>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "RestartFromBeginning",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ce600ad6-83af-4dc9-9e3b-c24347a55a81",
+                    "path": "<Keyboard>/c",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Keyboard and Mouse",
+                    "action": "RestartFromCheckpoint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "1d4ff944-0b27-477c-b131-48a1a2a940bc",
+                    "path": "<Gamepad>/buttonNorth",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "RestartFromCheckpoint",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "6e1ef14d-cea5-42d3-9f42-8d89724759a8",
+                    "path": "<HID::Unknown Wireless Controller>/trigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "RestartFromCheckpoint",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

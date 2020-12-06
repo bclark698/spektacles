@@ -67,9 +67,17 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""interactions"": """"
                 },
                 {
-                    ""name"": ""Reset"",
+                    ""name"": ""RestartFromBeginning"",
                     ""type"": ""Button"",
                     ""id"": ""1e0ca38a-fbea-4942-9df9-a9983dc06ec7"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
+                },
+                {
+                    ""name"": ""RestartFromCheckpoint"",
+                    ""type"": ""Button"",
+                    ""id"": ""51a18a70-361c-40e6-a7ad-4b8789a596d2"",
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
@@ -508,11 +516,66 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 {
                     ""name"": """",
                     ""id"": ""1b298300-6610-45cf-b6c4-7f09fe83e1b9"",
-                    ""path"": ""<Keyboard>/r"",
+                    ""path"": ""<Keyboard>/b"",
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": ""Keyboard and Mouse"",
-                    ""action"": ""Reset"",
+                    ""action"": ""RestartFromBeginning"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""21c8a3fe-b809-4caa-9ba0-790ccdf5a472"",
+                    ""path"": ""<Gamepad>/buttonWest"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RestartFromBeginning"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ffba747c-25cc-41b8-8131-f6f359a07e9c"",
+                    ""path"": ""<HID::Unknown Wireless Controller>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RestartFromBeginning"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ce600ad6-83af-4dc9-9e3b-c24347a55a81"",
+                    ""path"": ""<Keyboard>/c"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""RestartFromCheckpoint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""1d4ff944-0b27-477c-b131-48a1a2a940bc"",
+                    ""path"": ""<Gamepad>/buttonNorth"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RestartFromCheckpoint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""6e1ef14d-cea5-42d3-9f42-8d89724759a8"",
+                    ""path"": ""<HID::Unknown Wireless Controller>/trigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Gamepad"",
+                    ""action"": ""RestartFromCheckpoint"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1173,7 +1236,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Pause = m_Gameplay.FindAction("Pause", throwIfNotFound: true);
         m_Gameplay_UsePowerUp = m_Gameplay.FindAction("UsePowerUp", throwIfNotFound: true);
         m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
-        m_Gameplay_Reset = m_Gameplay.FindAction("Reset", throwIfNotFound: true);
+        m_Gameplay_RestartFromBeginning = m_Gameplay.FindAction("RestartFromBeginning", throwIfNotFound: true);
+        m_Gameplay_RestartFromCheckpoint = m_Gameplay.FindAction("RestartFromCheckpoint", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1241,7 +1305,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Pause;
     private readonly InputAction m_Gameplay_UsePowerUp;
     private readonly InputAction m_Gameplay_Start;
-    private readonly InputAction m_Gameplay_Reset;
+    private readonly InputAction m_Gameplay_RestartFromBeginning;
+    private readonly InputAction m_Gameplay_RestartFromCheckpoint;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -1252,7 +1317,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Pause => m_Wrapper.m_Gameplay_Pause;
         public InputAction @UsePowerUp => m_Wrapper.m_Gameplay_UsePowerUp;
         public InputAction @Start => m_Wrapper.m_Gameplay_Start;
-        public InputAction @Reset => m_Wrapper.m_Gameplay_Reset;
+        public InputAction @RestartFromBeginning => m_Wrapper.m_Gameplay_RestartFromBeginning;
+        public InputAction @RestartFromCheckpoint => m_Wrapper.m_Gameplay_RestartFromCheckpoint;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1280,9 +1346,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Start.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
                 @Start.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
                 @Start.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnStart;
-                @Reset.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
-                @Reset.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
-                @Reset.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnReset;
+                @RestartFromBeginning.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestartFromBeginning;
+                @RestartFromBeginning.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestartFromBeginning;
+                @RestartFromBeginning.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestartFromBeginning;
+                @RestartFromCheckpoint.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestartFromCheckpoint;
+                @RestartFromCheckpoint.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestartFromCheckpoint;
+                @RestartFromCheckpoint.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestartFromCheckpoint;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1305,9 +1374,12 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @Start.started += instance.OnStart;
                 @Start.performed += instance.OnStart;
                 @Start.canceled += instance.OnStart;
-                @Reset.started += instance.OnReset;
-                @Reset.performed += instance.OnReset;
-                @Reset.canceled += instance.OnReset;
+                @RestartFromBeginning.started += instance.OnRestartFromBeginning;
+                @RestartFromBeginning.performed += instance.OnRestartFromBeginning;
+                @RestartFromBeginning.canceled += instance.OnRestartFromBeginning;
+                @RestartFromCheckpoint.started += instance.OnRestartFromCheckpoint;
+                @RestartFromCheckpoint.performed += instance.OnRestartFromCheckpoint;
+                @RestartFromCheckpoint.canceled += instance.OnRestartFromCheckpoint;
             }
         }
     }
@@ -1443,7 +1515,8 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnPause(InputAction.CallbackContext context);
         void OnUsePowerUp(InputAction.CallbackContext context);
         void OnStart(InputAction.CallbackContext context);
-        void OnReset(InputAction.CallbackContext context);
+        void OnRestartFromBeginning(InputAction.CallbackContext context);
+        void OnRestartFromCheckpoint(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
