@@ -21,6 +21,9 @@ public class musicController : MonoBehaviour
   public AudioSource cutMusic;
   public AudioSource cutLoop;
 
+  private AudioSource currentMusicLoop;
+  private bool musicLooped = true;
+
 
   //float fadeTime;
   public float musicVol;
@@ -38,7 +41,7 @@ public class musicController : MonoBehaviour
      {
        currentLevel = SceneManager.GetActiveScene().name;
        LoadMusic();
-       currentMusic.Play();
+       //currentMusic.Play();
      }
 
   void Awake(){
@@ -69,13 +72,24 @@ public class musicController : MonoBehaviour
   {
     currentLevel = SceneManager.GetActiveScene().name;
     currentMusic.volume = currentVol;
+    if (!musicLooped){
+    if (!currentMusic.isPlaying){
+      Debug.Log("music stopped");
+      currentMusic.clip = currentMusicLoop.clip;
+      currentMusic.Play();
+      currentMusic.loop = true;
+
+    musicLooped = true;
+    }
+  }
 
   }
   public void LoadMusic(){
     switch (currentLevel){
 
       case "Home":
-      currentMusic.clip = homeMusic.clip;
+      //currentMusic.clip = homeMusic.clip;
+      StartCoroutine(MusicSwitch(homeMusic, homeLoop, 1, 1, .2f));
       break;
       case "Bus":
     //  currentMusic.clip = busMusic.clip;
@@ -137,14 +151,14 @@ public class musicController : MonoBehaviour
 
 
     }
-    //prolly using a switch / case cause thats what I know to do
-    //Then trigger MusicSwitch() w/ the right values.
+
   }
 
   public IEnumerator MusicSwitch(AudioSource nextMusic, AudioSource loopMusic, float transistionTimeDown, float transistionTimeUp, float vol){
     currentVol = musicVol;
     musicVol = vol;
     currentMusic.loop = false;
+    currentMusicLoop = loopMusic;
 
    while (currentVol > 0){
       currentVol -= Time.deltaTime / transistionTimeDown;
@@ -159,15 +173,14 @@ public class musicController : MonoBehaviour
     }
     //StartCoroutine(LoopMusic(loopMusic));
 
+    yield return musicLooped = false;
+
     yield return null;
   }
 
 
 
   public IEnumerator LoopMusic(AudioSource loopMusic){
-    while (currentMusic.isPlaying){
-      yield return currentVol;
-    }
     yield return currentMusic.clip = loopMusic.clip;
     currentMusic.Play();
     currentMusic.loop = true;
