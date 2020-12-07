@@ -151,16 +151,7 @@ public class Journal : MonoBehaviour
     void UpdateControlsView() {
         // if(NumPages() < 2)
     }
-
-    public void QuitGame() {
-    	Debug.Log("quitting game");
-    	#if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #else
-        Application.Quit();
-        #endif
-    }
-
+    
     private void OnEnable()
     {
         controls.Enable();

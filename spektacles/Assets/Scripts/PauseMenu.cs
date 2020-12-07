@@ -4,6 +4,7 @@ using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -26,6 +27,7 @@ public class PauseMenu : MonoBehaviour
 		controls.Gameplay.Pause.performed += _ => PauseOrResume();
         controls.Gameplay.RestartFromBeginning.performed += _ => RestartFromBeginning();
         controls.Gameplay.RestartFromCheckpoint.performed += _ => RestartFromCheckpoint();
+        controls.Gameplay.Quit.performed += _ => QuitGame();
 
         if(instance != null)
             GameObject.Destroy(instance);
@@ -34,6 +36,9 @@ public class PauseMenu : MonoBehaviour
 
         pauseMenu.SetActive(true); // Set active during awake so during Awake() of Module.cs, they can find the map
         player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+
+        // set journal controls image to be for the proper device
+        GameObject.Find("Journal Controls").GetComponent<Image>().sprite = GameAssets.instance.journalControls;
 	}
 
     // Only the pause button should be active at start
@@ -137,6 +142,15 @@ public class PauseMenu : MonoBehaviour
         PowerUpRange.allowAbility = states[1];
         Player.allowMovement = states[2];
         Player.allowInteract = states[3];
+    }
+
+    public void QuitGame() {
+        Debug.Log("quitting game");
+        #if UNITY_EDITOR
+        UnityEditor.EditorApplication.isPlaying = false;
+        #else
+        Application.Quit();
+        #endif
     }
 
     private void OnEnable()

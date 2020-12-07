@@ -57,6 +57,8 @@ public class GameAssets : MonoBehaviour
     public Sprite tipExit;
     public string petrifyString = null;
 
+    public Sprite journalControls;
+
     void Awake()
     {
         DeterminePlatform();
@@ -105,6 +107,7 @@ public class GameAssets : MonoBehaviour
         ControlsIndicatorAssets(platformPath);
         attentionInteract = Resources.Load<Sprite>(platformPath+"Attention Interact"); // TODO actually put an image in xbox folder
         tipExit = Resources.Load<Sprite>(platformPath+"Tip/tip enter"); // TODO actually put an image in xbox folder
+        journalControls = Resources.Load<Sprite>(platformPath+"Controls/Journal");
     }
 
     void InitDesktopVariables() {
