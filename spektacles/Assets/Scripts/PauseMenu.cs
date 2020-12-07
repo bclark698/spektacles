@@ -125,7 +125,7 @@ public class PauseMenu : MonoBehaviour
 
     private IEnumerator DisplayNoCheckpointsReached() {
         checkpointNoneReachedDisplay.SetActive(true);
-        yield return new WaitForSecondsRealtime(1.5f);
+        yield return new WaitForSecondsRealtime(1f);
         checkpointNoneReachedDisplay.SetActive(false);
     }
 
