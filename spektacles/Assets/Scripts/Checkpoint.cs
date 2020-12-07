@@ -5,8 +5,8 @@ using UnityEngine;
 public class Checkpoint : MonoBehaviour
 {
 	public bool reached;
-	private GameObject checkpointReachedDisplay;
-	private GameObject checkpointRestartingDisplay;
+	// private GameObject checkpointReachedDisplay;
+	// private GameObject checkpointRestartingDisplay;
 	private float displayTime = 1.5f;
 	private bool displayedOnce;
 	private Player player;
@@ -14,23 +14,6 @@ public class Checkpoint : MonoBehaviour
 
 	void Awake() {
 		player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-
-		checkpointReachedDisplay = GameObject.Find("Checkpoint Reached Display");
-		checkpointRestartingDisplay = GameObject.Find("Checkpoint Restarting Display");
-	}
-
-	void Start() {
-		if(checkpointReachedDisplay == null) {
-			Debug.Log("no checkpointReachedDisplay!");
-		} else {
-			checkpointReachedDisplay.SetActive(false);
-		}
-
-		if(checkpointRestartingDisplay == null) {
-			Debug.Log("no checkpointRestartingDisplay!");
-		} else {
-			checkpointRestartingDisplay.SetActive(false);
-		}
 	}
 
     void OnTriggerEnter2D(Collider2D other) {
@@ -46,13 +29,13 @@ public class Checkpoint : MonoBehaviour
     // aesthetic TODO: make fade in and out
     private IEnumerator DisplayReached() {
     	displayedOnce = true;
-    	if(checkpointReachedDisplay == null) {
+    	if(PauseMenu.checkpointReachedDisplay == null) {
 			Debug.Log("no checkpointReachedDisplay!");
 		} else {
-			checkpointReachedDisplay.SetActive(true);
+			PauseMenu.checkpointReachedDisplay.SetActive(true);
 	    	yield return new WaitForSeconds(displayTime);
 	    	if(player.checkpoint == this) {
-	    		checkpointReachedDisplay.SetActive(false);
+	    		PauseMenu.checkpointReachedDisplay.SetActive(false);
 	    	}
 		}
     }
@@ -74,8 +57,8 @@ public class Checkpoint : MonoBehaviour
 
     // aesthetic TODO: make fade in and out
     private IEnumerator DisplayRestarting() {
-    	checkpointRestartingDisplay.SetActive(true);
+    	PauseMenu.checkpointRestartingDisplay.SetActive(true);
     	yield return new WaitForSeconds(displayTime);
-    	checkpointRestartingDisplay.SetActive(false);
+    	PauseMenu.checkpointRestartingDisplay.SetActive(false);
     }
 }
