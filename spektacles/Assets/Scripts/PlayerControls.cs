@@ -81,6 +81,14 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""expectedControlType"": ""Button"",
                     ""processors"": """",
                     ""interactions"": """"
+                },
+                {
+                    ""name"": ""Quit"",
+                    ""type"": ""Button"",
+                    ""id"": ""12af0727-be9d-4696-a830-3717e9c6e0cf"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """"
                 }
             ],
             ""bindings"": [
@@ -576,6 +584,28 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                     ""processors"": """",
                     ""groups"": ""Gamepad"",
                     ""action"": ""RestartFromCheckpoint"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""9554af8e-aa21-4ea5-b535-4c9076d776fc"",
+                    ""path"": ""<Keyboard>/q"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": ""Keyboard and Mouse"",
+                    ""action"": ""Quit"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""7cbf8730-6936-43f3-b6a2-a1e874c3a41f"",
+                    ""path"": ""<XInputController>/leftTrigger"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Quit"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -1238,6 +1268,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         m_Gameplay_Start = m_Gameplay.FindAction("Start", throwIfNotFound: true);
         m_Gameplay_RestartFromBeginning = m_Gameplay.FindAction("RestartFromBeginning", throwIfNotFound: true);
         m_Gameplay_RestartFromCheckpoint = m_Gameplay.FindAction("RestartFromCheckpoint", throwIfNotFound: true);
+        m_Gameplay_Quit = m_Gameplay.FindAction("Quit", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Navigate = m_UI.FindAction("Navigate", throwIfNotFound: true);
@@ -1307,6 +1338,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
     private readonly InputAction m_Gameplay_Start;
     private readonly InputAction m_Gameplay_RestartFromBeginning;
     private readonly InputAction m_Gameplay_RestartFromCheckpoint;
+    private readonly InputAction m_Gameplay_Quit;
     public struct GameplayActions
     {
         private @PlayerControls m_Wrapper;
@@ -1319,6 +1351,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         public InputAction @Start => m_Wrapper.m_Gameplay_Start;
         public InputAction @RestartFromBeginning => m_Wrapper.m_Gameplay_RestartFromBeginning;
         public InputAction @RestartFromCheckpoint => m_Wrapper.m_Gameplay_RestartFromCheckpoint;
+        public InputAction @Quit => m_Wrapper.m_Gameplay_Quit;
         public InputActionMap Get() { return m_Wrapper.m_Gameplay; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -1352,6 +1385,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @RestartFromCheckpoint.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestartFromCheckpoint;
                 @RestartFromCheckpoint.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestartFromCheckpoint;
                 @RestartFromCheckpoint.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnRestartFromCheckpoint;
+                @Quit.started -= m_Wrapper.m_GameplayActionsCallbackInterface.OnQuit;
+                @Quit.performed -= m_Wrapper.m_GameplayActionsCallbackInterface.OnQuit;
+                @Quit.canceled -= m_Wrapper.m_GameplayActionsCallbackInterface.OnQuit;
             }
             m_Wrapper.m_GameplayActionsCallbackInterface = instance;
             if (instance != null)
@@ -1380,6 +1416,9 @@ public class @PlayerControls : IInputActionCollection, IDisposable
                 @RestartFromCheckpoint.started += instance.OnRestartFromCheckpoint;
                 @RestartFromCheckpoint.performed += instance.OnRestartFromCheckpoint;
                 @RestartFromCheckpoint.canceled += instance.OnRestartFromCheckpoint;
+                @Quit.started += instance.OnQuit;
+                @Quit.performed += instance.OnQuit;
+                @Quit.canceled += instance.OnQuit;
             }
         }
     }
@@ -1517,6 +1556,7 @@ public class @PlayerControls : IInputActionCollection, IDisposable
         void OnStart(InputAction.CallbackContext context);
         void OnRestartFromBeginning(InputAction.CallbackContext context);
         void OnRestartFromCheckpoint(InputAction.CallbackContext context);
+        void OnQuit(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {
