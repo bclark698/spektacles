@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 2220688830672068299}
   - component: {fileID: 2524118605994268220}
   - component: {fileID: 2648015507402339016}
+  - component: {fileID: 1259075145563412074}
   m_Layer: 0
   m_Name: Cyclops
   m_TagString: Untagged
@@ -306,6 +307,25 @@ MonoBehaviour:
   - Player
   FireOn: 4
   colliderVar: {fileID: 0}
+--- !u!95 &1259075145563412074
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5675918745156123664}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 14865ffa07e68472487588c94ca74c47, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &4848146067191516557
 PrefabInstance:
   m_ObjectHideFlags: 0
