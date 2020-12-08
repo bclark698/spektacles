@@ -11,6 +11,7 @@ public class PauseMenu : MonoBehaviour
     public static PauseMenu instance;
 	public static bool gameIsPaused = false;
     public static bool allowPause = true;
+    public static bool quitVerificationOpen = false;
 
 	public PlayerControls controls;
 	[SerializeField] private GameObject pauseMenu = null;
@@ -22,12 +23,14 @@ public class PauseMenu : MonoBehaviour
     public static GameObject checkpointRestartingDisplay;
     private GameObject checkpointNoneReachedDisplay;
 
+    private GameObject quitVerification;
+
 	void Awake() {
 		controls = new PlayerControls();
 		controls.Gameplay.Pause.performed += _ => PauseOrResume();
         controls.Gameplay.RestartFromBeginning.performed += _ => RestartFromBeginning();
         controls.Gameplay.RestartFromCheckpoint.performed += _ => RestartFromCheckpoint();
-        controls.Gameplay.Quit.performed += _ => QuitGame();
+        controls.Gameplay.Quit.performed += _ => VerifyQuit();
 
         if(instance != null)
             GameObject.Destroy(instance);
@@ -41,6 +44,8 @@ public class PauseMenu : MonoBehaviour
         GameObject.Find("Journal Controls").GetComponent<Image>().sprite = GameAssets.instance.journalControls;
 
         pauseButton.GetComponent<Image>().sprite = GameAssets.instance.pauseButton;
+        quitVerification = GameObject.Find("Quit Verification");
+        quitVerification.SetActive(false);
 	}
 
     void Start() {
@@ -98,7 +103,8 @@ public class PauseMenu : MonoBehaviour
         PowerUpRange.allowAbility = false;
         Player.allowMovement = false;
         Player.allowInteract = false;
-        // ChangeMapVisibility(true); TODO change
+
+        // controls.Gameplay.Disable();
     }
 
     public void Resume() {
@@ -108,7 +114,8 @@ public class PauseMenu : MonoBehaviour
     	Time.timeScale = 1f;
     	gameIsPaused = false;
         RestoreStates();
-        // ChangeMapVisibility(false); TODO change
+
+        // controls.Gameplay.Enable();
     }
 
     public void RestartFromBeginning(){
@@ -146,6 +153,13 @@ public class PauseMenu : MonoBehaviour
         Player.allowInteract = states[3];
     }
 
+    private void VerifyQuit() {
+        quitVerification.SetActive(true);
+        EventSystem.current.SetSelectedGameObject(GameObject.Find("Button No")); //default select no
+        quitVerificationOpen = true;
+    }
+
+    // TODO in quit verification onclick yes, actually reroute to credits page
     public void QuitGame() {
         Debug.Log("quitting game");
         #if UNITY_EDITOR
@@ -153,6 +167,11 @@ public class PauseMenu : MonoBehaviour
         #else
         Application.Quit();
         #endif
+    }
+
+    public void CloseQuitVerification() {
+        quitVerification.SetActive(false);
+        quitVerificationOpen = false;
     }
 
     private void OnEnable()
