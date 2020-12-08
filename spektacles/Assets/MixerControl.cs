@@ -7,18 +7,30 @@ using TMPro;
 public class MixerControl : MonoBehaviour
 {
     public AudioMixer mixer;
-    [SerializeField] private TextMeshProUGUI musicPercentage;
-    [SerializeField] private TextMeshProUGUI sfxPercentage;
+    [SerializeField] private TextMeshProUGUI musicPercentageDisplay = null;
+    [SerializeField] private TextMeshProUGUI sfxPercentageDisplay = null;
+
+    void Awake() {
+      musicPercentageDisplay.text = "100%";
+      sfxPercentageDisplay.text = "100%";
+    }
 
     public void setMusicLevel(float musicLvl){
-      mixer.SetFloat("MusicVol", musicLvl);
-      Debug.Log("MUSIC LVL: "+musicLvl); // TODO remove- used for debugging
-      musicPercentage.text = "100%"; // TODO actually calculate
-   }
+      SetLevel("MusicVol", musicLvl, musicPercentageDisplay);
+    }
 
-   public void setSFXLevel(float sfxLvl){
-     mixer.SetFloat("SFXVol", sfxLvl);
-     Debug.Log("SFX LVL: "+sfxLvl); // TODO remove- used for debugging
-     sfxPercentage.text = "100%"; // TODO actually calculate
-   }
+    public void setSFXLevel(float sfxLvl){
+      SetLevel("SFXVol", sfxLvl, sfxPercentageDisplay);
+    }
+
+    // make the decibel changes logarithmic instead of linear (too drastic of changes)
+    private float ConvertVolume(float sliderVal) {
+      return Mathf.Log10(sliderVal) * 20;
+    }
+
+    private void SetLevel(string audioChannel, float sliderVal, TextMeshProUGUI percentageDisplay) {
+      float convertedVol = ConvertVolume(sliderVal);
+      mixer.SetFloat(audioChannel, convertedVol);
+      percentageDisplay.text = Mathf.Round(sliderVal*100)+"%"; // TODO round to whole number>
+    }
 }

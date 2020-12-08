@@ -936,10 +936,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 6024432030470132671}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: -8
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -1004,8 +1004,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   mixer: {fileID: 24100000, guid: c54c3ac6358754fad8b9c4063b3c9182, type: 2}
-  musicPercentage: {fileID: 5244282573979427404}
-  sfxPercentage: {fileID: 3613728255672584249}
+  musicPercentageDisplay: {fileID: 5244282573979427404}
+  sfxPercentageDisplay: {fileID: 3613728255672584249}
 --- !u!1 &390580212079037733
 GameObject:
   m_ObjectHideFlags: 0
@@ -1040,7 +1040,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 81.59995, y: 56.999954}
+  m_AnchoredPosition: {x: 81.59995, y: -76}
   m_SizeDelta: {x: 20.14978, y: 14.387405}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8605498580641798448
@@ -6145,10 +6145,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 0}
   m_HandleRect: {fileID: 8374242344539414571}
   m_Direction: 0
-  m_MinValue: -80
-  m_MaxValue: 0
+  m_MinValue: 0.0001
+  m_MaxValue: 1
   m_WholeNumbers: 0
-  m_Value: -40
+  m_Value: 1
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls:
@@ -6615,7 +6615,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 100%
+  m_text: -8000%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ebba713d8ce720c43a4730c14b55ac56, type: 2}
   m_sharedMaterial: {fileID: -5422854715388476428, guid: ebba713d8ce720c43a4730c14b55ac56,
