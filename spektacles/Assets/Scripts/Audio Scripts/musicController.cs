@@ -97,7 +97,7 @@ public class musicController : MonoBehaviour
       break;
       case "School Level 1":
       //currentMusic.clip = lvl1Music.clip;
-      StartCoroutine(MusicSwitch(lvl1Music, lvl1Loop, 1, 2, .2f));
+      StartCoroutine(MusicSwitch(lvl1Music, lvl1Loop, 1, 2, .25f));
       break;
       case "School Level 2":
     //  currentMusic.clip = lvl2Music.clip;
@@ -172,7 +172,9 @@ public class musicController : MonoBehaviour
       yield return currentVol;
     }
     //StartCoroutine(LoopMusic(loopMusic));
-
+    for (int i = 0; i < 100; i++){
+      yield return i;
+    }
     yield return musicLooped = false;
 
     yield return null;
