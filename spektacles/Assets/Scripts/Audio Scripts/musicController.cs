@@ -89,7 +89,7 @@ public class musicController : MonoBehaviour
 
       case "Home":
       //currentMusic.clip = homeMusic.clip;
-      StartCoroutine(MusicSwitch(homeMusic, homeLoop, 1, 1, .2f));
+      StartCoroutine(MusicSwitch(homeMusic, homeLoop, 1, 1, .3f));
       break;
       case "Bus":
     //  currentMusic.clip = busMusic.clip;
@@ -105,10 +105,10 @@ public class musicController : MonoBehaviour
       break;
       case "School Level 3":
     //  currentMusic.clip = lvl3Music.clip;
-      StartCoroutine(MusicSwitch(lvl3Music, lvl3Loop, 1, 2, .25f));
+      StartCoroutine(MusicSwitch(lvl3Music, lvl3Loop, 1, 2, .2f));
       break;
       case "Sohee TEST - Start Screen":
-      currentMusic.clip = startMusic.clip;
+      StartCoroutine(MusicSwitch(startMusic, busLoop, 1, 2, .2f));
       break;
 
 
