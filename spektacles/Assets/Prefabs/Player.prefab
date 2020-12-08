@@ -149,8 +149,9 @@ MonoBehaviour:
   moveSpeed: 35
   cooldownTime: 2
   invincible: 0
-  restart: {fileID: 0}
+  restartPoint: {fileID: 0}
   flickerSpeed: 0.3
+  checkpoint: {fileID: 0}
 --- !u!70 &1135156641809806183
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1189,7 +1190,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: 7320f471e1f4344cb974f4b57826fc80, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 70c8bd7cfe97a47c2af99735e7b0b11a, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
