@@ -39,19 +39,21 @@ public class PauseMenu : MonoBehaviour
 
         // set journal controls image to be for the proper device
         GameObject.Find("Journal Controls").GetComponent<Image>().sprite = GameAssets.instance.journalControls;
+
+        pauseButton.GetComponent<Image>().sprite = GameAssets.instance.pauseButton;
 	}
 
-    // Only the pause button should be active at start
     void Start() {
+        checkpointReachedDisplay = GameObject.Find("Checkpoint Reached Display");
+        checkpointRestartingDisplay = GameObject.Find("Checkpoint Restarting Display");
+        checkpointNoneReachedDisplay = GameObject.Find("Checkpoint None Reached Display");
+
+        // Only the pause button should be active at start
         if(pauseMenu != null) {
             pauseMenu.SetActive(false);
         } else {
             Debug.Log("pause menu is null! In PauseMenu.cs Start()");
         }
-
-        checkpointReachedDisplay = GameObject.Find("Checkpoint Reached Display");
-        checkpointRestartingDisplay = GameObject.Find("Checkpoint Restarting Display");
-        checkpointNoneReachedDisplay = GameObject.Find("Checkpoint None Reached Display");
 
         if(checkpointReachedDisplay == null) {
             Debug.Log("no checkpointReachedDisplay!");
