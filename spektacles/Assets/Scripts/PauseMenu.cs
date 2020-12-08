@@ -11,7 +11,6 @@ public class PauseMenu : MonoBehaviour
     public static PauseMenu instance;
 	public static bool gameIsPaused = false;
     public static bool allowPause = true;
-    public static bool quitVerificationOpen = false;
 
 	public PlayerControls controls;
 	[SerializeField] private GameObject pauseMenu = null;
@@ -21,9 +20,9 @@ public class PauseMenu : MonoBehaviour
     private Player player;
     public static GameObject checkpointReachedDisplay;
     public static GameObject checkpointRestartingDisplay;
-    private GameObject checkpointNoneReachedDisplay;
+    [SerializeField] private GameObject checkpointNoneReachedDisplay;
 
-    private GameObject quitVerification;
+    [SerializeField] private GameObject quitVerification;
 
 	void Awake() {
 		controls = new PlayerControls();
@@ -44,14 +43,13 @@ public class PauseMenu : MonoBehaviour
         GameObject.Find("Journal Controls").GetComponent<Image>().sprite = GameAssets.instance.journalControls;
 
         pauseButton.GetComponent<Image>().sprite = GameAssets.instance.pauseButton;
-        quitVerification = GameObject.Find("Quit Verification");
+        // quitVerification = GameObject.Find("Quit Verification");
         quitVerification.SetActive(false);
 	}
 
     void Start() {
         checkpointReachedDisplay = GameObject.Find("Checkpoint Reached Display");
         checkpointRestartingDisplay = GameObject.Find("Checkpoint Restarting Display");
-        checkpointNoneReachedDisplay = GameObject.Find("Checkpoint None Reached Display");
 
         // Only the pause button should be active at start
         if(pauseMenu != null) {
@@ -155,23 +153,6 @@ public class PauseMenu : MonoBehaviour
 
     private void VerifyQuit() {
         quitVerification.SetActive(true);
-        EventSystem.current.SetSelectedGameObject(GameObject.Find("Button No")); //default select no
-        quitVerificationOpen = true;
-    }
-
-    // TODO in quit verification onclick yes, actually reroute to credits page
-    public void QuitGame() {
-        Debug.Log("quitting game");
-        #if UNITY_EDITOR
-        UnityEditor.EditorApplication.isPlaying = false;
-        #else
-        Application.Quit();
-        #endif
-    }
-
-    public void CloseQuitVerification() {
-        quitVerification.SetActive(false);
-        quitVerificationOpen = false;
     }
 
     private void OnEnable()

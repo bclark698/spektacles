@@ -578,6 +578,7 @@ GameObject:
   - component: {fileID: 9079883907140590291}
   - component: {fileID: 8629260262336333167}
   - component: {fileID: 5605885553295634525}
+  - component: {fileID: 1421217855967262393}
   m_Layer: 5
   m_Name: Quit Verification
   m_TagString: Untagged
@@ -642,6 +643,19 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &1421217855967262393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27631384257742412}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c0fcd58e61ecb3145b8054cbe433bd9c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultSelectedButton: {fileID: 1330962778828471485}
 --- !u!1 &76251560682879434
 GameObject:
   m_ObjectHideFlags: 0
@@ -2388,7 +2402,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 109260275}
+      - m_Target: {fileID: 1421217855967262393}
         m_MethodName: CloseQuitVerification
         m_Mode: 1
         m_Arguments:
@@ -4931,8 +4945,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 109260275}
-        m_MethodName: QuitGame
+      - m_Target: {fileID: 1421217855967262393}
+        m_MethodName: LoadCreditsScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -5200,6 +5214,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 946927437}
   pauseButton: {fileID: 877068638}
+  checkpointNoneReachedDisplay: {fileID: 6993982780883753822}
+  quitVerification: {fileID: 27631384257742412}
 --- !u!1 &4177924131948870442
 GameObject:
   m_ObjectHideFlags: 0
@@ -6615,7 +6631,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: -8000%
+  m_text: 100%
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: ebba713d8ce720c43a4730c14b55ac56, type: 2}
   m_sharedMaterial: {fileID: -5422854715388476428, guid: ebba713d8ce720c43a4730c14b55ac56,

@@ -39,7 +39,7 @@ public class Journal : MonoBehaviour
 	}
 
 	void NavigateJournal(InputAction.CallbackContext context) {
-        if(PauseMenu.gameIsPaused && !PauseMenu.quitVerificationOpen) {
+        if(PauseMenu.gameIsPaused && !QuitVerification.isOpen) {
             float x = context.ReadValue<Vector2>().x;
             if(x > 0) {
                 NextPage();
