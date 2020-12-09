@@ -21,8 +21,13 @@ public class TriggerAnimation : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other){
       if (other.tag == "Player"){
-      animControl.SetTrigger("OpenCan");
-      canSound.Play();
+        if(animControl.GetCurrentAnimatorStateInfo(0).IsName("New State")){
+          animControl.SetTrigger("OpenCan");
+          if (!canSound.isPlaying){
+          canSound.Play();
+        }
+}
+
       }
 
     }
