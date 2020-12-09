@@ -7409,7 +7409,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 61dddfdc5e0e44ca298d8f46f7f5a915, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  selectedFlowchart: {fileID: 749919637}
+  selectedFlowchart: {fileID: 1825551066}
 --- !u!4 &818092679
 Transform:
   m_ObjectHideFlags: 1
@@ -13845,6 +13845,18 @@ PrefabInstance:
       objectReference: {fileID: 1825551079}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 912c4182eb4e64bd7a4ab3a581afe8f7, type: 3}
+--- !u!114 &1825551066 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
+    type: 3}
+  m_PrefabInstance: {fileID: 1825551065}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825551067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a334fe2ffb574b3583ff3b18b4792d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1825551067 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5387167895076370669, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
@@ -13897,7 +13909,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 172
     y: 85
-    width: 127
+    width: 125.92038
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -13984,7 +13996,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 150
     y: 274
-    width: 138
+    width: 136.65659
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14084,7 +14096,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 355
     y: 215
-    width: 141
+    width: 139.72409
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14254,7 +14266,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 349.80667
     y: 322
-    width: 169
+    width: 167.33148
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14303,7 +14315,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 569.29144
     y: 277.75177
-    width: 115
+    width: 114.41729
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -14315,6 +14327,7 @@ MonoBehaviour:
   - {fileID: 1825551084}
   - {fileID: 1825551103}
   - {fileID: 1825551102}
+  - {fileID: 1825551106}
   - {fileID: 1825551097}
   - {fileID: 1825551101}
   suppressAllAutoSelections: 0
@@ -15152,6 +15165,29 @@ MonoBehaviour:
   returnValueType: System.Void
   showInherited: 0
   callMode: 0
+--- !u!114 &1825551106
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1825551067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc30c92f7ffe3d746ac76cd528d616e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 47
+  indentLevel: 0
+  control: 0
+  _audioSource:
+    audioSourceRef: {fileID: 0}
+    audioSourceVal: {fileID: 2050780313}
+  startVolume: 1
+  endVolume: 0.666
+  fadeDuration: 0
+  waitUntilFinished: 0
+  audioSourceOLD: {fileID: 0}
 --- !u!4 &1872629819 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1884060173028761406, guid: 616b3c1223a15491e9a91f99bf3b4bba,
@@ -28263,6 +28299,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a0201d287fb54f4784d7c19c22f2a0a, type: 3}
+--- !u!82 &2050780313 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8907774658698429765, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 2050780312}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2056381324
 GameObject:
   m_ObjectHideFlags: 0

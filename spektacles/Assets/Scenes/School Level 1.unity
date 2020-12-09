@@ -12663,7 +12663,8 @@ AudioSource:
   m_GameObject: {fileID: 1002734708}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5263874536583453884, guid: c54c3ac6358754fad8b9c4063b3c9182,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.232
@@ -14324,6 +14325,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 1a0201d287fb54f4784d7c19c22f2a0a, type: 3}
+--- !u!82 &1136063802 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 8907774658698429765, guid: 1a0201d287fb54f4784d7c19c22f2a0a,
+    type: 3}
+  m_PrefabInstance: {fileID: 1136063800}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1141807881
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -23288,7 +23295,8 @@ AudioSource:
   m_GameObject: {fileID: 1817831209}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -5263874536583453884, guid: c54c3ac6358754fad8b9c4063b3c9182,
+    type: 2}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 0.232
@@ -28681,7 +28689,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 155.00002
     y: -179
-    width: 134.78789
+    width: 136
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29059,7 +29067,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 438.99756
     y: -65
-    width: 82.4189
+    width: 83
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29090,7 +29098,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 426.88586
     y: 36.942917
-    width: 99.87523
+    width: 101
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29281,6 +29289,29 @@ MonoBehaviour:
   fadeWhenDone:
     booleanRef: {fileID: 0}
     booleanVal: 1
+--- !u!114 &2105026336
+MonoBehaviour:
+  m_ObjectHideFlags: 2
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2105026315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc30c92f7ffe3d746ac76cd528d616e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 77
+  indentLevel: 0
+  control: 0
+  _audioSource:
+    audioSourceRef: {fileID: 0}
+    audioSourceVal: {fileID: 1136063802}
+  startVolume: 1
+  endVolume: 0.661
+  fadeDuration: 0
+  waitUntilFinished: 0
+  audioSourceOLD: {fileID: 0}
 --- !u!114 &2105026337
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -29295,9 +29326,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 538
+    x: 537
     y: -11.942917
-    width: 113.59091
+    width: 114
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29308,7 +29339,7 @@ MonoBehaviour:
   commandList:
   - {fileID: 2105026343}
   - {fileID: 2105026371}
-  - {fileID: 2105026368}
+  - {fileID: 2105026336}
   - {fileID: 2105026370}
   - {fileID: 2105026356}
   suppressAllAutoSelections: 0
@@ -29534,7 +29565,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 316.23926
     y: -13.383331
-    width: 101.745544
+    width: 103
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -29623,7 +29654,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 175.76884
     y: -16.45942
-    width: 119.20188
+    width: 120
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -30399,23 +30430,6 @@ MonoBehaviour:
     floatRef: {fileID: 0}
     floatVal: 1.5
   durationOLD: 0
---- !u!114 &2105026368
-MonoBehaviour:
-  m_ObjectHideFlags: 2
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2105026315}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd2f6be51b3d7490ba5633ee095d0391, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  itemId: 65
-  indentLevel: 0
-  soundClip: {fileID: 8300000, guid: ff6aeb794a5d4449487b382590b22b25, type: 3}
-  volume: 1
-  waitUntilFinished: 0
 --- !u!114 &2105026369
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -30588,7 +30602,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
 --- !u!114 &2105026380
 MonoBehaviour:
-  m_ObjectHideFlags: 0
+  m_ObjectHideFlags: 2
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
