@@ -6,7 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class Credits : MonoBehaviour
 {
-	[SerializeField] GameObject defaultSelectedButton;
+	[SerializeField] GameObject defaultSelectedButton = null;
 
 	void Start() {
 		EventSystem.current.SetSelectedGameObject(null);

@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 public class QuitVerification : MonoBehaviour
 {
 	public static bool isOpen = false;
-	[SerializeField] GameObject defaultSelectedButton;
+	[SerializeField] GameObject defaultSelectedButton = null;
 
     public void LoadCreditsScene() {
         SceneManager.LoadScene("Credits");

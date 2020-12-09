@@ -20,9 +20,9 @@ public class PauseMenu : MonoBehaviour
     private Player player;
     public static GameObject checkpointReachedDisplay;
     public static GameObject checkpointRestartingDisplay;
-    [SerializeField] private GameObject checkpointNoneReachedDisplay;
+    [SerializeField] private GameObject checkpointNoneReachedDisplay = null;
 
-    [SerializeField] private GameObject quitVerification;
+    [SerializeField] private GameObject quitVerification = null;
 
 	void Awake() {
 		controls = new PlayerControls();
