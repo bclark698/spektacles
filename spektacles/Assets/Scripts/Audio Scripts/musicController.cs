@@ -72,16 +72,18 @@ public class musicController : MonoBehaviour
   {
     currentLevel = SceneManager.GetActiveScene().name;
     currentMusic.volume = currentVol;
-    if (!musicLooped){
+
+    if (Time.timeSinceLevelLoad >= 20){
+
     if (!currentMusic.isPlaying){
       Debug.Log("music stopped");
       currentMusic.clip = currentMusicLoop.clip;
       currentMusic.Play();
       currentMusic.loop = true;
-
-    musicLooped = true;
     }
   }
+
+
 
   }
   public void LoadMusic(){
@@ -89,7 +91,7 @@ public class musicController : MonoBehaviour
 
       case "Home":
       //currentMusic.clip = homeMusic.clip;
-      StartCoroutine(MusicSwitch(homeMusic, homeLoop, 1, 1, .3f));
+      StartCoroutine(MusicSwitch(homeMusic, homeLoop, 1, 1, .25f));
       break;
       case "Bus":
     //  currentMusic.clip = busMusic.clip;
@@ -105,10 +107,10 @@ public class musicController : MonoBehaviour
       break;
       case "School Level 3":
     //  currentMusic.clip = lvl3Music.clip;
-      StartCoroutine(MusicSwitch(lvl3Music, lvl3Loop, 1, 2, .2f));
+      StartCoroutine(MusicSwitch(lvl3Music, lvl3Loop, 1, 2, .23f));
       break;
       case "Sohee TEST - Start Screen":
-      StartCoroutine(MusicSwitch(startMusic, busLoop, 1, 2, .2f));
+      StartCoroutine(MusicSwitch(busMusic, busLoop, 1, 2, .2f));
       break;
 
 
@@ -172,10 +174,6 @@ public class musicController : MonoBehaviour
       yield return currentVol;
     }
     //StartCoroutine(LoopMusic(loopMusic));
-    for (int i = 0; i < 100; i++){
-      yield return i;
-    }
-    yield return musicLooped = false;
 
     yield return null;
   }
