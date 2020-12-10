@@ -109,7 +109,7 @@ public class GameAssets : MonoBehaviour
     void InitCommonPlatformVariables() {
         ControlsIndicatorAssets(platformPath);
         attentionInteract = Resources.Load<Sprite>(platformPath+"Attention Interact"); // TODO actually put an image in xbox folder
-        tipExit = Resources.Load<Sprite>(platformPath+"Tip/tip enter"); // TODO actually put an image in xbox folder
+        tipExit = Resources.Load<Sprite>(platformPath+"Tip/Close");
         pauseButton = Resources.Load<Sprite>(platformPath+"Pause Button");
         journalControls = Resources.Load<Sprite>(platformPath+"Controls/Journal");
     }
