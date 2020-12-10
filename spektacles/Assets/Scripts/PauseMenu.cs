@@ -161,7 +161,10 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void VerifyQuit() {
-        quitVerification.SetActive(true);
+        if(gameIsPaused) {
+            quitVerification.SetActive(true);
+            quitVerification.GetComponent<QuitVerification>().controls = controls;
+        }
     }
 
     private void OnEnable()
