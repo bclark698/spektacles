@@ -23911,7 +23911,7 @@ MonoBehaviour:
   itemId: 49
   blockName: start good end
   description: 
-  eventHandler: {fileID: 0}
+  eventHandler: {fileID: 1355831114}
   commandList:
   - {fileID: 1355831093}
   - {fileID: 1355831092}
@@ -23982,7 +23982,7 @@ MonoBehaviour:
   nodeRect:
     serializedVersion: 2
     x: 721.4025
-    y: 34.98697
+    y: 35.98697
     width: 141.70882
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
@@ -29588,6 +29588,22 @@ MonoBehaviour:
   fadeWhenDone:
     booleanRef: {fileID: 0}
     booleanVal: 1
+--- !u!114 &1355831114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 000864f8e9e1748a39807861d0e60e29, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentBlock: {fileID: 1355830985}
+  suppressBlockAutoSelect: 0
+  keyPressType: 0
+  keyCode: 289
 --- !u!114 &1355831115
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -43119,6 +43135,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
         type: 3}
+      propertyPath: portraits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
+        type: 3}
       propertyPath: setSayDialog
       value: 
       objectReference: {fileID: 1501352622775708435}
@@ -43137,6 +43158,18 @@ PrefabInstance:
       propertyPath: nameColor.b
       value: 0.14684942
       objectReference: {fileID: 0}
+    - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
+        type: 3}
+      propertyPath: portraits.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: d6c1c655eca335946beb58af6dd4a16b,
+        type: 3}
+    - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
+        type: 3}
+      propertyPath: portraits.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: 91535961398a74042821dfa597ccce9d,
+        type: 3}
     - target: {fileID: 5237594607938289842, guid: ace540fedcdc04542beb6660b6966e9e,
         type: 3}
       propertyPath: m_LocalPosition.x
