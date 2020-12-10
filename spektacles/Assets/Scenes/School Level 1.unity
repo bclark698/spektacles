@@ -9822,6 +9822,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 757522295}
   m_PrefabAsset: {fileID: 0}
+--- !u!82 &757552391 stripped
+AudioSource:
+  m_CorrespondingSourceObject: {fileID: 569787860406435292, guid: 90bde3ba08e924fa4a958720bf5b7cee,
+    type: 3}
+  m_PrefabInstance: {fileID: 1439459202}
+  m_PrefabAsset: {fileID: 0}
 --- !u!95 &765786055 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 1135156641809806169, guid: 1d4ff2d6b5b294fbbbfb1853bce10752,
@@ -18435,6 +18441,11 @@ PrefabInstance:
       propertyPath: m_ChunkCullingBounds.y
       value: 0.5
       objectReference: {fileID: 0}
+    - target: {fileID: 6946714969318020115, guid: 90bde3ba08e924fa4a958720bf5b7cee,
+        type: 3}
+      propertyPath: targetAudioSource
+      value: 
+      objectReference: {fileID: 757552391}
     - target: {fileID: 7442066541673195586, guid: 90bde3ba08e924fa4a958720bf5b7cee,
         type: 3}
       propertyPath: m_LocalPosition.x

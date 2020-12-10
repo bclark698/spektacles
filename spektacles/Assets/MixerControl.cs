@@ -13,7 +13,7 @@ public class MixerControl : MonoBehaviour
     private float SFXVolHolder;
 
     void Awake() {
-      musicPercentageDisplay.text = "100%";
+      musicPercentageDisplay.text = "75%";
       sfxPercentageDisplay.text = "100%";
     }
 
