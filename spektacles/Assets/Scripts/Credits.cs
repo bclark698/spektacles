@@ -9,7 +9,7 @@ public class Credits : MonoBehaviour
 	[SerializeField] GameObject defaultSelectedButton = null;
 
 	void Start() {
-        DestroyDontDestroyOnLoad();
+        //DestroyDontDestroyOnLoad();
 		EventSystem.current.SetSelectedGameObject(null);
         EventSystem.current.SetSelectedGameObject(defaultSelectedButton);
 	}
