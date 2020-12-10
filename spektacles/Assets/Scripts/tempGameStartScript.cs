@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class tempGameStartScript : MonoBehaviour
 {
-
     public PlayerControls controls;
+
     // Start is called before the first frame updat
     void Awake()
     {
@@ -31,12 +31,4 @@ public class tempGameStartScript : MonoBehaviour
         {
             controls.Disable();
         }
-
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
-
-
 }
