@@ -13,8 +13,8 @@ public class MixerControl : MonoBehaviour
     private float SFXVolHolder;
 
     void Awake() {
-      musicPercentageDisplay.text = "75%";
-      sfxPercentageDisplay.text = "100%";
+      musicPercentageDisplay.text = "80%"; // TODO use GetPercentageDisplayText(sliderVal)
+      sfxPercentageDisplay.text = "100%"; // TODO use GetPercentageDisplayText(sliderVal)
     }
 
     public void setMusicLevel(float musicLvl){
@@ -33,12 +33,16 @@ public class MixerControl : MonoBehaviour
     private void SetLevel(string audioChannel, float sliderVal, TextMeshProUGUI percentageDisplay) {
       float convertedVol = ConvertVolume(sliderVal);
       if (audioChannel == "MusicVol"){
-      mixer.SetFloat(audioChannel, convertedVol);
+        mixer.SetFloat(audioChannel, convertedVol);
       }
       else if (audioChannel == "SFXVol"){
-      SFXVolHolder = convertedVol;
+        SFXVolHolder = convertedVol;
+      }
+      percentageDisplay.text = GetPercentageDisplayText(sliderVal);
     }
-      percentageDisplay.text = Mathf.Round(sliderVal*100)+"%"; // TODO round to whole number>
+
+    private string GetPercentageDisplayText(float sliderVal) {
+      return Mathf.Round(sliderVal*100)+"%";
     }
 
     public void  muteSFX(){
