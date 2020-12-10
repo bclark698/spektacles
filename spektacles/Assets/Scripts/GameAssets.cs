@@ -38,6 +38,7 @@ public class GameAssets : MonoBehaviour
     private enum Platform { Windows, Mac, Xbox };
     private Platform platform;
     private string platformPath;
+    public bool platformIsDesktop = true;
 
     /* Controls Indicator Assets */
     public Sprite iconMovement;
@@ -68,6 +69,7 @@ public class GameAssets : MonoBehaviour
         if(platform == Platform.Windows || platform == Platform.Mac) {
             InitDesktopVariables();
         } else if(platform == Platform.Xbox) {
+            platformIsDesktop = false;
             InitXboxVariables();
         }
         InitCommonPlatformVariables();

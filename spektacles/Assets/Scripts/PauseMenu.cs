@@ -48,6 +48,8 @@ public class PauseMenu : MonoBehaviour
         pauseButton.GetComponent<Image>().sprite = GameAssets.instance.pauseButton;
         // quitVerification = GameObject.Find("Quit Verification");
         quitVerification.SetActive(false);
+
+        
 	}
 
     void Start() {

@@ -39,6 +39,12 @@ public class Journal : MonoBehaviour
         pageNumRight = GameObject.Find("Page Num Right").GetComponent<Text>();
 
         pageNumDecorationReversed = new string(pageNumDecoration.Reverse().ToArray());
+
+        // turn off all objects that are for the wrong platform
+        string wrongPlatformUITag = GameAssets.instance.platformIsDesktop ? "XboxUI" : "DesktopUI";
+        foreach(GameObject wrongPlatformUI in GameObject.FindGameObjectsWithTag(wrongPlatformUITag)) {
+            wrongPlatformUI.SetActive(false);
+        }
 	}
 
 	void NavigateJournal(InputAction.CallbackContext context) {
