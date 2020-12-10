@@ -23853,21 +23853,22 @@ MonoBehaviour:
     stringRef: {fileID: 0}
     stringVal: "Irving ihappy: Ah, yeah... My dad dropped my bike off earlier. Apparently
       the shop finished up early. \nIrving: They said they called our parents and
-      knowing my dad, he's probably worried sick back at home.\nHHD: IRVING??? HAS
-      ANYONE SEEN MY SON????\nIrving iflustered: Oh no. \nHHD dad middle: Irving,
-      my boy! There you are!\nHHD: Are you alright? I came as soon as I heard. Do
-      you have all your stuff? \nIrving: Dad....\nHHD: Ah, right, it's probably trapped
-      inside until all this blows over. That's alright, we can come back later and
-      pick it up then. \nIrving iupset: Dad.\nHHD: Your sisters are waiting for us
-      back at the house - they came home this morning, didn't I tell you? Oh it'll
-      be so nice to have all my little pumpkins under one roof again.  Irving what
-      are you standing there for we have to - \nIrving: Dad! \nHHD: ... Yes?\nIrving
-      iconfused: Dad... Thanks for dropping by but ...\nIrving iupset: You brought
-      my bike by earlier today, remember? I can make my way home by myself. \nIrving:
-      Beside...\nIrving inervous: I'm kinda in the middle of something right now.
-      \nHHD: Oh?\nHHD: ...\nHHD: Oh!\nHHD: I'm sorry, I didn't see you there.\nHHD:
-      Well, I'll leave you and your little friend alone. Get home soon and drive
-      safe. Love you. \nIrving ihappy: Love you too dad. "
+      knowing my dad, he's probably worried sick back at home.\nHHD : IRVING??? HAS
+      ANYONE SEEN MY SON????\nIrving iflustered: Oh no. \nHHD dad_happy middle: Irving,
+      my boy! There you are!\nHHD dad_worried: Are you alright? I came as soon as
+      I heard. Do you have all your stuff? \nIrving: Dad....\nHHD dad_happy: Ah,
+      right, it's probably trapped inside until all this blows over. That's alright,
+      we can come back later and pick it up then. \nIrving iupset: Dad.\nHHD: Your
+      sisters are waiting for us back at the house - they came home this morning,
+      didn't I tell you? Oh it'll be so nice to have all my little pumpkins under
+      one roof again.  Irving what are you standing there for we have to - \nIrving:
+      Dad! \nHHD dad_happy: ... Yes?\nIrving iconfused: Dad... Thanks for dropping
+      by but ...\nIrving iupset: You brought my bike by earlier today, remember?
+      I can make my way home by myself. \nIrving: Beside...\nIrving inervous: I'm
+      kinda in the middle of something right now. \nHHD dad_worried: Oh?\nHHD: ...\nHHD
+      dad_happy: Oh!\nHHD: I'm sorry, I didn't see you there.\nHHD: Well, I'll leave
+      you and your little friend alone. Get home soon and drive safe. Love you. \nIrving
+      ihappy: Love you too dad. "
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -24797,7 +24798,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: good
-  value: 3
+  value: 0
 --- !u!114 &1355831010
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -37557,12 +37558,12 @@ PrefabInstance:
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: selectedBlocks.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: selectedCommands.Array.size
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
@@ -43225,6 +43226,11 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
         type: 3}
+      propertyPath: portraits.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
+        type: 3}
       propertyPath: setSayDialog
       value: 
       objectReference: {fileID: 1501352622775708435}
@@ -43232,7 +43238,7 @@ PrefabInstance:
         type: 3}
       propertyPath: portraits.Array.data[1]
       value: 
-      objectReference: {fileID: 21300000, guid: 91535961398a74042821dfa597ccce9d,
+      objectReference: {fileID: 21300000, guid: 67c8eb4758b58ad47b73c0b99c36b954,
         type: 3}
     - target: {fileID: 5237594607938289842, guid: ace540fedcdc04542beb6660b6966e9e,
         type: 3}
