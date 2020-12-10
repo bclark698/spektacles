@@ -19,6 +19,9 @@ public class Journal : MonoBehaviour
     [SerializeField] private string pageNumDecoration = ""; // goes on the left and right side of the page number
     private string pageNumDecorationReversed = "";
 
+		public AudioSource pageDownSound;
+		public AudioSource pageUpSound;
+
 	void Awake() {
 		controls = new PlayerControls();
 		controls.UI.Navigate.performed += context => NavigateJournal(context);
@@ -68,6 +71,7 @@ public class Journal : MonoBehaviour
 
     void NextPage() {
         if(pageNum < NumPages() - 2) {
+					pageDownSound.Play();
         	SetCurPairPagesVisibility(false);
             pageNum += 2;
             SetCurPairPagesVisibility(true);
@@ -76,6 +80,7 @@ public class Journal : MonoBehaviour
 
     void PrevPage() {
         if(pageNum > 0) {
+					pageUpSound.Play();
         	SetCurPairPagesVisibility(false);
         	pageNum -= 2;
         	SetCurPairPagesVisibility(true);
@@ -84,6 +89,7 @@ public class Journal : MonoBehaviour
 
     void NextTab() {
         if(tabNum < NumTabs()-1) {
+					pageDownSound.Play();
         	SetCurPairPagesVisibility(false);
         	tabs[tabNum].SetActive(false);
             tabNum++;
@@ -94,6 +100,7 @@ public class Journal : MonoBehaviour
 
     void PrevTab() {
         if(tabNum > 0) {
+					pageUpSound.Play();
         	SetCurPairPagesVisibility(false);
         	tabs[tabNum].SetActive(false);
             tabNum--;
@@ -145,13 +152,13 @@ public class Journal : MonoBehaviour
     	} else {
     		pageNumRight.text = "";
     	}
-        
+
     }
 
     void UpdateControlsView() {
         // if(NumPages() < 2)
     }
-    
+
     private void OnEnable()
     {
         controls.Enable();

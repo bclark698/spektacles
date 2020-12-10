@@ -22,7 +22,7 @@ public class musicController : MonoBehaviour
   public AudioSource cutLoop;
 
   private AudioSource currentMusicLoop;
-  private bool musicLooped = true;
+  //private bool musicLooped = true;
 
 
   //float fadeTime;

@@ -5,6 +5,7 @@ using UnityEngine.InputSystem;
 using UnityEngine.SceneManagement;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
+using UnityEngine.Audio;
 
 public class PauseMenu : MonoBehaviour
 {
@@ -15,7 +16,7 @@ public class PauseMenu : MonoBehaviour
 	public PlayerControls controls;
 	[SerializeField] private GameObject pauseMenu = null;
 	[SerializeField] private GameObject pauseButton = null;
-    
+
     bool[] states;
     private Player player;
     public static GameObject checkpointReachedDisplay;
@@ -23,6 +24,8 @@ public class PauseMenu : MonoBehaviour
     [SerializeField] private GameObject checkpointNoneReachedDisplay = null;
 
     [SerializeField] private GameObject quitVerification = null;
+
+    public MixerControl mixerControl;
 
 	void Awake() {
 		controls = new PlayerControls();
@@ -102,6 +105,8 @@ public class PauseMenu : MonoBehaviour
         Player.allowMovement = false;
         Player.allowInteract = false;
 
+        mixerControl.muteSFX();
+
         // controls.Gameplay.Disable();
     }
 
@@ -111,7 +116,9 @@ public class PauseMenu : MonoBehaviour
     	pauseButton.SetActive(true);
     	Time.timeScale = 1f;
     	gameIsPaused = false;
+
         RestoreStates();
+        mixerControl.unMuteSFX();
 
         // controls.Gameplay.Enable();
     }
@@ -137,11 +144,12 @@ public class PauseMenu : MonoBehaviour
     }
 
     private void SaveStates() {
-        states = new bool[4];
+        states = new bool[5];
         states[0] = Petrify.allowAbility;
         states[1] = PowerUpRange.allowAbility;
         states[2] = Player.allowMovement;
         states[3] = Player.allowInteract;
+        //states[4] = mixer.SFXVol;
     }
 
     private void RestoreStates() {
@@ -149,6 +157,7 @@ public class PauseMenu : MonoBehaviour
         PowerUpRange.allowAbility = states[1];
         Player.allowMovement = states[2];
         Player.allowInteract = states[3];
+        //mixer.SFXVol = states[4];
     }
 
     private void VerifyQuit() {

@@ -10,6 +10,8 @@ public class MixerControl : MonoBehaviour
     [SerializeField] private TextMeshProUGUI musicPercentageDisplay = null;
     [SerializeField] private TextMeshProUGUI sfxPercentageDisplay = null;
 
+    private float SFXVolHolder;
+
     void Awake() {
       musicPercentageDisplay.text = "100%";
       sfxPercentageDisplay.text = "100%";
@@ -30,7 +32,23 @@ public class MixerControl : MonoBehaviour
 
     private void SetLevel(string audioChannel, float sliderVal, TextMeshProUGUI percentageDisplay) {
       float convertedVol = ConvertVolume(sliderVal);
+      if (audioChannel == "MusicVol"){
       mixer.SetFloat(audioChannel, convertedVol);
+      }
+      else if (audioChannel == "SFXVol"){
+      SFXVolHolder = convertedVol;
+    }
       percentageDisplay.text = Mathf.Round(sliderVal*100)+"%"; // TODO round to whole number>
+    }
+
+    public void  muteSFX(){
+      if (mixer.GetFloat("SFXVol", out SFXVolHolder)){
+        Debug.Log(SFXVolHolder);
+      };
+      mixer.SetFloat("SFXVol", -80f);
+    }
+
+    public void unMuteSFX(){
+      mixer.SetFloat("SFXVol", SFXVolHolder);
     }
 }
