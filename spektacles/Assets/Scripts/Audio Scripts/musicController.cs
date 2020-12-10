@@ -40,6 +40,7 @@ public class musicController : MonoBehaviour
   void OnSceneLoaded(Scene scene, LoadSceneMode mode)
      {
        currentLevel = SceneManager.GetActiveScene().name;
+       Debug.Log(currentLevel);
        LoadMusic();
        //currentMusic.Play();
      }
@@ -71,12 +72,13 @@ public class musicController : MonoBehaviour
   void Update()
   {
     currentLevel = SceneManager.GetActiveScene().name;
+
     currentMusic.volume = currentVol;
+
 
     if (Time.timeSinceLevelLoad >= 20){
 
     if (!currentMusic.isPlaying){
-      Debug.Log("music stopped");
       currentMusic.clip = currentMusicLoop.clip;
       currentMusic.Play();
       currentMusic.loop = true;
@@ -111,6 +113,10 @@ public class musicController : MonoBehaviour
       break;
       case "Sohee TEST - Start Screen":
       StartCoroutine(MusicSwitch(busMusic, busLoop, 1, 2, .2f));
+      break;
+      case "Credits":
+      Time.timeScale = 1f;
+      StartCoroutine(MusicMute(10));
       break;
 
 
@@ -184,5 +190,14 @@ public class musicController : MonoBehaviour
     yield return currentMusic.clip = loopMusic.clip;
     currentMusic.Play();
     currentMusic.loop = true;
+  }
+
+  public IEnumerator MusicMute(float transistionTimeDown){
+    currentVol = musicVol;
+    while (currentVol > 0){
+      currentVol -= Time.deltaTime / transistionTimeDown;
+      Debug.Log (currentVol);
+      yield return currentVol;
+    }
   }
 }
