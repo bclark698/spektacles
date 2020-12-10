@@ -23854,28 +23854,20 @@ MonoBehaviour:
     stringVal: "Irving ihappy: Ah, yeah... My dad dropped my bike off earlier. Apparently
       the shop finished up early. \nIrving: They said they called our parents and
       knowing my dad, he's probably worried sick back at home.\nHHD: IRVING??? HAS
-      ANYONE SEEN MY SON????\nIrving iflustered: Oh no. \nHHD: Irving, my boy! There
-      you are!\nHHD: Are you alright? I came as soon as I heard. Do you have all
-      your stuff? \nIrving: Dad....\nHHD: Ah, right, it's probably trapped inside
-      until all this blows over. That's alright, we can come back later and pick
-      it up then. \nIrving iupset: Dad.\nHHD: Your sisters are waiting for us back
-      at the house - they came home this morning, didn't I tell you? Oh it'll be
-      so nice to have all my little pumpkins under one roof again.  Irving what are
-      you standing there for we have to - \nIrving: Dad! \nHHD: ... Yes?\nIrving
+      ANYONE SEEN MY SON????\nIrving iflustered: Oh no. \nHHD dad middle: Irving,
+      my boy! There you are!\nHHD: Are you alright? I came as soon as I heard. Do
+      you have all your stuff? \nIrving: Dad....\nHHD: Ah, right, it's probably trapped
+      inside until all this blows over. That's alright, we can come back later and
+      pick it up then. \nIrving iupset: Dad.\nHHD: Your sisters are waiting for us
+      back at the house - they came home this morning, didn't I tell you? Oh it'll
+      be so nice to have all my little pumpkins under one roof again.  Irving what
+      are you standing there for we have to - \nIrving: Dad! \nHHD: ... Yes?\nIrving
       iconfused: Dad... Thanks for dropping by but ...\nIrving iupset: You brought
       my bike by earlier today, remember? I can make my way home by myself. \nIrving:
       Beside...\nIrving inervous: I'm kinda in the middle of something right now.
       \nHHD: Oh?\nHHD: ...\nHHD: Oh!\nHHD: I'm sorry, I didn't see you there.\nHHD:
       Well, I'll leave you and your little friend alone. Get home soon and drive
-      safe. Love you. \nIrving ihappy: Love you too dad. \nHHD: {b}*leaves*{/b}\nIrving
-      iflustered: .... I'm so sorry you had to see that. \nMelita laughing: You're
-      totally fine. My mom is the same. I'm sure she's breaking every law known to
-      monster to get home before I do. \nIrving ihappy: So I didn't scare you off?\nMelita
-      smiling: Not at all. \nIrving: Well... Since both of us need to get home pretty
-      quickly, why don't I take you? \nIrving: It'll be a little while before the
-      busses get here, and can get you back faster than any bus can.\nMelita nervous:
-      T-Take me home?\nIrving inervous: Yeah! Only if you want to though, I don't
-      mind. \n"
+      safe. Love you. \nIrving ihappy: Love you too dad. "
   clearPrevious:
     booleanRef: {fileID: 0}
     booleanVal: 1
@@ -23911,11 +23903,13 @@ MonoBehaviour:
   itemId: 49
   blockName: start good end
   description: 
-  eventHandler: {fileID: 1355831114}
+  eventHandler: {fileID: 0}
   commandList:
   - {fileID: 1355831093}
   - {fileID: 1355831092}
   - {fileID: 1355830984}
+  - {fileID: 1355831136}
+  - {fileID: 1355831114}
   - {fileID: 1355830983}
   - {fileID: 1355830982}
   suppressAllAutoSelections: 0
@@ -24067,7 +24061,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   nodeRect:
     serializedVersion: 2
-    x: 716.2593
+    x: 717.51556
     y: -36.916542
     width: 141.08067
     height: 40
@@ -24803,7 +24797,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scope: 2
   key: good
-  value: 0
+  value: 3
 --- !u!114 &1355831010
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -29597,13 +29591,33 @@ MonoBehaviour:
   m_GameObject: {fileID: 1355830974}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000864f8e9e1748a39807861d0e60e29, type: 3}
+  m_Script: {fileID: 11500000, guid: f608b8c9fb3044200aac956492d8d586, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  parentBlock: {fileID: 1355830985}
-  suppressBlockAutoSelect: 0
-  keyPressType: 0
-  keyCode: 289
+  itemId: 204
+  indentLevel: 0
+  conversationText:
+    stringRef: {fileID: 0}
+    stringVal: "Irving iflustered wait: .... I'm so sorry you had to see that. \nMelita
+      laughing: You're totally fine. My mom is the same. I'm sure she's breaking
+      every law known to monster to get home before I do. \nIrving ihappy: So I didn't
+      scare you off?\nMelita smiling: Not at all. \nIrving: Well... Since both of
+      us need to get home pretty quickly, why don't I take you? \nIrving: It'll be
+      a little while before the busses get here, and can get you back faster than
+      any bus can.\nMelita nervous: T-Take me home?\nIrving inervous: Yeah! Only
+      if you want to though, I don't mind. \n"
+  clearPrevious:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForInput:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
+  waitForSeconds:
+    floatRef: {fileID: 0}
+    floatVal: 0
+  fadeWhenDone:
+    booleanRef: {fileID: 0}
+    booleanVal: 1
 --- !u!114 &1355831115
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -30346,6 +30360,36 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &1355831136
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1355830974}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ac5ce55bc698fa4290939ef6e426501, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  itemId: 205
+  indentLevel: 0
+  display: 1
+  stage: {fileID: 0}
+  character: {fileID: 5571934840812154747}
+  replacedCharacter: {fileID: 0}
+  portrait: {fileID: 0}
+  offset: 0
+  fromPosition: {fileID: 0}
+  toPosition: {fileID: 2013075684}
+  facing: 0
+  useDefaultSettings: 1
+  fadeDuration: 0.5
+  moveDuration: 1
+  shiftOffset: {x: 0, y: 0}
+  move: 1
+  shiftIntoPlace: 0
+  waitUntilFinished: 0
 --- !u!114 &1355831137
 MonoBehaviour:
   m_ObjectHideFlags: 2
@@ -37539,7 +37583,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selectedBlocks.Array.data[0]
       value: 
-      objectReference: {fileID: 1355830981}
+      objectReference: {fileID: 1355830985}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: blockViewHeight
@@ -37549,7 +37593,7 @@ PrefabInstance:
         type: 3}
       propertyPath: selectedCommands.Array.data[0]
       value: 
-      objectReference: {fileID: 1355830979}
+      objectReference: {fileID: 1355831092}
     - target: {fileID: 7606447219585961494, guid: 912c4182eb4e64bd7a4ab3a581afe8f7,
         type: 3}
       propertyPath: variables.Array.data[0]
@@ -40893,11 +40937,57 @@ PrefabInstance:
       propertyPath: m_Name
       value: MI Stage
       objectReference: {fileID: 0}
+    - target: {fileID: 3187939393364658602, guid: a8245ee01a9f449b6a745e4a327ac017,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1192.4
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187939393555027282, guid: a8245ee01a9f449b6a745e4a327ac017,
+        type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.9693859
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187939393555027282, guid: a8245ee01a9f449b6a745e4a327ac017,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.9693859
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187939393555027282, guid: a8245ee01a9f449b6a745e4a327ac017,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.9693859
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187939393555027282, guid: a8245ee01a9f449b6a745e4a327ac017,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0.000015259
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187939393555027282, guid: a8245ee01a9f449b6a745e4a327ac017,
+        type: 3}
+      propertyPath: m_SizeDelta.y
+      value: 1503.6001
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187939393555027282, guid: a8245ee01a9f449b6a745e4a327ac017,
+        type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 1289.9534
+      objectReference: {fileID: 0}
+    - target: {fileID: 3187939393555027282, guid: a8245ee01a9f449b6a745e4a327ac017,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -1200
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: a8245ee01a9f449b6a745e4a327ac017, type: 3}
 --- !u!4 &2013075683 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3187939392901768974, guid: a8245ee01a9f449b6a745e4a327ac017,
+    type: 3}
+  m_PrefabInstance: {fileID: 2013075682}
+  m_PrefabAsset: {fileID: 0}
+--- !u!224 &2013075684 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 3187939393364658602, guid: a8245ee01a9f449b6a745e4a327ac017,
     type: 3}
   m_PrefabInstance: {fileID: 2013075682}
   m_PrefabAsset: {fileID: 0}
@@ -43135,35 +43225,9 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
         type: 3}
-      propertyPath: portraits.Array.size
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
-        type: 3}
       propertyPath: setSayDialog
       value: 
       objectReference: {fileID: 1501352622775708435}
-    - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
-        type: 3}
-      propertyPath: nameColor.r
-      value: 0.9433962
-      objectReference: {fileID: 0}
-    - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
-        type: 3}
-      propertyPath: nameColor.g
-      value: 0.58387446
-      objectReference: {fileID: 0}
-    - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
-        type: 3}
-      propertyPath: nameColor.b
-      value: 0.14684942
-      objectReference: {fileID: 0}
-    - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
-        type: 3}
-      propertyPath: portraits.Array.data[0]
-      value: 
-      objectReference: {fileID: 21300000, guid: d6c1c655eca335946beb58af6dd4a16b,
-        type: 3}
     - target: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
         type: 3}
       propertyPath: portraits.Array.data[1]
@@ -43232,6 +43296,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ace540fedcdc04542beb6660b6966e9e, type: 3}
+--- !u!114 &5571934840812154747 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 328739571101827754, guid: ace540fedcdc04542beb6660b6966e9e,
+    type: 3}
+  m_PrefabInstance: {fileID: 5571934840812154746}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25fb867d2049d41f597aefdd6b19f598, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &6529160196360312751
 PrefabInstance:
   m_ObjectHideFlags: 0
