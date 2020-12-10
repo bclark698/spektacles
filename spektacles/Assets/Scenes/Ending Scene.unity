@@ -691,7 +691,7 @@ MonoBehaviour:
     serializedVersion: 2
     x: 251
     y: 191
-    width: 134
+    width: 131
     height: 40
   tint: {r: 1, g: 1, b: 1, a: 1}
   useCustomTint: 0
@@ -754,8 +754,7 @@ MonoBehaviour:
     height: 0
   selectedBlocks:
   - {fileID: 558118499}
-  selectedCommands:
-  - {fileID: 558118509}
+  selectedCommands: []
   variables:
   - {fileID: 558118500}
   description: 
@@ -2329,7 +2328,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 226365732}
-        m_MethodName: RestartGame
+        m_MethodName: NextScene
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2637,7 +2636,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Main Menu
+  m_Text: Credits
 --- !u!222 &2105569726
 CanvasRenderer:
   m_ObjectHideFlags: 0
